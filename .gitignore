@@ -1,0 +1,10 @@
+/nodes
+/node_modules
+/lib
+/deps
+*.bak
+*.backup
+*.log
+*.db
+__pycache__/
+

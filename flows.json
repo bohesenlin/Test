@@ -1,0 +1,2141 @@
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "df04831a8742eac0",
+        "type": "tab",
+        "label": "流程 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a8c13c8811cc5927",
+        "type": "tab",
+        "label": "小爱tts",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0143542654182c64",
+        "type": "tab",
+        "label": "信息",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2d47d0348f062886",
+        "type": "tab",
+        "label": "节点订阅",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5646dda1b303b00d",
+        "type": "tab",
+        "label": "自动备份",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e7cf0672145a47bb",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c292e8482b433009",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 16,
+                "sy": 16,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "c7879eafe39970e1",
+        "type": "ui_group",
+        "name": "ui",
+        "tab": "e7cf0672145a47bb",
+        "order": 1,
+        "disp": true,
+        "width": 30,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a5e643a4b8a035cf",
+        "type": "server",
+        "name": "Home Assistant",
+        "version": 2,
+        "addon": false,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "y|yes|true|on|home|open",
+        "connectionDelay": true,
+        "cacheJson": true,
+        "heartbeat": false,
+        "heartbeatInterval": "30"
+    },
+    {
+        "id": "6f14ecd03b27c329",
+        "type": "ui_tab",
+        "name": "语音消息",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "3208b3404cb0f2e8",
+        "type": "ui_group",
+        "name": "语音输入",
+        "tab": "6f14ecd03b27c329",
+        "order": 1,
+        "disp": true,
+        "width": 26,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e240b90a46e74024",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "3208b3404cb0f2e8",
+        "order": 2,
+        "width": 7,
+        "height": 1
+    },
+    {
+        "id": "51caaf99a7073072",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "3208b3404cb0f2e8",
+        "order": 4,
+        "width": 21,
+        "height": 1
+    },
+    {
+        "id": "0785acda9e7d35ec",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "3208b3404cb0f2e8",
+        "order": 5,
+        "width": 21,
+        "height": 1
+    },
+    {
+        "id": "be7b5c90f1475b0c",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "3208b3404cb0f2e8",
+        "order": 8,
+        "width": 23,
+        "height": 1
+    },
+    {
+        "id": "67c6371daa66df58",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "3208b3404cb0f2e8",
+        "order": 9,
+        "width": 23,
+        "height": 1
+    },
+    {
+        "id": "82bda1b4c940dbec",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "3208b3404cb0f2e8",
+        "order": 11,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "01015a60b6fc6070",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "3208b3404cb0f2e8",
+        "order": 12,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "13f8346cb05f89c3",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "3208b3404cb0f2e8",
+        "order": 13,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "b87e74205debcbdc",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "3208b3404cb0f2e8",
+        "order": 14,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "6cc77c3b10ad94ff",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "3208b3404cb0f2e8",
+        "order": 15,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "fb03a4fd817ac80c",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "3208b3404cb0f2e8",
+        "order": 16,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "896b4449bfe53246",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "3208b3404cb0f2e8",
+        "order": 17,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "efc43f8860e88473",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "3208b3404cb0f2e8",
+        "order": 18,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "0d17e9f95a8de665",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "3208b3404cb0f2e8",
+        "order": 19,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "c6ac438104a0d0c7",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "3208b3404cb0f2e8",
+        "order": 20,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "58ee2527146daf65",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "3208b3404cb0f2e8",
+        "order": 21,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "6f1b9311eeedc5b1",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "3208b3404cb0f2e8",
+        "order": 22,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "5691fe30ab4f71e1",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "3208b3404cb0f2e8",
+        "order": 23,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "4af79b859f7adedd",
+        "type": "ui_tab",
+        "name": "解码",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "956d9fb8b4d20dd0",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "2ac6248ce9bb4f48",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "6e99139fb53a33ac",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "f3fd0801f72121a9",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 5,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "cd983a01c4aba166",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "8622116c09914d78",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "33468981d5c67544",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "83647a8a3e797f0e",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "51221d1c12b15448",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 10,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "876f0864b13f83d2",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 11,
+        "width": 30,
+        "height": 1
+    },
+    {
+        "id": "74ca742ffc9e3d16",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 12,
+        "width": 30,
+        "height": 1
+    },
+    {
+        "id": "1d9b605ca1c3e3d8",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 14,
+        "width": 9,
+        "height": 1
+    },
+    {
+        "id": "31c6d0f77f809227",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 15,
+        "width": 16,
+        "height": 1
+    },
+    {
+        "id": "22aae35e128b4536",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 17,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "128292320a4324db",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 20,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "2248aaf8411bee19",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 22,
+        "width": 9,
+        "height": 1
+    },
+    {
+        "id": "902a8581a5df709b",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 23,
+        "width": 30,
+        "height": 1
+    },
+    {
+        "id": "1ea2716ab1d66990",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 24,
+        "width": 30,
+        "height": 1
+    },
+    {
+        "id": "0166764bc0464dce",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 25,
+        "width": 30,
+        "height": 1
+    },
+    {
+        "id": "8d3fb6dcc08ecc90",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 29,
+        "width": 15,
+        "height": 1
+    },
+    {
+        "id": "24364a22c3624390",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 30,
+        "width": 15,
+        "height": 1
+    },
+    {
+        "id": "deabe957fef668f4",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 31,
+        "width": 15,
+        "height": 1
+    },
+    {
+        "id": "ccd46e068077d769",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 32,
+        "width": 15,
+        "height": 1
+    },
+    {
+        "id": "8c9406b4b854d3c4",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 33,
+        "width": 15,
+        "height": 1
+    },
+    {
+        "id": "3cc11d24.ff01a2",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "WARNING: please check you have started this container with a volume that is mounted to /data\\n otherwise any flow changes are lost when you redeploy or upgrade the container\\n (e.g. upgrade to a more recent node-red docker image).\\n  If you are using named volumes you can ignore this warning.\\n Double click or see info side panel to learn how to start Node-RED in Docker to save your work",
+        "info": "\nTo start docker with a bind mount volume (-v option), for example:\n\n```\ndocker run -it -p 1880:1880 -v /home/user/node_red_data:/data --name mynodered nodered/node-red\n```\n\nwhere `/home/user/node_red_data` is a directory on your host machine where you want to store your flows.\n\nIf you do not do this then you can experiment and redploy flows, but if you restart or upgrade the container the flows will be disconnected and lost. \n\nThey will still exist in a hidden data volume, which can be recovered using standard docker techniques, but that is much more complex than just starting with a named volume as described above.",
+        "x": 350,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "c0d10a18619bb4d1",
+        "type": "ui_template",
+        "z": "df04831a8742eac0",
+        "d": true,
+        "group": "c7879eafe39970e1",
+        "name": "网易云音乐",
+        "order": 28,
+        "width": 15,
+        "height": 5,
+        "format": "<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=330 height=86 src=\"//music.163.com/outchain/player?type=2&id=1894007406&auto=1&height=66\"></iframe>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 710,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "109fbc1aa77f7f25",
+        "type": "ui_template",
+        "z": "df04831a8742eac0",
+        "group": "c7879eafe39970e1",
+        "name": "视频",
+        "order": 1,
+        "width": 29,
+        "height": 9,
+        "format": "<iframe src=\"//player.bilibili.com/player.html?aid=466835972&bvid=BV1JL411T7rt&cid=515423527&page=1\" scrolling=\"no\" border=\"0\" frameborder=\"no\" framespacing=\"0\" allowfullscreen=\"true\"> </iframe>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 530,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "81754fd5eee7ac6e",
+        "type": "inject",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1800",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"uid\":513305949}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 180,
+        "wires": [
+            [
+                "dd93ab1a3f4a0cb7"
+            ]
+        ]
+    },
+    {
+        "id": "dd93ab1a3f4a0cb7",
+        "type": "http request",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://api.bilibili.com/x/relation/stat?vmid=513305949&jsonp=jsonp",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "ba53d6aebd8b6ed5",
+                "0fc79b4f9955b139",
+                "71642892bdbab4a8"
+            ]
+        ]
+    },
+    {
+        "id": "ba53d6aebd8b6ed5",
+        "type": "ui_text",
+        "z": "df04831a8742eac0",
+        "group": "c7879eafe39970e1",
+        "order": 26,
+        "width": 30,
+        "height": 1,
+        "name": "",
+        "label": "粉丝数",
+        "format": "{{msg.payload.data.follower}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 530,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "a6b7a5862e2fdd0a",
+        "type": "ui_chart",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "group": "c7879eafe39970e1",
+        "order": 27,
+        "width": 30,
+        "height": 16,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 750,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0fc79b4f9955b139",
+        "type": "change",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "follower",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.data.follower",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 120,
+        "wires": [
+            [
+                "a6b7a5862e2fdd0a",
+                "0993bde1fbc370af"
+            ]
+        ]
+    },
+    {
+        "id": "71642892bdbab4a8",
+        "type": "switch",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "property": "payload.data.follower",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "762450",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 530,
+        "y": 180,
+        "wires": [
+            [
+                "5ab480824c920fab"
+            ]
+        ]
+    },
+    {
+        "id": "5ab480824c920fab",
+        "type": "change",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "粉丝数大于762450",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
+        "y": 180,
+        "wires": [
+            [
+                "259bf8db6345e7bf"
+            ]
+        ]
+    },
+    {
+        "id": "259bf8db6345e7bf",
+        "type": "ui_audio",
+        "z": "df04831a8742eac0",
+        "d": true,
+        "name": "",
+        "group": "c7879eafe39970e1",
+        "voice": "",
+        "always": "",
+        "x": 940,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "e99c6c5e658c2273",
+        "type": "ha-entity",
+        "z": "df04831a8742eac0",
+        "name": "小说",
+        "server": "a5e643a4b8a035cf",
+        "version": 2,
+        "debugenabled": false,
+        "outputs": 1,
+        "entityType": "sensor",
+        "config": [
+            {
+                "property": "name",
+                "value": "小说"
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            },
+            {
+                "property": "last_reset",
+                "value": ""
+            }
+        ],
+        "state": "payload[0]",
+        "stateType": "msg",
+        "attributes": [],
+        "resend": true,
+        "outputLocation": "payload",
+        "outputLocationType": "none",
+        "inputOverride": "allow",
+        "outputOnStateChange": false,
+        "outputPayload": "",
+        "outputPayloadType": "str",
+        "x": 710,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "11bffdca9f45d452",
+        "type": "inject",
+        "z": "df04831a8742eac0",
+        "name": "小说更新",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 500,
+        "wires": [
+            [
+                "e801ceef35144b86",
+                "34abacb74a4ff1cd"
+            ]
+        ]
+    },
+    {
+        "id": "34abacb74a4ff1cd",
+        "type": "http request",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://book.qidian.com/info/1027368101/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 320,
+        "y": 500,
+        "wires": [
+            [
+                "e397dd2d51fc3342",
+                "0fce05d6f7e03c0f"
+            ]
+        ]
+    },
+    {
+        "id": "e397dd2d51fc3342",
+        "type": "html",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": ".update .detail a",
+        "ret": "text",
+        "as": "single",
+        "x": 500,
+        "y": 500,
+        "wires": [
+            [
+                "4eb9dbc293017cbf",
+                "e99c6c5e658c2273",
+                "7eaed87968638b08"
+            ]
+        ]
+    },
+    {
+        "id": "4eb9dbc293017cbf",
+        "type": "ui_text",
+        "z": "df04831a8742eac0",
+        "group": "c7879eafe39970e1",
+        "order": 13,
+        "width": 21,
+        "height": 1,
+        "name": "",
+        "label": "最新章节",
+        "format": "《万相之王》{{msg.payload[0]}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 720,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "e801ceef35144b86",
+        "type": "http request",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://book.zongheng.com/book/672340.html",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 320,
+        "y": 620,
+        "wires": [
+            [
+                "9836234eab44154e",
+                "b19e228ce5149c3b"
+            ]
+        ]
+    },
+    {
+        "id": "9836234eab44154e",
+        "type": "html",
+        "z": "df04831a8742eac0",
+        "name": "css选择器",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": ".book-new-chapter .tit a",
+        "ret": "text",
+        "as": "multi",
+        "x": 480,
+        "y": 620,
+        "wires": [
+            [
+                "34e1163799cb28f1",
+                "ac0d2a9b3429f8b8"
+            ]
+        ]
+    },
+    {
+        "id": "34e1163799cb28f1",
+        "type": "ui_text",
+        "z": "df04831a8742eac0",
+        "group": "c7879eafe39970e1",
+        "order": 18,
+        "width": 16,
+        "height": 1,
+        "name": "",
+        "label": "最新章节",
+        "format": "《剑来》{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 720,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "b19e228ce5149c3b",
+        "type": "html",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": ".time",
+        "ret": "text",
+        "as": "multi",
+        "x": 470,
+        "y": 660,
+        "wires": [
+            [
+                "7e07c038d6f0405c",
+                "ac0d2a9b3429f8b8"
+            ]
+        ]
+    },
+    {
+        "id": "7e07c038d6f0405c",
+        "type": "ui_text",
+        "z": "df04831a8742eac0",
+        "group": "c7879eafe39970e1",
+        "order": 19,
+        "width": 13,
+        "height": 1,
+        "name": "",
+        "label": "更新时间",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 720,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "0fce05d6f7e03c0f",
+        "type": "html",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": ".detail .time",
+        "ret": "text",
+        "as": "single",
+        "x": 490,
+        "y": 560,
+        "wires": [
+            [
+                "22e690a082ba1a51"
+            ]
+        ]
+    },
+    {
+        "id": "22e690a082ba1a51",
+        "type": "ui_text",
+        "z": "df04831a8742eac0",
+        "group": "c7879eafe39970e1",
+        "order": 16,
+        "width": 13,
+        "height": 1,
+        "name": "",
+        "label": "更新时间",
+        "format": "{{msg.payload[0]}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 720,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "0993bde1fbc370af",
+        "type": "debug",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "ac0d2a9b3429f8b8",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "消息处理",
+        "func": "var count1 = context.get('count1')||0;\nvar count = context.get('count')||\"\";\nif(count1==2){\n    count1=0\n    count = \"\"\n}\n\ncount += msg.payload\ncontext.set('count',count);\n\nmsg.payload = count;\ncount1 += 1\ncontext.set('count1',count1);\nif(count1==2){\n    return msg;\n}\n\n//msg.payload = count1;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 620,
+        "wires": [
+            [
+                "2697da37367acf70"
+            ]
+        ]
+    },
+    {
+        "id": "bc28c0b9650e1e1f",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "var count = context.get('count')||\"\";\ncount += msg.payload\ncontext.set('count',count);\nflow.set('flowsave',count)\nmsg.payload = count;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 800,
+        "wires": [
+            [
+                "238ac5b07eb78302"
+            ]
+        ]
+    },
+    {
+        "id": "238ac5b07eb78302",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "msg.payload = flow.get('flowsave')\nconst attributes = msg.payload\nreturn {\n    payload:{\n        state: attributes\n    }\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 800,
+        "wires": [
+            [
+                "1006d2622ac88457"
+            ]
+        ]
+    },
+    {
+        "id": "1006d2622ac88457",
+        "type": "debug",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "7321b1cf27be3da6",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "var count = context.get('count')||\"\";\ncount += msg.payload\ncontext.set('count',count);\nflow.set('flowsave1',count)\nmsg.payload = count;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 860,
+        "wires": [
+            [
+                "70086d3eced1c7d0",
+                "238ac5b07eb78302"
+            ]
+        ]
+    },
+    {
+        "id": "70086d3eced1c7d0",
+        "type": "debug",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "2697da37367acf70",
+        "type": "ui_text",
+        "z": "df04831a8742eac0",
+        "group": "c7879eafe39970e1",
+        "order": 21,
+        "width": 21,
+        "height": 1,
+        "name": "",
+        "label": "最新章节",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 900,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "7eaed87968638b08",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "var count = context.get('count')||\"\";\nif(msg.payload[0] == count){\n    return null\n}else{\n    count = msg.payload[0]\n    msg.topic = \"刚刚更新了小说\"\n    msg.payload = \"\"\n    msg.payload = \"《万相之王》：\"+count\n    context.set('count',count);\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 400,
+        "wires": [
+            [
+                "636a5a7274fea306"
+            ]
+        ]
+    },
+    {
+        "id": "636a5a7274fea306",
+        "type": "e-mail",
+        "z": "df04831a8742eac0",
+        "server": "smtp.qq.com",
+        "port": "465",
+        "secure": true,
+        "tls": true,
+        "name": "1784162089@qq.com",
+        "dname": "发邮件",
+        "x": 870,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "4c21ef519ea65406",
+        "type": "api-call-service",
+        "z": "a8c13c8811cc5927",
+        "name": "",
+        "server": "a5e643a4b8a035cf",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "xiaomi_miot_raw",
+        "service": "speak_text",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "media_player.l05c_cloud_671277"
+        ],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 620,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1e7dbd0b7150d96c",
+        "type": "function",
+        "z": "a8c13c8811cc5927",
+        "name": "推送内容处理",
+        "func": "var a = msg.payload\nmsg.payload = {}\nmsg.payload.data = {\"text\":a};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 120,
+        "wires": [
+            [
+                "aec42c02fa10e73a",
+                "4c21ef519ea65406"
+            ]
+        ]
+    },
+    {
+        "id": "aec42c02fa10e73a",
+        "type": "debug",
+        "z": "a8c13c8811cc5927",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "c6c8a537b84428f6",
+        "type": "ui_toast",
+        "z": "a8c13c8811cc5927",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 360,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "f34c670953e66af3",
+        "type": "ui_button",
+        "z": "a8c13c8811cc5927",
+        "name": "",
+        "group": "3208b3404cb0f2e8",
+        "order": 3,
+        "width": 5,
+        "height": 2,
+        "passthru": false,
+        "label": "button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "123",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 170,
+        "y": 200,
+        "wires": [
+            [
+                "c6c8a537b84428f6"
+            ]
+        ]
+    },
+    {
+        "id": "9a74671bbcd5bca4",
+        "type": "ui_text_input",
+        "z": "a8c13c8811cc5927",
+        "name": "",
+        "label": "语音消息输入",
+        "tooltip": "",
+        "group": "3208b3404cb0f2e8",
+        "order": 1,
+        "width": 19,
+        "height": 1,
+        "passthru": true,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 140,
+        "y": 120,
+        "wires": [
+            [
+                "1e7dbd0b7150d96c",
+                "c6c8a537b84428f6",
+                "aec42c02fa10e73a"
+            ]
+        ]
+    },
+    {
+        "id": "4dba106a4bc01a7b",
+        "type": "api-current-state",
+        "z": "0143542654182c64",
+        "name": "",
+        "server": "a5e643a4b8a035cf",
+        "version": 3,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "switch.cp2_cloud_460494",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 380,
+        "y": 180,
+        "wires": [
+            [
+                "5cbaef3caf0a9f2e",
+                "7d9a2f0e9a7534ad",
+                "87b24f458884d9a7",
+                "89f98002b259b124",
+                "f708af4e4078808f"
+            ]
+        ]
+    },
+    {
+        "id": "387b0e77ad351a95",
+        "type": "inject",
+        "z": "0143542654182c64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "b8e29557b95b46b0",
+                "4dba106a4bc01a7b"
+            ]
+        ]
+    },
+    {
+        "id": "5cbaef3caf0a9f2e",
+        "type": "debug",
+        "z": "0143542654182c64",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "7d9a2f0e9a7534ad",
+        "type": "ui_text",
+        "z": "0143542654182c64",
+        "group": "c7879eafe39970e1",
+        "order": 34,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "开关状态",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 820,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "87b24f458884d9a7",
+        "type": "ui_text",
+        "z": "0143542654182c64",
+        "group": "c7879eafe39970e1",
+        "order": 35,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "用电量",
+        "format": "{{msg.data.attributes.power_cons_power_consumption}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 810,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "89f98002b259b124",
+        "type": "ui_text",
+        "z": "0143542654182c64",
+        "group": "c7879eafe39970e1",
+        "order": 36,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "当前电压",
+        "format": "{{msg.data.attributes.power_cons_voltage}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 820,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "f708af4e4078808f",
+        "type": "ui_text",
+        "z": "0143542654182c64",
+        "group": "c7879eafe39970e1",
+        "order": 37,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "当前电流",
+        "format": "{{msg.data.attributes.power_cons_electric_current}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 820,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "b8e29557b95b46b0",
+        "type": "api-current-state",
+        "z": "0143542654182c64",
+        "name": "",
+        "server": "a5e643a4b8a035cf",
+        "version": 3,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "light.mbulb3_cloud_676421",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 380,
+        "y": 260,
+        "wires": [
+            [
+                "96c55c3ed3dcef72",
+                "2f4857a4b0c7b899",
+                "5cbaef3caf0a9f2e"
+            ]
+        ]
+    },
+    {
+        "id": "a5517bbb0af4189a",
+        "type": "ui_text",
+        "z": "0143542654182c64",
+        "group": "c7879eafe39970e1",
+        "order": 38,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "灯泡状态",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 940,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "96c55c3ed3dcef72",
+        "type": "function",
+        "z": "0143542654182c64",
+        "name": "",
+        "func": "var a = \"\"\na = \"开关状态:\"+msg.payload+\" \\r \"+\"色温:\"+msg.data.attributes.light_color_temperature\nmsg.payload = {}\nmsg.payload = a\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 300,
+        "wires": [
+            [
+                "a5517bbb0af4189a"
+            ]
+        ]
+    },
+    {
+        "id": "2f4857a4b0c7b899",
+        "type": "ui_text",
+        "z": "0143542654182c64",
+        "group": "c7879eafe39970e1",
+        "order": 39,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "灯泡状态:{{msg.payload}}色温:{{msg.data.attributes.light_color_temperature}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 810,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b944fb4e914dc9c8",
+        "type": "html",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": ".blog-posts h2 a",
+        "ret": "attr",
+        "as": "single",
+        "x": 420,
+        "y": 80,
+        "wires": [
+            [
+                "9d3583c7caca0d38"
+            ]
+        ]
+    },
+    {
+        "id": "a4191da274d39c2d",
+        "type": "inject",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "21600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 80,
+        "wires": [
+            [
+                "7a89fddc8e005960"
+            ]
+        ]
+    },
+    {
+        "id": "1e83c289636e591e",
+        "type": "debug",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "7a89fddc8e005960",
+        "type": "http request",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://www.cfmem.com/search/label/free",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 240,
+        "y": 80,
+        "wires": [
+            [
+                "b944fb4e914dc9c8"
+            ]
+        ]
+    },
+    {
+        "id": "0cd4b5175782a796",
+        "type": "html",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "[role] div [face]",
+        "ret": "html",
+        "as": "single",
+        "x": 420,
+        "y": 180,
+        "wires": [
+            [
+                "d3618b7dff124e43"
+            ]
+        ]
+    },
+    {
+        "id": "c284e9c359a786e5",
+        "type": "debug",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "9ed2fd8641f07fef",
+        "type": "http request",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 240,
+        "y": 180,
+        "wires": [
+            [
+                "0cd4b5175782a796"
+            ]
+        ]
+    },
+    {
+        "id": "d3618b7dff124e43",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": " 获取yaml的url地址",
+        "func": "var a = msg.payload[1];\n//寻找字符\nvar n = a.indexOf(\"https\")\n//取出字符\nvar b = a.substr(n);\n//msg.payload = \"\";\n//msg.payload = b;\nmsg.url = b;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 180,
+        "wires": [
+            [
+                "c284e9c359a786e5",
+                "f70e8d02ea9e8f48"
+            ]
+        ]
+    },
+    {
+        "id": "9d3583c7caca0d38",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "更新页面地址",
+        "func": "msg.url = msg.payload[0].href;\nmsg.payload = \"\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 80,
+        "wires": [
+            [
+                "1e83c289636e591e",
+                "9ed2fd8641f07fef"
+            ]
+        ]
+    },
+    {
+        "id": "f70e8d02ea9e8f48",
+        "type": "http request",
+        "z": "2d47d0348f062886",
+        "name": "http获取yaml数据",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 250,
+        "y": 260,
+        "wires": [
+            [
+                "4409fabb0e57f7d5"
+            ]
+        ]
+    },
+    {
+        "id": "4ba894f18eae7272",
+        "type": "debug",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "4409fabb0e57f7d5",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "put 数据",
+        "func": "var yaml = msg.payload\nmsg.headers = {};\nmsg.headers = {\n  'Authorization': 'Bearer glpat-bix9rWK6svSw7qEzB-tS'\n}\nmsg.url = \"https://gitlab.com/api/v4/projects/34199133/repository/files/data%2Fv2ray%2F123.yaml\"\nmsg.payload = {};\nmsg.payload={'branch': 'main',\n    'content': yaml,\n    'commit_message': 'update file'\n    \n};\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 260,
+        "wires": [
+            [
+                "ce66ea369c0dfbdf"
+            ]
+        ]
+    },
+    {
+        "id": "ce66ea369c0dfbdf",
+        "type": "http request",
+        "z": "2d47d0348f062886",
+        "name": "update file",
+        "method": "PUT",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 650,
+        "y": 260,
+        "wires": [
+            [
+                "4ba894f18eae7272"
+            ]
+        ]
+    },
+    {
+        "id": "17e7c93fb2cab104",
+        "type": "inject",
+        "z": "5646dda1b303b00d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 220,
+        "wires": [
+            [
+                "7189ec697aaf600f"
+            ]
+        ]
+    },
+    {
+        "id": "7189ec697aaf600f",
+        "type": "exec",
+        "z": "5646dda1b303b00d",
+        "command": "ls -l /data/flows.json",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "文件时间戳",
+        "x": 310,
+        "y": 220,
+        "wires": [
+            [
+                "1cfd2da6a38e2d4f"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "1cfd2da6a38e2d4f",
+        "type": "function",
+        "z": "5646dda1b303b00d",
+        "name": "判断变化",
+        "func": "if(context.flow.get('justChanged')==msg.payload){\n    msg.payload = 1;\n    return msg;\n}\n\ncontext.flow.set('justChanged',msg.payload);\nmsg.payload = 2;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 520,
+        "y": 220,
+        "wires": [
+            [
+                "0af429e2eba91ca9"
+            ]
+        ]
+    },
+    {
+        "id": "0af429e2eba91ca9",
+        "type": "switch",
+        "z": "5646dda1b303b00d",
+        "name": "修改过",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 690,
+        "y": 220,
+        "wires": [
+            [
+                "b061ae01129df64a"
+            ]
+        ]
+    },
+    {
+        "id": "b061ae01129df64a",
+        "type": "exec",
+        "z": "5646dda1b303b00d",
+        "command": "cd /data;git add .;git commit -m 'auto commit';git push",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "提交git",
+        "x": 830,
+        "y": 220,
+        "wires": [
+            [],
+            [
+                "153d9ffa6d1cbe04"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "153d9ffa6d1cbe04",
+        "type": "debug",
+        "z": "5646dda1b303b00d",
+        "name": "记录日志",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 220,
+        "wires": []
+    }
+]
