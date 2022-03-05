@@ -2646,29 +2646,11 @@
         "y": 220,
         "wires": [
             [
-                "1b23fbb56a34c493",
                 "1cfd2da6a38e2d4f"
             ],
             [],
             []
         ]
-    },
-    {
-        "id": "1b23fbb56a34c493",
-        "type": "debug",
-        "z": "5646dda1b303b00d",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 510,
-        "y": 180,
-        "wires": []
     },
     {
         "id": "1cfd2da6a38e2d4f",
