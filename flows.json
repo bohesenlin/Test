@@ -31,14 +31,6 @@
         "env": []
     },
     {
-        "id": "1866d45e524eb12b",
-        "type": "tab",
-        "label": "发邮件",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "2d47d0348f062886",
         "type": "tab",
         "label": "节点订阅",
@@ -49,7 +41,7 @@
     {
         "id": "5646dda1b303b00d",
         "type": "tab",
-        "label": "流程 3",
+        "label": "自动备份",
         "disabled": false,
         "info": "",
         "env": []
@@ -185,11 +177,6 @@
         "cacheJson": true,
         "heartbeat": false,
         "heartbeatInterval": "30"
-    },
-    {
-        "id": "0d9d8ce18f0ae8ab",
-        "type": "xiaoai-tts-configurator",
-        "name": "小爱"
     },
     {
         "id": "6f14ecd03b27c329",
@@ -707,7 +694,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "3600",
+        "repeat": "1800",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
@@ -1412,243 +1399,6 @@
         "wires": []
     },
     {
-        "id": "e0f390171e2ab1a3",
-        "type": "file in",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "filename": "\\\\192.168.0.211\\share\\123.txt",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "encoding": "none",
-        "allProps": false,
-        "x": 340,
-        "y": 2260,
-        "wires": [
-            [
-                "3fb8b192ca70932c"
-            ]
-        ]
-    },
-    {
-        "id": "5495a6461e375ad9",
-        "type": "inject",
-        "z": "df04831a8742eac0",
-        "name": "读取文件",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 100,
-        "y": 2260,
-        "wires": [
-            [
-                "e0f390171e2ab1a3"
-            ]
-        ]
-    },
-    {
-        "id": "3fb8b192ca70932c",
-        "type": "debug",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 590,
-        "y": 2260,
-        "wires": []
-    },
-    {
-        "id": "b835e0655d09e142",
-        "type": "ui_template",
-        "z": "df04831a8742eac0",
-        "group": "3208b3404cb0f2e8",
-        "name": "",
-        "order": 22,
-        "width": 0,
-        "height": 0,
-        "format": "<script>\nfunction  create() {\n    var input = document.getElementById('content');\n    var kd1 = document.getElementById('kd1');\n//*    var filepath = document.getElementById('filepath');\n//*    var subtype = document.getElementById('subtype');\n//*    if (filepath.value===\"\"){\n//*        alert(\"本地节点文件路径不能为空！\");\n//*        return false;\n//*    }\n//*    kd.href = 'http://192.168.0.210:25500/sub?target='+subtype.value+'&url='+encodeURIComponent((filepath.value).replace(/\\n/g,\"|\"))+'&insert=false'; \n    kd1.style = ''; \n    kd1.innerText = {{msg.payload}}; \n    \n}\n\n   </script>\n<div id=\"pagewrap\">\n   1.先下载<a href=\"https://bulianglin.com/g/aHR0cHM6Ly9naXRodWIuY29tL3RpbmR5MjAxMy9zdWJjb252ZXJ0ZXIvcmVsZWFzZXM\" target=\"_blank\">订阅转换工具</a>，并运行<br>\n   2.节点文件路径：<br><textarea placeholder=\"支持单个节点、多个节点、直链和本地文件路径\" id=\"filepath\" cols=\"50\" rows=\"10\"></textarea><br>\n   3.将格式转换为：<select id=\"subtype\">\n  <option value=\"clash\">clash</option>\n  <option value=\"mixed\">Base64通用</option>\n</select><br>\n   <input type=\"button\" value=\"生成链接\" onclick=\"create();\"> <br> <br>\n   <a id=\"kd1\" style=\"pointer-events: none;\">请先生成链接！</a><br><br>\n\n   \n   </div>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 760,
-        "y": 2340,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "1f7d2e58722ad79b",
-        "type": "function",
-        "z": "df04831a8742eac0",
-        "name": "节点转换",
-        "func": "var filepath = msg.payload;\nvar href = 'http://192.168.0.210:25500/sub?target='+\"clash\"+'&url='+encodeURIComponent((filepath).replace(/\\n/g,\"|\"))+'&insert=false'; \nmsg.url =\"\";\nmsg.url = href;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 300,
-        "y": 2200,
-        "wires": [
-            [
-                "74433f57a8492832"
-            ]
-        ]
-    },
-    {
-        "id": "0b10d6ee6283101b",
-        "type": "inject",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "https://raw.githubusercontent.com/changfengoss/pub/main/data/2022_03_04/n1EJQM.txt",
-        "payloadType": "str",
-        "x": 90,
-        "y": 2200,
-        "wires": [
-            [
-                "1f7d2e58722ad79b"
-            ]
-        ]
-    },
-    {
-        "id": "40fe23dfd9161ed6",
-        "type": "http request",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "https://raw.githubusercontent.com/changfengoss/pub/main/data/2022_03_04/zeC04r.yaml",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 300,
-        "y": 2360,
-        "wires": [
-            [
-                "97ad622edc274840"
-            ]
-        ]
-    },
-    {
-        "id": "04e10671fa2c76a5",
-        "type": "inject",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 2360,
-        "wires": [
-            [
-                "40fe23dfd9161ed6"
-            ]
-        ]
-    },
-    {
-        "id": "24a0d232a1f56fd0",
-        "type": "debug",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 830,
-        "y": 2400,
-        "wires": []
-    },
-    {
-        "id": "97ad622edc274840",
-        "type": "function",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "func": "var a = msg.payload;\n//寻找字符\nvar n1 = a.indexOf(\"proxies:\")\n\nvar n2 = a.indexOf(\"proxy-groups:\")\n//取出字符\nvar b = a.substr(n1,n2);\nmsg.payload = \"\";\nmsg.payload = b;\n//msg.url = b;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 550,
-        "y": 2340,
-        "wires": [
-            [
-                "24a0d232a1f56fd0",
-                "1f7d2e58722ad79b"
-            ]
-        ]
-    },
-    {
-        "id": "74433f57a8492832",
-        "type": "http request",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 540,
-        "y": 2200,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "4c21ef519ea65406",
         "type": "api-call-service",
         "z": "a8c13c8811cc5927",
@@ -1856,8 +1606,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 110,
-        "y": 380,
+        "x": 90,
+        "y": 180,
         "wires": [
             [
                 "b8e29557b95b46b0",
@@ -1987,31 +1737,14 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 380,
-        "y": 380,
+        "y": 260,
         "wires": [
             [
-                "5370fb674fe11e2e",
                 "96c55c3ed3dcef72",
-                "2f4857a4b0c7b899"
+                "2f4857a4b0c7b899",
+                "5cbaef3caf0a9f2e"
             ]
         ]
-    },
-    {
-        "id": "5370fb674fe11e2e",
-        "type": "debug",
-        "z": "0143542654182c64",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 650,
-        "y": 320,
-        "wires": []
     },
     {
         "id": "a5517bbb0af4189a",
@@ -2026,8 +1759,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "className": "",
-        "x": 800,
-        "y": 380,
+        "x": 940,
+        "y": 300,
         "wires": []
     },
     {
@@ -2041,8 +1774,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
-        "y": 380,
+        "x": 810,
+        "y": 300,
         "wires": [
             [
                 "a5517bbb0af4189a"
@@ -2062,69 +1795,8 @@
         "format": "灯泡状态:{{msg.payload}}色温:{{msg.data.attributes.light_color_temperature}}",
         "layout": "row-left",
         "className": "",
-        "x": 790,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "ba875bad3e86bc67",
-        "type": "e-mail",
-        "z": "1866d45e524eb12b",
-        "server": "smtp.qq.com",
-        "port": "465",
-        "secure": true,
-        "tls": true,
-        "name": "1784162089@qq.com",
-        "dname": "发邮件",
-        "x": 290,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "55cdb4650076c07d",
-        "type": "inject",
-        "z": "1866d45e524eb12b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "topic",
-        "payload": "text",
-        "payloadType": "str",
-        "x": 120,
-        "y": 140,
-        "wires": [
-            [
-                "ba875bad3e86bc67",
-                "080d4051c555db93"
-            ]
-        ]
-    },
-    {
-        "id": "080d4051c555db93",
-        "type": "debug",
-        "z": "1866d45e524eb12b",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 290,
-        "y": 220,
+        "x": 810,
+        "y": 340,
         "wires": []
     },
     {
