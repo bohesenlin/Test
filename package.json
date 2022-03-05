@@ -1,0 +1,13 @@
+{
+    "name": "node-red-project",
+    "description": "A Node-RED Project",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "node-red-contrib-git-nodes": "~0.2.2",
+        "node-red-contrib-home-assistant-websocket": "~0.43.0",
+        "node-red-contrib-xiaoai-tts": "~1.0.5",
+        "node-red-dashboard": "~3.1.6",
+        "node-red-node-email": "~1.14.0"
+    }
+}
