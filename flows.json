@@ -379,14 +379,6 @@
         "height": 1
     },
     {
-        "id": "4af79b859f7adedd",
-        "type": "ui_tab",
-        "name": "解码",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "06395dc1d2540d08",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
