@@ -1508,7 +1508,8 @@
                 "7d9a2f0e9a7534ad",
                 "87b24f458884d9a7",
                 "89f98002b259b124",
-                "f708af4e4078808f"
+                "f708af4e4078808f",
+                "35539877ad8863d6"
             ]
         ]
     },
@@ -1724,6 +1725,39 @@
         "className": "",
         "x": 810,
         "y": 340,
+        "wires": []
+    },
+    {
+        "id": "35539877ad8863d6",
+        "type": "function",
+        "z": "0143542654182c64",
+        "name": "",
+        "func": "if(getHours()>=22 || getHours()<=10){\n    if(msg.data.attributes.power_cons_electric_current != 0){\n        msg.topic = \"提醒\"\n        msg.payload = \"热水器还没关闭\"\n        return msg;\n    }\n}else{\n    return null\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 60,
+        "wires": [
+            [
+                "8571391314c20527"
+            ]
+        ]
+    },
+    {
+        "id": "8571391314c20527",
+        "type": "e-mail",
+        "z": "0143542654182c64",
+        "server": "smtp.qq.com",
+        "port": "465",
+        "secure": true,
+        "tls": true,
+        "name": "1784162089@qq.com",
+        "dname": "发邮件",
+        "x": 970,
+        "y": 60,
         "wires": []
     },
     {
