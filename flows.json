@@ -2295,7 +2295,7 @@
         "y": 260,
         "wires": [
             [
-                "4409fabb0e57f7d5"
+                "a70bce6f21ed1df8"
             ]
         ]
     },
@@ -2327,12 +2327,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
+        "x": 500,
         "y": 260,
         "wires": [
-            [
-                "ce66ea369c0dfbdf"
-            ]
+            []
         ]
     },
     {
@@ -2351,6 +2349,22 @@
         "senderr": false,
         "x": 650,
         "y": 260,
+        "wires": [
+            [
+                "4ba894f18eae7272"
+            ]
+        ]
+    },
+    {
+        "id": "a70bce6f21ed1df8",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "判断变化",
+        "func": "if(context.flow.get('justChanged')==msg.payload){\n    msg.payload = 1;\n    return msg;\n}\n\ncontext.flow.set('justChanged',msg.payload);\nmsg.payload = 2;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 360,
+        "y": 340,
         "wires": [
             [
                 "4ba894f18eae7272"
