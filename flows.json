@@ -2295,8 +2295,7 @@
         "y": 260,
         "wires": [
             [
-                "a70bce6f21ed1df8",
-                "4ba894f18eae7272"
+                "a70bce6f21ed1df8"
             ]
         ]
     },
@@ -2314,7 +2313,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 870,
-        "y": 340,
+        "y": 360,
         "wires": []
     },
     {
@@ -2328,8 +2327,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 500,
-        "y": 260,
+        "x": 700,
+        "y": 420,
         "wires": [
             []
         ]
@@ -2361,14 +2360,18 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "判断变化",
-        "func": "if(context.flow.get('justChanged')==msg.payload){\n    msg.payload = 1;\n    return msg;\n}\n\ncontext.flow.set('justChanged',msg.payload);\nmsg.payload = 2;\nreturn msg;\n",
+        "func": "if(context.flow.get('justChanged')==msg.payload){\n    //msg.payload = 1;\n    return\n}\n\ncontext.flow.set('justChanged',msg.payload);\nvar yaml = msg.payload\nmsg.headers = {};\nmsg.headers = {\n  'Authorization': 'Bearer glpat-bix9rWK6svSw7qEzB-tS'\n}\nmsg.url = \"https://gitlab.com/api/v4/projects/34199133/repository/files/data%2Fv2ray%2F123.yaml\"\nmsg.payload = {};\nmsg.payload={'branch': 'main',\n    'content': yaml,\n    'commit_message': 'update file'\n    \n};\n\n//https://raw.githubusercontent.com/changfengoss/pub/main/data/2022_03_06/GHI1Ag.yaml\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 360,
-        "y": 340,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 260,
         "wires": [
             [
-                "4ba894f18eae7272"
+                "4ba894f18eae7272",
+                "ce66ea369c0dfbdf"
             ]
         ]
     },
