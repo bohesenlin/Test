@@ -1345,7 +1345,11 @@
         "wires": [
             [
                 "fd69d6b6805bfbc1",
-                "abb785b16890a2e2"
+                "abb785b16890a2e2",
+                "f09686b1b9084c7d",
+                "ad5665b64c256a15",
+                "26d6e432615b49bb",
+                "c049d16d5fd3025d"
             ]
         ]
     },
@@ -1358,7 +1362,7 @@
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "text",
+        "label": "播放量",
         "format": "{{msg.payload.data.list.vlist[0].play}}",
         "layout": "row-spread",
         "className": "",
@@ -1427,6 +1431,74 @@
         "statusType": "auto",
         "x": 550,
         "y": 300,
+        "wires": []
+    },
+    {
+        "id": "f09686b1b9084c7d",
+        "type": "ui_text",
+        "z": "df04831a8742eac0",
+        "group": "3208b3404cb0f2e8",
+        "order": 20,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "描述",
+        "format": "{{msg.payload.data.list.vlist[0].description}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 410,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "ad5665b64c256a15",
+        "type": "ui_text",
+        "z": "df04831a8742eac0",
+        "group": "3208b3404cb0f2e8",
+        "order": 20,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "标题",
+        "format": "{{msg.payload.data.list.vlist[0].title}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 410,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "26d6e432615b49bb",
+        "type": "ui_text",
+        "z": "df04831a8742eac0",
+        "group": "3208b3404cb0f2e8",
+        "order": 23,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "弹幕",
+        "format": "{{msg.payload.data.list.vlist[0].video_review}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 410,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "c049d16d5fd3025d",
+        "type": "ui_text",
+        "z": "df04831a8742eac0",
+        "group": "3208b3404cb0f2e8",
+        "order": 24,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "发布时间",
+        "format": "{{msg.payload.data.list.vlist[0].created}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 420,
+        "y": 1220,
         "wires": []
     },
     {
