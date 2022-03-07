@@ -710,7 +710,8 @@
             [
                 "ba53d6aebd8b6ed5",
                 "0fc79b4f9955b139",
-                "71642892bdbab4a8"
+                "71642892bdbab4a8",
+                "b039aeaece4a1572"
             ]
         ]
     },
@@ -1323,6 +1324,109 @@
         "dname": "发邮件",
         "x": 870,
         "y": 340,
+        "wires": []
+    },
+    {
+        "id": "491160702d33bf50",
+        "type": "http request",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://api.bilibili.com/x/space/arc/search?mid=513305949&ps=30&tid=0&pn=1&keyword=&order=pubdate&jsonp=jsonp",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 240,
+        "y": 980,
+        "wires": [
+            [
+                "fd69d6b6805bfbc1",
+                "abb785b16890a2e2"
+            ]
+        ]
+    },
+    {
+        "id": "fd69d6b6805bfbc1",
+        "type": "ui_text",
+        "z": "df04831a8742eac0",
+        "group": "3208b3404cb0f2e8",
+        "order": 20,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload.data.list.vlist[0].play}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 410,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "cd81b6937b019a6f",
+        "type": "inject",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 980,
+        "wires": [
+            [
+                "491160702d33bf50"
+            ]
+        ]
+    },
+    {
+        "id": "abb785b16890a2e2",
+        "type": "debug",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "b039aeaece4a1572",
+        "type": "debug",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 300,
         "wires": []
     },
     {
