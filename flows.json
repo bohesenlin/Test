@@ -649,14 +649,14 @@
         "order": 1,
         "width": 29,
         "height": 9,
-        "format": "<iframe src=\"//player.bilibili.com/player.html?aid=466835972&bvid=BV1JL411T7rt&cid=515423527&page=1\" scrolling=\"no\" border=\"0\" frameborder=\"no\" framespacing=\"0\" allowfullscreen=\"true\"> </iframe>",
+        "format": "<iframe src=\"//player.bilibili.com/player.html?aid=\"466835972\"+,sg.payload.data.list.vlist[0].aid+\"&bvid=\"+msg.payload.data.list.vlist[0].bvid+\"&cid=515423527&page=1\" scrolling=\"no\" border=\"0\" frameborder=\"no\" framespacing=\"0\" allowfullscreen=\"true\"> </iframe>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 290,
-        "y": 740,
+        "x": 410,
+        "y": 860,
         "wires": [
             []
         ]
@@ -1349,7 +1349,8 @@
                 "f09686b1b9084c7d",
                 "ad5665b64c256a15",
                 "26d6e432615b49bb",
-                "c049d16d5fd3025d"
+                "c049d16d5fd3025d",
+                "109fbc1aa77f7f25"
             ]
         ]
     },
