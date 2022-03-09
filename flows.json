@@ -1861,14 +1861,14 @@
                 "vt": "str"
             }
         ],
-        "repeat": "",
+        "repeat": "600",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 90,
+        "x": 100,
         "y": 180,
         "wires": [
             [
@@ -1891,7 +1891,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 810,
-        "y": 260,
+        "y": 300,
         "wires": []
     },
     {
@@ -2002,7 +2002,8 @@
         "y": 260,
         "wires": [
             [
-                "5cbaef3caf0a9f2e"
+                "5cbaef3caf0a9f2e",
+                "35539877ad8863d6"
             ]
         ]
     },
@@ -2020,7 +2021,7 @@
         "layout": "row-left",
         "className": "",
         "x": 940,
-        "y": 300,
+        "y": 340,
         "wires": []
     },
     {
@@ -2035,7 +2036,7 @@
         "finalize": "",
         "libs": [],
         "x": 810,
-        "y": 300,
+        "y": 340,
         "wires": [
             [
                 "a5517bbb0af4189a"
@@ -2056,7 +2057,7 @@
         "layout": "row-left",
         "className": "",
         "x": 810,
-        "y": 340,
+        "y": 380,
         "wires": []
     },
     {
@@ -2064,14 +2065,14 @@
         "type": "function",
         "z": "0143542654182c64",
         "name": "",
-        "func": "var d = new Date();\nif(d.getHours()>=22 || d.getHours()<=10){\n    if(msg.payload == \"on\"){\n        msg.topic = \"提醒\"\n        msg.payload = \"热水器还没关闭\"\n        return msg;\n    }else{\n        //msg.payload=d.getHours()\n        return null\n    }\n}else{\n    return null\n}",
+        "func": "var d = new Date();\nif(d.getHours()>=22 || d.getHours()<=10){\n    if(msg.payload == \"on\"){\n        msg.topic = \"提醒\"\n        if(msg.data.entity_id == \"switch.212a01_cloud_147486\"){\n            id = \"电视\"\n        }else{\n            id = \"热水器\"\n        }\n        msg.payload = id + \"还没关闭\"\n        return msg;\n    }else{\n        //msg.payload=d.getHours()\n        return null\n    }\n}else{\n    return null\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 810,
-        "y": 60,
+        "y": 260,
         "wires": [
             [
                 "fe8f7bc3750d2135",
@@ -2090,7 +2091,7 @@
         "name": "1784162089@qq.com",
         "dname": "发邮件",
         "x": 970,
-        "y": 60,
+        "y": 260,
         "wires": []
     },
     {
@@ -2106,7 +2107,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 990,
-        "y": 20,
+        "y": 300,
         "wires": []
     },
     {
