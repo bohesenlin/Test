@@ -1973,7 +1973,7 @@
         "halt_if": "",
         "halt_if_type": "str",
         "halt_if_compare": "is",
-        "entity_id": "light.mbulb3_cloud_676421",
+        "entity_id": "switch.212a01_cloud_147486",
         "state_type": "str",
         "blockInputOverrides": false,
         "outputProperties": [
@@ -1998,12 +1998,10 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 380,
+        "x": 390,
         "y": 260,
         "wires": [
             [
-                "96c55c3ed3dcef72",
-                "2f4857a4b0c7b899",
                 "5cbaef3caf0a9f2e"
             ]
         ]
@@ -2066,7 +2064,7 @@
         "type": "function",
         "z": "0143542654182c64",
         "name": "",
-        "func": "var d = new Date();\nif(d.getHours()>=13 || d.getHours()<=10){\n    if(msg.data.attributes.power_cons_electric_current != 1){\n        msg.topic = \"提醒\"\n        msg.payload = \"热水器还没关闭\"\n        return msg;\n    }else{\n        //msg.payload=d.getHours()\n        return null\n    }\n}else{\n    return null\n}",
+        "func": "var d = new Date();\nif(d.getHours()>=22 || d.getHours()<=10){\n    if(msg.payload == \"on\"){\n        msg.topic = \"提醒\"\n        msg.payload = \"热水器还没关闭\"\n        return msg;\n    }else{\n        //msg.payload=d.getHours()\n        return null\n    }\n}else{\n    return null\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
