@@ -2329,7 +2329,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 870,
-        "y": 360,
+        "y": 260,
         "wires": []
     },
     {
@@ -2344,7 +2344,7 @@
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 340,
+        "y": 260,
         "wires": [
             [
                 "ce66ea369c0dfbdf"
@@ -2384,8 +2384,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 260,
+        "x": 640,
+        "y": 340,
         "wires": [
             [
                 "4ba894f18eae7272"
