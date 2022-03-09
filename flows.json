@@ -2066,7 +2066,7 @@
         "type": "function",
         "z": "0143542654182c64",
         "name": "",
-        "func": "var d = new Date();\nif(d.getHours()>=13 || d.getHours()<=10){\n    if(msg.data.attributes.power_cons_electric_current != 0){\n        msg.topic = \"提醒\"\n        msg.payload = \"热水器还没关闭\"\n        return msg;\n    }\n}else{\n    return null\n}",
+        "func": "var d = new Date();\nif(d.getHours()>=13 || d.getHours()<=10){\n    if(msg.data.attributes.power_cons_electric_current != 1){\n        msg.topic = \"提醒\"\n        msg.payload = \"热水器还没关闭\"\n        return msg;\n    }else{\n        //msg.payload=d.getHours()\n        return null\n    }\n}else{\n    return null\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2076,8 +2076,8 @@
         "y": 60,
         "wires": [
             [
-                "8571391314c20527",
-                "fe8f7bc3750d2135"
+                "fe8f7bc3750d2135",
+                "8571391314c20527"
             ]
         ]
     },
