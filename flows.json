@@ -47,6 +47,14 @@
         "env": []
     },
     {
+        "id": "f936bcfefd29972a",
+        "type": "tab",
+        "label": "流程 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "e7cf0672145a47bb",
         "type": "ui_tab",
         "name": "Home",
@@ -2522,5 +2530,105 @@
         "x": 480,
         "y": 180,
         "wires": []
+    },
+    {
+        "id": "fe13f538af391a71",
+        "type": "function",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "func": "//获取CODE\nfunction abc(id1,id2) {\n    var _pr = id1;\n    var _pu = id2;\n    var _puArr = [];\n    var _newArr = [];\n    var _code = '';\n\n    for (var i = 0; i < _pu.length; i++) {\n        _puArr.push({'id': _pu[i], 'text': _pr[i]});\n    }\n//对密钥重新进行排序\n    _newArr = _puArr.sort(compare(\"id\"));\n    for (var n = 0; n < _newArr.length; n++) {\n\n        _code += _newArr[n]['text'];\n    }\n    return _code\n}\n\nfunction compare(_0x209a13) {\n    var _0x2b0a5b = {\n        'hupwx': function(_0x28592c, _0x5c0aae) {\n            return _0x28592c - _0x5c0aae;\n        }\n    };\n    return function(_0x4490c6, _0x47bde8) {\n        var _0x11d139 = _0x4490c6[_0x209a13];\n        var _0x2b383f = _0x47bde8[_0x209a13];\n        return _0x2b0a5b['hupwx'](_0x11d139, _0x2b383f);\n    }\n        ;\n}\n\n//通过加密的URL和abc函数获取的CODE，进行AES解密\nfunction secret(enStr, code) {\n    code = CryptoJS['MD5'](code)['toString'](); //32位md5\n    var iv = CryptoJS['enc']['utf8']['parse'](code['substring'](0, 16));  //取前16位\n    var key = CryptoJS['enc']['utf8']['parse'](code['substring'](16));    //取后16位\n    return CryptoJS['AES']['decrypt'](enStr, key, {\n        'iv': iv,\n        'padding': CryptoJS['pad']['Pkcs7']\n    })['toString'](CryptoJS['enc']['Utf8']);\n}\n\n\n\nmsg.payload = abc(123456789,234567891)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 320,
+        "wires": [
+            [
+                "2953ea57d7b1c1f0"
+            ]
+        ]
+    },
+    {
+        "id": "9468455c333c2f37",
+        "type": "function",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "func": "msg.url = \"https://jx.parwix.com:4433/player/analysis.php?v=%s\"+\"\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 110,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "21af72c8b35f1a0d",
+        "type": "http request",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "persist": false,
+        "authType": "",
+        "senderr": false,
+        "x": 260,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2953ea57d7b1c1f0",
+        "type": "debug",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "51183cc3e5e3d9c1",
+        "type": "inject",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 340,
+        "wires": [
+            [
+                "fe13f538af391a71"
+            ]
+        ]
     }
 ]
