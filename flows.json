@@ -2570,7 +2570,7 @@
         "type": "function",
         "z": "f936bcfefd29972a",
         "name": "",
-        "func": "abc = encodeURI(\"https://v.qq.com/x/cover/m441e3rjq9kwpsc/u0041udfwew.html\")\nmsg.url = \"https://jx.parwix.com:4433/player/analysis.php?v=%s\"+abc\n\nreturn msg;",
+        "func": "//abc = encodeURI(\"https://v.qq.com/x/cover/m441e3rjq9kwpsc/u0041udfwew.html\")\nmsg.url = \"https://jx.parwix.com:4433/player/analysis.php?v=%s\"+\"https://v.qq.com/x/cover/m441e3rjq9kwpsc/u0041udfwew.html\"\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
