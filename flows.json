@@ -1678,8 +1678,8 @@
         "tls": true,
         "name": "2720699551@qq.com",
         "dname": "发邮件",
-        "x": 870,
-        "y": 380,
+        "x": 990,
+        "y": 340,
         "wires": []
     },
     {
@@ -2570,16 +2570,18 @@
         "type": "function",
         "z": "f936bcfefd29972a",
         "name": "",
-        "func": "msg.url = \"https://jx.parwix.com:4433/player/analysis.php?v=%s\"+\"\"\nreturn msg;",
+        "func": "abc = encodeURI(\"https://v.qq.com/x/cover/m441e3rjq9kwpsc/u0041udfwew.html\")\nmsg.url = \"https://jx.parwix.com:4433/player/analysis.php?v=%s\"+abc\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 110,
-        "y": 280,
+        "x": 230,
+        "y": 180,
         "wires": [
-            []
+            [
+                "2953ea57d7b1c1f0"
+            ]
         ]
     },
     {
@@ -2643,6 +2645,35 @@
         "wires": [
             [
                 "fe13f538af391a71"
+            ]
+        ]
+    },
+    {
+        "id": "8863ac637c0f61ef",
+        "type": "inject",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "9468455c333c2f37"
             ]
         ]
     }
