@@ -2600,7 +2600,8 @@
         "y": 180,
         "wires": [
             [
-                "5a0c7f92b542e8db"
+                "5a0c7f92b542e8db",
+                "2953ea57d7b1c1f0"
             ]
         ]
     },
@@ -2780,7 +2781,7 @@
         "type": "function",
         "z": "f936bcfefd29972a",
         "name": "",
-        "func": "var html = msg.payload\nvar id = /id=\"vod_(.*?)\"/.exec(html);\n//re.findall('id=\"vod_(.*?)\"',html)\nvar enurl = /\"url\": \"(.*?)\"/.exec(html);\nmsg.id = id[1]\nmsg.enurl = enurl[1]\n//enurl=re.search('\"url\": \"(.*?)\"',html).group(1)\n//  /e/.exec(\"The best things in life are free!\");\nreturn msg;",
+        "func": "var html = msg.payload\nvar id = /id=\"vod_(.*?)\"/.exec(html);\n//re.findall('id=\"vod_(.*?)\"',html)\nvar enurl = /\"url\": \"(.*?)\"/.exec(html);\nmsg.id = id[1]\nmsg.enurl = enurl[1]\n//enurl=re.search('\"url\": \"(.*?)\"',html).group(1)\n//  /e/.exec(\"The best things in life are free!\");\nmsg.payload = []\nmsg.payload = id\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
