@@ -2794,5 +2794,69 @@
                 "2953ea57d7b1c1f0"
             ]
         ]
+    },
+    {
+        "id": "805c41990d36a588",
+        "type": "function",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "func": "var html = \"<meta name=viewport content=width=device-width, initial-scale=1.0, user-scalable=no id=vod_hKxKtjBZVnmeta charset=UTF-8 id=vod_4957386021>\"\nvar id = /id=\"vod_(.*?)\"/.exec(html);\n//re.findall('id=\"vod_(.*?)\"',html)\n//var enurl = /\"url\": \"(.*?)\"/.exec(html);\n//msg.id = id[1]\n//msg.enurl = enurl[1]\n//enurl=re.search('\"url\": \"(.*?)\"',html).group(1)\n//  /e/.exec(\"The best things in life are free!\");\n//msg.payload = []\nmsg.payload = id\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 440,
+        "wires": [
+            [
+                "1f825af821155605"
+            ]
+        ]
+    },
+    {
+        "id": "959a2a1a7220cb5f",
+        "type": "inject",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 440,
+        "wires": [
+            [
+                "805c41990d36a588"
+            ]
+        ]
+    },
+    {
+        "id": "1f825af821155605",
+        "type": "debug",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 440,
+        "wires": []
     }
 ]
