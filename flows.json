@@ -2853,7 +2853,8 @@
         "y": 420,
         "wires": [
             [
-                "d6aecd2af0fbe28e"
+                "d6aecd2af0fbe28e",
+                "ac03902c04ced6cf"
             ]
         ]
     },
@@ -2887,6 +2888,25 @@
         "libs": [],
         "x": 230,
         "y": 480,
+        "wires": [
+            [
+                "e5ed3f9a010ce384"
+            ]
+        ]
+    },
+    {
+        "id": "ac03902c04ced6cf",
+        "type": "function",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "func": "var ciphertext = CryptoJS.AES.encrypt('my message', 'secret key 123').toString();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 560,
         "wires": [
             [
                 "e5ed3f9a010ce384"
