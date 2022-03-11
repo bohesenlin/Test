@@ -2551,7 +2551,7 @@
         "type": "function",
         "z": "f936bcfefd29972a",
         "name": "",
-        "func": "//获取CODE\nfunction abc(id1,id2) {\n    var _pr = id1;\n    var _pu = id2;\n    var _puArr = [];\n    var _newArr = [];\n    var _code = '';\n\n    for (var i = 0; i < _pu.length; i++) {\n        _puArr.push({'id': _pu[i], 'text': _pr[i]});//将新元素添加到数组的末尾，并返回新的长度。\n    }\n//对密钥重新进行排序\n    _newArr = _puArr.sort(compare(\"id\"));\n    for (var n = 0; n < _newArr.length; n++) {\n\n        _code += _newArr[n]['text'];\n    }\n    return _code\n}\n\nfunction compare(_0x209a13) {\n    var _0x2b0a5b = {\n        'hupwx': function(_0x28592c, _0x5c0aae) {\n            return _0x28592c - _0x5c0aae;\n        }\n    };\n    return function(_0x4490c6, _0x47bde8) {\n        var _0x11d139 = _0x4490c6[_0x209a13];\n        var _0x2b383f = _0x47bde8[_0x209a13];\n        return _0x2b0a5b['hupwx'](_0x11d139, _0x2b383f);\n    }\n        ;\n}\n\n//通过加密的URL和abc函数获取的CODE，进行AES解密\nfunction secret(enStr, code) {\n    code = CryptoJS['MD5'](code)['toString'](); //32位md5\n    var iv = CryptoJS['enc']['utf8']['parse'](code['substring'](0, 16));  //取前16位\n    var key = CryptoJS['enc']['utf8']['parse'](code['substring'](16));    //取后16位\n    return CryptoJS['AES']['decrypt'](enStr, key, {\n        'iv': iv,\n        'padding': CryptoJS['pad']['Pkcs7']\n    })['toString'](CryptoJS['enc']['Utf8']);\n}\n\n\n\nmsg.payload = abc([\"Banana\", \"Orange\"], [\"Apple\", \"Mango\"])\nreturn msg;",
+        "func": "//获取CODE\nfunction abc(id1,id2) {\n    var _pr = id1;\n    var _pu = id2;\n    var _puArr = [];\n    var _newArr = [];\n    var _code = '';\n\n    for (var i = 0; i < _pu.length; i++) {\n        _puArr.push({'id': _pu[i], 'text': _pr[i]});//将新元素添加到数组的末尾，并返回新的长度。\n    }\n//对密钥重新进行排序\n    _newArr = _puArr.sort(compare(\"id\"));\n    for (var n = 0; n < _newArr.length; n++) {\n\n        _code += _newArr[n]['text'];\n    }\n    return _code\n}\n\nfunction compare(_0x209a13) {\n    var _0x2b0a5b = {\n        'hupwx': function(_0x28592c, _0x5c0aae) {\n            return _0x28592c - _0x5c0aae;\n        }\n    };\n    return function(_0x4490c6, _0x47bde8) {\n        var _0x11d139 = _0x4490c6[_0x209a13];\n        var _0x2b383f = _0x47bde8[_0x209a13];\n        return _0x2b0a5b['hupwx'](_0x11d139, _0x2b383f);\n    }\n        ;\n}\n\n//通过加密的URL和abc函数获取的CODE，进行AES解密\nfunction secret(enStr, code) {\n    code = CryptoJS['MD5'](code)['toString'](); //32位md5\n    var iv = CryptoJS['enc']['utf8']['parse'](code['substring'](0, 16));  //取前16位\n    var key = CryptoJS['enc']['utf8']['parse'](code['substring'](16));    //取后16位\n    return CryptoJS['AES']['decrypt'](enStr, key, {\n        'iv': iv,\n        'padding': CryptoJS['pad']['Pkcs7']\n    })['toString'](CryptoJS['enc']['Utf8']);\n}\n\n\nvar id1 = \"STjYY8dGUW\"\nvar id2 = \"1023469758\"\nmsg.payload = abc(id1,id2)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2600,8 +2600,7 @@
         "y": 180,
         "wires": [
             [
-                "5a0c7f92b542e8db",
-                "2953ea57d7b1c1f0"
+                "5a0c7f92b542e8db"
             ]
         ]
     },
@@ -2781,7 +2780,7 @@
         "type": "function",
         "z": "f936bcfefd29972a",
         "name": "",
-        "func": "var html = msg.payload\nvar id = /id=\"vod_(.*?)\"/.exec(html);\nvar id1 = /id=\"vod_[0-9]]\"/.exec(html);\n//re.findall('id=\"vod_(.*?)\"',html)\nvar enurl = /\"url\": \"(.*?)\"/.exec(html);\nmsg.id = id[1]\nmsg.id1=id1\nmsg.enurl = enurl[1]\n//enurl=re.search('\"url\": \"(.*?)\"',html).group(1)\n//  /e/.exec(\"The best things in life are free!\");\nmsg.payload = []\nmsg.payload = id\nreturn msg;",
+        "func": "var html = msg.payload\nvar id1 = /id=\"vod_(.*?)\"/.exec(html);\nvar id2 = /id=\"vod_([0-9]{10})\"/.exec(html);\nvar enurl = /\"url\": \"(.*?)\"/.exec(html);\nmsg.id1 = id1[1]\nmsg.id2=id2[1]\nmsg.enurl = enurl[1]\nmsg.payload = []\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2791,6 +2790,7 @@
         "y": 180,
         "wires": [
             [
+                "fe13f538af391a71",
                 "2953ea57d7b1c1f0"
             ]
         ]
@@ -2800,7 +2800,7 @@
         "type": "function",
         "z": "f936bcfefd29972a",
         "name": "",
-        "func": "var html = \"id=vod_4957386021>\"\nvar id = /id=vod_[0-9]/.exec(html);\n\nmsg.payload = id\nreturn msg;",
+        "func": "var html = \"id=vod_4957386021>\"\nvar id = /id=vod_([0-9]{10})/.exec(html);\n\nmsg.payload = id\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
