@@ -3032,11 +3032,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 560,
+        "x": 110,
+        "y": 620,
         "wires": [
             [
-                "491f937ba1ea83b9",
                 "5f7cf4e1acd6761c"
             ]
         ]
@@ -3053,30 +3052,13 @@
         "persist": false,
         "authType": "",
         "senderr": false,
-        "x": 440,
-        "y": 560,
+        "x": 280,
+        "y": 620,
         "wires": [
             [
                 "e442c0011415cc9e"
             ]
         ]
-    },
-    {
-        "id": "21a3ed2b56e2efb3",
-        "type": "debug",
-        "z": "f936bcfefd29972a",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 870,
-        "y": 600,
-        "wires": []
     },
     {
         "id": "77f5e805c783dc4d",
@@ -3099,8 +3081,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 90,
-        "y": 640,
+        "x": 110,
+        "y": 520,
         "wires": [
             [
                 "37997b3009e518a0"
@@ -3118,11 +3100,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 560,
+        "x": 450,
+        "y": 620,
         "wires": [
             [
-                "21a3ed2b56e2efb3",
                 "09d303c90655af90"
             ]
         ]
@@ -3138,8 +3119,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 640,
+        "x": 290,
+        "y": 520,
         "wires": [
             [
                 "7fad866da316b261"
@@ -3158,8 +3139,8 @@
         "persist": false,
         "authType": "",
         "senderr": false,
-        "x": 440,
-        "y": 640,
+        "x": 460,
+        "y": 520,
         "wires": [
             [
                 "191ed70ca8b1975e"
@@ -3177,8 +3158,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
-        "y": 640,
+        "x": 650,
+        "y": 520,
         "wires": [
             [
                 "e0837fb8765b5415"
@@ -3186,35 +3167,18 @@
         ]
     },
     {
-        "id": "491f937ba1ea83b9",
-        "type": "debug",
-        "z": "f936bcfefd29972a",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 410,
-        "y": 520,
-        "wires": []
-    },
-    {
         "id": "09d303c90655af90",
         "type": "function",
         "z": "f936bcfefd29972a",
         "name": "",
-        "func": "//msg.payload=url\nvar n;\nvar hurl = []\nvar rsg = msg.payload\nmsg.a = (rsg.length + 1)/2\nfor (n = 0; n < (rsg.length - 1)/2; n++) {\n    hurl = \"https://v.qq.com/x/cover/\"+msg.vid+\"/\"+msg.payload[n][1]+\".html\"\n}\nmsg.hurl = hurl\nreturn msg;\n",
+        "func": "//msg.payload=url\nvar n;\nvar hurl = []\nvar rsg = msg.payload\nmsg.a = (rsg.length + 1)/2\nfor (n = 0; n < (rsg.length - 1)/2; n++) {\n    hurl.push(\"https://v.qq.com/x/cover/\"+msg.vid+\"/\"+msg.payload[n][1]+\".html\")\n}\nmsg.hurl = hurl\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
-        "y": 540,
+        "x": 650,
+        "y": 620,
         "wires": [
             [
                 "d93bef1816943585"
@@ -3234,8 +3198,56 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
-        "y": 540,
+        "x": 810,
+        "y": 620,
         "wires": []
+    },
+    {
+        "id": "4480ecb71d21e59e",
+        "type": "function",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "func": "var count = context.get('count')||0;\ncount = count+1\ncontext.set('count',count);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 700,
+        "wires": [
+            [
+                "d93bef1816943585"
+            ]
+        ]
+    },
+    {
+        "id": "e8e5533ceba25dc1",
+        "type": "inject",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 700,
+        "wires": [
+            [
+                "4480ecb71d21e59e"
+            ]
+        ]
     }
 ]
