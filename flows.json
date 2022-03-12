@@ -3020,5 +3020,109 @@
                 "95c6912954269256"
             ]
         ]
+    },
+    {
+        "id": "e0837fb8765b5415",
+        "type": "function",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "func": "msg.url = \"https://v.qq.com/x/cover/m441e3rjq9kwpsc/a0041mn4exi.html\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 560,
+        "wires": [
+            [
+                "5f7cf4e1acd6761c"
+            ]
+        ]
+    },
+    {
+        "id": "5f7cf4e1acd6761c",
+        "type": "http request",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "persist": false,
+        "authType": "",
+        "senderr": false,
+        "x": 440,
+        "y": 560,
+        "wires": [
+            [
+                "9da576bcbea1bc19",
+                "21a3ed2b56e2efb3"
+            ]
+        ]
+    },
+    {
+        "id": "9da576bcbea1bc19",
+        "type": "html",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "#video_scroll_wrap span a",
+        "ret": "html",
+        "as": "single",
+        "x": 680,
+        "y": 560,
+        "wires": [
+            [
+                "21a3ed2b56e2efb3"
+            ]
+        ]
+    },
+    {
+        "id": "21a3ed2b56e2efb3",
+        "type": "debug",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "77f5e805c783dc4d",
+        "type": "inject",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 560,
+        "wires": [
+            [
+                "e0837fb8765b5415"
+            ]
+        ]
     }
 ]
