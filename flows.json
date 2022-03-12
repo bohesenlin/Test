@@ -2912,5 +2912,91 @@
                 "e5ed3f9a010ce384"
             ]
         ]
+    },
+    {
+        "id": "2e679043967dd87b",
+        "type": "function",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "func": "\n\n//url = \"https://www.mklab.cn/utils/handle\"\n\nmsg.payload='data=O7Hbb8RzGxfLcTZM0vRPOtUFWktElIzDbmnnNlosqN9h21mqvM0TEXiTwrjAwvzhEYUl9L7OWr9VFTYcIxwBheYS6xQEXlnt6bW2qndHrKIhIhAuApryK6ltIRXjnqaBYxJK9%2BRrBjROl4Uo8lUcJfzSThkJUr3WZ6wLLNXWeJhCz0IS7i1e35M55tvChQGu7NHNXDdtLifilsbWqAHjYs%2BJz4X0d0PfgIN5w3%2FAE83ymZ2j2TWBeKXLfBSmxUKfdqCDzXXNG8pcYuwX3rWmQwKvqiLk4ZrBH7LHFAMbrK5NWO%2BKAxErdWdos6skmpUBpKsmJQ%2FeZQCqD759b4iD167Scj9soaR2u5rUl6peslIHnl7lrFSA549WgywDq6b78S3LyU7IS5s%2Fsrzeom54iMKvLjHsscH0n%2Fr9nw7ryAfQ9TngtEb27%2FOt9l6G5SsL0HeUmtl5HmQaXgmLzqgb4ZlWPN7obuu3DothARVbXhkWNwzRa7SFBrC1pHzPPdQAK2mzIdSENugVlvaZkHNYlG7S%2FBMrjHFPGGMh7ASnPj93maVaOQf6%2Fxk540gD%2B1KV39uSCRE%2BlZwe3Ri%2BxQGyDkQJb5TKvUyTbuSQNqT1baw%3D&type=aes_decrypt&encode=Base64&key=95b70ed681f8c967&digit=128&mode=CBC&pad=Pkcs5Padding&iv=e261d70e68f66b81'\nmsg.headers = {\n  'Content-Type': 'application/x-www-form-urlencoded'\n}\n\n//response = requests.request(\"POST\", url, headers=headers, data=payload)\n\n//print(response.text)\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 440,
+        "wires": [
+            [
+                "615772126df71e14"
+            ]
+        ]
+    },
+    {
+        "id": "615772126df71e14",
+        "type": "http request",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://www.mklab.cn/utils/handle",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 780,
+        "y": 440,
+        "wires": [
+            [
+                "9057e80b4dfa1328"
+            ]
+        ]
+    },
+    {
+        "id": "fae4db3f5734dd48",
+        "type": "inject",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 450,
+        "y": 460,
+        "wires": [
+            [
+                "2e679043967dd87b"
+            ]
+        ]
+    },
+    {
+        "id": "9057e80b4dfa1328",
+        "type": "debug",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 440,
+        "wires": []
     }
 ]
