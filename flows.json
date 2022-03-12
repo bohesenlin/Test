@@ -3112,7 +3112,7 @@
         "type": "function",
         "z": "f936bcfefd29972a",
         "name": "",
-        "func": "//var html = msg.payload\n\n//<a href=\"/x/cover/m441e3rjq9kwpsc/z0033u65we5.html\" _stat=\"videolist:click\">\n//            101\n//    \n//    </a>\nvar url = /{\"F\":\\d,\"V\":\"(.*?)\"}/g.exec(msg.payload);\n//var id2 = /id=\"vod_([0-9]{10})\"/.exec(html);\n//var enurl = /\"url\": \"(.*?)\"/.exec(html);\nmsg.payload=url\nreturn msg;",
+        "func": "//var html = msg.payload\n\n//<a href=\"/x/cover/m441e3rjq9kwpsc/z0033u65we5.html\" _stat=\"videolist:click\">\n//            101\n//    \n//    </a>\nvar reg = /\"F\":\\d,\"V\":\"(.*?)\"/g\nvar url = reg.exec(msg.payload);\n//var id2 = /id=\"vod_([0-9]{10})\"/.exec(html);\n//var enurl = /\"url\": \"(.*?)\"/.exec(html);\nmsg.payload=url\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
