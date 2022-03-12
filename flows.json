@@ -3103,7 +3103,8 @@
         "y": 560,
         "wires": [
             [
-                "e0837fb8765b5415"
+                "e0837fb8765b5415",
+                "37997b3009e518a0"
             ]
         ]
     },
@@ -3120,6 +3121,45 @@
         "libs": [],
         "x": 610,
         "y": 560,
+        "wires": [
+            [
+                "21a3ed2b56e2efb3"
+            ]
+        ]
+    },
+    {
+        "id": "37997b3009e518a0",
+        "type": "function",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "func": "//import requests\n\nurl = \"https://v.qq.com/x/search/?q=斗罗大陆&stag=102&smartbox_ab=\"\n\n//payload={}\n//headers = {}\n\n//response = requests.request(\"GET\", url, headers=headers, data=payload)\n\n//print(response.text)\nmsg.url = url\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 640,
+        "wires": [
+            [
+                "7fad866da316b261"
+            ]
+        ]
+    },
+    {
+        "id": "7fad866da316b261",
+        "type": "http request",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "persist": false,
+        "authType": "",
+        "senderr": false,
+        "x": 440,
+        "y": 640,
         "wires": [
             [
                 "21a3ed2b56e2efb3"
