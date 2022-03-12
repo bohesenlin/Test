@@ -3112,14 +3112,14 @@
         "id": "37997b3009e518a0",
         "type": "function",
         "z": "f936bcfefd29972a",
-        "name": "",
-        "func": "//import requests\n\nurl = \"https://v.qq.com/x/search/?q=斗罗大陆&stag=102&smartbox_ab=\"\n\n//payload={}\n//headers = {}\n\n//response = requests.request(\"GET\", url, headers=headers, data=payload)\n\n//print(response.text)\nmsg.url = url\nreturn msg;",
+        "name": "搜索数据",
+        "func": "url = \"https://v.qq.com/x/search/?q=斗罗大陆&stag=102&smartbox_ab=\"\nmsg.url = url\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
+        "x": 260,
         "y": 240,
         "wires": [
             [
@@ -3158,7 +3158,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
+        "x": 610,
         "y": 240,
         "wires": [
             [
@@ -3177,7 +3177,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
+        "x": 590,
         "y": 340,
         "wires": [
             [
@@ -3189,14 +3189,14 @@
         "id": "4480ecb71d21e59e",
         "type": "function",
         "z": "f936bcfefd29972a",
-        "name": "",
+        "name": "计数",
         "func": "var count = context.get('count')||160;\ncount = count+1\nmsg.count = count\ncontext.set('count',count);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
+        "x": 750,
         "y": 340,
         "wires": [
             [
@@ -3218,7 +3218,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
+        "x": 910,
         "y": 340,
         "wires": []
     }
