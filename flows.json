@@ -2567,7 +2567,7 @@
         "type": "function",
         "z": "f936bcfefd29972a",
         "name": "解析地址",
-        "func": "url = \"https://v.qq.com/x/cover/m441e3rjq9kwpsc/h00426dqsjd.html\"\nmsg.url = \"https://jx.parwix.com:4433/player/analysis.php?v=\"+url\n\nreturn msg;",
+        "func": "//url = \"https://v.qq.com/x/cover/m441e3rjq9kwpsc/h00426dqsjd.html\"\nurl = msg.hurl[msg.count]\nmsg.url = \"https://jx.parwix.com:4433/player/analysis.php?v=\"+url\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2886,7 +2886,7 @@
         "type": "debug",
         "z": "f936bcfefd29972a",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -2922,7 +2922,7 @@
         "type": "function",
         "z": "f936bcfefd29972a",
         "name": "",
-        "func": "//msg.payload={\"url\":\"https://om.tc.qq.com/gzc_1000102_0b537aaaeaaawuahjsrlinrmb6gdal7aabsa.f10218.mp4?vkey=EA074FA79C1491CF3F4911110422CA19FCFF9528388E9D8536C3E4924D32FCBC947BB6E0D15ED4688774ADC8BD5E3984F10E59556D2BBAA83DA1CDBA4B9D98D6C51F6C76985A2E012849C54F272107B0D29019F1CE3A017683771536AEBD5C0B2E74F435FBD1C5A6D50D4C6D7C00AC6B5D04E3D1AD40E6C98179104A372B11F8CE695EF4D5D284C7&sdtfrom=v1080&type=mp4&platform=10201&br=117&fmt=hd&sp=0&guid=1F78117BB3DD94210EC924D61BBE1F21FD660D84\"}\n\n//var url = msg.payload.result\nvar url = \"https://res.viayoo.com/v1/via-release-cn.apk\"\nvar name = \"123.mp4\"\nvar dir = \"/downloads/斗罗大陆\"\nmsg.payload = {}\n\nmsg.payload = {\n    \"jsonrpc\":\"2.0\",\n    \"method\":\"aria2.addUri\",\n    \"id\":\"QXJpYU5nXzE2NDcwODAyMjFfMC4wNjE0NDQxMTQ5NzI0MzA1Mg==\",\n    \"params\":[\"token:P3TERX\",[url],{\n        \"out\": name,\n        \"dir\": dir\n    }]\n}\n\nmsg.url = \"http://192.168.0.210:6800/jsonrpc\"\nreturn msg;",
+        "func": "//msg.payload={\"url\":\"https://om.tc.qq.com/gzc_1000102_0b537aaaeaaawuahjsrlinrmb6gdal7aabsa.f10218.mp4?vkey=EA074FA79C1491CF3F4911110422CA19FCFF9528388E9D8536C3E4924D32FCBC947BB6E0D15ED4688774ADC8BD5E3984F10E59556D2BBAA83DA1CDBA4B9D98D6C51F6C76985A2E012849C54F272107B0D29019F1CE3A017683771536AEBD5C0B2E74F435FBD1C5A6D50D4C6D7C00AC6B5D04E3D1AD40E6C98179104A372B11F8CE695EF4D5D284C7&sdtfrom=v1080&type=mp4&platform=10201&br=117&fmt=hd&sp=0&guid=1F78117BB3DD94210EC924D61BBE1F21FD660D84\"}\n\nvar url = msg.payload.result\n//var url = \"https://res.viayoo.com/v1/via-release-cn.apk\"\nvar name = \"123.mp4\"\nvar dir = \"/downloads/斗罗大陆\"\nmsg.payload = {}\n\nmsg.payload = {\n    \"jsonrpc\":\"2.0\",\n    \"method\":\"aria2.addUri\",\n    \"id\":\"QXJpYU5nXzE2NDcwODAyMjFfMC4wNjE0NDQxMTQ5NzI0MzA1Mg==\",\n    \"params\":[\"token:P3TERX\",[url],{\n//        \"out\": name,\n        \"dir\": dir\n    }]\n}\n\nmsg.url = \"http://192.168.0.210:6800/jsonrpc\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3181,7 +3181,8 @@
         "y": 620,
         "wires": [
             [
-                "d93bef1816943585"
+                "d93bef1816943585",
+                "4480ecb71d21e59e"
             ]
         ]
     },
@@ -3190,7 +3191,7 @@
         "type": "debug",
         "z": "f936bcfefd29972a",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -3207,47 +3208,36 @@
         "type": "function",
         "z": "f936bcfefd29972a",
         "name": "",
-        "func": "var count = context.get('count')||0;\ncount = count+1\ncontext.set('count',count);\nreturn msg;",
+        "func": "var count = context.get('count')||160;\ncount = count+1\nmsg.count = count\ncontext.set('count',count);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 700,
+        "x": 830,
+        "y": 520,
         "wires": [
             [
-                "d93bef1816943585"
+                "18c2e27f4462868d",
+                "9468455c333c2f37"
             ]
         ]
     },
     {
-        "id": "e8e5533ceba25dc1",
-        "type": "inject",
+        "id": "18c2e27f4462868d",
+        "type": "debug",
         "z": "f936bcfefd29972a",
         "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 700,
-        "wires": [
-            [
-                "4480ecb71d21e59e"
-            ]
-        ]
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 520,
+        "wires": []
     }
 ]
