@@ -3026,7 +3026,7 @@
         "type": "function",
         "z": "f936bcfefd29972a",
         "name": "",
-        "func": "msg.url = \"https://v.qq.com/x/cover/m441e3rjq9kwpsc/a0041mn4exi.html\"\nreturn msg;",
+        "func": "//href=\"https://v.qq.com/x/cover/\"+msg.payload[1]+\"/m00253deqqo.html\"\nmsg.url = \"https://v.qq.com/x/cover/\"+msg.payload[1]+\"/\"+msg.payload[2]+\".html\"\nmsg.vid = msg.payload[1]\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3036,6 +3036,7 @@
         "y": 560,
         "wires": [
             [
+                "491f937ba1ea83b9",
                 "5f7cf4e1acd6761c"
             ]
         ]
@@ -3099,11 +3100,10 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 110,
-        "y": 560,
+        "x": 90,
+        "y": 640,
         "wires": [
             [
-                "e0837fb8765b5415",
                 "37997b3009e518a0"
             ]
         ]
@@ -3113,7 +3113,7 @@
         "type": "function",
         "z": "f936bcfefd29972a",
         "name": "",
-        "func": "//var html = msg.payload\n\n//<a href=\"/x/cover/m441e3rjq9kwpsc/z0033u65we5.html\" _stat=\"videolist:click\">\n//            101\n//    \n//    </a>\nvar url = []\nvar reg = /\"F\":\\d,\"V\":\"(.*?)\"/g\n//var text = \"\";\nvar i;\nfor (i = 0; i < 410; i++) {\n    url[i] = reg.exec(msg.payload)\n    if(reg.lastIndex==0){\n        msg.payload=url\n        return msg;\n    }\n  //text += \"The number is \" + i + \"<br>\";\n}\n\n//var url = reg.exec(msg.payload);\n//var id2 = /id=\"vod_([0-9]{10})\"/.exec(html);\n//var enurl = /\"url\": \"(.*?)\"/.exec(html);\nmsg.payload=url\nreturn msg;",
+        "func": "var url = []\nvar reg = /\"F\":\\d,\"V\":\"(.*?)\"/g\n//var text = \"\";\nvar i;\nfor (i = 0; i < 410; i++) {\n    url[i] = reg.exec(msg.payload)\n    if(reg.lastIndex==0){\n        msg.payload=url\n        return msg;\n    }\n  //text += \"The number is \" + i + \"<br>\";\n}\nmsg.payload=url\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3182,12 +3182,12 @@
         "y": 640,
         "wires": [
             [
-                "3f289535495a2af7"
+                "e0837fb8765b5415"
             ]
         ]
     },
     {
-        "id": "3f289535495a2af7",
+        "id": "491f937ba1ea83b9",
         "type": "debug",
         "z": "f936bcfefd29972a",
         "name": "",
@@ -3195,11 +3195,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 810,
-        "y": 660,
+        "x": 410,
+        "y": 520,
         "wires": []
     }
 ]
