@@ -3056,26 +3056,8 @@
         "y": 560,
         "wires": [
             [
-                "9da576bcbea1bc19",
-                "21a3ed2b56e2efb3"
-            ]
-        ]
-    },
-    {
-        "id": "9da576bcbea1bc19",
-        "type": "html",
-        "z": "f936bcfefd29972a",
-        "name": "",
-        "property": "payload",
-        "outproperty": "payload",
-        "tag": "div div span",
-        "ret": "html",
-        "as": "single",
-        "x": 630,
-        "y": 560,
-        "wires": [
-            [
-                "21a3ed2b56e2efb3"
+                "21a3ed2b56e2efb3",
+                "e442c0011415cc9e"
             ]
         ]
     },
@@ -3122,6 +3104,25 @@
         "wires": [
             [
                 "e0837fb8765b5415"
+            ]
+        ]
+    },
+    {
+        "id": "e442c0011415cc9e",
+        "type": "function",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "func": "var html = msg.payload\n\n//<a href=\"/x/cover/m441e3rjq9kwpsc/z0033u65we5.html\" _stat=\"videolist:click\">\n//            101\n//    \n//    </a>\nvar url = /href=\"(.*?) _stat=\"videolist:click\"/g.exec(html);\n//var id2 = /id=\"vod_([0-9]{10})\"/.exec(html);\n//var enurl = /\"url\": \"(.*?)\"/.exec(html);\nmsg.payload=url\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 560,
+        "wires": [
+            [
+                "21a3ed2b56e2efb3"
             ]
         ]
     }
