@@ -3162,8 +3162,44 @@
         "y": 640,
         "wires": [
             [
-                "21a3ed2b56e2efb3"
+                "21a3ed2b56e2efb3",
+                "191ed70ca8b1975e"
             ]
         ]
+    },
+    {
+        "id": "191ed70ca8b1975e",
+        "type": "function",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "func": "var reg=/href=\"https:\\/\\/v.qq.com\\/x\\/cover\\/(.*?)\\/(.*?).html\"/\nret = reg.exec(msg.payload)\nmsg.payload = ret\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 640,
+        "wires": [
+            [
+                "3f289535495a2af7"
+            ]
+        ]
+    },
+    {
+        "id": "3f289535495a2af7",
+        "type": "debug",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 660,
+        "wires": []
     }
 ]
