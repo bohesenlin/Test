@@ -2573,7 +2573,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 240,
+        "x": 260,
         "y": 420,
         "wires": [
             [
@@ -2593,7 +2593,7 @@
         "persist": false,
         "authType": "",
         "senderr": false,
-        "x": 400,
+        "x": 440,
         "y": 420,
         "wires": [
             [
@@ -2617,35 +2617,6 @@
         "x": 590,
         "y": 100,
         "wires": []
-    },
-    {
-        "id": "8863ac637c0f61ef",
-        "type": "inject",
-        "z": "f936bcfefd29972a",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 420,
-        "wires": [
-            [
-                "9468455c333c2f37"
-            ]
-        ]
     },
     {
         "id": "63c8c9c7dbde7f4b",
@@ -2752,7 +2723,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
+        "x": 610,
         "y": 420,
         "wires": [
             [
@@ -3025,14 +2996,14 @@
         "id": "e0837fb8765b5415",
         "type": "function",
         "z": "f936bcfefd29972a",
-        "name": "",
+        "name": "合成地址1",
         "func": "//href=\"https://v.qq.com/x/cover/\"+msg.payload[1]+\"/m00253deqqo.html\"\nmsg.url = \"https://v.qq.com/x/cover/\"+msg.payload[1]+\"/\"+msg.payload[2]+\".html\"\nmsg.vid = msg.payload[1]\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 90,
+        "x": 110,
         "y": 340,
         "wires": [
             [
@@ -3052,7 +3023,7 @@
         "persist": false,
         "authType": "",
         "senderr": false,
-        "x": 260,
+        "x": 280,
         "y": 340,
         "wires": [
             [
@@ -3093,14 +3064,14 @@
         "id": "e442c0011415cc9e",
         "type": "function",
         "z": "f936bcfefd29972a",
-        "name": "",
+        "name": "匹配地址参数",
         "func": "var url = []\nvar reg = /\"F\":\\d,\"V\":\"(.*?)\"/g\n//var text = \"\";\nvar i;\nfor (i = 0; i < 410; i++) {\n    url[i] = reg.exec(msg.payload)\n    if(reg.lastIndex==0){\n        msg.payload=url\n        return msg;\n    }\n  //text += \"The number is \" + i + \"<br>\";\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
+        "x": 460,
         "y": 340,
         "wires": [
             [
@@ -3151,14 +3122,14 @@
         "id": "191ed70ca8b1975e",
         "type": "function",
         "z": "f936bcfefd29972a",
-        "name": "",
+        "name": "正则匹配地址",
         "func": "var reg=/href=\"https:\\/\\/v.qq.com\\/x\\/cover\\/(.*?)\\/(.*?).html\"/\nret = reg.exec(msg.payload)\nmsg.payload = ret\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
+        "x": 640,
         "y": 240,
         "wires": [
             [
@@ -3170,14 +3141,14 @@
         "id": "09d303c90655af90",
         "type": "function",
         "z": "f936bcfefd29972a",
-        "name": "",
+        "name": "hurl地址",
         "func": "//msg.payload=url\nvar n;\nvar hurl = []\nvar rsg = msg.payload\nmsg.a = (rsg.length + 1)/2\nfor (n = 0; n < (rsg.length - 1)/2; n++) {\n    hurl.push(\"https://v.qq.com/x/cover/\"+msg.vid+\"/\"+msg.payload[n][1]+\".html\")\n}\nmsg.hurl = hurl\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
+        "x": 640,
         "y": 340,
         "wires": [
             [
@@ -3196,7 +3167,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
+        "x": 790,
         "y": 340,
         "wires": [
             [
@@ -3218,8 +3189,37 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
+        "x": 950,
         "y": 340,
         "wires": []
+    },
+    {
+        "id": "8863ac637c0f61ef",
+        "type": "inject",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 420,
+        "wires": [
+            [
+                "9468455c333c2f37"
+            ]
+        ]
     }
 ]
