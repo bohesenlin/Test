@@ -3057,7 +3057,6 @@
         "y": 560,
         "wires": [
             [
-                "21a3ed2b56e2efb3",
                 "e442c0011415cc9e"
             ]
         ]
@@ -3113,7 +3112,7 @@
         "type": "function",
         "z": "f936bcfefd29972a",
         "name": "",
-        "func": "var url = []\nvar reg = /\"F\":\\d,\"V\":\"(.*?)\"/g\n//var text = \"\";\nvar i;\nfor (i = 0; i < 410; i++) {\n    url[i] = reg.exec(msg.payload)\n    if(reg.lastIndex==0){\n        msg.payload=url\n        return msg;\n    }\n  //text += \"The number is \" + i + \"<br>\";\n}\nmsg.payload=url\nreturn msg;",
+        "func": "var url = []\nvar reg = /\"F\":\\d,\"V\":\"(.*?)\"/g\n//var text = \"\";\nvar i;\nfor (i = 0; i < 410; i++) {\n    url[i] = reg.exec(msg.payload)\n    if(reg.lastIndex==0){\n        msg.payload=url\n        return msg;\n    }\n  //text += \"The number is \" + i + \"<br>\";\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3123,7 +3122,8 @@
         "y": 560,
         "wires": [
             [
-                "21a3ed2b56e2efb3"
+                "21a3ed2b56e2efb3",
+                "09d303c90655af90"
             ]
         ]
     },
@@ -3162,7 +3162,6 @@
         "y": 640,
         "wires": [
             [
-                "21a3ed2b56e2efb3",
                 "191ed70ca8b1975e"
             ]
         ]
@@ -3201,6 +3200,42 @@
         "statusType": "auto",
         "x": 410,
         "y": 520,
+        "wires": []
+    },
+    {
+        "id": "09d303c90655af90",
+        "type": "function",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "func": "//msg.payload=url\nvar n;\nvar hurl = []\nvar rsg = msg.payload\nmsg.a = (rsg.length + 1)/2\nfor (n = 0; n < (rsg.length - 1)/2; n++) {\n    hurl = \"https://v.qq.com/x/cover/\"+msg.vid+\"/\"+msg.payload[n][1]+\".html\"\n}\nmsg.hurl = hurl\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 540,
+        "wires": [
+            [
+                "d93bef1816943585"
+            ]
+        ]
+    },
+    {
+        "id": "d93bef1816943585",
+        "type": "debug",
+        "z": "f936bcfefd29972a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 540,
         "wires": []
     }
 ]
