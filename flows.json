@@ -3161,7 +3161,7 @@
         "type": "function",
         "z": "f936bcfefd29972a",
         "name": "计数",
-        "func": "var count = context.get('count')||160;\ncount = count+1\nmsg.count = count\ncontext.set('count',count);\nreturn msg;",
+        "func": "var count = context.get('count')||180;\ncount = count+1\nmsg.count = count\ncontext.set('count',count);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
