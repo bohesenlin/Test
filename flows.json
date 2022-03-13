@@ -3142,7 +3142,7 @@
         "type": "function",
         "z": "f936bcfefd29972a",
         "name": "hurl地址",
-        "func": "//msg.payload=url\nvar n;\nvar hurl = []\nvar rsg = msg.payload\nmsg.a = (rsg.length + 1)/2\nfor (n = 0; n < (rsg.length - 1)/2; n++) {\n    hurl.push(\"https://v.qq.com/x/cover/\"+msg.vid+\"/\"+msg.payload[n][1]+\".html\")\n}\nmsg.hurl = hurl\nreturn msg;\n",
+        "func": "//msg.payload=url\nvar n;\nvar hurl = []\nvar rsg = msg.payload\nvar a = (rsg.length + 1)/2\nfor (n = 0; n < (rsg.length - 1)/2; n++) {\n    hurl.push(\"https://v.qq.com/x/cover/\"+msg.vid+\"/\"+msg.payload[n][1]+\".html\")\n}\nmsg.hurl = hurl\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
