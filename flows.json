@@ -3050,9 +3050,9 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "斗破苍穹 第4季",
+        "payload": "京剧猫第一季",
         "payloadType": "str",
-        "x": 120,
+        "x": 110,
         "y": 240,
         "wires": [
             [
@@ -3161,7 +3161,7 @@
         "type": "function",
         "z": "f936bcfefd29972a",
         "name": "计数",
-        "func": "var count = context.get('count')||1;\ncount = count+1\nmsg.count = count-2\ncontext.set('count',count);\nreturn msg;",
+        "func": "var count = context.get('count')||1;\ncount = count + 1\nmsg.count = count - 2\ncontext.set('count',count);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
