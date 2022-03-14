@@ -2421,7 +2421,7 @@
         "order": 30,
         "width": 0,
         "height": 0,
-        "format": "<script>\nfunction  create() {\n    var input = document.getElementById('content');\n    var kd = document.getElementById('kd');\n    var filepath = document.getElementById('filepath');\n    var subtype = document.getElementById('subtype');\n    if (filepath.value===\"\"){\n        alert(\"本地节点文件路径不能为空！\");\n        return false;\n    }\n    kd.href = 'http://192.168.0.210:25500/sub?target='+subtype.value+'&url='+encodeURIComponent((filepath.value).replace(/\\n/g,\"|\"))+'&insert=false'; \n    kd.style = ''; \n    kd.innerText = 'http://192.168.0.210:25500/sub?target='+subtype.value+'&url='+encodeURIComponent((filepath.value).replace(/\\n/g,\"|\"))+'&insert=false'; \n    \n}\n</script>\n\n<script>\n    var kd = document.getElementById('kd');\n    var value = kd.innerText;\n    this.scope.action = function() { return value; }\n</script>\n\n<md-button ng-click=\"send({payload:action()})\">\n    Click me to send a hello world\n</md-button>\n\n<div id=\"pagewrap\">\n   1.先下载<a href=\"https://bulianglin.com/g/aHR0cHM6Ly9naXRodWIuY29tL3RpbmR5MjAxMy9zdWJjb252ZXJ0ZXIvcmVsZWFzZXM\" target=\"_blank\">订阅转换工具</a>，并运行<br>\n   2.节点文件路径：<br><textarea placeholder=\"支持单个节点、多个节点、直链和本地文件路径\" id=\"filepath\" cols=\"50\" rows=\"10\"></textarea><br>\n   3.将格式转换为：<select id=\"subtype\">\n  <option value=\"clash\">clash</option>\n  <option value=\"mixed\">Base64通用</option>\n</select><br>\n   <input type=\"button\" value=\"生成链接\" onclick=\"create();\"> <br> <br>\n   \n   <a id=\"kd\" style=\"pointer-events: none;\">请先生成链接！</a><br><br>\n\n   \n   </div>",
+        "format": "<script>\nfunction  create() {\n    var input = document.getElementById('content');\n    var kd = document.getElementById('kd');\n    var filepath = document.getElementById('filepath');\n    var subtype = document.getElementById('subtype');\n    if (filepath.value===\"\"){\n        alert(\"本地节点文件路径不能为空！\");\n        return false;\n    }\n    kd.href = 'http://192.168.0.210:25500/sub?target='+subtype.value+'&url='+encodeURIComponent((filepath.value).replace(/\\n/g,\"|\"))+'&insert=false'; \n    kd.style = ''; \n    kd.innerText = 'http://192.168.0.210:25500/sub?target='+subtype.value+'&url='+encodeURIComponent((filepath.value).replace(/\\n/g,\"|\"))+'&insert=false'; \n    a = 'http://192.168.0.210:25500/sub?target='+subtype.value+'&url='+encodeURIComponent((filepath.value).replace(/\\n/g,\"|\"))+'&insert=false'\n}\n</script>\n\n<script>\n    var value = a;\n    this.scope.action = function() { return value; }\n</script>\n\n<md-button ng-click=\"send({payload:action()})\">\n    Click me to send a hello world\n</md-button>\n\n<div id=\"pagewrap\">\n   1.先下载<a href=\"https://bulianglin.com/g/aHR0cHM6Ly9naXRodWIuY29tL3RpbmR5MjAxMy9zdWJjb252ZXJ0ZXIvcmVsZWFzZXM\" target=\"_blank\">订阅转换工具</a>，并运行<br>\n   2.节点文件路径：<br><textarea placeholder=\"支持单个节点、多个节点、直链和本地文件路径\" id=\"filepath\" cols=\"50\" rows=\"10\"></textarea><br>\n   3.将格式转换为：<select id=\"subtype\">\n  <option value=\"clash\">clash</option>\n  <option value=\"mixed\">Base64通用</option>\n</select><br>\n   <input type=\"button\" value=\"生成链接\" onclick=\"create();\"> <br> <br>\n   \n   <a id=\"kd\" style=\"pointer-events: none;\">请先生成链接！</a><br><br>\n\n   \n   </div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -2449,45 +2449,6 @@
         "statusType": "auto",
         "x": 410,
         "y": 400,
-        "wires": []
-    },
-    {
-        "id": "de1d38c5ecb17e5c",
-        "type": "ui_template",
-        "z": "2d47d0348f062886",
-        "group": "3208b3404cb0f2e8",
-        "name": "",
-        "order": 31,
-        "width": 0,
-        "height": 0,
-        "format": "<script>\nvar value = \"hello world\";\nthis.scope.action = function() { return value; }\n</script>\n<md-button ng-click=\"send({payload:action()})\">\n    Click me to send a hello world\n</md-button>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 240,
-        "y": 480,
-        "wires": [
-            [
-                "8939c746418d6e93"
-            ]
-        ]
-    },
-    {
-        "id": "8939c746418d6e93",
-        "type": "debug",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 410,
-        "y": 480,
         "wires": []
     },
     {
