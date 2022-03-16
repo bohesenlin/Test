@@ -1306,7 +1306,7 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "var count = context.get('count')||\"\";\nif(msg.payload[0] == count){\n    return null\n}else{\n    count = msg.payload[0]\n    msg.topic = \"刚刚更新了小说\"\n    msg.payload = \"\"\n    msg.payload = \"《万相之王》：\"+count\n    context.set('count',count);\n    return msg;\n}",
+        "func": "var count = context.get('count')||\"\";\nif(msg.payload[0] == count||typeof msg.payload[0] == \"undefined\"){\n    return null\n}else{\n    count = msg.payload[0]\n    msg.topic = \"刚刚更新了小说\"\n    msg.payload = \"\"\n    msg.payload = \"《万相之王》：\"+count\n    context.set('count',count);\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
