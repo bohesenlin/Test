@@ -1801,7 +1801,8 @@
         "y": 1880,
         "wires": [
             [
-                "d07cfacd3b67043e"
+                "d07cfacd3b67043e",
+                "9ad104c6a4794e99"
             ]
         ]
     },
@@ -1857,6 +1858,24 @@
         "x": 590,
         "y": 2040,
         "wires": []
+    },
+    {
+        "id": "9ad104c6a4794e99",
+        "type": "html",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "body > div.book > div.info > div.small > span:nth-child(4) > a",
+        "ret": "text",
+        "as": "single",
+        "x": 700,
+        "y": 1800,
+        "wires": [
+            [
+                "448cc02fa572c6a4"
+            ]
+        ]
     },
     {
         "id": "4c21ef519ea65406",
