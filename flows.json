@@ -1829,7 +1829,7 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "msg.topic = \"123\"\nmsg.payload = msg.title + msg.payload[0]\nvar str = msg.payload\nvar reg = /\\s/g\nstr.replace(reg, \"123\")\n//var i;\n//for (i = 0; i < 1000; i++) {\n//    url[i] = reg.exec(msg.payload)\n//    if(reg.lastIndex==0){\n//        msg.payload=url\n//        return msg;\n//    }\n//}\nmsg.str = str\nreturn msg;",
+        "func": "msg.topic = msg.title\nmsg.payload = msg.title + msg.payload[0]\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1839,7 +1839,8 @@
         "y": 2000,
         "wires": [
             [
-                "448cc02fa572c6a4"
+                "448cc02fa572c6a4",
+                "ded2bf4be4999fab"
             ]
         ]
     },
