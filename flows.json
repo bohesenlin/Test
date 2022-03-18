@@ -1683,6 +1683,93 @@
         "wires": []
     },
     {
+        "id": "f87cfff4869a17f9",
+        "type": "http request",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://www.bige3.com/book/2749/1.html",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 240,
+        "y": 1880,
+        "wires": [
+            [
+                "d07cfacd3b67043e",
+                "448cc02fa572c6a4"
+            ]
+        ]
+    },
+    {
+        "id": "fcd9e04e6d4c4ca0",
+        "type": "inject",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 1880,
+        "wires": [
+            [
+                "f87cfff4869a17f9"
+            ]
+        ]
+    },
+    {
+        "id": "d07cfacd3b67043e",
+        "type": "html",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "#read > div.book.reader > div.content > h1",
+        "ret": "text",
+        "as": "single",
+        "x": 500,
+        "y": 1880,
+        "wires": [
+            [
+                "448cc02fa572c6a4"
+            ]
+        ]
+    },
+    {
+        "id": "448cc02fa572c6a4",
+        "type": "debug",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 1880,
+        "wires": []
+    },
+    {
         "id": "4c21ef519ea65406",
         "type": "api-call-service",
         "z": "a8c13c8811cc5927",
