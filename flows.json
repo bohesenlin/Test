@@ -1801,7 +1801,8 @@
         "y": 1880,
         "wires": [
             [
-                "9ad104c6a4794e99"
+                "9ad104c6a4794e99",
+                "6eb10ac2236e65ee"
             ]
         ]
     },
@@ -1889,6 +1890,24 @@
         "x": 910,
         "y": 2000,
         "wires": []
+    },
+    {
+        "id": "6eb10ac2236e65ee",
+        "type": "html",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "#info > p:nth-child(5) > a",
+        "ret": "html",
+        "as": "single",
+        "x": 590,
+        "y": 1760,
+        "wires": [
+            [
+                "a83035780c620e87"
+            ]
+        ]
     },
     {
         "id": "4c21ef519ea65406",
