@@ -1839,10 +1839,7 @@
         "x": 430,
         "y": 2000,
         "wires": [
-            [
-                "448cc02fa572c6a4",
-                "ded2bf4be4999fab"
-            ]
+            []
         ]
     },
     {
@@ -1866,16 +1863,33 @@
         "name": "",
         "property": "payload",
         "outproperty": "payload",
-        "tag": "body > div.book > div.info > div.small > span:nth-child(4) > a",
-        "ret": "text",
+        "tag": "div.info div.small span a",
+        "ret": "html",
         "as": "single",
-        "x": 700,
+        "x": 590,
         "y": 1800,
         "wires": [
             [
-                "448cc02fa572c6a4"
+                "a83035780c620e87"
             ]
         ]
+    },
+    {
+        "id": "a83035780c620e87",
+        "type": "debug",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 2000,
+        "wires": []
     },
     {
         "id": "4c21ef519ea65406",
