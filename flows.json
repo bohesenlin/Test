@@ -1690,7 +1690,7 @@
         "method": "GET",
         "ret": "txt",
         "paytoqs": "ignore",
-        "url": "https://www.bige3.com/book/2749/1.html",
+        "url": "https://www.biqudu.net/13_13233/",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -1743,7 +1743,7 @@
         "tag": "#read > div.book.reader > div.content > h1",
         "ret": "text",
         "as": "single",
-        "x": 640,
+        "x": 660,
         "y": 1880,
         "wires": [
             [
@@ -1801,7 +1801,6 @@
         "y": 1880,
         "wires": [
             [
-                "d07cfacd3b67043e",
                 "9ad104c6a4794e99"
             ]
         ]
@@ -1863,8 +1862,8 @@
         "name": "",
         "property": "payload",
         "outproperty": "payload",
-        "tag": "div.info div.small span a",
-        "ret": "html",
+        "tag": "#info > p:nth-child(5) > a",
+        "ret": "text",
         "as": "single",
         "x": 590,
         "y": 1800,
@@ -1887,7 +1886,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 930,
+        "x": 910,
         "y": 2000,
         "wires": []
     },
