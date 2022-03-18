@@ -1829,7 +1829,7 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "msg.payload = msg.title + msg.payload[0]\nreturn msg;",
+        "func": "msg.topic = \"123\"\nmsg.payload = msg.title + msg.payload[0]\nvar str = msg.payload\nvar reg = /\\s/g\nstr.replace(reg, \"\\n\")\n//var i;\n//for (i = 0; i < 1000; i++) {\n//    url[i] = reg.exec(msg.payload)\n//    if(reg.lastIndex==0){\n//        msg.payload=url\n//        return msg;\n//    }\n//}\nmsg.payload = str\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1839,9 +1839,24 @@
         "y": 2020,
         "wires": [
             [
-                "448cc02fa572c6a4"
+                "448cc02fa572c6a4",
+                "ded2bf4be4999fab"
             ]
         ]
+    },
+    {
+        "id": "ded2bf4be4999fab",
+        "type": "e-mail",
+        "z": "df04831a8742eac0",
+        "server": "smtp.qq.com",
+        "port": "465",
+        "secure": true,
+        "tls": true,
+        "name": "1784162089@qq.com",
+        "dname": "发邮件",
+        "x": 910,
+        "y": 2100,
+        "wires": []
     },
     {
         "id": "4c21ef519ea65406",
