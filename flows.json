@@ -1700,8 +1700,7 @@
         "y": 1880,
         "wires": [
             [
-                "d07cfacd3b67043e",
-                "448cc02fa572c6a4"
+                "ff1644e944e92208"
             ]
         ]
     },
@@ -1744,11 +1743,11 @@
         "tag": "#read > div.book.reader > div.content > h1",
         "ret": "text",
         "as": "single",
-        "x": 500,
-        "y": 1880,
+        "x": 640,
+        "y": 1820,
         "wires": [
             [
-                "448cc02fa572c6a4"
+                "99cc16d2830915ec"
             ]
         ]
     },
@@ -1765,9 +1764,84 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 770,
-        "y": 1880,
+        "x": 910,
+        "y": 2020,
         "wires": []
+    },
+    {
+        "id": "2ff3955845e120b6",
+        "type": "html",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "#chaptercontent",
+        "ret": "text",
+        "as": "single",
+        "x": 600,
+        "y": 2020,
+        "wires": [
+            [
+                "8a51300b5a0e1d73"
+            ]
+        ]
+    },
+    {
+        "id": "ff1644e944e92208",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "msg.html_data = msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 1820,
+        "wires": [
+            [
+                "d07cfacd3b67043e"
+            ]
+        ]
+    },
+    {
+        "id": "99cc16d2830915ec",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "msg.title = msg.payload[0]\nmsg.payload = msg.html_data\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 2020,
+        "wires": [
+            [
+                "2ff3955845e120b6"
+            ]
+        ]
+    },
+    {
+        "id": "8a51300b5a0e1d73",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "msg.payload = msg.title + msg.payload[0]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 2020,
+        "wires": [
+            [
+                "448cc02fa572c6a4"
+            ]
+        ]
     },
     {
         "id": "4c21ef519ea65406",
