@@ -1773,7 +1773,7 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "var str = msg.payload.toString()\nstr = str.replace(/(^\\s*)/,\"\")\nret = str.replace(/\\s{2}/g, \"\\n    \")\nmsg.payload = msg.topic + \"\\n\" + \"    \" + ret\nmsg.topic = '小说更新了'\nreturn msg;",
+        "func": "var str = msg.payload.toString()\nstr = str.replace(/(^\\s*)/,\"\")\nret = str.replace(/\\s{2}/g, \"\\n    \")\nmsg.payload = msg.topic + \"\\n\" + \"    \" + ret\nmsg.topic = '小说更新(《万相之王》)' + '(' + msg.time + ')'\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1783,7 +1783,8 @@
         "y": 1940,
         "wires": [
             [
-                "448cc02fa572c6a4"
+                "448cc02fa572c6a4",
+                "ded2bf4be4999fab"
             ]
         ]
     },
@@ -1842,7 +1843,7 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "reg = /<dd> <a style=\"\"  href=\"(.*?)\">(.*?)<\\/a><\\/dd>/\nret = reg.exec(msg.payload)\nmsg.url = 'https://www.biqudu.net'+ret[1]\nmsg.headers = {\n  //'Content-Type': 'application/x-www-form-urlencoded'\n  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nmsg.topic = ret[2]\nreturn msg;",
+        "func": "reg = /<p>最后更新：(.*?)<\\/p>/\nmsg.time = reg.exec(msg.payload)[1]\nreg = /<dd> <a style=\"\"  href=\"(.*?)\">(.*?)<\\/a><\\/dd>/\nret = reg.exec(msg.payload)\nmsg.url = 'https://www.biqudu.net'+ret[1]\nmsg.headers = {\n  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nmsg.topic = ret[2]\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1876,25 +1877,6 @@
         "wires": [
             [
                 "2ff3955845e120b6"
-            ]
-        ]
-    },
-    {
-        "id": "a8b3a865af3d477e",
-        "type": "function",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "func": "//var str = msg.payload\n//ret = str.split('  ')\n//msg.payload = ret\n\nvar str = msg.payload.toString()\nstr = str.replace(/(^\\s*)/,\"\")\n//var str=\"Visit Microsoft!\"\nret = str.replace(/\\s{2}/g, \"\\n    \")\n//ret = str.replace(/\\s/, \"|\")\nmsg.payload = ret\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 450,
-        "y": 2020,
-        "wires": [
-            [
-                "448cc02fa572c6a4"
             ]
         ]
     },
