@@ -1690,7 +1690,7 @@
         "method": "GET",
         "ret": "txt",
         "paytoqs": "ignore",
-        "url": "https://www.biqudu.net/13_13233/",
+        "url": "",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -1726,10 +1726,10 @@
         "payload": "",
         "payloadType": "date",
         "x": 90,
-        "y": 1880,
+        "y": 1800,
         "wires": [
             [
-                "f87cfff4869a17f9"
+                "01b0bc6b977cadcd"
             ]
         ]
     },
@@ -1801,8 +1801,7 @@
         "y": 1880,
         "wires": [
             [
-                "f76ae3572a0bc23d",
-                "9ad104c6a4794e99"
+                "05174b61cf555fb6"
             ]
         ]
     },
@@ -1903,6 +1902,61 @@
         "finalize": "",
         "libs": [],
         "x": 550,
+        "y": 1740,
+        "wires": [
+            [
+                "a83035780c620e87"
+            ]
+        ]
+    },
+    {
+        "id": "01b0bc6b977cadcd",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "msg.url = 'https://www.biqudu.net/13_13233/'\nmsg.headers = {\n  //'Content-Type': 'application/x-www-form-urlencoded'\n  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 1800,
+        "wires": [
+            [
+                "f87cfff4869a17f9"
+            ]
+        ]
+    },
+    {
+        "id": "a74b5df8e2a8f998",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "var url = []\nvar reg = /\"F\":\\d,\"V\":\"(.*?)\"/g\n//var text = \"\";\nvar i;\nfor (i = 0; i < 410; i++) {\n    url[i] = reg.exec(msg.payload)\n    if(reg.lastIndex==0){\n        msg.payload=url\n        return msg;\n    }\n  //text += \"The number is \" + i + \"<br>\";\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 1780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "05174b61cf555fb6",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "reg = /<dd> <a style=\"\"  href=\"(.*?)\">第四百五十章 鱼魑王<\\/a><\\/dd>/\nret = reg.exec(msg.payload)\nmsg.payload = 'https://www.biqudu.net'+ret[1]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
         "y": 1740,
         "wires": [
             [
