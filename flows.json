@@ -1316,8 +1316,7 @@
         "y": 340,
         "wires": [
             [
-                "636a5a7274fea306",
-                "3c2207eb6d1ea1cd"
+                "636a5a7274fea306"
             ]
         ]
     },
@@ -1678,8 +1677,8 @@
         "tls": true,
         "name": "2720699551@qq.com",
         "dname": "发邮件",
-        "x": 990,
-        "y": 340,
+        "x": 750,
+        "y": 1880,
         "wires": []
     },
     {
@@ -1696,7 +1695,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 380,
+        "x": 420,
         "y": 1800,
         "wires": [
             [
@@ -1708,7 +1707,7 @@
         "id": "fcd9e04e6d4c4ca0",
         "type": "inject",
         "z": "df04831a8742eac0",
-        "name": "",
+        "name": "小说更新",
         "props": [
             {
                 "p": "payload"
@@ -1718,37 +1717,21 @@
                 "vt": "str"
             }
         ],
-        "repeat": "",
+        "repeat": "600",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 1800,
+        "payloadType": "str",
+        "x": 110,
+        "y": 1920,
         "wires": [
             [
-                "01b0bc6b977cadcd"
+                "01b0bc6b977cadcd",
+                "e83ed39fc9ff1f2d"
             ]
         ]
-    },
-    {
-        "id": "448cc02fa572c6a4",
-        "type": "debug",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 530,
-        "y": 1880,
-        "wires": []
     },
     {
         "id": "2ff3955845e120b6",
@@ -1760,7 +1743,7 @@
         "tag": "#content",
         "ret": "text",
         "as": "single",
-        "x": 240,
+        "x": 280,
         "y": 1880,
         "wires": [
             [
@@ -1779,12 +1762,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 390,
+        "x": 430,
         "y": 1880,
         "wires": [
             [
-                "448cc02fa572c6a4",
-                "ded2bf4be4999fab"
+                "ded2bf4be4999fab",
+                "3c2207eb6d1ea1cd"
             ]
         ]
     },
@@ -1798,8 +1781,8 @@
         "tls": true,
         "name": "1784162089@qq.com",
         "dname": "发邮件",
-        "x": 690,
-        "y": 1920,
+        "x": 590,
+        "y": 1880,
         "wires": []
     },
     {
@@ -1813,7 +1796,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 230,
+        "x": 270,
         "y": 1800,
         "wires": [
             [
@@ -1832,7 +1815,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
+        "x": 570,
         "y": 1800,
         "wires": [
             [
@@ -1854,7 +1837,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 680,
+        "x": 720,
         "y": 1800,
         "wires": [
             [
@@ -1873,7 +1856,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 230,
+        "x": 270,
         "y": 1980,
         "wires": [
             [
@@ -1892,7 +1875,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
+        "x": 570,
         "y": 1980,
         "wires": [
             [
@@ -1912,59 +1895,13 @@
         "persist": false,
         "authType": "",
         "senderr": false,
-        "x": 380,
+        "x": 420,
         "y": 1980,
         "wires": [
             [
                 "5aae1a80f39547f2"
             ]
         ]
-    },
-    {
-        "id": "c2ddf282aa8dfd0c",
-        "type": "inject",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 1980,
-        "wires": [
-            [
-                "e83ed39fc9ff1f2d"
-            ]
-        ]
-    },
-    {
-        "id": "40c9e3bf4f2836ea",
-        "type": "debug",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 570,
-        "y": 2060,
-        "wires": []
     },
     {
         "id": "1c7d73d8e74cf1f8",
@@ -1978,7 +1915,7 @@
         "persist": false,
         "authType": "",
         "senderr": false,
-        "x": 680,
+        "x": 720,
         "y": 1980,
         "wires": [
             [
@@ -1996,7 +1933,7 @@
         "tag": "#chaptercontent",
         "ret": "text",
         "as": "single",
-        "x": 260,
+        "x": 300,
         "y": 2060,
         "wires": [
             [
@@ -2015,12 +1952,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
+        "x": 470,
         "y": 2060,
         "wires": [
             [
-                "40c9e3bf4f2836ea",
-                "ded2bf4be4999fab"
+                "ded2bf4be4999fab",
+                "3c2207eb6d1ea1cd"
             ]
         ]
     },
