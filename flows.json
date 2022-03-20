@@ -1885,7 +1885,7 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "var str = msg.payload\nret = str.split('  ')\nmsg.payload = ret\n\n//var reg = /  (.*?)  /\n//ret = reg.exec(msg.payload)\n//msg.payload = ret\nreturn msg;",
+        "func": "//var str = msg.payload\n//ret = str.split('  ')\n//msg.payload = ret\n\n//var str = msg.payload\nvar str=\"Visit Microsoft!\"\nret = str.replace(/\\s/, \"W3School\")\n//ret = str.replace(/\\s/, \"|\")\nmsg.payload = ret\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
