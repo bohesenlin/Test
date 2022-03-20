@@ -1950,7 +1950,7 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "reg = /<dd> <a style=\"\"  href=\"(.*?)\">第四百五十章 鱼魑王<\\/a><\\/dd>/\nret = reg.exec(msg.payload)\nmsg.payload = 'https://www.biqudu.net'+ret[1]\nreturn msg;",
+        "func": "reg = /<dd> <a style=\"\"  href=\"(.*?)\">(.*?)<\\/a><\\/dd>/\nret = reg.exec(msg.payload)\nmsg.url = 'https://www.biqudu.net'+ret[1]\nmsg.headers = {\n  //'Content-Type': 'application/x-www-form-urlencoded'\n  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nmsg.topic = ret[2]\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1958,6 +1958,29 @@
         "libs": [],
         "x": 710,
         "y": 1740,
+        "wires": [
+            [
+                "a83035780c620e87",
+                "fe9ea89af088171e"
+            ]
+        ]
+    },
+    {
+        "id": "fe9ea89af088171e",
+        "type": "http request",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 780,
+        "y": 2100,
         "wires": [
             [
                 "a83035780c620e87"
