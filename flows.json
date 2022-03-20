@@ -1784,8 +1784,7 @@
         "y": 1940,
         "wires": [
             [
-                "448cc02fa572c6a4",
-                "ded2bf4be4999fab"
+                "448cc02fa572c6a4"
             ]
         ]
     },
@@ -1799,8 +1798,8 @@
         "tls": true,
         "name": "1784162089@qq.com",
         "dname": "发邮件",
-        "x": 590,
-        "y": 1980,
+        "x": 610,
+        "y": 2000,
         "wires": []
     },
     {
@@ -1886,7 +1885,7 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "var str = msg.payload\nret = str.split(\"\")\nmsg.payload = ret\nreturn msg;",
+        "func": "//var str = msg.payload\n//ret = str.split(\"\")\n//msg.payload = ret\n\nvar reg = /  (.*?)  /\nret = reg.exec(msg.payload)\nmsg.payload = ret\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
