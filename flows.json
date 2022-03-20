@@ -1881,6 +1881,110 @@
         ]
     },
     {
+        "id": "e83ed39fc9ff1f2d",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "msg.url = 'https://www.bige3.com/book/627/'\nmsg.headers = {\n  //'Content-Type': 'application/x-www-form-urlencoded'\n  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 210,
+        "y": 2120,
+        "wires": [
+            [
+                "5dd89cb717802e77"
+            ]
+        ]
+    },
+    {
+        "id": "5aae1a80f39547f2",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "reg = /<span class=\"last\">更新：(.*?)<\\/span>/\nmsg.time = reg.exec(msg.payload)\nreg = /<a href=\"\\/book\\/(.*?)\">(.*?)<\\/a>/g\nret = reg.exec(msg.payload)\nmsg.url = 'https://www.bige3.com/book/' + ret[1]\nmsg.title = ret[2]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 2120,
+        "wires": [
+            [
+                "40c9e3bf4f2836ea"
+            ]
+        ]
+    },
+    {
+        "id": "5dd89cb717802e77",
+        "type": "http request",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "persist": false,
+        "authType": "",
+        "senderr": false,
+        "x": 360,
+        "y": 2120,
+        "wires": [
+            [
+                "5aae1a80f39547f2"
+            ]
+        ]
+    },
+    {
+        "id": "c2ddf282aa8dfd0c",
+        "type": "inject",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 2120,
+        "wires": [
+            [
+                "e83ed39fc9ff1f2d"
+            ]
+        ]
+    },
+    {
+        "id": "40c9e3bf4f2836ea",
+        "type": "debug",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 2120,
+        "wires": []
+    },
+    {
         "id": "4c21ef519ea65406",
         "type": "api-call-service",
         "z": "a8c13c8811cc5927",
