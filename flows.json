@@ -1700,7 +1700,7 @@
         "y": 1800,
         "wires": [
             [
-                "ff1644e944e92208"
+                "05174b61cf555fb6"
             ]
         ]
     },
@@ -1764,26 +1764,8 @@
         "y": 1940,
         "wires": [
             [
-                "8a51300b5a0e1d73"
-            ]
-        ]
-    },
-    {
-        "id": "ff1644e944e92208",
-        "type": "function",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "func": "msg.html_data = msg.payload\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 530,
-        "y": 1800,
-        "wires": [
-            [
-                "05174b61cf555fb6"
+                "8a51300b5a0e1d73",
+                "a8b3a865af3d477e"
             ]
         ]
     },
@@ -1792,7 +1774,7 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "//msg.topic = msg.title\nmsg.payload = msg.topic + msg.payload[0]\nreturn msg;",
+        "func": "//msg.topic = msg.title\nmsg.payload = msg.topic + msg.payload[0]\nmsg.topic = '小说更新了'\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1834,7 +1816,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 810,
+        "x": 670,
         "y": 1800,
         "wires": []
     },
@@ -1868,7 +1850,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
+        "x": 530,
         "y": 1800,
         "wires": [
             [
@@ -1896,6 +1878,25 @@
         "wires": [
             [
                 "2ff3955845e120b6"
+            ]
+        ]
+    },
+    {
+        "id": "a8b3a865af3d477e",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "var str = msg.payload\nret = str.split(\"\")\nmsg.payload = ret\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 2020,
+        "wires": [
+            [
+                "448cc02fa572c6a4"
             ]
         ]
     },
