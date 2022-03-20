@@ -1746,8 +1746,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 610,
-        "y": 1940,
+        "x": 530,
+        "y": 1880,
         "wires": []
     },
     {
@@ -1760,8 +1760,8 @@
         "tag": "#content",
         "ret": "text",
         "as": "single",
-        "x": 280,
-        "y": 1940,
+        "x": 240,
+        "y": 1880,
         "wires": [
             [
                 "8a51300b5a0e1d73"
@@ -1779,8 +1779,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
-        "y": 1940,
+        "x": 390,
+        "y": 1880,
         "wires": [
             [
                 "448cc02fa572c6a4",
@@ -1798,25 +1798,8 @@
         "tls": true,
         "name": "1784162089@qq.com",
         "dname": "发邮件",
-        "x": 610,
-        "y": 2000,
-        "wires": []
-    },
-    {
-        "id": "a83035780c620e87",
-        "type": "debug",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 670,
-        "y": 1800,
+        "x": 690,
+        "y": 1920,
         "wires": []
     },
     {
@@ -1853,7 +1836,6 @@
         "y": 1800,
         "wires": [
             [
-                "a83035780c620e87",
                 "fe9ea89af088171e"
             ]
         ]
@@ -1872,8 +1854,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 120,
-        "y": 1940,
+        "x": 680,
+        "y": 1800,
         "wires": [
             [
                 "2ff3955845e120b6"
@@ -1891,8 +1873,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 210,
-        "y": 2120,
+        "x": 230,
+        "y": 1980,
         "wires": [
             [
                 "5dd89cb717802e77"
@@ -1904,17 +1886,17 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "reg = /<span class=\"last\">更新：(.*?)<\\/span>/\nmsg.time = reg.exec(msg.payload)\nreg = /<a href=\"\\/book\\/(.*?)\">(.*?)<\\/a>/g\nret = reg.exec(msg.payload)\nmsg.url = 'https://www.bige3.com/book/' + ret[1]\nmsg.title = ret[2]\nreturn msg;",
+        "func": "reg = /<span class=\"last\">更新：(.*?)<\\/span>/\nmsg.time = reg.exec(msg.payload)[1]\nreg = /<a href=\"\\/book\\/(.*?)\">(.*?)<\\/a>/g\nret = reg.exec(msg.payload)\nmsg.url = 'https://www.bige3.com/book/' + ret[1]\nmsg.title = ret[2]\nmsg.headers = {\n  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
-        "y": 2120,
+        "x": 530,
+        "y": 1980,
         "wires": [
             [
-                "40c9e3bf4f2836ea"
+                "1c7d73d8e74cf1f8"
             ]
         ]
     },
@@ -1930,8 +1912,8 @@
         "persist": false,
         "authType": "",
         "senderr": false,
-        "x": 360,
-        "y": 2120,
+        "x": 380,
+        "y": 1980,
         "wires": [
             [
                 "5aae1a80f39547f2"
@@ -1960,7 +1942,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 90,
-        "y": 2120,
+        "y": 1980,
         "wires": [
             [
                 "e83ed39fc9ff1f2d"
@@ -1980,9 +1962,67 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 650,
-        "y": 2120,
+        "x": 570,
+        "y": 2060,
         "wires": []
+    },
+    {
+        "id": "1c7d73d8e74cf1f8",
+        "type": "http request",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "persist": false,
+        "authType": "",
+        "senderr": false,
+        "x": 680,
+        "y": 1980,
+        "wires": [
+            [
+                "26b756b404c74900"
+            ]
+        ]
+    },
+    {
+        "id": "26b756b404c74900",
+        "type": "html",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "#chaptercontent",
+        "ret": "text",
+        "as": "single",
+        "x": 260,
+        "y": 2060,
+        "wires": [
+            [
+                "3437c517c028d6df"
+            ]
+        ]
+    },
+    {
+        "id": "3437c517c028d6df",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "var count = context.get('count')||\"\";\nif(msg.time == count||typeof msg.time == \"undefined\"){\n    return null\n}else{\n    //count = msg.time\n    //context.set('count',count);\n    msg.payload = msg.title + msg.payload[0]\n    msg.topic = '小说更新(《天唐锦绣》)' + '(' + msg.time + ')'\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 2060,
+        "wires": [
+            [
+                "40c9e3bf4f2836ea",
+                "ded2bf4be4999fab"
+            ]
+        ]
     },
     {
         "id": "4c21ef519ea65406",
