@@ -2009,7 +2009,7 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "var count = context.get('count')||\"\";\nif(msg.time == count||typeof msg.time == \"undefined\"){\n    return null\n}else{\n    //count = msg.time\n    //context.set('count',count);\n    msg.payload = msg.title + msg.payload[0]\n    msg.topic = '小说更新(《天唐锦绣》)' + '(' + msg.time + ')'\n    return msg;\n}",
+        "func": "var count = context.get('count')||\"\";\nif(msg.time == count||typeof msg.time == \"undefined\"){\n    return null\n}else{\n    count = msg.time\n    context.set('count',count);\n    msg.payload = msg.title + msg.payload[0]\n    msg.topic = '小说更新(《天唐锦绣》)' + '(' + msg.time + ')'\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
