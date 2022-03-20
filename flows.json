@@ -1764,7 +1764,7 @@
         "y": 1940,
         "wires": [
             [
-                "a8b3a865af3d477e"
+                "8a51300b5a0e1d73"
             ]
         ]
     },
@@ -1773,7 +1773,7 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "//msg.topic = msg.title\nmsg.payload = msg.topic + msg.payload[0]\nmsg.topic = '小说更新了'\nreturn msg;",
+        "func": "var str = msg.payload.toString()\nstr = str.replace(/(^\\s*)/,\"\")\nret = str.replace(/\\s{2}/g, \"\\n    \")\nmsg.payload = msg.topic + \"\\n\" + \"    \" + ret\nmsg.topic = '小说更新了'\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1884,7 +1884,7 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "//var str = msg.payload\n//ret = str.split('  ')\n//msg.payload = ret\n\nvar str = msg.payload.toString()\n//var str=\"Visit Microsoft!\"\nret = str.replace(/\\s{2}/g, \"\\n  \")\n//ret = str.replace(/\\s/, \"|\")\nmsg.payload = ret\nreturn msg;",
+        "func": "//var str = msg.payload\n//ret = str.split('  ')\n//msg.payload = ret\n\nvar str = msg.payload.toString()\nstr = str.replace(/(^\\s*)/,\"\")\n//var str=\"Visit Microsoft!\"\nret = str.replace(/\\s{2}/g, \"\\n    \")\n//ret = str.replace(/\\s/, \"|\")\nmsg.payload = ret\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
