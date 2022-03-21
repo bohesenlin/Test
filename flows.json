@@ -387,7 +387,7 @@
         "height": 1
     },
     {
-        "id": "06395dc1d2540d08",
+        "id": "b5debb292335794f",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
@@ -397,7 +397,7 @@
         "height": 1
     },
     {
-        "id": "dc26d8c1579f3833",
+        "id": "7890eb0d4f10ac6d",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
@@ -407,7 +407,7 @@
         "height": 1
     },
     {
-        "id": "151564c0d61a526c",
+        "id": "4f321dda01cf524c",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
@@ -417,7 +417,7 @@
         "height": 1
     },
     {
-        "id": "31680d405754bdc2",
+        "id": "e9f53ffb5d6a6849",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
@@ -427,7 +427,7 @@
         "height": 1
     },
     {
-        "id": "211e1b082f4298d2",
+        "id": "4333890357ad7fd6",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
@@ -437,7 +437,7 @@
         "height": 1
     },
     {
-        "id": "e2040111d111bbf2",
+        "id": "e6800b85d208c4b8",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
@@ -447,7 +447,7 @@
         "height": 1
     },
     {
-        "id": "06be9548bb7955a1",
+        "id": "94720abc65a406c2",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
@@ -457,7 +457,7 @@
         "height": 1
     },
     {
-        "id": "bb4e042dde398f58",
+        "id": "e350829c7fe60efb",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
@@ -467,7 +467,7 @@
         "height": 1
     },
     {
-        "id": "bcdc3903ee617d3a",
+        "id": "0e4e9d875bb54945",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
@@ -477,7 +477,7 @@
         "height": 1
     },
     {
-        "id": "062afbf52ff13514",
+        "id": "6314deb7d19beccd",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
@@ -487,7 +487,7 @@
         "height": 1
     },
     {
-        "id": "05715d8296734a2a",
+        "id": "935d1f5fb4b66421",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
@@ -497,7 +497,7 @@
         "height": 1
     },
     {
-        "id": "346db4465b596464",
+        "id": "916286f47bc889e9",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
@@ -507,112 +507,92 @@
         "height": 1
     },
     {
-        "id": "7fe6617f362e1697",
+        "id": "57d74e9f89a4a86b",
+        "type": "ui_spacer",
+        "z": "df04831a8742eac0",
+        "name": "spacer",
+        "group": "c7879eafe39970e1",
+        "order": 15,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "aaef0ac0c72a1244",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
         "group": "c7879eafe39970e1",
         "order": 16,
-        "width": 1,
+        "width": 30,
         "height": 1
     },
     {
-        "id": "ef2488703d2b7c1c",
+        "id": "f5530eba314fc749",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
         "group": "c7879eafe39970e1",
-        "order": 19,
-        "width": 1,
+        "order": 17,
+        "width": 30,
         "height": 1
     },
     {
-        "id": "648c7e449e940cd0",
+        "id": "ae82f3df4467717b",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
         "group": "c7879eafe39970e1",
-        "order": 21,
-        "width": 9,
+        "order": 18,
+        "width": 30,
         "height": 1
     },
     {
-        "id": "13d077b56977bb54",
+        "id": "7692529095db29b7",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
         "group": "c7879eafe39970e1",
         "order": 22,
-        "width": 30,
+        "width": 15,
         "height": 1
     },
     {
-        "id": "126b5656ba592dad",
+        "id": "76891b272d11bdc4",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
         "group": "c7879eafe39970e1",
         "order": 23,
-        "width": 30,
+        "width": 15,
         "height": 1
     },
     {
-        "id": "1e1b41d6adfa3fd3",
+        "id": "7ca7d2c80701802d",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
         "group": "c7879eafe39970e1",
         "order": 24,
-        "width": 30,
-        "height": 1
-    },
-    {
-        "id": "fe5135f4cc935370",
-        "type": "ui_spacer",
-        "z": "df04831a8742eac0",
-        "name": "spacer",
-        "group": "c7879eafe39970e1",
-        "order": 28,
         "width": 15,
         "height": 1
     },
     {
-        "id": "787d9a6904b877a5",
+        "id": "6d726a50d0eb7b70",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
         "group": "c7879eafe39970e1",
-        "order": 29,
+        "order": 25,
         "width": 15,
         "height": 1
     },
     {
-        "id": "cdef551a168ddfb2",
+        "id": "374b258d7a09710f",
         "type": "ui_spacer",
         "z": "df04831a8742eac0",
         "name": "spacer",
         "group": "c7879eafe39970e1",
-        "order": 30,
-        "width": 15,
-        "height": 1
-    },
-    {
-        "id": "be4fceaebafb1366",
-        "type": "ui_spacer",
-        "z": "df04831a8742eac0",
-        "name": "spacer",
-        "group": "c7879eafe39970e1",
-        "order": 31,
-        "width": 15,
-        "height": 1
-    },
-    {
-        "id": "648d24ecb14f05f2",
-        "type": "ui_spacer",
-        "z": "df04831a8742eac0",
-        "name": "spacer",
-        "group": "c7879eafe39970e1",
-        "order": 32,
+        "order": 26,
         "width": 15,
         "height": 1
     },
@@ -633,7 +613,7 @@
         "d": true,
         "group": "c7879eafe39970e1",
         "name": "网易云音乐",
-        "order": 27,
+        "order": 21,
         "width": 15,
         "height": 5,
         "format": "<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=330 height=86 src=\"//music.163.com/outchain/player?type=2&id=1894007406&auto=1&height=66\"></iframe>",
@@ -728,7 +708,7 @@
         "type": "ui_text",
         "z": "df04831a8742eac0",
         "group": "c7879eafe39970e1",
-        "order": 25,
+        "order": 19,
         "width": 30,
         "height": 1,
         "name": "",
@@ -746,7 +726,7 @@
         "z": "df04831a8742eac0",
         "name": "",
         "group": "c7879eafe39970e1",
-        "order": 26,
+        "order": 20,
         "width": 30,
         "height": 16,
         "label": "chart",
@@ -930,8 +910,8 @@
         "outputOnStateChange": false,
         "outputPayload": "",
         "outputPayloadType": "str",
-        "x": 710,
-        "y": 380,
+        "x": 930,
+        "y": 440,
         "wires": [
             []
         ]
@@ -961,7 +941,6 @@
         "y": 440,
         "wires": [
             [
-                "e801ceef35144b86",
                 "34abacb74a4ff1cd"
             ]
         ]
@@ -998,11 +977,10 @@
         "tag": ".update .detail a",
         "ret": "text",
         "as": "single",
-        "x": 520,
+        "x": 740,
         "y": 440,
         "wires": [
             [
-                "4eb9dbc293017cbf",
                 "e99c6c5e658c2273",
                 "7eaed87968638b08",
                 "dcb6cec1d1afb4fd"
@@ -1015,110 +993,15 @@
         "z": "df04831a8742eac0",
         "group": "c7879eafe39970e1",
         "order": 14,
-        "width": 16,
+        "width": 29,
         "height": 1,
         "name": "",
         "label": "最新章节",
-        "format": "《万相之王》{{msg.payload[0]}}",
+        "format": "《万相之王》{{msg.title}} 更新时间：{{msg.payload[0]}}",
         "layout": "row-left",
         "className": "",
         "x": 720,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "e801ceef35144b86",
-        "type": "http request",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "http://book.zongheng.com/book/672340.html",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 320,
-        "y": 560,
-        "wires": [
-            [
-                "9836234eab44154e",
-                "b19e228ce5149c3b"
-            ]
-        ]
-    },
-    {
-        "id": "9836234eab44154e",
-        "type": "html",
-        "z": "df04831a8742eac0",
-        "name": "css选择器",
-        "property": "payload",
-        "outproperty": "payload",
-        "tag": ".book-new-chapter .tit a",
-        "ret": "text",
-        "as": "multi",
-        "x": 480,
-        "y": 560,
-        "wires": [
-            [
-                "34e1163799cb28f1",
-                "ac0d2a9b3429f8b8"
-            ]
-        ]
-    },
-    {
-        "id": "34e1163799cb28f1",
-        "type": "ui_text",
-        "z": "df04831a8742eac0",
-        "group": "c7879eafe39970e1",
-        "order": 17,
-        "width": 16,
-        "height": 1,
-        "name": "",
-        "label": "最新章节",
-        "format": "《剑来》{{msg.payload}}",
-        "layout": "row-left",
-        "className": "",
-        "x": 720,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "b19e228ce5149c3b",
-        "type": "html",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "property": "payload",
-        "outproperty": "payload",
-        "tag": ".time",
-        "ret": "text",
-        "as": "multi",
-        "x": 470,
-        "y": 600,
-        "wires": [
-            [
-                "7e07c038d6f0405c",
-                "ac0d2a9b3429f8b8"
-            ]
-        ]
-    },
-    {
-        "id": "7e07c038d6f0405c",
-        "type": "ui_text",
-        "z": "df04831a8742eac0",
-        "group": "c7879eafe39970e1",
-        "order": 18,
-        "width": 13,
-        "height": 1,
-        "name": "",
-        "label": "更新时间",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "className": "",
-        "x": 720,
-        "y": 640,
+        "y": 580,
         "wires": []
     },
     {
@@ -1131,31 +1014,14 @@
         "tag": ".detail .time",
         "ret": "text",
         "as": "single",
-        "x": 490,
-        "y": 500,
+        "x": 550,
+        "y": 520,
         "wires": [
             [
-                "22e690a082ba1a51",
-                "e0866f717803c6d3"
+                "e0866f717803c6d3",
+                "4eb9dbc293017cbf"
             ]
         ]
-    },
-    {
-        "id": "22e690a082ba1a51",
-        "type": "ui_text",
-        "z": "df04831a8742eac0",
-        "group": "c7879eafe39970e1",
-        "order": 15,
-        "width": 13,
-        "height": 1,
-        "name": "",
-        "label": "更新时间",
-        "format": "{{msg.payload[0]}}",
-        "layout": "row-left",
-        "className": "",
-        "x": 720,
-        "y": 500,
-        "wires": []
     },
     {
         "id": "0993bde1fbc370af",
@@ -1175,134 +1041,6 @@
         "wires": []
     },
     {
-        "id": "ac0d2a9b3429f8b8",
-        "type": "function",
-        "z": "df04831a8742eac0",
-        "name": "消息处理",
-        "func": "var count1 = context.get('count1')||0;\nvar count = context.get('count')||\"\";\nif(count1==2){\n    count1=0\n    count = \"\"\n}\n\ncount += msg.payload\ncontext.set('count',count);\n\nmsg.payload = count;\ncount1 += 1\ncontext.set('count1',count1);\nif(count1==2){\n    return msg;\n}\n\n//msg.payload = count1;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 720,
-        "y": 560,
-        "wires": [
-            [
-                "2697da37367acf70"
-            ]
-        ]
-    },
-    {
-        "id": "bc28c0b9650e1e1f",
-        "type": "function",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "func": "var count = context.get('count')||\"\";\ncount += msg.payload\ncontext.set('count',count);\nflow.set('flowsave',count)\nmsg.payload = count;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 470,
-        "y": 740,
-        "wires": [
-            [
-                "238ac5b07eb78302"
-            ]
-        ]
-    },
-    {
-        "id": "238ac5b07eb78302",
-        "type": "function",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "func": "msg.payload = flow.get('flowsave')\nconst attributes = msg.payload\nreturn {\n    payload:{\n        state: attributes\n    }\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 630,
-        "y": 740,
-        "wires": [
-            [
-                "1006d2622ac88457"
-            ]
-        ]
-    },
-    {
-        "id": "1006d2622ac88457",
-        "type": "debug",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 770,
-        "y": 740,
-        "wires": []
-    },
-    {
-        "id": "7321b1cf27be3da6",
-        "type": "function",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "func": "var count = context.get('count')||\"\";\ncount += msg.payload\ncontext.set('count',count);\nflow.set('flowsave1',count)\nmsg.payload = count;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 470,
-        "y": 800,
-        "wires": [
-            [
-                "70086d3eced1c7d0",
-                "238ac5b07eb78302"
-            ]
-        ]
-    },
-    {
-        "id": "70086d3eced1c7d0",
-        "type": "debug",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 610,
-        "y": 800,
-        "wires": []
-    },
-    {
-        "id": "2697da37367acf70",
-        "type": "ui_text",
-        "z": "df04831a8742eac0",
-        "group": "c7879eafe39970e1",
-        "order": 20,
-        "width": 21,
-        "height": 1,
-        "name": "",
-        "label": "最新章节",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "className": "",
-        "x": 900,
-        "y": 560,
-        "wires": []
-    },
-    {
         "id": "7eaed87968638b08",
         "type": "function",
         "z": "df04831a8742eac0",
@@ -1313,8 +1051,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
-        "y": 340,
+        "x": 890,
+        "y": 520,
         "wires": [
             [
                 "636a5a7274fea306"
@@ -1331,8 +1069,8 @@
         "tls": true,
         "name": "1784162089@qq.com",
         "dname": "发邮件",
-        "x": 870,
-        "y": 340,
+        "x": 890,
+        "y": 580,
         "wires": []
     },
     {
@@ -1981,8 +1719,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 420,
-        "y": 380,
+        "x": 520,
+        "y": 440,
         "wires": [
             [
                 "e397dd2d51fc3342"
@@ -1997,16 +1735,16 @@
         "rules": [
             {
                 "t": "set",
-                "p": "payload",
+                "p": "title",
                 "pt": "msg",
-                "to": "html_data",
+                "to": "payload[0]",
                 "tot": "msg"
             },
             {
                 "t": "set",
-                "p": "title",
+                "p": "payload",
                 "pt": "msg",
-                "to": "payload",
+                "to": "html_data",
                 "tot": "msg"
             }
         ],
@@ -2015,8 +1753,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 740,
-        "y": 300,
+        "x": 340,
+        "y": 520,
         "wires": [
             [
                 "0fce05d6f7e03c0f"
@@ -2036,8 +1774,100 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 890,
-        "y": 460,
+        "x": 710,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "bc28c0b9650e1e1f",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "var count = context.get('count')||\"\";\ncount += msg.payload\ncontext.set('count',count);\nflow.set('flowsave',count)\nmsg.payload = count;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 740,
+        "wires": [
+            [
+                "238ac5b07eb78302"
+            ]
+        ]
+    },
+    {
+        "id": "238ac5b07eb78302",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "msg.payload = flow.get('flowsave')\nconst attributes = msg.payload\nreturn {\n    payload:{\n        state: attributes\n    }\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 740,
+        "wires": [
+            [
+                "1006d2622ac88457"
+            ]
+        ]
+    },
+    {
+        "id": "1006d2622ac88457",
+        "type": "debug",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "7321b1cf27be3da6",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "var count = context.get('count')||\"\";\ncount += msg.payload\ncontext.set('count',count);\nflow.set('flowsave1',count)\nmsg.payload = count;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 800,
+        "wires": [
+            [
+                "238ac5b07eb78302",
+                "70086d3eced1c7d0"
+            ]
+        ]
+    },
+    {
+        "id": "70086d3eced1c7d0",
+        "type": "debug",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 800,
         "wires": []
     },
     {
@@ -2279,7 +2109,7 @@
         "type": "ui_text",
         "z": "0143542654182c64",
         "group": "c7879eafe39970e1",
-        "order": 33,
+        "order": 27,
         "width": 0,
         "height": 0,
         "name": "",
@@ -2296,7 +2126,7 @@
         "type": "ui_text",
         "z": "0143542654182c64",
         "group": "c7879eafe39970e1",
-        "order": 34,
+        "order": 28,
         "width": 0,
         "height": 0,
         "name": "",
@@ -2313,7 +2143,7 @@
         "type": "ui_text",
         "z": "0143542654182c64",
         "group": "c7879eafe39970e1",
-        "order": 35,
+        "order": 29,
         "width": 0,
         "height": 0,
         "name": "",
@@ -2330,7 +2160,7 @@
         "type": "ui_text",
         "z": "0143542654182c64",
         "group": "c7879eafe39970e1",
-        "order": 36,
+        "order": 30,
         "width": 0,
         "height": 0,
         "name": "",
@@ -2391,7 +2221,7 @@
         "type": "ui_text",
         "z": "0143542654182c64",
         "group": "c7879eafe39970e1",
-        "order": 37,
+        "order": 31,
         "width": 0,
         "height": 0,
         "name": "",
@@ -2427,7 +2257,7 @@
         "type": "ui_text",
         "z": "0143542654182c64",
         "group": "c7879eafe39970e1",
-        "order": 38,
+        "order": 32,
         "width": 0,
         "height": 0,
         "name": "",
