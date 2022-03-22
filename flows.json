@@ -1880,12 +1880,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "libs": [
-            {
-                "var": "crypto-js",
-                "module": "CryptoJS"
-            }
-        ],
+        "libs": [],
         "x": 270,
         "y": 2240,
         "wires": [
@@ -1919,7 +1914,7 @@
         "y": 2240,
         "wires": [
             [
-                "cb014ece41a069b9"
+                "5a60ba4fc9ccde37"
             ]
         ]
     },
@@ -1938,6 +1933,25 @@
         "x": 430,
         "y": 2240,
         "wires": []
+    },
+    {
+        "id": "5a60ba4fc9ccde37",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "var CryptoJS = require(\"crypto-js\");\n\nvar ts = Math.floor(Date.now() / 1000)\nvar source = \"lennyguotest\"\nvar signStr = \"x-timestamp: \" + ts + \"\\nx-source: \" + source\nvar auth = CryptoJS.HmacSHA256(signStr, appKey).toString()\nmsg.payload = auth\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 2320,
+        "wires": [
+            [
+                "3ff63ec7b40ac43a"
+            ]
+        ]
     },
     {
         "id": "4c21ef519ea65406",
