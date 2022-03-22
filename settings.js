@@ -418,7 +418,8 @@ module.exports = {
      */
     functionGlobalContext: {
         // os:require('os'),
-        require:require,
+        //require:require,
+	CryptoJS:require('crypto-js')
     },
 
     /** The maximum number of messages nodes will buffer internally as part of their
