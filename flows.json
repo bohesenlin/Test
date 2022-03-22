@@ -1871,6 +1871,75 @@
         "wires": []
     },
     {
+        "id": "cb014ece41a069b9",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "function encrypt(key, text){\n    return CryptoJS.AES.encrypt(text, key).toString();\n}\nlet key = 'thisiskey'\nlet text = '你好'\n\n\nlet cipherText = encrypt(key, text);\nmsg.payload = cipherText\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "crypto-js",
+                "module": "CryptoJS"
+            }
+        ],
+        "x": 270,
+        "y": 2240,
+        "wires": [
+            [
+                "3ff63ec7b40ac43a"
+            ]
+        ]
+    },
+    {
+        "id": "3af8fb28f2bc12f3",
+        "type": "inject",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 2240,
+        "wires": [
+            [
+                "cb014ece41a069b9"
+            ]
+        ]
+    },
+    {
+        "id": "3ff63ec7b40ac43a",
+        "type": "debug",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 2240,
+        "wires": []
+    },
+    {
         "id": "4c21ef519ea65406",
         "type": "api-call-service",
         "z": "a8c13c8811cc5927",
