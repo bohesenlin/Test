@@ -4,6 +4,7 @@
     "version": "0.0.1",
     "private": true,
     "dependencies": {
+        "crypto-js": "^4.1.1",
         "node-red-contrib-crypto-js-dynamic": "~0.1.22",
         "node-red-contrib-git-nodes": "~0.2.2",
         "node-red-contrib-home-assistant-websocket": "~0.43.0",
