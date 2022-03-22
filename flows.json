@@ -1939,7 +1939,7 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "//var CryptoJS = require(\"crypto-js\");\nvar CryptoJS = global.get('CryptoJS')\n\nvar ts = Math.floor(Date.now() / 1000)\nvar source = \"lennyguotest\"\nvar signStr = \"x-timestamp: \" + ts + \"\\nx-source: \" + source\nvar auth = CryptoJS.Hmac_SHA256(signStr, appKey).toString()\nmsg.payload = auth\nreturn msg;",
+        "func": "//var CryptoJS = require(\"crypto-js\");\nvar CryptoJS = global.get('crypto-js')\n\nvar ts = Math.floor(Date.now() / 1000)\nvar source = \"lennyguotest\"\nvar signStr = \"x-timestamp: \" + ts + \"\\nx-source: \" + source\nvar auth = CryptoJS.Hmac_SHA256(signStr, appKey).toString()\nmsg.payload = auth\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1947,6 +1947,25 @@
         "libs": [],
         "x": 270,
         "y": 2320,
+        "wires": [
+            [
+                "3ff63ec7b40ac43a"
+            ]
+        ]
+    },
+    {
+        "id": "92d952f0e1d6561d",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "var CryptoJS = global.get('CryptoJS')\nfunction encrypt(key, text){\n    return CryptoJS.AES.encrypt(text, key).toString();\n}\nlet key = 'thisiskey'\nlet text = '你好'\n\n\nlet cipherText = encrypt(key, text);\nmsg.payload = cipherText\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 2420,
         "wires": [
             [
                 "3ff63ec7b40ac43a"
