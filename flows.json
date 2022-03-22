@@ -1939,7 +1939,7 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "//var CryptoJS = require(\"crypto-js\");\nvar CryptoJS = global.get('crypto-js')\n\nvar ts = Math.floor(Date.now() / 1000)\nvar source = \"lennyguotest\"\nvar signStr = \"x-timestamp: \" + ts + \"\\nx-source: \" + source\nvar auth = CryptoJS.Hmac_SHA256(signStr, appKey).toString()\nmsg.payload = auth\nreturn msg;",
+        "func": "var CryptoJS = require(\"crypto-js\");\n//var CryptoJS = global.get('CryptoJS')\n\nvar ts = Math.floor(Date.now() / 1000)\nvar source = \"lennyguotest\"\nvar signStr = \"x-timestamp: \" + ts + \"\\nx-source: \" + source\nvar auth = CryptoJS.Hmac_SHA256(signStr, appKey).toString()\nmsg.payload = auth\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
