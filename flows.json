@@ -3705,7 +3705,7 @@
         "type": "debug",
         "z": "e3562182c0530220",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4110,7 +4110,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "const CryptoJS = global.get('CryptoJS')\nreturn CryptoJS;",
+        "func": "const CryptoJS = global.get('CryptoJS')\nmsg.payload = CryptoJS.MD5('3UpE9zZurw').toString()\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4149,7 +4149,7 @@
         "y": 540,
         "wires": [
             [
-                "6ffce26479402cf3"
+                "7610f8d3f3e6a7c5"
             ]
         ]
     },
