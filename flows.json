@@ -3586,7 +3586,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "数据解密",
-        "func": "\n//获取CODE\nfunction abc(id1,id2) {\n    var _pr = id1;\n    var _pu = id2;\n    var _puArr = [];\n    var _newArr = [];\n    var _code = '';\n\n    for (var i = 0; i < _pu.length; i++) {\n        _puArr.push({'id': _pu[i], 'text': _pr[i]});//将新元素添加到数组的末尾，并返回新的长度。\n    }\n//对密钥重新进行排序\n    _newArr = _puArr.sort(compare(\"id\"));\n    for (var n = 0; n < _newArr.length; n++) {\n\n        _code += _newArr[n]['text'];\n    }\n    return _code\n}\n\nfunction compare(_0x209a13) {\n    var _0x2b0a5b = {\n        'hupwx': function(_0x28592c, _0x5c0aae) {\n            return _0x28592c - _0x5c0aae;\n        }\n    };\n    return function(_0x4490c6, _0x47bde8) {\n        var _0x11d139 = _0x4490c6[_0x209a13];\n        var _0x2b383f = _0x47bde8[_0x209a13];\n        return _0x2b0a5b['hupwx'](_0x11d139, _0x2b383f);\n    }\n        ;\n}\n\n//通过加密的URL和abc函数获取的CODE，进行AES解密\nfunction secret(enStr, code) {\n    code = hex_md5(code); //32位md5  //修改\n    var iv = code.substring(0, 16);  //取前16位\n    var key = code.substring(16);    //取后16位\n    //return CryptoJS['AES']['decrypt'](enStr, key, {\n    //    'iv': iv,\n    //    'padding': CryptoJS['pad']['Pkcs7']\n    //})['toString'](CryptoJS['enc']['Utf8']);\n    msg.iv = iv\n    msg.key = key\n    //msg.payload = enStr\n    return msg\n}\n\n\n//var id1 = \"STjYY8dGUW\"\n//var id2 = \"1023469758\"\n//var code1 = abc(id1,id2)\n//var enurl = \"Nz84DMyw9UfIWXLWhcnJtjho0ZbUnA+3Hsa+4ohVAPu4ClmQy7O/EgCfdfn0uP67GJnEqxxKPIUierd/0DEeacbYkvK2euLMISNBYplmWUqEiDMVx5D3+qPfbgImdTPjoYToH0l07kw/rtEHdCGJLR/TEcdm/wF6auf/hiPUxjUYesZL6mr39Z0B67z2TIReqKZWIAcN5jNDqg2wd3xvD3MJ7U4xtJr+A35j/SGTQrhOAh2WguPQrigc0zDsKyVBvhP45fP8ChxFt/wfjFPF/mKRiX737g+7s5anW6E+4D+BkhcJHtkrZxalsMwQPdP6u7IXj+o3SvB5MSCY1hiBdIKWcq62QoDk/x7H/9Z0K5Ec1OFDDuado/1qgRt+TW7YhR3M51F3hE+qurn9w+jm9n7HIAu4DPh3ptWclDzR8/5CEYWhBL4KmxPTJNWA1oPkpsUvwu3JV3V+OXxQVOs8tpeciqBL6Ffjmm9717uEGdVlBnVAvKBgJw3TaCEVIXve1npGE8jO02z32Zp1KG4Qxw==\"\n//msg.ab = secret(enurl, code1)\n\nvar id1 = msg.id1\nvar id2 = msg.id2\nvar code1 = abc(id1,id2)\n//msg.payload = \"\"\nvar enurl = msg.enurl\n//msg.code1=code1\nsecret(enurl, code1)\nreturn msg;",
+        "func": "const CryptoJS = global.get('CryptoJS')\n\n//获取CODE\nfunction abc(id1,id2) {\n    var _pr = id1;\n    var _pu = id2;\n    var _puArr = [];\n    var _newArr = [];\n    var _code = '';\n\n    for (var i = 0; i < _pu.length; i++) {\n        _puArr.push({'id': _pu[i], 'text': _pr[i]});//将新元素添加到数组的末尾，并返回新的长度。\n    }\n//对密钥重新进行排序\n    _newArr = _puArr.sort(compare(\"id\"));\n    for (var n = 0; n < _newArr.length; n++) {\n\n        _code += _newArr[n]['text'];\n    }\n    return _code\n}\n\nfunction compare(_0x209a13) {\n    var _0x2b0a5b = {\n        'hupwx': function(_0x28592c, _0x5c0aae) {\n            return _0x28592c - _0x5c0aae;\n        }\n    };\n    return function(_0x4490c6, _0x47bde8) {\n        var _0x11d139 = _0x4490c6[_0x209a13];\n        var _0x2b383f = _0x47bde8[_0x209a13];\n        return _0x2b0a5b['hupwx'](_0x11d139, _0x2b383f);\n    }\n        ;\n}\n\n//通过加密的URL和abc函数获取的CODE，进行AES解密\nfunction secret(enStr, code) {\n    code = CryptoJS.MD5(code).toString(); //32位md5  //修改\n    var iv = code.substring(0, 16);  //取前16位\n    var key = code.substring(16);    //取后16位\n    //return CryptoJS['AES']['decrypt'](enStr, key, {\n    //    'iv': iv,\n    //    'padding': CryptoJS['pad']['Pkcs7']\n    //})['toString'](CryptoJS['enc']['Utf8']);\n    msg.iv = iv\n    msg.key = key\n    //msg.payload = enStr\n    return msg\n}\n\n\n//var id1 = \"STjYY8dGUW\"\n//var id2 = \"1023469758\"\n//var code1 = abc(id1,id2)\n//var enurl = \"Nz84DMyw9UfIWXLWhcnJtjho0ZbUnA+3Hsa+4ohVAPu4ClmQy7O/EgCfdfn0uP67GJnEqxxKPIUierd/0DEeacbYkvK2euLMISNBYplmWUqEiDMVx5D3+qPfbgImdTPjoYToH0l07kw/rtEHdCGJLR/TEcdm/wF6auf/hiPUxjUYesZL6mr39Z0B67z2TIReqKZWIAcN5jNDqg2wd3xvD3MJ7U4xtJr+A35j/SGTQrhOAh2WguPQrigc0zDsKyVBvhP45fP8ChxFt/wfjFPF/mKRiX737g+7s5anW6E+4D+BkhcJHtkrZxalsMwQPdP6u7IXj+o3SvB5MSCY1hiBdIKWcq62QoDk/x7H/9Z0K5Ec1OFDDuado/1qgRt+TW7YhR3M51F3hE+qurn9w+jm9n7HIAu4DPh3ptWclDzR8/5CEYWhBL4KmxPTJNWA1oPkpsUvwu3JV3V+OXxQVOs8tpeciqBL6Ffjmm9717uEGdVlBnVAvKBgJw3TaCEVIXve1npGE8jO02z32Zp1KG4Qxw==\"\n//msg.ab = secret(enurl, code1)\n\nvar id1 = msg.id1\nvar id2 = msg.id2\nvar code1 = abc(id1,id2)\n//msg.payload = \"\"\nvar enurl = msg.enurl\n//msg.code1=code1\nsecret(enurl, code1)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3596,7 +3596,8 @@
         "y": 340,
         "wires": [
             [
-                "08c256dd87dd25ff"
+                "08c256dd87dd25ff",
+                "be7f4153fe029bf3"
             ]
         ]
     },
@@ -3731,7 +3732,8 @@
         "y": 340,
         "wires": [
             [
-                "c9b5bed69261a610"
+                "c9b5bed69261a610",
+                "be7f4153fe029bf3"
             ]
         ]
     },
@@ -3749,9 +3751,7 @@
         "x": 250,
         "y": 420,
         "wires": [
-            [
-                "9ef716d8da155c8d"
-            ]
+            []
         ]
     },
     {
@@ -4008,7 +4008,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "计数",
-        "func": "var count = context.get('count')||200;\ncount = count + 1\nmsg.count = count - 2\ncontext.set('count',count);\nreturn msg;",
+        "func": "var count = context.get('count')||190;\ncount = count + 1\nmsg.count = count - 2\ncontext.set('count',count);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4068,5 +4068,106 @@
                 "8302236d8c86173e"
             ]
         ]
+    },
+    {
+        "id": "6ffce26479402cf3",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "const CryptoJS = global.get('CryptoJS')\n//const key = 'f1765686ebd68e7a';\n//const iv = '2b514be88834e850';   //十六位十六进制数作为密钥偏移量\nconst key = CryptoJS.enc.Utf8.parse(\"f1765686ebd68e7a\");\nconst iv = CryptoJS.enc.Utf8.parse('2b514be88834e850');\n//解密方法\nfunction Decrypt(word) {\n    let encryptedHexStr = CryptoJS.enc.Hex.parse(word);\n    let srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);\n    let decrypt = CryptoJS.AES.decrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);\n    return decryptedStr.toString();\n}\n//msg.Encrypt = Encrypt('This is a clear text')\nabc = 'BII9lWDgH2TANXxRH4G2s%2Fu%2BtbQDzgUBMyQir8Arl3EXJx44whOsiKbxJ6xehDOh6fwCniqbHnLzIpWMmKxeUjT5la8TAXZwuHeDNZ9QJ6PJUlfZDi0eQ022nFLsgrnl5Z%2FiFQcmqNGkyAINyJLa5laKHF0Sq%2FRI6plN6wIAKDhV2OS8nEHKWkQBc4CZTkoF4w7RpNQHooyUY2QiSqth6dTGiGSGybNhR5cvSbZbQpuxGCwAUDiu3pAbl8yClk0wFq2Jn1osEX5sjuoYXMm1gFEM7%2FusJqVboRLbSgeioXcOc5zc59xlc37PrcPdBan2cIor%2Fd4j%2BvqPBzxDtUtv6mspGYwLoifrFF8MH8rBY3aOyB9neWEifXHjTOWQL5Rsgp5ynl2doSKXoLFIScBB5CjJdEcFyJ9yPhdnHqag%2Bym9a8WrUQQfkccxWF8VGVNtS57FcRCMVY3X%2FXKMJKXu5V9cd5LeC4jZK5GY3KvAvz48RXTptiGRUggCKY6psj88h8MJbA39v2%2FtdpmZz1zwDquoXFF%2Ftk5VqIi5x5YDbwEwFt7Ei9SR7FY%2Fb3oPDbTEr5z5SzGI8RNE86snrKyrYZa64cPxL4H8jcCLrU%2FTB9o%3D'\nmsg.Decrypt = Decrypt(abc)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 540,
+        "wires": [
+            [
+                "96c3e4d5df2c535c"
+            ]
+        ]
+    },
+    {
+        "id": "be7f4153fe029bf3",
+        "type": "debug",
+        "z": "e3562182c0530220",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "7610f8d3f3e6a7c5",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "const CryptoJS = global.get('CryptoJS')\nreturn CryptoJS;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 620,
+        "wires": [
+            [
+                "96c3e4d5df2c535c"
+            ]
+        ]
+    },
+    {
+        "id": "061e653129202588",
+        "type": "inject",
+        "z": "e3562182c0530220",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 540,
+        "wires": [
+            [
+                "6ffce26479402cf3"
+            ]
+        ]
+    },
+    {
+        "id": "96c3e4d5df2c535c",
+        "type": "debug",
+        "z": "e3562182c0530220",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 620,
+        "wires": []
     }
 ]
