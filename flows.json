@@ -3281,7 +3281,7 @@
         "type": "debug",
         "z": "f936bcfefd29972a",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -3585,7 +3585,7 @@
         "type": "function",
         "z": "f936bcfefd29972a",
         "name": "计数",
-        "func": "var count = context.get('count')||200;\ncount = count + 1\nmsg.count = count - 2\ncontext.set('count',count);\nreturn msg;",
+        "func": "var count = context.get('count')||190;\ncount = count + 1\nmsg.count = count - 2\ncontext.set('count',count);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3661,8 +3661,7 @@
         "y": 340,
         "wires": [
             [
-                "08c256dd87dd25ff",
-                "be7f4153fe029bf3"
+                "46eaf9476dfd7dbe"
             ]
         ]
     },
@@ -3738,44 +3737,27 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 890,
+        "x": 750,
         "y": 340,
         "wires": []
-    },
-    {
-        "id": "08c256dd87dd25ff",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "编码",
-        "func": "var enurl = msg.enurl\n\nvar a = enurl.replace(/=/g, \"%3D\")\nvar b = a.replace(/\\//g, \"%2F\")\nmsg.payload = b.replace(/\\+/g, \"%2B\")\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 250,
-        "y": 340,
-        "wires": [
-            [
-                "fb8044923bd345ae"
-            ]
-        ]
     },
     {
         "id": "46eaf9476dfd7dbe",
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "//msg.payload={\"url\":\"https://om.tc.qq.com/gzc_1000102_0b537aaaeaaawuahjsrlinrmb6gdal7aabsa.f10218.mp4?vkey=EA074FA79C1491CF3F4911110422CA19FCFF9528388E9D8536C3E4924D32FCBC947BB6E0D15ED4688774ADC8BD5E3984F10E59556D2BBAA83DA1CDBA4B9D98D6C51F6C76985A2E012849C54F272107B0D29019F1CE3A017683771536AEBD5C0B2E74F435FBD1C5A6D50D4C6D7C00AC6B5D04E3D1AD40E6C98179104A372B11F8CE695EF4D5D284C7&sdtfrom=v1080&type=mp4&platform=10201&br=117&fmt=hd&sp=0&guid=1F78117BB3DD94210EC924D61BBE1F21FD660D84\"}\n\nvar url = msg.payload.result\nvar name = (msg.count+1).toString()+\".mp4\"\nvar dir = \"/downloads/\"+msg.name1\nmsg.payload = {}\n\nmsg.payload = {\n    \"jsonrpc\":\"2.0\",\n    \"method\":\"aria2.addUri\",\n    \"id\":\"QXJpYU5nXzE2NDcwODAyMjFfMC4wNjE0NDQxMTQ5NzI0MzA1Mg==\",\n    \"params\":[\"token:P3TERX\",[url],{\n        \"out\": name,\n        \"dir\": dir\n    }]\n}\n\nmsg.url = \"http://192.168.0.210:6800/jsonrpc\"\nreturn msg;",
+        "func": "//msg.payload={\"url\":\"https://om.tc.qq.com/gzc_1000102_0b537aaaeaaawuahjsrlinrmb6gdal7aabsa.f10218.mp4?vkey=EA074FA79C1491CF3F4911110422CA19FCFF9528388E9D8536C3E4924D32FCBC947BB6E0D15ED4688774ADC8BD5E3984F10E59556D2BBAA83DA1CDBA4B9D98D6C51F6C76985A2E012849C54F272107B0D29019F1CE3A017683771536AEBD5C0B2E74F435FBD1C5A6D50D4C6D7C00AC6B5D04E3D1AD40E6C98179104A372B11F8CE695EF4D5D284C7&sdtfrom=v1080&type=mp4&platform=10201&br=117&fmt=hd&sp=0&guid=1F78117BB3DD94210EC924D61BBE1F21FD660D84\"}\n\nvar url = msg.payload\nvar name = (msg.count+1).toString()+\".mp4\"\nvar dir = \"/downloads/\"+msg.name1\nmsg.payload = {}\n\nmsg.payload = {\n    \"jsonrpc\":\"2.0\",\n    \"method\":\"aria2.addUri\",\n    \"id\":\"QXJpYU5nXzE2NDcwODAyMjFfMC4wNjE0NDQxMTQ5NzI0MzA1Mg==\",\n    \"params\":[\"token:P3TERX\",[url],{\n        \"out\": name,\n        \"dir\": dir\n    }]\n}\n\nmsg.url = \"http://192.168.0.210:6800/jsonrpc\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 250,
-        "y": 420,
+        "x": 270,
+        "y": 340,
         "wires": [
-            []
+            [
+                "9ef716d8da155c8d"
+            ]
         ]
     },
     {
@@ -3792,59 +3774,13 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 420,
-        "y": 420,
+        "x": 440,
+        "y": 340,
         "wires": [
             [
-                "4ad0cf0ff1430999"
+                "fb8044923bd345ae"
             ]
         ]
-    },
-    {
-        "id": "65a788e1d4f0f544",
-        "type": "inject",
-        "z": "e3562182c0530220",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 420,
-        "wires": [
-            [
-                "46eaf9476dfd7dbe"
-            ]
-        ]
-    },
-    {
-        "id": "4ad0cf0ff1430999",
-        "type": "debug",
-        "z": "e3562182c0530220",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 570,
-        "y": 420,
-        "wires": []
     },
     {
         "id": "fce2194fdfcc1b84",
@@ -4015,7 +3951,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "计数",
-        "func": "var count = context.get('count')||190;\ncount = count + 1\nmsg.count = count - 2\ncontext.set('count',count);\nreturn msg;",
+        "func": "var count = context.get('count')||150;\ncount = count + 1\nmsg.count = count - 2\ncontext.set('count',count);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4075,106 +4011,5 @@
                 "8302236d8c86173e"
             ]
         ]
-    },
-    {
-        "id": "6ffce26479402cf3",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "",
-        "func": "const CryptoJS = global.get('CryptoJS')\n//const key = 'f1765686ebd68e7a';\n//const iv = '2b514be88834e850';   //十六位十六进制数作为密钥偏移量\nconst key = CryptoJS.enc.Utf8.parse('c4c93ce65ca1541d');\nconst iv = CryptoJS.enc.Utf8.parse('763f0fe6940b7da9');\n//解密方法\nfunction Decrypt(word) {\n    let encryptedHexStr = CryptoJS.enc.Base64.parse(word);\n    let srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);\n    let decrypt = CryptoJS.AES.decrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);\n    return decryptedStr.toString();\n}\n\n\nmsg.Decrypt = Decrypt()\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 250,
-        "y": 540,
-        "wires": [
-            [
-                "96c3e4d5df2c535c"
-            ]
-        ]
-    },
-    {
-        "id": "be7f4153fe029bf3",
-        "type": "debug",
-        "z": "e3562182c0530220",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 410,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "7610f8d3f3e6a7c5",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "",
-        "func": "const CryptoJS = global.get('CryptoJS')\nmsg.payload = CryptoJS.MD5('3UpE9zZurw').toString()\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 250,
-        "y": 620,
-        "wires": [
-            [
-                "96c3e4d5df2c535c"
-            ]
-        ]
-    },
-    {
-        "id": "061e653129202588",
-        "type": "inject",
-        "z": "e3562182c0530220",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 540,
-        "wires": [
-            [
-                "6ffce26479402cf3"
-            ]
-        ]
-    },
-    {
-        "id": "96c3e4d5df2c535c",
-        "type": "debug",
-        "z": "e3562182c0530220",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 410,
-        "y": 620,
-        "wires": []
     }
 ]
