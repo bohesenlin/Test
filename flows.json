@@ -1871,25 +1871,6 @@
         "wires": []
     },
     {
-        "id": "cb014ece41a069b9",
-        "type": "function",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "func": "function encrypt(key, text){\n    return CryptoJS.AES.encrypt(text, key).toString();\n}\nlet key = 'thisiskey'\nlet text = '你好'\n\n\nlet cipherText = encrypt(key, text);\nmsg.payload = cipherText\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 270,
-        "y": 2240,
-        "wires": [
-            [
-                "3ff63ec7b40ac43a"
-            ]
-        ]
-    },
-    {
         "id": "3af8fb28f2bc12f3",
         "type": "inject",
         "z": "df04831a8742eac0",
@@ -1940,33 +1921,14 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "const CryptoJS = global.get('CryptoJS')\nconst key = CryptoJS.enc.Utf8.parse(\"1234123412ABCDEF\");\nconst iv = CryptoJS.enc.Utf8.parse('ABCDEF1234123412');   //十六位十六进制数作为密钥偏移量\n//解密方法\nfunction Decrypt(word) {\n    let encryptedHexStr = CryptoJS.enc.Hex.parse(word);\n    let srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);\n    let decrypt = CryptoJS.AES.decrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);\n    return decryptedStr.toString();\n}\n//加密方法\nfunction Encrypt(word) {\n    let srcs = CryptoJS.enc.Utf8.parse(word);\n    let encrypted = CryptoJS.AES.encrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    return encrypted.ciphertext.toString().toUpperCase();\n}\nmsg.payload = Encrypt('This is a clear text')\nreturn CryptoJS;",
+        "func": "const CryptoJS = global.get('CryptoJS')\nconst key = CryptoJS.enc.Utf8.parse(\"1234123412ABCDEF\");\nconst iv = CryptoJS.enc.Utf8.parse('ABCDEF1234123412');   //十六位十六进制数作为密钥偏移量\n//解密方法\nfunction Decrypt(word) {\n    let encryptedHexStr = CryptoJS.enc.Hex.parse(word);\n    let srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);\n    let decrypt = CryptoJS.AES.decrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);\n    return decryptedStr.toString();\n}\n//加密方法\nfunction Encrypt(word) {\n    let srcs = CryptoJS.enc.Utf8.parse(word);\n    let encrypted = CryptoJS.AES.encrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    return encrypted.ciphertext.toString().toUpperCase();\n}\nmsg.Encrypt = Encrypt('This is a clear text')\nmsg.Decrypt = Decrypt('4ACEA01505ADAF9FB59A03B22FC1EF1B244AE28DDACFDFAEFA7E263655C44357')\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 270,
-        "y": 2320,
-        "wires": [
-            [
-                "3ff63ec7b40ac43a"
-            ]
-        ]
-    },
-    {
-        "id": "92d952f0e1d6561d",
-        "type": "function",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "func": "var CryptoJS = global.get('CryptoJS')\nfunction encrypt(key, text){\n//    return CryptoJS.AES.encrypt(text, key).toString();\n}\nlet key = 'thisiskey'\nlet text = '你好'\n\n\nlet cipherText = encrypt(key, text);\nmsg.payload = cipherText\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 290,
-        "y": 2420,
+        "y": 2240,
         "wires": [
             [
                 "3ff63ec7b40ac43a"
