@@ -3651,7 +3651,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "数据解密",
-        "func": "const CryptoJS = global.get('CryptoJS')\n\n//获取CODE\nfunction abc(id1,id2) {\n    var _pr = id1;\n    var _pu = id2;\n    var _puArr = [];\n    var _newArr = [];\n    var _code = '';\n\n    for (var i = 0; i < _pu.length; i++) {\n        _puArr.push({'id': _pu[i], 'text': _pr[i]});//将新元素添加到数组的末尾，并返回新的长度。\n    }\n//对密钥重新进行排序\n    _newArr = _puArr.sort(compare(\"id\"));\n    for (var n = 0; n < _newArr.length; n++) {\n\n        _code += _newArr[n]['text'];\n    }\n    return _code\n}\n\nfunction compare(_0x209a13) {\n    var _0x2b0a5b = {\n        'hupwx': function(_0x28592c, _0x5c0aae) {\n            return _0x28592c - _0x5c0aae;\n        }\n    };\n    return function(_0x4490c6, _0x47bde8) {\n        var _0x11d139 = _0x4490c6[_0x209a13];\n        var _0x2b383f = _0x47bde8[_0x209a13];\n        return _0x2b0a5b['hupwx'](_0x11d139, _0x2b383f);\n    }\n        ;\n}\n\n//通过加密的URL和abc函数获取的CODE，进行AES解密\nfunction secret(enStr, code) {\n    code = CryptoJS.MD5(code).toString(); //32位md5  //修改\n    var iv = code.substring(0, 16);  //取前16位\n    var key = code.substring(16);    //取后16位\n    //return CryptoJS['AES']['decrypt'](enStr, key, {\n    //    'iv': iv,\n    //    'padding': CryptoJS['pad']['Pkcs7']\n    //})['toString'](CryptoJS['enc']['Utf8']);\n    msg.iv = iv\n    msg.key = key\n    //msg.payload = enStr\n    return msg\n}\n\n\n//var id1 = \"STjYY8dGUW\"\n//var id2 = \"1023469758\"\n//var code1 = abc(id1,id2)\n//var enurl = \"Nz84DMyw9UfIWXLWhcnJtjho0ZbUnA+3Hsa+4ohVAPu4ClmQy7O/EgCfdfn0uP67GJnEqxxKPIUierd/0DEeacbYkvK2euLMISNBYplmWUqEiDMVx5D3+qPfbgImdTPjoYToH0l07kw/rtEHdCGJLR/TEcdm/wF6auf/hiPUxjUYesZL6mr39Z0B67z2TIReqKZWIAcN5jNDqg2wd3xvD3MJ7U4xtJr+A35j/SGTQrhOAh2WguPQrigc0zDsKyVBvhP45fP8ChxFt/wfjFPF/mKRiX737g+7s5anW6E+4D+BkhcJHtkrZxalsMwQPdP6u7IXj+o3SvB5MSCY1hiBdIKWcq62QoDk/x7H/9Z0K5Ec1OFDDuado/1qgRt+TW7YhR3M51F3hE+qurn9w+jm9n7HIAu4DPh3ptWclDzR8/5CEYWhBL4KmxPTJNWA1oPkpsUvwu3JV3V+OXxQVOs8tpeciqBL6Ffjmm9717uEGdVlBnVAvKBgJw3TaCEVIXve1npGE8jO02z32Zp1KG4Qxw==\"\n//msg.ab = secret(enurl, code1)\n\nvar id1 = msg.id1\nvar id2 = msg.id2\nvar code1 = abc(id1,id2)\n//msg.payload = \"\"\nvar enurl = msg.enurl\n//msg.code1=code1\nsecret(enurl, code1)\nreturn msg;",
+        "func": "const CryptoJS = global.get('CryptoJS')\nfunction Decrypt(word,key,iv) {\n    let encryptedHexStr = CryptoJS.enc.Base64.parse(word);\n    let srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);\n    let decrypt = CryptoJS.AES.decrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);\n    return decryptedStr.toString();\n}\n//获取CODE\nfunction abc(id1,id2) {\n    var _pr = id1;\n    var _pu = id2;\n    var _puArr = [];\n    var _newArr = [];\n    var _code = '';\n\n    for (var i = 0; i < _pu.length; i++) {\n        _puArr.push({'id': _pu[i], 'text': _pr[i]});//将新元素添加到数组的末尾，并返回新的长度。\n    }\n//对密钥重新进行排序\n    _newArr = _puArr.sort(compare(\"id\"));\n    for (var n = 0; n < _newArr.length; n++) {\n\n        _code += _newArr[n]['text'];\n    }\n    return _code\n}\n\nfunction compare(_0x209a13) {\n    var _0x2b0a5b = {\n        'hupwx': function(_0x28592c, _0x5c0aae) {\n            return _0x28592c - _0x5c0aae;\n        }\n    };\n    return function(_0x4490c6, _0x47bde8) {\n        var _0x11d139 = _0x4490c6[_0x209a13];\n        var _0x2b383f = _0x47bde8[_0x209a13];\n        return _0x2b0a5b['hupwx'](_0x11d139, _0x2b383f);\n    }\n        ;\n}\n\n//通过加密的URL和abc函数获取的CODE，进行AES解密\nfunction secret(enStr, code) {\n    code = CryptoJS.MD5(code).toString(); //32位md5  //修改\n    var iv1 = code.substring(0, 16);  //取前16位\n    var key1 = code.substring(16);    //取后16位\n\n    const key = CryptoJS.enc.Utf8.parse(key1);\n    const iv = CryptoJS.enc.Utf8.parse(iv1);\n    payload1 = Decrypt(enStr,key,iv)\n    //msg.payload = enStr\n    return payload1\n}\n\n\nvar id1 = msg.id1\nvar id2 = msg.id2\nvar code1 = abc(id1,id2)\nvar enurl = msg.enurl\nmsg.payload = secret(enurl, code1)\nreturn msg\n\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3720,48 +3720,8 @@
         "y": 240,
         "wires": [
             [
-                "b4a25ca4eefb9fea"
-            ]
-        ]
-    },
-    {
-        "id": "c9b5bed69261a610",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "发送数据",
-        "func": "\n//msg.payload='O7Hbb8RzGxfLcTZM0vRPOtUFWktElIzDbmnnNlosqN9h21mqvM0TEXiTwrjAwvzhEYUl9L7OWr9VFTYcIxwBheYS6xQEXlnt6bW2qndHrKIhIhAuApryK6ltIRXjnqaBYxJK9%2BRrBjROl4Uo8lUcJfzSThkJUr3WZ6wLLNXWeJhCz0IS7i1e35M55tvChQGu7NHNXDdtLifilsbWqAHjYs%2BJz4X0d0PfgIN5w3%2FAE83ymZ2j2TWBeKXLfBSmxUKfdqCDzXXNG8pcYuwX3rWmQwKvqiLk4ZrBH7LHFAMbrK5NWO%2BKAxErdWdos6skmpUBpKsmJQ%2FeZQCqD759b4iD167Scj9soaR2u5rUl6peslIHnl7lrFSA549WgywDq6b78S3LyU7IS5s%2Fsrzeom54iMKvLjHsscH0n%2Fr9nw7ryAfQ9TngtEb27%2FOt9l6G5SsL0HeUmtl5HmQaXgmLzqgb4ZlWPN7obuu3DothARVbXhkWNwzRa7SFBrC1pHzPPdQAK2mzIdSENugVlvaZkHNYlG7S%2FBMrjHFPGGMh7ASnPj93maVaOQf6%2Fxk540gD%2B1KV39uSCRE%2BlZwe3Ri%2BxQGyDkQJb5TKvUyTbuSQNqT1baw%3D'\nmsg.payload='data='+msg.payload+'&type=aes_decrypt&encode=Base64&key='+msg.key+'&digit=128&mode=CBC&pad=Pkcs5Padding&iv='+msg.iv\nmsg.headers = {\n  'Content-Type': 'application/x-www-form-urlencoded'\n}\nmsg.url = \"\"\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 420,
-        "y": 340,
-        "wires": [
-            [
-                "815715b3062c23a7"
-            ]
-        ]
-    },
-    {
-        "id": "815715b3062c23a7",
-        "type": "http request",
-        "z": "e3562182c0530220",
-        "name": "",
-        "method": "POST",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "https://www.mklab.cn/utils/handle",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 580,
-        "y": 340,
-        "wires": [
-            [
-                "0cd249534571ca03"
+                "b4a25ca4eefb9fea",
+                "fb8044923bd345ae"
             ]
         ]
     },
@@ -3797,8 +3757,7 @@
         "y": 340,
         "wires": [
             [
-                "c9b5bed69261a610",
-                "be7f4153fe029bf3"
+                "fb8044923bd345ae"
             ]
         ]
     },
@@ -3886,23 +3845,6 @@
         "x": 570,
         "y": 420,
         "wires": []
-    },
-    {
-        "id": "0cd249534571ca03",
-        "type": "json",
-        "z": "e3562182c0530220",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 730,
-        "y": 340,
-        "wires": [
-            [
-                "fb8044923bd345ae",
-                "46eaf9476dfd7dbe"
-            ]
-        ]
     },
     {
         "id": "fce2194fdfcc1b84",
@@ -4139,7 +4081,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "const CryptoJS = global.get('CryptoJS')\n//const key = 'f1765686ebd68e7a';\n//const iv = '2b514be88834e850';   //十六位十六进制数作为密钥偏移量\nconst key = CryptoJS.enc.Utf8.parse('c4c93ce65ca1541d');\nconst iv = CryptoJS.enc.Utf8.parse('763f0fe6940b7da9');\n//解密方法\nfunction Decrypt(word) {\n    let encryptedHexStr = CryptoJS.enc.Base64.parse(word);\n    let srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);\n    let decrypt = CryptoJS.AES.decrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);\n    return decryptedStr.toString();\n}\n\n//abc = '5vZdpLQXZqizGP5q3fBrYk4tw72AKp3yYr2+K0M68Cp7oXEZCLWL1EUw7n6hYQHjHU0pYNdlWoFMGv4gmmzYDDuu09ObOGQ0E+AFaHRRSfRx0IlsWZoYepU7NBPX3NreHHdyjuk0UIh7yvngchbs9KsXyPGFHQcHZm4Lo4nraWFgVBz6ZM8WW+csaZjtM8gQRQfQKMrQ2u9CWjAMuggyUtLr2FDTUOFW0KsdBi3VIEWnI7v4c+5BSrNJ6EdU3VB3CJ/cvanj/F3q7avUD7PcNcWmlnE6+j/SmG4PSa7RrJSkeiptgTv3nQp6aHhgZ6asJxQez45EUZn7Y5hQ1uL6CM0HbxIIa9oPLQTm39jRZS2J/2SPdtp9yu1t2TjiEIbeowkUIfgQ2bHOxgNPhQ/4KDZDJj75HcrSlOzVeZNq6UQQ2IQz1HbPF49nidNYnrA6i8H57TsxXNsYUnHDM9RcThNYSfcKACAu/TheRYyTXPa0V9PsELf6iWxir7rvFxMI3YrheaCEXlvYygp/NfaYXD8iqpyKoJLPuUi4TV7S7JoLyfyGbKXeFGop93T2mnhvXzjyCQLyCa1P5y18GBoRJurduB6DQiY9iIoXDthZHQk='\nmsg.Decrypt = Decrypt('5vZdpLQXZqizGP5q3fBrYk4tw72AKp3yYr2+K0M68Cp7oXEZCLWL1EUw7n6hYQHjHU0pYNdlWoFMGv4gmmzYDDuu09ObOGQ0E+AFaHRRSfRx0IlsWZoYepU7NBPX3NreHHdyjuk0UIh7yvngchbs9KsXyPGFHQcHZm4Lo4nraWFgVBz6ZM8WW+csaZjtM8gQRQfQKMrQ2u9CWjAMuggyUtLr2FDTUOFW0KsdBi3VIEWnI7v4c+5BSrNJ6EdU3VB3CJ/cvanj/F3q7avUD7PcNcWmlnE6+j/SmG4PSa7RrJSkeiptgTv3nQp6aHhgZ6asJxQez45EUZn7Y5hQ1uL6CM0HbxIIa9oPLQTm39jRZS2J/2SPdtp9yu1t2TjiEIbeowkUIfgQ2bHOxgNPhQ/4KDZDJj75HcrSlOzVeZNq6UQQ2IQz1HbPF49nidNYnrA6i8H57TsxXNsYUnHDM9RcThNYSfcKACAu/TheRYyTXPa0V9PsELf6iWxir7rvFxMI3YrheaCEXlvYygp/NfaYXD8iqpyKoJLPuUi4TV7S7JoLyfyGbKXeFGop93T2mnhvXzjyCQLyCa1P5y18GBoRJurduB6DQiY9iIoXDthZHQk=')\nreturn msg;",
+        "func": "const CryptoJS = global.get('CryptoJS')\n//const key = 'f1765686ebd68e7a';\n//const iv = '2b514be88834e850';   //十六位十六进制数作为密钥偏移量\nconst key = CryptoJS.enc.Utf8.parse('c4c93ce65ca1541d');\nconst iv = CryptoJS.enc.Utf8.parse('763f0fe6940b7da9');\n//解密方法\nfunction Decrypt(word) {\n    let encryptedHexStr = CryptoJS.enc.Base64.parse(word);\n    let srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);\n    let decrypt = CryptoJS.AES.decrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);\n    return decryptedStr.toString();\n}\n\n\nmsg.Decrypt = Decrypt()\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
