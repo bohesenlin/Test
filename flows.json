@@ -55,6 +55,14 @@
         "env": []
     },
     {
+        "id": "e3562182c0530220",
+        "type": "tab",
+        "label": "流程 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "e7cf0672145a47bb",
         "type": "ui_tab",
         "name": "Home",
@@ -3570,6 +3578,494 @@
         "wires": [
             [
                 "9468455c333c2f37"
+            ]
+        ]
+    },
+    {
+        "id": "b4a25ca4eefb9fea",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "数据解密",
+        "func": "\n//获取CODE\nfunction abc(id1,id2) {\n    var _pr = id1;\n    var _pu = id2;\n    var _puArr = [];\n    var _newArr = [];\n    var _code = '';\n\n    for (var i = 0; i < _pu.length; i++) {\n        _puArr.push({'id': _pu[i], 'text': _pr[i]});//将新元素添加到数组的末尾，并返回新的长度。\n    }\n//对密钥重新进行排序\n    _newArr = _puArr.sort(compare(\"id\"));\n    for (var n = 0; n < _newArr.length; n++) {\n\n        _code += _newArr[n]['text'];\n    }\n    return _code\n}\n\nfunction compare(_0x209a13) {\n    var _0x2b0a5b = {\n        'hupwx': function(_0x28592c, _0x5c0aae) {\n            return _0x28592c - _0x5c0aae;\n        }\n    };\n    return function(_0x4490c6, _0x47bde8) {\n        var _0x11d139 = _0x4490c6[_0x209a13];\n        var _0x2b383f = _0x47bde8[_0x209a13];\n        return _0x2b0a5b['hupwx'](_0x11d139, _0x2b383f);\n    }\n        ;\n}\n\n//通过加密的URL和abc函数获取的CODE，进行AES解密\nfunction secret(enStr, code) {\n    code = hex_md5(code); //32位md5  //修改\n    var iv = code.substring(0, 16);  //取前16位\n    var key = code.substring(16);    //取后16位\n    //return CryptoJS['AES']['decrypt'](enStr, key, {\n    //    'iv': iv,\n    //    'padding': CryptoJS['pad']['Pkcs7']\n    //})['toString'](CryptoJS['enc']['Utf8']);\n    msg.iv = iv\n    msg.key = key\n    //msg.payload = enStr\n    return msg\n}\n\n\n//var id1 = \"STjYY8dGUW\"\n//var id2 = \"1023469758\"\n//var code1 = abc(id1,id2)\n//var enurl = \"Nz84DMyw9UfIWXLWhcnJtjho0ZbUnA+3Hsa+4ohVAPu4ClmQy7O/EgCfdfn0uP67GJnEqxxKPIUierd/0DEeacbYkvK2euLMISNBYplmWUqEiDMVx5D3+qPfbgImdTPjoYToH0l07kw/rtEHdCGJLR/TEcdm/wF6auf/hiPUxjUYesZL6mr39Z0B67z2TIReqKZWIAcN5jNDqg2wd3xvD3MJ7U4xtJr+A35j/SGTQrhOAh2WguPQrigc0zDsKyVBvhP45fP8ChxFt/wfjFPF/mKRiX737g+7s5anW6E+4D+BkhcJHtkrZxalsMwQPdP6u7IXj+o3SvB5MSCY1hiBdIKWcq62QoDk/x7H/9Z0K5Ec1OFDDuado/1qgRt+TW7YhR3M51F3hE+qurn9w+jm9n7HIAu4DPh3ptWclDzR8/5CEYWhBL4KmxPTJNWA1oPkpsUvwu3JV3V+OXxQVOs8tpeciqBL6Ffjmm9717uEGdVlBnVAvKBgJw3TaCEVIXve1npGE8jO02z32Zp1KG4Qxw==\"\n//msg.ab = secret(enurl, code1)\n\nvar id1 = msg.id1\nvar id2 = msg.id2\nvar code1 = abc(id1,id2)\n//msg.payload = \"\"\nvar enurl = msg.enurl\n//msg.code1=code1\nsecret(enurl, code1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 100,
+        "y": 340,
+        "wires": [
+            [
+                "08c256dd87dd25ff"
+            ]
+        ]
+    },
+    {
+        "id": "8302236d8c86173e",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "解析地址",
+        "func": "//url = \"https://v.qq.com/x/cover/m441e3rjq9kwpsc/h00426dqsjd.html\"\nurl = msg.hurl[msg.count]\nmsg.url = \"https://jx.parwix.com:4433/player/analysis.php?v=\"+url\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 240,
+        "wires": [
+            [
+                "c92aa5711b81cf1b"
+            ]
+        ]
+    },
+    {
+        "id": "c92aa5711b81cf1b",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "persist": false,
+        "authType": "",
+        "senderr": false,
+        "x": 440,
+        "y": 240,
+        "wires": [
+            [
+                "2f1a688c6bd2e55c"
+            ]
+        ]
+    },
+    {
+        "id": "2f1a688c6bd2e55c",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "var html = msg.payload\nvar id1 = /id=\"vod_(.*?)\"/.exec(html);\nvar id2 = /id=\"vod_([0-9]{10})\"/.exec(html);\nvar enurl = /\"url\": \"(.*?)\"/.exec(html);\nmsg.id1 = id1[1]\nmsg.id2=id2[1]\nmsg.enurl = enurl[1]\nmsg.payload = []\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 240,
+        "wires": [
+            [
+                "b4a25ca4eefb9fea"
+            ]
+        ]
+    },
+    {
+        "id": "c9b5bed69261a610",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "发送数据",
+        "func": "\n//msg.payload='O7Hbb8RzGxfLcTZM0vRPOtUFWktElIzDbmnnNlosqN9h21mqvM0TEXiTwrjAwvzhEYUl9L7OWr9VFTYcIxwBheYS6xQEXlnt6bW2qndHrKIhIhAuApryK6ltIRXjnqaBYxJK9%2BRrBjROl4Uo8lUcJfzSThkJUr3WZ6wLLNXWeJhCz0IS7i1e35M55tvChQGu7NHNXDdtLifilsbWqAHjYs%2BJz4X0d0PfgIN5w3%2FAE83ymZ2j2TWBeKXLfBSmxUKfdqCDzXXNG8pcYuwX3rWmQwKvqiLk4ZrBH7LHFAMbrK5NWO%2BKAxErdWdos6skmpUBpKsmJQ%2FeZQCqD759b4iD167Scj9soaR2u5rUl6peslIHnl7lrFSA549WgywDq6b78S3LyU7IS5s%2Fsrzeom54iMKvLjHsscH0n%2Fr9nw7ryAfQ9TngtEb27%2FOt9l6G5SsL0HeUmtl5HmQaXgmLzqgb4ZlWPN7obuu3DothARVbXhkWNwzRa7SFBrC1pHzPPdQAK2mzIdSENugVlvaZkHNYlG7S%2FBMrjHFPGGMh7ASnPj93maVaOQf6%2Fxk540gD%2B1KV39uSCRE%2BlZwe3Ri%2BxQGyDkQJb5TKvUyTbuSQNqT1baw%3D'\nmsg.payload='data='+msg.payload+'&type=aes_decrypt&encode=Base64&key='+msg.key+'&digit=128&mode=CBC&pad=Pkcs5Padding&iv='+msg.iv\nmsg.headers = {\n  'Content-Type': 'application/x-www-form-urlencoded'\n}\nmsg.url = \"\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 340,
+        "wires": [
+            [
+                "815715b3062c23a7"
+            ]
+        ]
+    },
+    {
+        "id": "815715b3062c23a7",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://www.mklab.cn/utils/handle",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 580,
+        "y": 340,
+        "wires": [
+            [
+                "0cd249534571ca03"
+            ]
+        ]
+    },
+    {
+        "id": "fb8044923bd345ae",
+        "type": "debug",
+        "z": "e3562182c0530220",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "08c256dd87dd25ff",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "编码",
+        "func": "var enurl = msg.enurl\n\nvar a = enurl.replace(/=/g, \"%3D\")\nvar b = a.replace(/\\//g, \"%2F\")\nmsg.payload = b.replace(/\\+/g, \"%2B\")\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 340,
+        "wires": [
+            [
+                "c9b5bed69261a610"
+            ]
+        ]
+    },
+    {
+        "id": "46eaf9476dfd7dbe",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "//msg.payload={\"url\":\"https://om.tc.qq.com/gzc_1000102_0b537aaaeaaawuahjsrlinrmb6gdal7aabsa.f10218.mp4?vkey=EA074FA79C1491CF3F4911110422CA19FCFF9528388E9D8536C3E4924D32FCBC947BB6E0D15ED4688774ADC8BD5E3984F10E59556D2BBAA83DA1CDBA4B9D98D6C51F6C76985A2E012849C54F272107B0D29019F1CE3A017683771536AEBD5C0B2E74F435FBD1C5A6D50D4C6D7C00AC6B5D04E3D1AD40E6C98179104A372B11F8CE695EF4D5D284C7&sdtfrom=v1080&type=mp4&platform=10201&br=117&fmt=hd&sp=0&guid=1F78117BB3DD94210EC924D61BBE1F21FD660D84\"}\n\nvar url = msg.payload.result\nvar name = (msg.count+1).toString()+\".mp4\"\nvar dir = \"/downloads/\"+msg.name1\nmsg.payload = {}\n\nmsg.payload = {\n    \"jsonrpc\":\"2.0\",\n    \"method\":\"aria2.addUri\",\n    \"id\":\"QXJpYU5nXzE2NDcwODAyMjFfMC4wNjE0NDQxMTQ5NzI0MzA1Mg==\",\n    \"params\":[\"token:P3TERX\",[url],{\n        \"out\": name,\n        \"dir\": dir\n    }]\n}\n\nmsg.url = \"http://192.168.0.210:6800/jsonrpc\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 420,
+        "wires": [
+            [
+                "9ef716d8da155c8d"
+            ]
+        ]
+    },
+    {
+        "id": "9ef716d8da155c8d",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 420,
+        "y": 420,
+        "wires": [
+            [
+                "4ad0cf0ff1430999"
+            ]
+        ]
+    },
+    {
+        "id": "65a788e1d4f0f544",
+        "type": "inject",
+        "z": "e3562182c0530220",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 420,
+        "wires": [
+            [
+                "46eaf9476dfd7dbe"
+            ]
+        ]
+    },
+    {
+        "id": "4ad0cf0ff1430999",
+        "type": "debug",
+        "z": "e3562182c0530220",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "0cd249534571ca03",
+        "type": "json",
+        "z": "e3562182c0530220",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 730,
+        "y": 340,
+        "wires": [
+            [
+                "fb8044923bd345ae",
+                "46eaf9476dfd7dbe"
+            ]
+        ]
+    },
+    {
+        "id": "fce2194fdfcc1b84",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "合成地址1",
+        "func": "//href=\"https://v.qq.com/x/cover/\"+msg.payload[1]+\"/m00253deqqo.html\"\nmsg.url = \"https://v.qq.com/x/cover/\"+msg.payload[1]+\"/\"+msg.payload[2]+\".html\"\nmsg.vid = msg.payload[1]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 110,
+        "y": 160,
+        "wires": [
+            [
+                "1f258e6059572f7e"
+            ]
+        ]
+    },
+    {
+        "id": "1f258e6059572f7e",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "persist": false,
+        "authType": "",
+        "senderr": false,
+        "x": 280,
+        "y": 160,
+        "wires": [
+            [
+                "a2ed61e0b7c1379d"
+            ]
+        ]
+    },
+    {
+        "id": "46f5720d0d3d5d6f",
+        "type": "inject",
+        "z": "e3562182c0530220",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "斗罗大陆",
+        "payloadType": "str",
+        "x": 100,
+        "y": 60,
+        "wires": [
+            [
+                "e8fa4eda9cf19f98"
+            ]
+        ]
+    },
+    {
+        "id": "a2ed61e0b7c1379d",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "匹配地址参数",
+        "func": "var url = []\nvar reg = /\"F\":\\d,\"V\":\"(.*?)\"/g\n//var text = \"\";\nvar i;\nfor (i = 0; i < 410; i++) {\n    url[i] = reg.exec(msg.payload)\n    if(reg.lastIndex==0){\n        msg.payload=url\n        return msg;\n    }\n  //text += \"The number is \" + i + \"<br>\";\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 160,
+        "wires": [
+            [
+                "bf813f0296930105"
+            ]
+        ]
+    },
+    {
+        "id": "e8fa4eda9cf19f98",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "搜索数据",
+        "func": "url = \"https://v.qq.com/x/search/?q=\"+msg.payload+\"&stag=102&smartbox_ab=\"\nmsg.url = url\nmsg.name1 = msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 60,
+        "wires": [
+            [
+                "8d8212f5c71789fa"
+            ]
+        ]
+    },
+    {
+        "id": "8d8212f5c71789fa",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "persist": false,
+        "authType": "",
+        "senderr": false,
+        "x": 440,
+        "y": 60,
+        "wires": [
+            [
+                "a1e7bdc073415811"
+            ]
+        ]
+    },
+    {
+        "id": "a1e7bdc073415811",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "正则匹配地址",
+        "func": "var reg=/href=\"https:\\/\\/v.qq.com\\/x\\/cover\\/(.*?)\\/(.*?).html\"/\nret = reg.exec(msg.payload)\nmsg.payload = ret\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 60,
+        "wires": [
+            [
+                "fce2194fdfcc1b84"
+            ]
+        ]
+    },
+    {
+        "id": "bf813f0296930105",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "hurl地址",
+        "func": "//msg.payload=url\nvar n;\nvar hurl = []\nvar rsg = msg.payload\nvar a = (rsg.length + 1)/2\nfor (n = 0; n < (rsg.length - 1)/2; n++) {\n    hurl.push(\"https://v.qq.com/x/cover/\"+msg.vid+\"/\"+msg.payload[n][1]+\".html\")\n}\nmsg.hurl = hurl\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 160,
+        "wires": [
+            [
+                "60e931fcd9adacf2"
+            ]
+        ]
+    },
+    {
+        "id": "60e931fcd9adacf2",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "计数",
+        "func": "var count = context.get('count')||200;\ncount = count + 1\nmsg.count = count - 2\ncontext.set('count',count);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 160,
+        "wires": [
+            [
+                "5b08d0535afb5aa2",
+                "8302236d8c86173e"
+            ]
+        ]
+    },
+    {
+        "id": "5b08d0535afb5aa2",
+        "type": "debug",
+        "z": "e3562182c0530220",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "1a0e6eec5e49bd06",
+        "type": "inject",
+        "z": "e3562182c0530220",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 240,
+        "wires": [
+            [
+                "8302236d8c86173e"
             ]
         ]
     }
