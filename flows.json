@@ -3670,7 +3670,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "解析地址",
-        "func": "//url = \"https://v.qq.com/x/cover/m441e3rjq9kwpsc/h00426dqsjd.html\"\nurl = msg.hurl[msg.count]\nmsg.url = \"https://jx.parwix.com:4433/player/analysis.php?v=\"+url\n\nreturn msg;",
+        "func": "//url = \"https://v.qq.com/x/cover/m441e3rjq9kwpsc/h00426dqsjd.html\"\nurl = msg.hurl[msg.count]\nmsg.url = \"https://jx.parwix.com:4433/player/analysis.php?v=\"+url\nmsg.headers = {\n  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
