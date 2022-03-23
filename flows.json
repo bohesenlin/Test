@@ -3651,7 +3651,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "数据解密",
-        "func": "const CryptoJS = global.get('CryptoJS')\nfunction Decrypt(word,key,iv) {\n    let encryptedHexStr = CryptoJS.enc.Base64.parse(word);\n    let srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);\n    let decrypt = CryptoJS.AES.decrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);\n    return decryptedStr.toString();\n}\n//获取CODE\nfunction abc(id1,id2) {\n    var _pr = id1;\n    var _pu = id2;\n    var _puArr = [];\n    var _newArr = [];\n    var _code = '';\n\n    for (var i = 0; i < _pu.length; i++) {\n        _puArr.push({'id': _pu[i], 'text': _pr[i]});//将新元素添加到数组的末尾，并返回新的长度。\n    }\n//对密钥重新进行排序\n    _newArr = _puArr.sort(compare(\"id\"));\n    for (var n = 0; n < _newArr.length; n++) {\n\n        _code += _newArr[n]['text'];\n    }\n    return _code\n}\n\nfunction compare(_0x209a13) {\n    var _0x2b0a5b = {\n        'hupwx': function(_0x28592c, _0x5c0aae) {\n            return _0x28592c - _0x5c0aae;\n        }\n    };\n    return function(_0x4490c6, _0x47bde8) {\n        var _0x11d139 = _0x4490c6[_0x209a13];\n        var _0x2b383f = _0x47bde8[_0x209a13];\n        return _0x2b0a5b['hupwx'](_0x11d139, _0x2b383f);\n    }\n        ;\n}\n\n//通过加密的URL和abc函数获取的CODE，进行AES解密\nfunction secret(enStr, code) {\n    code = CryptoJS.MD5(code).toString(); //32位md5  //修改\n    var iv1 = code.substring(0, 16);  //取前16位\n    var key1 = code.substring(16);    //取后16位\n\n    const key = CryptoJS.enc.Utf8.parse(key1);\n    const iv = CryptoJS.enc.Utf8.parse(iv1);\n    payload1 = Decrypt(enStr,key,iv)\n    //msg.payload = enStr\n    return payload1\n}\n\n\nvar id1 = msg.id1\nvar id2 = msg.id2\nvar code1 = abc(id1,id2)\nvar enurl = msg.enurl\nmsg.payload = secret(enurl, code1)\nreturn msg\n\n\n",
+        "func": "const CryptoJS = global.get('CryptoJS')\nfunction Decrypt(word,key,iv) {\n    let encryptedHexStr = CryptoJS.enc.Base64.parse(word);\n    let srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);\n    let decrypt = CryptoJS.AES.decrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);\n    return decryptedStr.toString();\n}\n\n\n//获取CODE\nfunction abc(id1,id2) {\n    var _pr = id1;\n    var _pu = id2;\n    var _puArr = [];\n    var _newArr = [];\n    var _code = '';\n\n    for (var i = 0; i < _pu.length; i++) {\n        _puArr.push({'id': _pu[i], 'text': _pr[i]});//将新元素添加到数组的末尾，并返回新的长度。\n    }\n//对密钥重新进行排序\n    _newArr = _puArr.sort(compare(\"id\"));\n    for (var n = 0; n < _newArr.length; n++) {\n\n        _code += _newArr[n]['text'];\n    }\n    return _code\n}\n\nfunction compare(_0x209a13) {\n    var _0x2b0a5b = {\n        'hupwx': function(_0x28592c, _0x5c0aae) {\n            return _0x28592c - _0x5c0aae;\n        }\n    };\n    return function(_0x4490c6, _0x47bde8) {\n        var _0x11d139 = _0x4490c6[_0x209a13];\n        var _0x2b383f = _0x47bde8[_0x209a13];\n        return _0x2b0a5b['hupwx'](_0x11d139, _0x2b383f);\n    }\n        ;\n}\n\n//通过加密的URL和abc函数获取的CODE，进行AES解密\nfunction secret(enStr, code) {\n    code = CryptoJS.MD5(code).toString(); //32位md5  //修改\n    var iv1 = code.substring(0, 16);  //取前16位\n    var key1 = code.substring(16);    //取后16位\n\n    const key = CryptoJS.enc.Utf8.parse(key1);\n    const iv = CryptoJS.enc.Utf8.parse(iv1);\n    return Decrypt(enStr,key,iv)\n}\n\nvar code1 = abc(msg.id1,msg.id2)\nmsg.payload = secret(msg.enurl, code1)\nreturn msg\n\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3688,12 +3688,14 @@
         "id": "c92aa5711b81cf1b",
         "type": "http request",
         "z": "e3562182c0530220",
-        "name": "",
+        "name": "解析请求",
         "method": "GET",
         "ret": "txt",
-        "paytoqs": false,
+        "paytoqs": "ignore",
         "url": "",
+        "tls": "",
         "persist": false,
+        "proxy": "",
         "authType": "",
         "senderr": false,
         "x": 440,
@@ -3746,7 +3748,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "//msg.payload={\"url\":\"https://om.tc.qq.com/gzc_1000102_0b537aaaeaaawuahjsrlinrmb6gdal7aabsa.f10218.mp4?vkey=EA074FA79C1491CF3F4911110422CA19FCFF9528388E9D8536C3E4924D32FCBC947BB6E0D15ED4688774ADC8BD5E3984F10E59556D2BBAA83DA1CDBA4B9D98D6C51F6C76985A2E012849C54F272107B0D29019F1CE3A017683771536AEBD5C0B2E74F435FBD1C5A6D50D4C6D7C00AC6B5D04E3D1AD40E6C98179104A372B11F8CE695EF4D5D284C7&sdtfrom=v1080&type=mp4&platform=10201&br=117&fmt=hd&sp=0&guid=1F78117BB3DD94210EC924D61BBE1F21FD660D84\"}\n\nvar url = msg.payload\nvar name = (msg.count+1).toString()+\".mp4\"\nvar dir = \"/downloads/\"+msg.name1\nmsg.payload = {}\n\nmsg.payload = {\n    \"jsonrpc\":\"2.0\",\n    \"method\":\"aria2.addUri\",\n    \"id\":\"QXJpYU5nXzE2NDcwODAyMjFfMC4wNjE0NDQxMTQ5NzI0MzA1Mg==\",\n    \"params\":[\"token:P3TERX\",[url],{\n        \"out\": name,\n        \"dir\": dir\n    }]\n}\n\nmsg.url = \"http://192.168.0.210:6800/jsonrpc\"\nreturn msg;",
+        "func": "var url = msg.payload\nvar name = (msg.count+1).toString()+\".mp4\"\nvar dir = \"/downloads/\"+msg.name1\nmsg.payload = {}\n\nmsg.payload = {\n    \"jsonrpc\":\"2.0\",\n    \"method\":\"aria2.addUri\",\n    \"id\":\"QXJpYU5nXzE2NDcwODAyMjFfMC4wNjE0NDQxMTQ5NzI0MzA1Mg==\",\n    \"params\":[\"token:P3TERX\",[url],{\n        \"out\": name,\n        \"dir\": dir\n    }]\n}\nmsg.url = \"http://192.168.0.210:6800/jsonrpc\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3764,7 +3766,7 @@
         "id": "9ef716d8da155c8d",
         "type": "http request",
         "z": "e3562182c0530220",
-        "name": "",
+        "name": "下载请求",
         "method": "POST",
         "ret": "txt",
         "paytoqs": "ignore",
@@ -3774,7 +3776,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 640,
+        "x": 620,
         "y": 340,
         "wires": [
             [
@@ -3925,26 +3927,9 @@
         "y": 160,
         "wires": [
             [
-                "5b08d0535afb5aa2",
-                "8302236d8c86173e"
+                "8302236d8c86173e",
+                "fb8044923bd345ae"
             ]
         ]
-    },
-    {
-        "id": "5b08d0535afb5aa2",
-        "type": "debug",
-        "z": "e3562182c0530220",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 810,
-        "y": 160,
-        "wires": []
     }
 ]
