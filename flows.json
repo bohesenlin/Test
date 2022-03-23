@@ -1456,14 +1456,14 @@
                 "vt": "str"
             }
         ],
-        "repeat": "600",
+        "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "str",
-        "x": 110,
+        "x": 100,
         "y": 1920,
         "wires": [
             [
