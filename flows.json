@@ -1879,136 +1879,6 @@
         "wires": []
     },
     {
-        "id": "3af8fb28f2bc12f3",
-        "type": "inject",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 2240,
-        "wires": [
-            [
-                "5a60ba4fc9ccde37"
-            ]
-        ]
-    },
-    {
-        "id": "3ff63ec7b40ac43a",
-        "type": "debug",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 410,
-        "y": 2240,
-        "wires": []
-    },
-    {
-        "id": "5a60ba4fc9ccde37",
-        "type": "function",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "func": "const CryptoJS = global.get('CryptoJS')\nconst key = CryptoJS.enc.Utf8.parse(\"c4c93ce65ca1541d\");\nconst iv = CryptoJS.enc.Utf8.parse('763f0fe6940b7da9');   //十六位十六进制数作为密钥偏移量\n//解密方法\nfunction Decrypt(word) {\n    let encryptedHexStr = CryptoJS.enc.Base64.parse(word);\n    let srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);\n    let decrypt = CryptoJS.AES.decrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);\n    return decryptedStr.toString();\n}\n//加密方法\nfunction Encrypt(word) {\n    let srcs = CryptoJS.enc.Base64url.parse(word);\n    let encrypted = CryptoJS.AES.encrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    return encrypted.ciphertext.toString().toUpperCase();\n}\nmsg.Encrypt = Encrypt('https://om.tc.qq.com/gzc_1000102_0b53kiabiaaaz4aob3bgfjrmauwdcrkaaeca.f10218.mp4?vkey=6694A1A681587E9016796921FCFCB59287D1E4180EBB5091412C2BE8D80F3EE3173C2D98D300EA96CDB94741CB43BF66B74F5EADE0EA4D7555465FCA404C923CEDF393B5D950970421DAD7E024B14998E406F4C7A5EED2FABD52E642D47DC9FDA96F1F71CE5DFAFF58C8BCC4A860B4FA970D57A56C01D7FB30B4FE0C77BFF961B834772FA8D8CB07&sdtfrom=v1080&type=mp4&platform=10201&br=117&fmt=hd&sp=0&guid=1F78117BB3DD94210EC924D61BBE1F21FD660D84')\nmsg.Decrypt = Decrypt('5vZdpLQXZqizGP5q3fBrYk4tw72AKp3yYr2+K0M68Cp7oXEZCLWL1EUw7n6hYQHjHU0pYNdlWoFMGv4gmmzYDDuu09ObOGQ0E+AFaHRRSfRx0IlsWZoYepU7NBPX3NreHHdyjuk0UIh7yvngchbs9KsXyPGFHQcHZm4Lo4nraWFgVBz6ZM8WW+csaZjtM8gQRQfQKMrQ2u9CWjAMuggyUtLr2FDTUOFW0KsdBi3VIEWnI7v4c+5BSrNJ6EdU3VB3CJ/cvanj/F3q7avUD7PcNcWmlnE6+j/SmG4PSa7RrJSkeiptgTv3nQp6aHhgZ6asJxQez45EUZn7Y5hQ1uL6CM0HbxIIa9oPLQTm39jRZS2J/2SPdtp9yu1t2TjiEIbeowkUIfgQ2bHOxgNPhQ/4KDZDJj75HcrSlOzVeZNq6UQQ2IQz1HbPF49nidNYnrA6i8H57TsxXNsYUnHDM9RcThNYSfcKACAu/TheRYyTXPa0V9PsELf6iWxir7rvFxMI3YrheaCEXlvYygp/NfaYXD8iqpyKoJLPuUi4TV7S7JoLyfyGbKXeFGop93T2mnhvXzjyCQLyCa1P5y18GBoRJurduB6DQiY9iIoXDthZHQk=')\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 270,
-        "y": 2240,
-        "wires": [
-            [
-                "3ff63ec7b40ac43a"
-            ]
-        ]
-    },
-    {
-        "id": "95fafe2d41119539",
-        "type": "inject",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 2320,
-        "wires": [
-            [
-                "9775483a1d092d62"
-            ]
-        ]
-    },
-    {
-        "id": "be9ef87ab810b13c",
-        "type": "debug",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 410,
-        "y": 2320,
-        "wires": []
-    },
-    {
-        "id": "9775483a1d092d62",
-        "type": "function",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "func": "const CryptoJS = global.get('CryptoJS')\n//msg.Decrypt = Decrypt('4ACEA01505ADAF9FB59A03B22FC1EF1B244AE28DDACFDFAEFA7E263655C44357')\nreturn CryptoJS;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 270,
-        "y": 2320,
-        "wires": [
-            [
-                "be9ef87ab810b13c"
-            ]
-        ]
-    },
-    {
         "id": "4c21ef519ea65406",
         "type": "api-call-service",
         "z": "a8c13c8811cc5927",
@@ -2979,7 +2849,7 @@
         "finalize": "",
         "libs": [],
         "x": 100,
-        "y": 520,
+        "y": 340,
         "wires": [
             [
                 "ac0ba2fd437ac44c"
@@ -2998,7 +2868,7 @@
         "finalize": "",
         "libs": [],
         "x": 260,
-        "y": 420,
+        "y": 240,
         "wires": [
             [
                 "21af72c8b35f1a0d"
@@ -3018,121 +2888,10 @@
         "authType": "",
         "senderr": false,
         "x": 440,
-        "y": 420,
+        "y": 240,
         "wires": [
             [
                 "5a0c7f92b542e8db"
-            ]
-        ]
-    },
-    {
-        "id": "2953ea57d7b1c1f0",
-        "type": "debug",
-        "z": "f936bcfefd29972a",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 590,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "63c8c9c7dbde7f4b",
-        "type": "function",
-        "z": "f936bcfefd29972a",
-        "name": "md5加密",
-        "func": "/*\n * A JavaScript implementation of the RSA Data Security, Inc. MD5 Message\n * Digest Algorithm, as defined in RFC 1321.\n * Version 2.1 Copyright (C) Paul Johnston 1999 - 2002.\n * Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet\n * Distributed under the BSD License\n * See http://pajhome.org.uk/crypt/md5 for more info.\n */\n\n/*\n * Configurable variables. You may need to tweak these to be compatible with\n * the server-side, but the defaults work in most cases.\n */\nvar hexcase = 0;  /* hex output format. 0 - lowercase; 1 - uppercase        */\nvar b64pad  = \"\"; /* base-64 pad character. \"=\" for strict RFC compliance   */\nvar chrsz   = 8;  /* bits per input character. 8 - ASCII; 16 - Unicode      */\n\n/*\n * These are the functions you'll usually want to call\n * They take string arguments and return either hex or base-64 encoded strings\n */\nfunction hex_md5(s){ return binl2hex(core_md5(str2binl(s), s.length * chrsz));}\nfunction b64_md5(s){ return binl2b64(core_md5(str2binl(s), s.length * chrsz));}\nfunction str_md5(s){ return binl2str(core_md5(str2binl(s), s.length * chrsz));}\nfunction hex_hmac_md5(key, data) { return binl2hex(core_hmac_md5(key, data)); }\nfunction b64_hmac_md5(key, data) { return binl2b64(core_hmac_md5(key, data)); }\nfunction str_hmac_md5(key, data) { return binl2str(core_hmac_md5(key, data)); }\n\n/*\n * Perform a simple self-test to see if the VM is working\n */\nfunction md5_vm_test()\n{\n  return hex_md5(\"abc\") == \"900150983cd24fb0d6963f7d28e17f72\";\n}\n\n/*\n * Calculate the MD5 of an array of little-endian words, and a bit length\n */\nfunction core_md5(x, len)\n{\n  /* append padding */\n  x[len >> 5] |= 0x80 << ((len) % 32);\n  x[(((len + 64) >>> 9) << 4) + 14] = len;\n\n  var a =  1732584193;\n  var b = -271733879;\n  var c = -1732584194;\n  var d =  271733878;\n\n  for(var i = 0; i < x.length; i += 16)\n  {\n    var olda = a;\n    var oldb = b;\n    var oldc = c;\n    var oldd = d;\n\n    a = md5_ff(a, b, c, d, x[i+ 0], 7 , -680876936);\n    d = md5_ff(d, a, b, c, x[i+ 1], 12, -389564586);\n    c = md5_ff(c, d, a, b, x[i+ 2], 17,  606105819);\n    b = md5_ff(b, c, d, a, x[i+ 3], 22, -1044525330);\n    a = md5_ff(a, b, c, d, x[i+ 4], 7 , -176418897);\n    d = md5_ff(d, a, b, c, x[i+ 5], 12,  1200080426);\n    c = md5_ff(c, d, a, b, x[i+ 6], 17, -1473231341);\n    b = md5_ff(b, c, d, a, x[i+ 7], 22, -45705983);\n    a = md5_ff(a, b, c, d, x[i+ 8], 7 ,  1770035416);\n    d = md5_ff(d, a, b, c, x[i+ 9], 12, -1958414417);\n    c = md5_ff(c, d, a, b, x[i+10], 17, -42063);\n    b = md5_ff(b, c, d, a, x[i+11], 22, -1990404162);\n    a = md5_ff(a, b, c, d, x[i+12], 7 ,  1804603682);\n    d = md5_ff(d, a, b, c, x[i+13], 12, -40341101);\n    c = md5_ff(c, d, a, b, x[i+14], 17, -1502002290);\n    b = md5_ff(b, c, d, a, x[i+15], 22,  1236535329);\n\n    a = md5_gg(a, b, c, d, x[i+ 1], 5 , -165796510);\n    d = md5_gg(d, a, b, c, x[i+ 6], 9 , -1069501632);\n    c = md5_gg(c, d, a, b, x[i+11], 14,  643717713);\n    b = md5_gg(b, c, d, a, x[i+ 0], 20, -373897302);\n    a = md5_gg(a, b, c, d, x[i+ 5], 5 , -701558691);\n    d = md5_gg(d, a, b, c, x[i+10], 9 ,  38016083);\n    c = md5_gg(c, d, a, b, x[i+15], 14, -660478335);\n    b = md5_gg(b, c, d, a, x[i+ 4], 20, -405537848);\n    a = md5_gg(a, b, c, d, x[i+ 9], 5 ,  568446438);\n    d = md5_gg(d, a, b, c, x[i+14], 9 , -1019803690);\n    c = md5_gg(c, d, a, b, x[i+ 3], 14, -187363961);\n    b = md5_gg(b, c, d, a, x[i+ 8], 20,  1163531501);\n    a = md5_gg(a, b, c, d, x[i+13], 5 , -1444681467);\n    d = md5_gg(d, a, b, c, x[i+ 2], 9 , -51403784);\n    c = md5_gg(c, d, a, b, x[i+ 7], 14,  1735328473);\n    b = md5_gg(b, c, d, a, x[i+12], 20, -1926607734);\n\n    a = md5_hh(a, b, c, d, x[i+ 5], 4 , -378558);\n    d = md5_hh(d, a, b, c, x[i+ 8], 11, -2022574463);\n    c = md5_hh(c, d, a, b, x[i+11], 16,  1839030562);\n    b = md5_hh(b, c, d, a, x[i+14], 23, -35309556);\n    a = md5_hh(a, b, c, d, x[i+ 1], 4 , -1530992060);\n    d = md5_hh(d, a, b, c, x[i+ 4], 11,  1272893353);\n    c = md5_hh(c, d, a, b, x[i+ 7], 16, -155497632);\n    b = md5_hh(b, c, d, a, x[i+10], 23, -1094730640);\n    a = md5_hh(a, b, c, d, x[i+13], 4 ,  681279174);\n    d = md5_hh(d, a, b, c, x[i+ 0], 11, -358537222);\n    c = md5_hh(c, d, a, b, x[i+ 3], 16, -722521979);\n    b = md5_hh(b, c, d, a, x[i+ 6], 23,  76029189);\n    a = md5_hh(a, b, c, d, x[i+ 9], 4 , -640364487);\n    d = md5_hh(d, a, b, c, x[i+12], 11, -421815835);\n    c = md5_hh(c, d, a, b, x[i+15], 16,  530742520);\n    b = md5_hh(b, c, d, a, x[i+ 2], 23, -995338651);\n\n    a = md5_ii(a, b, c, d, x[i+ 0], 6 , -198630844);\n    d = md5_ii(d, a, b, c, x[i+ 7], 10,  1126891415);\n    c = md5_ii(c, d, a, b, x[i+14], 15, -1416354905);\n    b = md5_ii(b, c, d, a, x[i+ 5], 21, -57434055);\n    a = md5_ii(a, b, c, d, x[i+12], 6 ,  1700485571);\n    d = md5_ii(d, a, b, c, x[i+ 3], 10, -1894986606);\n    c = md5_ii(c, d, a, b, x[i+10], 15, -1051523);\n    b = md5_ii(b, c, d, a, x[i+ 1], 21, -2054922799);\n    a = md5_ii(a, b, c, d, x[i+ 8], 6 ,  1873313359);\n    d = md5_ii(d, a, b, c, x[i+15], 10, -30611744);\n    c = md5_ii(c, d, a, b, x[i+ 6], 15, -1560198380);\n    b = md5_ii(b, c, d, a, x[i+13], 21,  1309151649);\n    a = md5_ii(a, b, c, d, x[i+ 4], 6 , -145523070);\n    d = md5_ii(d, a, b, c, x[i+11], 10, -1120210379);\n    c = md5_ii(c, d, a, b, x[i+ 2], 15,  718787259);\n    b = md5_ii(b, c, d, a, x[i+ 9], 21, -343485551);\n\n    a = safe_add(a, olda);\n    b = safe_add(b, oldb);\n    c = safe_add(c, oldc);\n    d = safe_add(d, oldd);\n  }\n  return Array(a, b, c, d);\n\n}\n\n/*\n * These functions implement the four basic operations the algorithm uses.\n */\nfunction md5_cmn(q, a, b, x, s, t)\n{\n  return safe_add(bit_rol(safe_add(safe_add(a, q), safe_add(x, t)), s),b);\n}\nfunction md5_ff(a, b, c, d, x, s, t)\n{\n  return md5_cmn((b & c) | ((~b) & d), a, b, x, s, t);\n}\nfunction md5_gg(a, b, c, d, x, s, t)\n{\n  return md5_cmn((b & d) | (c & (~d)), a, b, x, s, t);\n}\nfunction md5_hh(a, b, c, d, x, s, t)\n{\n  return md5_cmn(b ^ c ^ d, a, b, x, s, t);\n}\nfunction md5_ii(a, b, c, d, x, s, t)\n{\n  return md5_cmn(c ^ (b | (~d)), a, b, x, s, t);\n}\n\n/*\n * Calculate the HMAC-MD5, of a key and some data\n */\nfunction core_hmac_md5(key, data)\n{\n  var bkey = str2binl(key);\n  if(bkey.length > 16) bkey = core_md5(bkey, key.length * chrsz);\n\n  var ipad = Array(16), opad = Array(16);\n  for(var i = 0; i < 16; i++)\n  {\n    ipad[i] = bkey[i] ^ 0x36363636;\n    opad[i] = bkey[i] ^ 0x5C5C5C5C;\n  }\n\n  var hash = core_md5(ipad.concat(str2binl(data)), 512 + data.length * chrsz);\n  return core_md5(opad.concat(hash), 512 + 128);\n}\n\n/*\n * Add integers, wrapping at 2^32. This uses 16-bit operations internally\n * to work around bugs in some JS interpreters.\n */\nfunction safe_add(x, y)\n{\n  var lsw = (x & 0xFFFF) + (y & 0xFFFF);\n  var msw = (x >> 16) + (y >> 16) + (lsw >> 16);\n  return (msw << 16) | (lsw & 0xFFFF);\n}\n\n/*\n * Bitwise rotate a 32-bit number to the left.\n */\nfunction bit_rol(num, cnt)\n{\n  return (num << cnt) | (num >>> (32 - cnt));\n}\n\n/*\n * Convert a string to an array of little-endian words\n * If chrsz is ASCII, characters >255 have their hi-byte silently ignored.\n */\nfunction str2binl(str)\n{\n  var bin = Array();\n  var mask = (1 << chrsz) - 1;\n  for(var i = 0; i < str.length * chrsz; i += chrsz)\n    bin[i>>5] |= (str.charCodeAt(i / chrsz) & mask) << (i%32);\n  return bin;\n}\n\n/*\n * Convert an array of little-endian words to a string\n */\nfunction binl2str(bin)\n{\n  var str = \"\";\n  var mask = (1 << chrsz) - 1;\n  for(var i = 0; i < bin.length * 32; i += chrsz)\n    str += String.fromCharCode((bin[i>>5] >>> (i % 32)) & mask);\n  return str;\n}\n\n/*\n * Convert an array of little-endian words to a hex string.\n */\nfunction binl2hex(binarray)\n{\n  var hex_tab = hexcase ? \"0123456789ABCDEF\" : \"0123456789abcdef\";\n  var str = \"\";\n  for(var i = 0; i < binarray.length * 4; i++)\n  {\n    str += hex_tab.charAt((binarray[i>>2] >> ((i%4)*8+4)) & 0xF) +\n           hex_tab.charAt((binarray[i>>2] >> ((i%4)*8  )) & 0xF);\n  }\n  return str;\n}\n\n/*\n * Convert an array of little-endian words to a base-64 string\n */\nfunction binl2b64(binarray)\n{\n  var tab = \"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\";\n  var str = \"\";\n  for(var i = 0; i < binarray.length * 4; i += 3)\n  {\n    var triplet = (((binarray[i   >> 2] >> 8 * ( i   %4)) & 0xFF) << 16)\n                | (((binarray[i+1 >> 2] >> 8 * ((i+1)%4)) & 0xFF) << 8 )\n                |  ((binarray[i+2 >> 2] >> 8 * ((i+2)%4)) & 0xFF);\n    for(var j = 0; j < 4; j++)\n    {\n      if(i * 8 + j * 6 > binarray.length * 32) str += b64pad;\n      else str += tab.charAt((triplet >> 6*(3-j)) & 0x3F);\n    }\n  }\n  return str;\n}\nmsg.payload=hex_md5(\"123456789abc\")\nreturn msg\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 240,
-        "y": 100,
-        "wires": [
-            [
-                "2953ea57d7b1c1f0"
-            ]
-        ]
-    },
-    {
-        "id": "8d2fa2c91eae5d2e",
-        "type": "inject",
-        "z": "f936bcfefd29972a",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 100,
-        "wires": [
-            [
-                "63c8c9c7dbde7f4b"
-            ]
-        ]
-    },
-    {
-        "id": "65ad5dc76459cd80",
-        "type": "function",
-        "z": "f936bcfefd29972a",
-        "name": "",
-        "func": "var Aes = {};  // Aes namespace\n\n/**\n * AES Cipher function: encrypt 'input' state with Rijndael algorithm\n *   applies Nr rounds (10/12/14) using key schedule w for 'add round key' stage\n *\n * @param {Number[]} input 16-byte (128-bit) input state array\n * @param {Number[][]} w   Key schedule as 2D byte-array (Nr+1 x Nb bytes)\n * @returns {Number[]}     Encrypted output state array\n */\nAes.cipher = function(input, w) {    // main Cipher function [§5.1]\n  var Nb = 4;               // block size (in words): no of columns in state (fixed at 4 for AES)\n  var Nr = w.length/Nb - 1; // no of rounds: 10/12/14 for 128/192/256-bit keys\n\n  var state = [[],[],[],[]];  // initialise 4xNb byte-array 'state' with input [§3.4]\n  for (var i=0; i<4*Nb; i++) state[i%4][Math.floor(i/4)] = input[i];\n\n  state = Aes.addRoundKey(state, w, 0, Nb);\n\n  for (var round=1; round<Nr; round++) {\n    state = Aes.subBytes(state, Nb);\n    state = Aes.shiftRows(state, Nb);\n    state = Aes.mixColumns(state, Nb);\n    state = Aes.addRoundKey(state, w, round, Nb);\n  }\n\n  state = Aes.subBytes(state, Nb);\n  state = Aes.shiftRows(state, Nb);\n  state = Aes.addRoundKey(state, w, Nr, Nb);\n\n  var output = new Array(4*Nb);  // convert state to 1-d array before returning [§3.4]\n  for (var i=0; i<4*Nb; i++) output[i] = state[i%4][Math.floor(i/4)];\n  return output;\n}\n\n/**\n * Perform Key Expansion to generate a Key Schedule\n *\n * @param {Number[]} key Key as 16/24/32-byte array\n * @returns {Number[][]} Expanded key schedule as 2D byte-array (Nr+1 x Nb bytes)\n */\nAes.keyExpansion = function(key) {  // generate Key Schedule (byte-array Nr+1 x Nb) from Key [§5.2]\n  var Nb = 4;            // block size (in words): no of columns in state (fixed at 4 for AES)\n  var Nk = key.length/4  // key length (in words): 4/6/8 for 128/192/256-bit keys\n  var Nr = Nk + 6;       // no of rounds: 10/12/14 for 128/192/256-bit keys\n\n  var w = new Array(Nb*(Nr+1));\n  var temp = new Array(4);\n\n  for (var i=0; i<Nk; i++) {\n    var r = [key[4*i], key[4*i+1], key[4*i+2], key[4*i+3]];\n    w[i] = r;\n  }\n\n  for (var i=Nk; i<(Nb*(Nr+1)); i++) {\n    w[i] = new Array(4);\n    for (var t=0; t<4; t++) temp[t] = w[i-1][t];\n    if (i % Nk == 0) {\n      temp = Aes.subWord(Aes.rotWord(temp));\n      for (var t=0; t<4; t++) temp[t] ^= Aes.rCon[i/Nk][t];\n    } else if (Nk > 6 && i%Nk == 4) {\n      temp = Aes.subWord(temp);\n    }\n    for (var t=0; t<4; t++) w[i][t] = w[i-Nk][t] ^ temp[t];\n  }\n\n  return w;\n}\n\n/*\n * ---- remaining routines are private, not called externally ----\n */\n \nAes.subBytes = function(s, Nb) {    // apply SBox to state S [§5.1.1]\n  for (var r=0; r<4; r++) {\n    for (var c=0; c<Nb; c++) s[r][c] = Aes.sBox[s[r][c]];\n  }\n  return s;\n}\n\nAes.shiftRows = function(s, Nb) {    // shift row r of state S left by r bytes [§5.1.2]\n  var t = new Array(4);\n  for (var r=1; r<4; r++) {\n    for (var c=0; c<4; c++) t[c] = s[r][(c+r)%Nb];  // shift into temp copy\n    for (var c=0; c<4; c++) s[r][c] = t[c];         // and copy back\n  }          // note that this will work for Nb=4,5,6, but not 7,8 (always 4 for AES):\n  return s;  // see asmaes.sourceforge.net/rijndael/rijndaelImplementation.pdf\n}\n\nAes.mixColumns = function(s, Nb) {   // combine bytes of each col of state S [§5.1.3]\n  for (var c=0; c<4; c++) {\n    var a = new Array(4);  // 'a' is a copy of the current column from 's'\n    var b = new Array(4);  // 'b' is a•{02} in GF(2^8)\n    for (var i=0; i<4; i++) {\n      a[i] = s[i][c];\n      b[i] = s[i][c]&0x80 ? s[i][c]<<1 ^ 0x011b : s[i][c]<<1;\n\n    }\n    // a[n] ^ b[n] is a•{03} in GF(2^8)\n    s[0][c] = b[0] ^ a[1] ^ b[1] ^ a[2] ^ a[3]; // 2*a0 + 3*a1 + a2 + a3\n    s[1][c] = a[0] ^ b[1] ^ a[2] ^ b[2] ^ a[3]; // a0 * 2*a1 + 3*a2 + a3\n    s[2][c] = a[0] ^ a[1] ^ b[2] ^ a[3] ^ b[3]; // a0 + a1 + 2*a2 + 3*a3\n    s[3][c] = a[0] ^ b[0] ^ a[1] ^ a[2] ^ b[3]; // 3*a0 + a1 + a2 + 2*a3\n  }\n  return s;\n}\n\nAes.addRoundKey = function(state, w, rnd, Nb) {  // xor Round Key into state S [§5.1.4]\n  for (var r=0; r<4; r++) {\n    for (var c=0; c<Nb; c++) state[r][c] ^= w[rnd*4+c][r];\n  }\n  return state;\n}\n\nAes.subWord = function(w) {    // apply SBox to 4-byte word w\n  for (var i=0; i<4; i++) w[i] = Aes.sBox[w[i]];\n  return w;\n}\n\nAes.rotWord = function(w) {    // rotate 4-byte word w left by one byte\n  var tmp = w[0];\n  for (var i=0; i<3; i++) w[i] = w[i+1];\n  w[3] = tmp;\n  return w;\n}\n\n// sBox is pre-computed multiplicative inverse in GF(2^8) used in subBytes and keyExpansion [§5.1.1]\nAes.sBox =  [0x63,0x7c,0x77,0x7b,0xf2,0x6b,0x6f,0xc5,0x30,0x01,0x67,0x2b,0xfe,0xd7,0xab,0x76,\n             0xca,0x82,0xc9,0x7d,0xfa,0x59,0x47,0xf0,0xad,0xd4,0xa2,0xaf,0x9c,0xa4,0x72,0xc0,\n             0xb7,0xfd,0x93,0x26,0x36,0x3f,0xf7,0xcc,0x34,0xa5,0xe5,0xf1,0x71,0xd8,0x31,0x15,\n             0x04,0xc7,0x23,0xc3,0x18,0x96,0x05,0x9a,0x07,0x12,0x80,0xe2,0xeb,0x27,0xb2,0x75,\n             0x09,0x83,0x2c,0x1a,0x1b,0x6e,0x5a,0xa0,0x52,0x3b,0xd6,0xb3,0x29,0xe3,0x2f,0x84,\n             0x53,0xd1,0x00,0xed,0x20,0xfc,0xb1,0x5b,0x6a,0xcb,0xbe,0x39,0x4a,0x4c,0x58,0xcf,\n             0xd0,0xef,0xaa,0xfb,0x43,0x4d,0x33,0x85,0x45,0xf9,0x02,0x7f,0x50,0x3c,0x9f,0xa8,\n             0x51,0xa3,0x40,0x8f,0x92,0x9d,0x38,0xf5,0xbc,0xb6,0xda,0x21,0x10,0xff,0xf3,0xd2,\n             0xcd,0x0c,0x13,0xec,0x5f,0x97,0x44,0x17,0xc4,0xa7,0x7e,0x3d,0x64,0x5d,0x19,0x73,\n             0x60,0x81,0x4f,0xdc,0x22,0x2a,0x90,0x88,0x46,0xee,0xb8,0x14,0xde,0x5e,0x0b,0xdb,\n             0xe0,0x32,0x3a,0x0a,0x49,0x06,0x24,0x5c,0xc2,0xd3,0xac,0x62,0x91,0x95,0xe4,0x79,\n             0xe7,0xc8,0x37,0x6d,0x8d,0xd5,0x4e,0xa9,0x6c,0x56,0xf4,0xea,0x65,0x7a,0xae,0x08,\n             0xba,0x78,0x25,0x2e,0x1c,0xa6,0xb4,0xc6,0xe8,0xdd,0x74,0x1f,0x4b,0xbd,0x8b,0x8a,\n             0x70,0x3e,0xb5,0x66,0x48,0x03,0xf6,0x0e,0x61,0x35,0x57,0xb9,0x86,0xc1,0x1d,0x9e,\n             0xe1,0xf8,0x98,0x11,0x69,0xd9,0x8e,0x94,0x9b,0x1e,0x87,0xe9,0xce,0x55,0x28,0xdf,\n             0x8c,0xa1,0x89,0x0d,0xbf,0xe6,0x42,0x68,0x41,0x99,0x2d,0x0f,0xb0,0x54,0xbb,0x16];\n\n// rCon is Round Constant used for the Key Expansion [1st col is 2^(r-1) in GF(2^8)] [§5.2]\nAes.rCon = [ [0x00, 0x00, 0x00, 0x00],\n             [0x01, 0x00, 0x00, 0x00],\n             [0x02, 0x00, 0x00, 0x00],\n             [0x04, 0x00, 0x00, 0x00],\n             [0x08, 0x00, 0x00, 0x00],\n             [0x10, 0x00, 0x00, 0x00],\n             [0x20, 0x00, 0x00, 0x00],\n             [0x40, 0x00, 0x00, 0x00],\n             [0x80, 0x00, 0x00, 0x00],\n             [0x1b, 0x00, 0x00, 0x00],\n             [0x36, 0x00, 0x00, 0x00] ]; \n\n\n/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */\n/*  AES Counter-mode implementation in JavaScript (c) Chris Veness 2005-2012                      */\n/*   - see http://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf                       */\n/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */\n\nAes.Ctr = {};  // Aes.Ctr namespace: a subclass or extension of Aes\n\n/** \n * Encrypt a text using AES encryption in Counter mode of operation\n *\n * Unicode multi-byte character safe\n *\n * @param {String} plaintext Source text to be encrypted\n * @param {String} password  The password to use to generate a key\n * @param {Number} nBits     Number of bits to be used in the key (128, 192, or 256)\n * @returns {string}         Encrypted text\n */\nAes.Ctr.encrypt = function(plaintext, password, nBits) {\n  var blockSize = 16;  // block size fixed at 16 bytes / 128 bits (Nb=4) for AES\n  if (!(nBits==128 || nBits==192 || nBits==256)) return '';  // standard allows 128/192/256 bit keys\n  plaintext = Utf8.encode(plaintext);\n  password = Utf8.encode(password);\n  //var t = new Date();  // timer\n    \n  // use AES itself to encrypt password to get cipher key (using plain password as source for key \n  // expansion) - gives us well encrypted key (though hashed key might be preferred for prod'n use)\n  var nBytes = nBits/8;  // no bytes in key (16/24/32)\n  var pwBytes = new Array(nBytes);\n  for (var i=0; i<nBytes; i++) {  // use 1st 16/24/32 chars of password for key\n    pwBytes[i] = isNaN(password.charCodeAt(i)) ? 0 : password.charCodeAt(i);\n  }\n  var key = Aes.cipher(pwBytes, Aes.keyExpansion(pwBytes));  // gives us 16-byte key\n  key = key.concat(key.slice(0, nBytes-16));  // expand key to 16/24/32 bytes long\n\n  // initialise 1st 8 bytes of counter block with nonce (NIST SP800-38A §B.2): [0-1] = millisec, \n  // [2-3] = random, [4-7] = seconds, together giving full sub-millisec uniqueness up to Feb 2106\n  var counterBlock = new Array(blockSize);\n  \n  var nonce = (new Date()).getTime();  // timestamp: milliseconds since 1-Jan-1970\n  var nonceMs = nonce%1000;\n  var nonceSec = Math.floor(nonce/1000);\n  var nonceRnd = Math.floor(Math.random()*0xffff);\n  \n  for (var i=0; i<2; i++) counterBlock[i]   = (nonceMs  >>> i*8) & 0xff;\n  for (var i=0; i<2; i++) counterBlock[i+2] = (nonceRnd >>> i*8) & 0xff;\n  for (var i=0; i<4; i++) counterBlock[i+4] = (nonceSec >>> i*8) & 0xff;\n  \n  // and convert it to a string to go on the front of the ciphertext\n  var ctrTxt = '';\n  for (var i=0; i<8; i++) ctrTxt += String.fromCharCode(counterBlock[i]);\n\n  // generate key schedule - an expansion of the key into distinct Key Rounds for each round\n  var keySchedule = Aes.keyExpansion(key);\n  \n  var blockCount = Math.ceil(plaintext.length/blockSize);\n  var ciphertxt = new Array(blockCount);  // ciphertext as array of strings\n  \n  for (var b=0; b<blockCount; b++) {\n    // set counter (block #) in last 8 bytes of counter block (leaving nonce in 1st 8 bytes)\n    // done in two stages for 32-bit ops: using two words allows us to go past 2^32 blocks (68GB)\n    for (var c=0; c<4; c++) counterBlock[15-c] = (b >>> c*8) & 0xff;\n    for (var c=0; c<4; c++) counterBlock[15-c-4] = (b/0x100000000 >>> c*8)\n\n    var cipherCntr = Aes.cipher(counterBlock, keySchedule);  // -- encrypt counter block --\n    \n    // block size is reduced on final block\n    var blockLength = b<blockCount-1 ? blockSize : (plaintext.length-1)%blockSize+1;\n    var cipherChar = new Array(blockLength);\n    \n    for (var i=0; i<blockLength; i++) {  // -- xor plaintext with ciphered counter char-by-char --\n      cipherChar[i] = cipherCntr[i] ^ plaintext.charCodeAt(b*blockSize+i);\n      cipherChar[i] = String.fromCharCode(cipherChar[i]);\n    }\n    ciphertxt[b] = cipherChar.join(''); \n  }\n\n  // Array.join is more efficient than repeated string concatenation in IE\n  var ciphertext = ctrTxt + ciphertxt.join('');\n  ciphertext = Base64.encode(ciphertext);  // encode in base64\n  \n  //alert((new Date()) - t);\n  return ciphertext;\n}\n\n/** \n * Decrypt a text encrypted by AES in counter mode of operation\n *\n * @param {String} ciphertext Source text to be encrypted\n * @param {String} password   The password to use to generate a key\n * @param {Number} nBits      Number of bits to be used in the key (128, 192, or 256)\n * @returns {String}          Decrypted text\n */\nAes.Ctr.decrypt = function(ciphertext, password, nBits) {\n  var blockSize = 16;  // block size fixed at 16 bytes / 128 bits (Nb=4) for AES\n  if (!(nBits==128 || nBits==192 || nBits==256)) return '';  // standard allows 128/192/256 bit keys\n  ciphertext = Base64.decode(ciphertext);\n  password = Utf8.encode(password);\n  //var t = new Date();  // timer\n  \n  // use AES to encrypt password (mirroring encrypt routine)\n  var nBytes = nBits/8;  // no bytes in key\n  var pwBytes = new Array(nBytes);\n  for (var i=0; i<nBytes; i++) {\n    pwBytes[i] = isNaN(password.charCodeAt(i)) ? 0 : password.charCodeAt(i);\n  }\n  var key = Aes.cipher(pwBytes, Aes.keyExpansion(pwBytes));\n  key = key.concat(key.slice(0, nBytes-16));  // expand key to 16/24/32 bytes long\n\n  // recover nonce from 1st 8 bytes of ciphertext\n  var counterBlock = new Array(8);\n  ctrTxt = ciphertext.slice(0, 8);\n  for (var i=0; i<8; i++) counterBlock[i] = ctrTxt.charCodeAt(i);\n  \n  // generate key schedule\n  var keySchedule = Aes.keyExpansion(key);\n\n  // separate ciphertext into blocks (skipping past initial 8 bytes)\n  var nBlocks = Math.ceil((ciphertext.length-8) / blockSize);\n  var ct = new Array(nBlocks);\n  for (var b=0; b<nBlocks; b++) ct[b] = ciphertext.slice(8+b*blockSize, 8+b*blockSize+blockSize);\n  ciphertext = ct;  // ciphertext is now array of block-length strings\n\n  // plaintext will get generated block-by-block into array of block-length strings\n  var plaintxt = new Array(ciphertext.length);\n\n  for (var b=0; b<nBlocks; b++) {\n    // set counter (block #) in last 8 bytes of counter block (leaving nonce in 1st 8 bytes)\n    for (var c=0; c<4; c++) counterBlock[15-c] = ((b) >>> c*8) & 0xff;\n    for (var c=0; c<4; c++) counterBlock[15-c-4] = (((b+1)/0x100000000-1) >>> c*8) & 0xff;\n\n    var cipherCntr = Aes.cipher(counterBlock, keySchedule);  // encrypt counter block\n\n    var plaintxtByte = new Array(ciphertext[b].length);\n    for (var i=0; i<ciphertext[b].length; i++) {\n      // -- xor plaintxt with ciphered counter byte-by-byte --\n      plaintxtByte[i] = cipherCntr[i] ^ ciphertext[b].charCodeAt(i);\n      plaintxtByte[i] = String.fromCharCode(plaintxtByte[i]);\n    }\n    plaintxt[b] = plaintxtByte.join('');\n  }\n\n  // join array of blocks into single plaintext string\n  var plaintext = plaintxt.join('');\n  plaintext = Utf8.decode(plaintext);  // decode from UTF8 back to Unicode multi-byte chars\n  \n  //alert((new Date()) - t);\n  return plaintext;\n}\n\n\n/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */\n/*  Base64 class: Base 64 encoding / decoding (c) Chris Veness 2002-2012                          */\n/*    note: depends on Utf8 class                                                                 */\n/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */\n\nvar Base64 = {};  // Base64 namespace\n\nBase64.code = \"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=\";\n\n/**\n * Encode string into Base64, as defined by RFC 4648 [http://tools.ietf.org/html/rfc4648]\n * (instance method extending String object). As per RFC 4648, no newlines are added.\n *\n * @param {String} str The string to be encoded as base-64\n * @param {Boolean} [utf8encode=false] Flag to indicate whether str is Unicode string to be encoded \n *   to UTF8 before conversion to base64; otherwise string is assumed to be 8-bit characters\n * @returns {String} Base64-encoded string\n */ \nBase64.encode = function(str, utf8encode) {  // http://tools.ietf.org/html/rfc4648\n  utf8encode =  (typeof utf8encode == 'undefined') ? false : utf8encode;\n  var o1, o2, o3, bits, h1, h2, h3, h4, e=[], pad = '', c, plain, coded;\n  var b64 = Base64.code;\n   \n  plain = utf8encode ? str.encodeUTF8() : str;\n  \n  c = plain.length % 3;  // pad string to length of multiple of 3\n  if (c > 0) { while (c++ < 3) { pad += '='; plain += '\\0'; } }\n  // note: doing padding here saves us doing special-case packing for trailing 1 or 2 chars\n   \n  for (c=0; c<plain.length; c+=3) {  // pack three octets into four hexets\n    o1 = plain.charCodeAt(c);\n    o2 = plain.charCodeAt(c+1);\n    o3 = plain.charCodeAt(c+2);\n      \n    bits = o1<<16 | o2<<8 | o3;\n      \n    h1 = bits>>18 & 0x3f;\n    h2 = bits>>12 & 0x3f;\n    h3 = bits>>6 & 0x3f;\n    h4 = bits & 0x3f;\n\n    // use hextets to index into code string\n    e[c/3] = b64.charAt(h1) + b64.charAt(h2) + b64.charAt(h3) + b64.charAt(h4);\n  }\n  coded = e.join('');  // join() is far faster than repeated string concatenation in IE\n  \n  // replace 'A's from padded nulls with '='s\n  coded = coded.slice(0, coded.length-pad.length) + pad;\n   \n  return coded;\n}\n\n/**\n * Decode string from Base64, as defined by RFC 4648 [http://tools.ietf.org/html/rfc4648]\n * (instance method extending String object). As per RFC 4648, newlines are not catered for.\n *\n * @param {String} str The string to be decoded from base-64\n * @param {Boolean} [utf8decode=false] Flag to indicate whether str is Unicode string to be decoded \n *   from UTF8 after conversion from base64\n * @returns {String} decoded string\n */ \nBase64.decode = function(str, utf8decode) {\n  utf8decode =  (typeof utf8decode == 'undefined') ? false : utf8decode;\n  var o1, o2, o3, h1, h2, h3, h4, bits, d=[], plain, coded;\n  var b64 = Base64.code;\n\n  coded = utf8decode ? str.decodeUTF8() : str;\n  \n  \n  for (var c=0; c<coded.length; c+=4) {  // unpack four hexets into three octets\n    h1 = b64.indexOf(coded.charAt(c));\n    h2 = b64.indexOf(coded.charAt(c+1));\n    h3 = b64.indexOf(coded.charAt(c+2));\n    h4 = b64.indexOf(coded.charAt(c+3));\n      \n    bits = h1<<18 | h2<<12 | h3<<6 | h4;\n      \n    o1 = bits>>>16 & 0xff;\n    o2 = bits>>>8 & 0xff;\n    o3 = bits & 0xff;\n    \n    d[c/4] = String.fromCharCode(o1, o2, o3);\n    // check for padding\n    if (h4 == 0x40) d[c/4] = String.fromCharCode(o1, o2);\n    if (h3 == 0x40) d[c/4] = String.fromCharCode(o1);\n  }\n  plain = d.join('');  // join() is far faster than repeated string concatenation in IE\n   \n  return utf8decode ? plain.decodeUTF8() : plain; \n}\n\n\n/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */\n/*  Utf8 class: encode / decode between multi-byte Unicode characters and UTF-8 multiple          */\n/*              single-byte character encoding (c) Chris Veness 2002-2012                         */\n/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */\n\nvar Utf8 = {};  // Utf8 namespace\n\n/**\n * Encode multi-byte Unicode string into utf-8 multiple single-byte characters \n * (BMP / basic multilingual plane only)\n *\n * Chars in range U+0080 - U+07FF are encoded in 2 chars, U+0800 - U+FFFF in 3 chars\n *\n * @param {String} strUni Unicode string to be encoded as UTF-8\n * @returns {String} encoded string\n */\nUtf8.encode = function(strUni) {\n  // use regular expressions & String.replace callback function for better efficiency \n  // than procedural approaches\n  var strUtf = strUni.replace(\n      /[\\u0080-\\u07ff]/g,  // U+0080 - U+07FF => 2 bytes 110yyyyy, 10zzzzzz\n      function(c) { \n        var cc = c.charCodeAt(0);\n        return String.fromCharCode(0xc0 | cc>>6, 0x80 | cc&0x3f); }\n    );\n  strUtf = strUtf.replace(\n      /[\\u0800-\\uffff]/g,  // U+0800 - U+FFFF => 3 bytes 1110xxxx, 10yyyyyy, 10zzzzzz\n      function(c) { \n        var cc = c.charCodeAt(0); \n        return String.fromCharCode(0xe0 | cc>>12, 0x80 | cc>>6&0x3F, 0x80 | cc&0x3f); }\n    );\n  return strUtf;\n}\n\n/**\n * Decode utf-8 encoded string back into multi-byte Unicode characters\n *\n * @param {String} strUtf UTF-8 string to be decoded back to Unicode\n * @returns {String} decoded string\n */\nUtf8.decode = function(strUtf) {\n  // note: decode 3-byte chars first as decoded 2-byte strings could appear to be 3-byte char!\n  var strUni = strUtf.replace(\n      /[\\u00e0-\\u00ef][\\u0080-\\u00bf][\\u0080-\\u00bf]/g,  // 3-byte chars\n      function(c) {  // (note parentheses for precence)\n        var cc = ((c.charCodeAt(0)&0x0f)<<12) | ((c.charCodeAt(1)&0x3f)<<6) | ( c.charCodeAt(2)&0x3f); \n        return String.fromCharCode(cc); }\n    );\n  strUni = strUni.replace(\n      /[\\u00c0-\\u00df][\\u0080-\\u00bf]/g,                 // 2-byte chars\n      function(c) {  // (note parentheses for precence)\n        var cc = (c.charCodeAt(0)&0x1f)<<6 | c.charCodeAt(1)&0x3f;\n        return String.fromCharCode(cc); }\n    );\n  return strUni;\n}\nmsg.payload=Aes.cipher(\"123456789abc\",123)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 950,
-        "y": 100,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8e12e15e178c2dec",
-        "type": "inject",
-        "z": "f936bcfefd29972a",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 790,
-        "y": 100,
-        "wires": [
-            [
-                "65ad5dc76459cd80"
             ]
         ]
     },
@@ -3148,92 +2907,12 @@
         "finalize": "",
         "libs": [],
         "x": 610,
-        "y": 420,
+        "y": 240,
         "wires": [
             [
                 "fe13f538af391a71"
             ]
         ]
-    },
-    {
-        "id": "a316fa940ee70227",
-        "type": "function",
-        "z": "f936bcfefd29972a",
-        "name": "",
-        "func": "//获取CODE\nfunction abc(id1,id2) {\n    var _pr = id1;\n    var _pu = id2;\n    var _puArr = [];\n    var _newArr = [];\n    var _code = '';\n\n    for (var i = 0; i < _pu.length; i++) {\n        _puArr.push({'id': _pu[i], 'text': _pr[i]});//将新元素添加到数组的末尾，并返回新的长度。\n    }\n//对密钥重新进行排序\n    _newArr = _puArr.sort(compare(\"id\"));\n    for (var n = 0; n < _newArr.length; n++) {\n\n        _code += _newArr[n]['text'];\n    }\n    return _code\n}\n\nfunction compare(_0x209a13) {\n    var _0x2b0a5b = {\n        'hupwx': function(_0x28592c, _0x5c0aae) {\n            return _0x28592c - _0x5c0aae;\n        }\n    };\n    return function(_0x4490c6, _0x47bde8) {\n        var _0x11d139 = _0x4490c6[_0x209a13];\n        var _0x2b383f = _0x47bde8[_0x209a13];\n        return _0x2b0a5b['hupwx'](_0x11d139, _0x2b383f);\n    }\n        ;\n}\n\n//通过加密的URL和abc函数获取的CODE，进行AES解密\nfunction secret(enStr, code) {\n    code = CryptoJS['MD5'](code)['toString'](); //32位md5\n    var iv = CryptoJS['enc']['utf8']['parse'](code['substring'](0, 16));  //取前16位\n    var key = CryptoJS['enc']['utf8']['parse'](code['substring'](16));    //取后16位\n    return CryptoJS['AES']['decrypt'](enStr, key, {\n        'iv': iv,\n        'padding': CryptoJS['pad']['Pkcs7']\n    })['toString'](CryptoJS['enc']['Utf8']);\n}\n\n\nvar id1 = \"STjYY8dGUW\"\nvar id2 = \"1023469758\"\nvar code1 = abc(id1,id2)\nvar enurl = \"Nz84DMyw9UfIWXLWhcnJtjho0ZbUnA+3Hsa+4ohVAPu4ClmQy7O/EgCfdfn0uP67GJnEqxxKPIUierd/0DEeacbYkvK2euLMISNBYplmWUqEiDMVx5D3+qPfbgImdTPjoYToH0l07kw/rtEHdCGJLR/TEcdm/wF6auf/hiPUxjUYesZL6mr39Z0B67z2TIReqKZWIAcN5jNDqg2wd3xvD3MJ7U4xtJr+A35j/SGTQrhOAh2WguPQrigc0zDsKyVBvhP45fP8ChxFt/wfjFPF/mKRiX737g+7s5anW6E+4D+BkhcJHtkrZxalsMwQPdP6u7IXj+o3SvB5MSCY1hiBdIKWcq62QoDk/x7H/9Z0K5Ec1OFDDuado/1qgRt+TW7YhR3M51F3hE+qurn9w+jm9n7HIAu4DPh3ptWclDzR8/5CEYWhBL4KmxPTJNWA1oPkpsUvwu3JV3V+OXxQVOs8tpeciqBL6Ffjmm9717uEGdVlBnVAvKBgJw3TaCEVIXve1npGE8jO02z32Zp1KG4Qxw==\"\nmsg.ab = secret(enurl, code1)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 410,
-        "y": 100,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "3abda3d907ee8585",
-        "type": "function",
-        "z": "f936bcfefd29972a",
-        "name": "AES解密",
-        "func": "var CryptoJS = CryptoJS || (function (Math, undefined) {\n    var C = {};\n    var C_lib = C.lib = {};\n    var Base = C_lib.Base = (function () {\n        function F() {};\n        return {\n            extend: function (overrides) {\n                F.prototype = this;\n                var subtype = new F();\n                if (overrides) {\n                    subtype.mixIn(overrides);\n                }\n                if (!subtype.hasOwnProperty('init') || this.init === subtype.init) {\n                    subtype.init = function () {\n                        subtype.$super.init.apply(this, arguments);\n                    };\n                }\n                subtype.init.prototype = subtype;\n                subtype.$super = this;\n                return subtype;\n            }, create: function () {\n                var instance = this.extend();\n                instance.init.apply(instance, arguments);\n                return instance;\n            }, init: function () {}, mixIn: function (properties) {\n                for (var propertyName in properties) {\n                    if (properties.hasOwnProperty(propertyName)) {\n                        this[propertyName] = properties[propertyName];\n                    }\n                }\n                if (properties.hasOwnProperty('toString')) {\n                    this.toString = properties.toString;\n                }\n            }, clone: function () {\n                return this.init.prototype.extend(this);\n            }\n        };\n    }());\n    var WordArray = C_lib.WordArray = Base.extend({\n        init: function (words, sigBytes) {\n            words = this.words = words || [];\n            if (sigBytes != undefined) {\n                this.sigBytes = sigBytes;\n            } else {\n                this.sigBytes = words.length * 4;\n            }\n        }, toString: function (encoder) {\n            return (encoder || Hex).stringify(this);\n        }, concat: function (wordArray) {\n            var thisWords = this.words;\n            var thatWords = wordArray.words;\n            var thisSigBytes = this.sigBytes;\n            var thatSigBytes = wordArray.sigBytes;\n            this.clamp();\n            if (thisSigBytes % 4) {\n                for (var i = 0; i < thatSigBytes; i++) {\n                    var thatByte = (thatWords[i >>> 2] >>> (24 - (i % 4) * 8)) & 0xff;\n                    thisWords[(thisSigBytes + i) >>> 2] |= thatByte << (24 - ((thisSigBytes + i) % 4) * 8);\n                }\n            } else if (thatWords.length > 0xffff) {\n                for (var i = 0; i < thatSigBytes; i += 4) {\n                    thisWords[(thisSigBytes + i) >>> 2] = thatWords[i >>> 2];\n                }\n            } else {\n                thisWords.push.apply(thisWords, thatWords);\n            }\n            this.sigBytes += thatSigBytes;\n            return this;\n        }, clamp: function () {\n            var words = this.words;\n            var sigBytes = this.sigBytes;\n            words[sigBytes >>> 2] &= 0xffffffff << (32 - (sigBytes % 4) * 8);\n            words.length = Math.ceil(sigBytes / 4);\n        }, clone: function () {\n            var clone = Base.clone.call(this);\n            clone.words = this.words.slice(0);\n            return clone;\n        }, random: function (nBytes) {\n            var words = [];\n            var r = (function (m_w) {\n                var m_w = m_w;\n                var m_z = 0x3ade68b1;\n                var mask = 0xffffffff;\n                return function () {\n                    m_z = (0x9069 * (m_z & 0xFFFF) + (m_z >> 0x10)) & mask;\n                    m_w = (0x4650 * (m_w & 0xFFFF) + (m_w >> 0x10)) & mask;\n                    var result = ((m_z << 0x10) + m_w) & mask;\n                    result /= 0x100000000;\n                    result += 0.5;\n                    return result * (Math.random() > .5 ? 1 : -1);\n                }\n            });\n            for (var i = 0, rcache; i < nBytes; i += 4) {\n                var _r = r((rcache || Math.random()) * 0x100000000);\n                rcache = _r() * 0x3ade67b7;\n                words.push((_r() * 0x100000000) | 0);\n            }\n            return new WordArray.init(words, nBytes);\n        }\n    });\n    var C_enc = C.enc = {};\n    var Hex = C_enc.Hex = {\n        stringify: function (wordArray) {\n            var words = wordArray.words;\n            var sigBytes = wordArray.sigBytes;\n            var hexChars = [];\n            for (var i = 0; i < sigBytes; i++) {\n                var bite = (words[i >>> 2] >>> (24 - (i % 4) * 8)) & 0xff;\n                hexChars.push((bite >>> 4).toString(16));\n                hexChars.push((bite & 0x0f).toString(16));\n            }\n            return hexChars.join('');\n        }, parse: function (hexStr) {\n            var hexStrLength = hexStr.length;\n            var words = [];\n            for (var i = 0; i < hexStrLength; i += 2) {\n                words[i >>> 3] |= parseInt(hexStr.substr(i, 2), 16) << (24 - (i % 8) * 4);\n            }\n            return new WordArray.init(words, hexStrLength / 2);\n        }\n    };\n    var Latin1 = C_enc.Latin1 = {\n        stringify: function (wordArray) {\n            var words = wordArray.words;\n            var sigBytes = wordArray.sigBytes;\n            var latin1Chars = [];\n            for (var i = 0; i < sigBytes; i++) {\n                var bite = (words[i >>> 2] >>> (24 - (i % 4) * 8)) & 0xff;\n                latin1Chars.push(String.fromCharCode(bite));\n            }\n            return latin1Chars.join('');\n        }, parse: function (latin1Str) {\n            var latin1StrLength = latin1Str.length;\n            var words = [];\n            for (var i = 0; i < latin1StrLength; i++) {\n                words[i >>> 2] |= (latin1Str.charCodeAt(i) & 0xff) << (24 - (i % 4) * 8);\n            }\n            return new WordArray.init(words, latin1StrLength);\n        }\n    };\n    var Utf8 = C_enc.Utf8 = {\n        stringify: function (wordArray) {\n            try {\n                return decodeURIComponent(escape(Latin1.stringify(wordArray)));\n            } catch (e) {\n                throw new Error('Malformed UTF-8 data');\n            }\n        }, parse: function (utf8Str) {\n            return Latin1.parse(unescape(encodeURIComponent(utf8Str)));\n        }\n    };\n    var BufferedBlockAlgorithm = C_lib.BufferedBlockAlgorithm = Base.extend({\n        reset: function () {\n            this._data = new WordArray.init();\n            this._nDataBytes = 0;\n        }, _append: function (data) {\n            if (typeof data == 'string') {\n                data = Utf8.parse(data);\n            }\n            this._data.concat(data);\n            this._nDataBytes += data.sigBytes;\n        }, _process: function (doFlush) {\n            var data = this._data;\n            var dataWords = data.words;\n            var dataSigBytes = data.sigBytes;\n            var blockSize = this.blockSize;\n            var blockSizeBytes = blockSize * 4;\n            var nBlocksReady = dataSigBytes / blockSizeBytes;\n            if (doFlush) {\n                nBlocksReady = Math.ceil(nBlocksReady);\n            } else {\n                nBlocksReady = Math.max((nBlocksReady | 0) - this._minBufferSize, 0);\n            }\n            var nWordsReady = nBlocksReady * blockSize;\n            var nBytesReady = Math.min(nWordsReady * 4, dataSigBytes);\n            if (nWordsReady) {\n                for (var offset = 0; offset < nWordsReady; offset += blockSize) {\n                    this._doProcessBlock(dataWords, offset);\n                }\n                var processedWords = dataWords.splice(0, nWordsReady);\n                data.sigBytes -= nBytesReady;\n            }\n            return new WordArray.init(processedWords, nBytesReady);\n        }, clone: function () {\n            var clone = Base.clone.call(this);\n            clone._data = this._data.clone();\n            return clone;\n        }, _minBufferSize: 0\n    });\n    var Hasher = C_lib.Hasher = BufferedBlockAlgorithm.extend({\n        cfg: Base.extend(),\n        init: function (cfg) {\n            this.cfg = this.cfg.extend(cfg);\n            this.reset();\n        }, reset: function () {\n            BufferedBlockAlgorithm.reset.call(this);\n            this._doReset();\n        }, update: function (messageUpdate) {\n            this._append(messageUpdate);\n            this._process();\n            return this;\n        }, finalize: function (messageUpdate) {\n            if (messageUpdate) {\n                this._append(messageUpdate);\n            }\n            var hash = this._doFinalize();\n            return hash;\n        }, blockSize: 512 / 32,\n        _createHelper: function (hasher) {\n            return function (message, cfg) {\n                return new hasher.init(cfg).finalize(message);\n            };\n        }, _createHmacHelper: function (hasher) {\n            return function (message, key) {\n                return new C_algo.HMAC.init(hasher, key).finalize(message);\n            };\n        }\n    });\n    var C_algo = C.algo = {};\n    return C;\n}(Math));\n\n(function () {\n    var C = CryptoJS;\n    var C_lib = C.lib;\n    var WordArray = C_lib.WordArray;\n    var C_enc = C.enc;\n    var Base64 = C_enc.Base64 = {\n        stringify: function (wordArray) {\n            var words = wordArray.words;\n            var sigBytes = wordArray.sigBytes;\n            var map = this._map;\n            wordArray.clamp();\n            var base64Chars = [];\n            for (var i = 0; i < sigBytes; i += 3) {\n                var byte1 = (words[i >>> 2] >>> (24 - (i % 4) * 8)) & 0xff;\n                var byte2 = (words[(i + 1) >>> 2] >>> (24 - ((i + 1) % 4) * 8)) & 0xff;\n                var byte3 = (words[(i + 2) >>> 2] >>> (24 - ((i + 2) % 4) * 8)) & 0xff;\n                var triplet = (byte1 << 16) | (byte2 << 8) | byte3;\n                for (var j = 0;\n                    (j < 4) && (i + j * 0.75 < sigBytes); j++) {\n                    base64Chars.push(map.charAt((triplet >>> (6 * (3 - j))) & 0x3f));\n                }\n            }\n            var paddingChar = map.charAt(64);\n            if (paddingChar) {\n                while (base64Chars.length % 4) {\n                    base64Chars.push(paddingChar);\n                }\n            }\n            return base64Chars.join('');\n        }, parse: function (base64Str) {\n            var base64StrLength = base64Str.length;\n            var map = this._map;\n            var reverseMap = this._reverseMap;\n            if (!reverseMap) {\n                reverseMap = this._reverseMap = [];\n                for (var j = 0; j < map.length; j++) {\n                    reverseMap[map.charCodeAt(j)] = j;\n                }\n            }\n            var paddingChar = map.charAt(64);\n            if (paddingChar) {\n                var paddingIndex = base64Str.indexOf(paddingChar);\n                if (paddingIndex !== -1) {\n                    base64StrLength = paddingIndex;\n                }\n            }\n            return parseLoop(base64Str, base64StrLength, reverseMap);\n        }, _map: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='\n    };\n    function parseLoop(base64Str, base64StrLength, reverseMap) {\n        var words = [];\n        var nBytes = 0;\n        for (var i = 0; i < base64StrLength; i++) {\n            if (i % 4) {\n                var bits1 = reverseMap[base64Str.charCodeAt(i - 1)] << ((i % 4) * 2);\n                var bits2 = reverseMap[base64Str.charCodeAt(i)] >>> (6 - (i % 4) * 2);\n                words[nBytes >>> 2] |= (bits1 | bits2) << (24 - (nBytes % 4) * 8);\n                nBytes++;\n            }\n        }\n        return WordArray.create(words, nBytes);\n    }\n}());\n\nCryptoJS.lib.Cipher || (function (undefined) {\n    var C = CryptoJS;\n    var C_lib = C.lib;\n    var Base = C_lib.Base;\n    var WordArray = C_lib.WordArray;\n    var BufferedBlockAlgorithm = C_lib.BufferedBlockAlgorithm;\n    var C_enc = C.enc;\n    var Utf8 = C_enc.Utf8;\n    var Base64 = C_enc.Base64;\n    var C_algo = C.algo;\n    var EvpKDF = C_algo.EvpKDF;\n    var Cipher = C_lib.Cipher = BufferedBlockAlgorithm.extend({\n        cfg: Base.extend(),\n        createEncryptor: function (key, cfg) {\n            return this.create(this._ENC_XFORM_MODE, key, cfg);\n        }, createDecryptor: function (key, cfg) {\n            return this.create(this._DEC_XFORM_MODE, key, cfg);\n        }, init: function (xformMode, key, cfg) {\n            this.cfg = this.cfg.extend(cfg);\n            this._xformMode = xformMode;\n            this._key = key;\n            this.reset();\n        }, reset: function () {\n            BufferedBlockAlgorithm.reset.call(this);\n            this._doReset();\n        }, process: function (dataUpdate) {\n            this._append(dataUpdate);\n            return this._process();\n        }, finalize: function (dataUpdate) {\n            if (dataUpdate) {\n                this._append(dataUpdate);\n            }\n            var finalProcessedData = this._doFinalize();\n            return finalProcessedData;\n        }, keySize: 128 / 32,\n        ivSize: 128 / 32,\n        _ENC_XFORM_MODE: 1,\n        _DEC_XFORM_MODE: 2,\n        _createHelper: (function () {\n            function selectCipherStrategy(key) {\n                if (typeof key == 'string') {\n                    return PasswordBasedCipher;\n                } else {\n                    return SerializableCipher;\n                }\n            }\n            return function (cipher) {\n                return {\n                    encrypt: function (message, key, cfg) {\n                        return selectCipherStrategy(key).encrypt(cipher, message, key, cfg);\n                    }, decrypt: function (ciphertext, key, cfg) {\n                        return selectCipherStrategy(key).decrypt(cipher, ciphertext, key, cfg);\n                    }\n                };\n            };\n        }())\n    });\n    var StreamCipher = C_lib.StreamCipher = Cipher.extend({\n        _doFinalize: function () {\n            var finalProcessedBlocks = this._process(!!'flush');\n            return finalProcessedBlocks;\n        }, blockSize: 1\n    });\n    var C_mode = C.mode = {};\n    var BlockCipherMode = C_lib.BlockCipherMode = Base.extend({\n        createEncryptor: function (cipher, iv) {\n            return this.Encryptor.create(cipher, iv);\n        }, createDecryptor: function (cipher, iv) {\n            return this.Decryptor.create(cipher, iv);\n        }, init: function (cipher, iv) {\n            this._cipher = cipher;\n            this._iv = iv;\n        }\n    });\n    var CBC = C_mode.CBC = (function () {\n        var CBC = BlockCipherMode.extend();\n        CBC.Encryptor = CBC.extend({\n            processBlock: function (words, offset) {\n                var cipher = this._cipher;\n                var blockSize = cipher.blockSize;\n                xorBlock.call(this, words, offset, blockSize);\n                cipher.encryptBlock(words, offset);\n                this._prevBlock = words.slice(offset, offset + blockSize);\n            }\n        });\n        CBC.Decryptor = CBC.extend({\n            processBlock: function (words, offset) {\n                var cipher = this._cipher;\n                var blockSize = cipher.blockSize;\n                var thisBlock = words.slice(offset, offset + blockSize);\n                cipher.decryptBlock(words, offset);\n                xorBlock.call(this, words, offset, blockSize);\n                this._prevBlock = thisBlock;\n            }\n        });\n\n        function xorBlock(words, offset, blockSize) {\n            var iv = this._iv;\n            if (iv) {\n                var block = iv;\n                this._iv = undefined;\n            } else {\n                var block = this._prevBlock;\n            }\n            for (var i = 0; i < blockSize; i++) {\n                words[offset + i] ^= block[i];\n            }\n        }\n        return CBC;\n    }());\n    var C_pad = C.pad = {};\n    var Pkcs7 = C_pad.Pkcs7 = {\n        pad: function (data, blockSize) {\n            var blockSizeBytes = blockSize * 4;\n            var nPaddingBytes = blockSizeBytes - data.sigBytes % blockSizeBytes;\n            var paddingWord = (nPaddingBytes << 24) | (nPaddingBytes << 16) | (nPaddingBytes << 8) | nPaddingBytes;\n            var paddingWords = [];\n            for (var i = 0; i < nPaddingBytes; i += 4) {\n                paddingWords.push(paddingWord);\n            }\n            var padding = WordArray.create(paddingWords, nPaddingBytes);\n            data.concat(padding);\n        }, unpad: function (data) {\n            var nPaddingBytes = data.words[(data.sigBytes - 1) >>> 2] & 0xff;\n            data.sigBytes -= nPaddingBytes;\n        }\n    };\n    var BlockCipher = C_lib.BlockCipher = Cipher.extend({\n        cfg: Cipher.cfg.extend({\n            mode: CBC,\n            padding: Pkcs7\n        }),\n        reset: function () {\n            Cipher.reset.call(this);\n            var cfg = this.cfg;\n            var iv = cfg.iv;\n            var mode = cfg.mode;\n            if (this._xformMode == this._ENC_XFORM_MODE) {\n                var modeCreator = mode.createEncryptor;\n            } else {\n                var modeCreator = mode.createDecryptor;\n                this._minBufferSize = 1;\n            } if (this._mode && this._mode.__creator == modeCreator) {\n                this._mode.init(this, iv && iv.words);\n            } else {\n                this._mode = modeCreator.call(mode, this, iv && iv.words);\n                this._mode.__creator = modeCreator;\n            }\n        }, _doProcessBlock: function (words, offset) {\n            this._mode.processBlock(words, offset);\n        }, _doFinalize: function () {\n            var padding = this.cfg.padding;\n            if (this._xformMode == this._ENC_XFORM_MODE) {\n                padding.pad(this._data, this.blockSize);\n                var finalProcessedBlocks = this._process(!!'flush');\n            } else {\n                var finalProcessedBlocks = this._process(!!'flush');\n                padding.unpad(finalProcessedBlocks);\n            }\n            return finalProcessedBlocks;\n        }, blockSize: 128 / 32\n    });\n    var CipherParams = C_lib.CipherParams = Base.extend({\n        init: function (cipherParams) {\n            this.mixIn(cipherParams);\n        }, toString: function (formatter) {\n            return (formatter || this.formatter).stringify(this);\n        }\n    });\n    var C_format = C.format = {};\n    var OpenSSLFormatter = C_format.OpenSSL = {\n        stringify: function (cipherParams) {\n            var ciphertext = cipherParams.ciphertext;\n            var salt = cipherParams.salt;\n            if (salt) {\n                var wordArray = WordArray.create([0x53616c74, 0x65645f5f]).concat(salt).concat(ciphertext);\n            } else {\n                var wordArray = ciphertext;\n            }\n            return wordArray.toString(Base64);\n        }, parse: function (openSSLStr) {\n            var ciphertext = Base64.parse(openSSLStr);\n            var ciphertextWords = ciphertext.words;\n            if (ciphertextWords[0] == 0x53616c74 && ciphertextWords[1] == 0x65645f5f) {\n                var salt = WordArray.create(ciphertextWords.slice(2, 4));\n                ciphertextWords.splice(0, 4);\n                ciphertext.sigBytes -= 16;\n            }\n            return CipherParams.create({\n                ciphertext: ciphertext,\n                salt: salt\n            });\n        }\n    };\n    var SerializableCipher = C_lib.SerializableCipher = Base.extend({\n        cfg: Base.extend({\n            format: OpenSSLFormatter\n        }),\n        encrypt: function (cipher, message, key, cfg) {\n            cfg = this.cfg.extend(cfg);\n            var encryptor = cipher.createEncryptor(key, cfg);\n            var ciphertext = encryptor.finalize(message);\n            var cipherCfg = encryptor.cfg;\n            return CipherParams.create({\n                ciphertext: ciphertext,\n                key: key,\n                iv: cipherCfg.iv,\n                algorithm: cipher,\n                mode: cipherCfg.mode,\n                padding: cipherCfg.padding,\n                blockSize: cipher.blockSize,\n                formatter: cfg.format\n            });\n        }, decrypt: function (cipher, ciphertext, key, cfg) {\n            cfg = this.cfg.extend(cfg);\n            ciphertext = this._parse(ciphertext, cfg.format);\n            var plaintext = cipher.createDecryptor(key, cfg).finalize(ciphertext.ciphertext);\n            return plaintext;\n        }, _parse: function (ciphertext, format) {\n            if (typeof ciphertext == 'string') {\n                return format.parse(ciphertext, this);\n            } else {\n                return ciphertext;\n            }\n        }\n    });\n    var C_kdf = C.kdf = {};\n    var OpenSSLKdf = C_kdf.OpenSSL = {\n        execute: function (password, keySize, ivSize, salt) {\n            if (!salt) {\n                salt = WordArray.random(64 / 8);\n            }\n            var key = EvpKDF.create({\n                keySize: keySize + ivSize\n            }).compute(password, salt);\n            var iv = WordArray.create(key.words.slice(keySize), ivSize * 4);\n            key.sigBytes = keySize * 4;\n            return CipherParams.create({\n                key: key,\n                iv: iv,\n                salt: salt\n            });\n        }\n    };\n    var PasswordBasedCipher = C_lib.PasswordBasedCipher = SerializableCipher.extend({\n        cfg: SerializableCipher.cfg.extend({\n            kdf: OpenSSLKdf\n        }),\n        encrypt: function (cipher, message, password, cfg) {\n            cfg = this.cfg.extend(cfg);\n            var derivedParams = cfg.kdf.execute(password, cipher.keySize, cipher.ivSize);\n            cfg.iv = derivedParams.iv;\n            var ciphertext = SerializableCipher.encrypt.call(this, cipher, message, derivedParams.key, cfg);\n            ciphertext.mixIn(derivedParams);\n            return ciphertext;\n        }, decrypt: function (cipher, ciphertext, password, cfg) {\n            cfg = this.cfg.extend(cfg);\n            ciphertext = this._parse(ciphertext, cfg.format);\n            var derivedParams = cfg.kdf.execute(password, cipher.keySize, cipher.ivSize, ciphertext.salt);\n            cfg.iv = derivedParams.iv;\n            var plaintext = SerializableCipher.decrypt.call(this, cipher, ciphertext, derivedParams.key, cfg);\n            return plaintext;\n        }\n    });\n}());\n\n(function () {\n    var C = CryptoJS;\n    var C_lib = C.lib;\n    var BlockCipher = C_lib.BlockCipher;\n    var C_algo = C.algo;\n    var SBOX = [];\n    var INV_SBOX = [];\n    var SUB_MIX_0 = [];\n    var SUB_MIX_1 = [];\n    var SUB_MIX_2 = [];\n    var SUB_MIX_3 = [];\n    var INV_SUB_MIX_0 = [];\n    var INV_SUB_MIX_1 = [];\n    var INV_SUB_MIX_2 = [];\n    var INV_SUB_MIX_3 = [];\n    (function () {\n        var d = [];\n        for (var i = 0; i < 256; i++) {\n            if (i < 128) {\n                d[i] = i << 1;\n            } else {\n                d[i] = (i << 1) ^ 0x11b;\n            }\n        }\n        var x = 0;\n        var xi = 0;\n        for (var i = 0; i < 256; i++) {\n            var sx = xi ^ (xi << 1) ^ (xi << 2) ^ (xi << 3) ^ (xi << 4);\n            sx = (sx >>> 8) ^ (sx & 0xff) ^ 0x63;\n            SBOX[x] = sx;\n            INV_SBOX[sx] = x;\n            var x2 = d[x];\n            var x4 = d[x2];\n            var x8 = d[x4];\n            var t = (d[sx] * 0x101) ^ (sx * 0x1010100);\n            SUB_MIX_0[x] = (t << 24) | (t >>> 8);\n            SUB_MIX_1[x] = (t << 16) | (t >>> 16);\n            SUB_MIX_2[x] = (t << 8) | (t >>> 24);\n            SUB_MIX_3[x] = t;\n            var t = (x8 * 0x1010101) ^ (x4 * 0x10001) ^ (x2 * 0x101) ^ (x * 0x1010100);\n            INV_SUB_MIX_0[sx] = (t << 24) | (t >>> 8);\n            INV_SUB_MIX_1[sx] = (t << 16) | (t >>> 16);\n            INV_SUB_MIX_2[sx] = (t << 8) | (t >>> 24);\n            INV_SUB_MIX_3[sx] = t;\n            if (!x) {\n                x = xi = 1;\n            } else {\n                x = x2 ^ d[d[d[x8 ^ x2]]];\n                xi ^= d[d[xi]];\n            }\n        }\n    }());\n    var RCON = [0x00, 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x1b, 0x36];\n    var AES = C_algo.AES = BlockCipher.extend({\n        _doReset: function () {\n            if (this._nRounds && this._keyPriorReset === this._key) {\n                return;\n            }\n            var key = this._keyPriorReset = this._key;\n            var keyWords = key.words;\n            var keySize = key.sigBytes / 4;\n            var nRounds = this._nRounds = keySize + 6;\n            var ksRows = (nRounds + 1) * 4;\n            var keySchedule = this._keySchedule = [];\n            for (var ksRow = 0; ksRow < ksRows; ksRow++) {\n                if (ksRow < keySize) {\n                    keySchedule[ksRow] = keyWords[ksRow];\n                } else {\n                    var t = keySchedule[ksRow - 1];\n                    if (!(ksRow % keySize)) {\n                        t = (t << 8) | (t >>> 24);\n                        t = (SBOX[t >>> 24] << 24) | (SBOX[(t >>> 16) & 0xff] << 16) | (SBOX[(t >>> 8) & 0xff] << 8) | SBOX[t & 0xff];\n                        t ^= RCON[(ksRow / keySize) | 0] << 24;\n                    } else if (keySize > 6 && ksRow % keySize == 4) {\n                        t = (SBOX[t >>> 24] << 24) | (SBOX[(t >>> 16) & 0xff] << 16) | (SBOX[(t >>> 8) & 0xff] << 8) | SBOX[t & 0xff];\n                    }\n                    keySchedule[ksRow] = keySchedule[ksRow - keySize] ^ t;\n                }\n            }\n            var invKeySchedule = this._invKeySchedule = [];\n            for (var invKsRow = 0; invKsRow < ksRows; invKsRow++) {\n                var ksRow = ksRows - invKsRow;\n                if (invKsRow % 4) {\n                    var t = keySchedule[ksRow];\n                } else {\n                    var t = keySchedule[ksRow - 4];\n                } if (invKsRow < 4 || ksRow <= 4) {\n                    invKeySchedule[invKsRow] = t;\n                } else {\n                    invKeySchedule[invKsRow] = INV_SUB_MIX_0[SBOX[t >>> 24]] ^ INV_SUB_MIX_1[SBOX[(t >>> 16) & 0xff]] ^ INV_SUB_MIX_2[SBOX[(t >>> 8) & 0xff]] ^ INV_SUB_MIX_3[SBOX[t & 0xff]];\n                }\n            }\n        }, encryptBlock: function (M, offset) {\n            this._doCryptBlock(M, offset, this._keySchedule, SUB_MIX_0, SUB_MIX_1, SUB_MIX_2, SUB_MIX_3, SBOX);\n        }, decryptBlock: function (M, offset) {\n            var t = M[offset + 1];\n            M[offset + 1] = M[offset + 3];\n            M[offset + 3] = t;\n            this._doCryptBlock(M, offset, this._invKeySchedule, INV_SUB_MIX_0, INV_SUB_MIX_1, INV_SUB_MIX_2, INV_SUB_MIX_3, INV_SBOX);\n            var t = M[offset + 1];\n            M[offset + 1] = M[offset + 3];\n            M[offset + 3] = t;\n        }, _doCryptBlock: function (M, offset, keySchedule, SUB_MIX_0, SUB_MIX_1, SUB_MIX_2, SUB_MIX_3, SBOX) {\n            var nRounds = this._nRounds;\n            var s0 = M[offset] ^ keySchedule[0];\n            var s1 = M[offset + 1] ^ keySchedule[1];\n            var s2 = M[offset + 2] ^ keySchedule[2];\n            var s3 = M[offset + 3] ^ keySchedule[3];\n            var ksRow = 4;\n            for (var round = 1; round < nRounds; round++) {\n                var t0 = SUB_MIX_0[s0 >>> 24] ^ SUB_MIX_1[(s1 >>> 16) & 0xff] ^ SUB_MIX_2[(s2 >>> 8) & 0xff] ^ SUB_MIX_3[s3 & 0xff] ^ keySchedule[ksRow++];\n                var t1 = SUB_MIX_0[s1 >>> 24] ^ SUB_MIX_1[(s2 >>> 16) & 0xff] ^ SUB_MIX_2[(s3 >>> 8) & 0xff] ^ SUB_MIX_3[s0 & 0xff] ^ keySchedule[ksRow++];\n                var t2 = SUB_MIX_0[s2 >>> 24] ^ SUB_MIX_1[(s3 >>> 16) & 0xff] ^ SUB_MIX_2[(s0 >>> 8) & 0xff] ^ SUB_MIX_3[s1 & 0xff] ^ keySchedule[ksRow++];\n                var t3 = SUB_MIX_0[s3 >>> 24] ^ SUB_MIX_1[(s0 >>> 16) & 0xff] ^ SUB_MIX_2[(s1 >>> 8) & 0xff] ^ SUB_MIX_3[s2 & 0xff] ^ keySchedule[ksRow++];\n                s0 = t0;\n                s1 = t1;\n                s2 = t2;\n                s3 = t3;\n            }\n            var t0 = ((SBOX[s0 >>> 24] << 24) | (SBOX[(s1 >>> 16) & 0xff] << 16) | (SBOX[(s2 >>> 8) & 0xff] << 8) | SBOX[s3 & 0xff]) ^ keySchedule[ksRow++];\n            var t1 = ((SBOX[s1 >>> 24] << 24) | (SBOX[(s2 >>> 16) & 0xff] << 16) | (SBOX[(s3 >>> 8) & 0xff] << 8) | SBOX[s0 & 0xff]) ^ keySchedule[ksRow++];\n            var t2 = ((SBOX[s2 >>> 24] << 24) | (SBOX[(s3 >>> 16) & 0xff] << 16) | (SBOX[(s0 >>> 8) & 0xff] << 8) | SBOX[s1 & 0xff]) ^ keySchedule[ksRow++];\n            var t3 = ((SBOX[s3 >>> 24] << 24) | (SBOX[(s0 >>> 16) & 0xff] << 16) | (SBOX[(s1 >>> 8) & 0xff] << 8) | SBOX[s2 & 0xff]) ^ keySchedule[ksRow++];\n            M[offset] = t0;\n            M[offset + 1] = t1;\n            M[offset + 2] = t2;\n            M[offset + 3] = t3;\n        }, keySize: 256 / 32\n    });\n    C.AES = BlockCipher._createHelper(AES);\n}());\n\nvar key = CryptoJS.enc.Utf8.parse(\"15353cea7541a913\");\nvar iv = CryptoJS.enc.Utf8.parse(\"b1838b1ccbb667ac\");\n\nfunction AES_Encrypt(word) {\n    var srcs = CryptoJS.enc.Utf8.parse(word);\n    var encrypted = CryptoJS.AES.encrypt(srcs, key, {\n        iv: iv,\n        mode: CryptoJS.mode.CBC,\n        padding: CryptoJS.pad.Pkcs7\n    });\n    return encrypted.toString();\n}\n\nfunction AES_Decrypt(word) {\n    var srcs = word;\n    var decrypt = CryptoJS.AES.decrypt(srcs, key, {\n        iv: iv,\n        mode: CryptoJS.mode.CBC,\n        padding: CryptoJS.pad.Pkcs7\n    });\n    return decrypt.toString(CryptoJS.enc.Utf8);\n}\n\nabcdef=\"oTddBl9VC1ROhMUoprNgzuUObRQ3C/y8VpfAQeeDduozRIpY9UMje/CEen/e2eysIPyr0s05Sw9ONIRJQhBOXgce8ChucCDwEfKEB3d8s7iC3Og2ddymro/y1TMEDrs93BhRkgYIaPZLOYSFqrDr86gopbjDjvIGMN4O1LnWvTxkSr4x1HSKBw8Hs227ktdudqBB+sXgROpJC/Em+MkIBVNv0zno6aSVYIp7L7CcfvEgWSIrnXMXdeXxlH82yDeJsXd6kdRKo1movI4mkR46xgxY48Cr98J4qktSIDk6aVNGH/6nSH6aRUDR/80TiFgh9RL9Jt4pHt5fX0z00xxoiS8gUqZQJwt1OjQDjajtfBy+sfMO+UXheDvXK4x0T44/Ka5zY9TBh6caqk1QXmjXOBRYOCi/bqX/FP+uInCHIznDGFXYlwbFN/h796I4IDO7+Rwz+goTk96dGGm8U3h0qJZ+bY4K4dLnOWryisy3w4e6HePxjeqMoCd5n+4IF4XLqUyqbyMchOcsZuDTAf7dsg==\"\nmsg.ret = AES_Decrypt(abcdef)\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 940,
-        "y": 180,
-        "wires": [
-            [
-                "e5ed3f9a010ce384"
-            ]
-        ]
-    },
-    {
-        "id": "b9978cc096aea51f",
-        "type": "inject",
-        "z": "f936bcfefd29972a",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 790,
-        "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e5ed3f9a010ce384",
-        "type": "debug",
-        "z": "f936bcfefd29972a",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1090,
-        "y": 180,
-        "wires": []
     },
     {
         "id": "2e679043967dd87b",
@@ -3247,7 +2926,7 @@
         "finalize": "",
         "libs": [],
         "x": 420,
-        "y": 520,
+        "y": 340,
         "wires": [
             [
                 "615772126df71e14"
@@ -3269,7 +2948,7 @@
         "authType": "",
         "senderr": false,
         "x": 580,
-        "y": 520,
+        "y": 340,
         "wires": [
             [
                 "88266a1091e85134"
@@ -3290,7 +2969,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 890,
-        "y": 520,
+        "y": 340,
         "wires": []
     },
     {
@@ -3305,7 +2984,7 @@
         "finalize": "",
         "libs": [],
         "x": 250,
-        "y": 520,
+        "y": 340,
         "wires": [
             [
                 "2e679043967dd87b"
@@ -3324,7 +3003,7 @@
         "finalize": "",
         "libs": [],
         "x": 250,
-        "y": 600,
+        "y": 420,
         "wires": [
             [
                 "205b5538c57fad97"
@@ -3346,7 +3025,7 @@
         "authType": "",
         "senderr": false,
         "x": 420,
-        "y": 600,
+        "y": 420,
         "wires": [
             [
                 "48c85de211275e0b"
@@ -3375,7 +3054,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 90,
-        "y": 600,
+        "y": 420,
         "wires": [
             [
                 "95c6912954269256"
@@ -3396,7 +3075,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 570,
-        "y": 600,
+        "y": 420,
         "wires": []
     },
     {
@@ -3408,7 +3087,7 @@
         "action": "",
         "pretty": false,
         "x": 730,
-        "y": 520,
+        "y": 340,
         "wires": [
             [
                 "9057e80b4dfa1328",
@@ -3428,7 +3107,7 @@
         "finalize": "",
         "libs": [],
         "x": 110,
-        "y": 340,
+        "y": 160,
         "wires": [
             [
                 "5f7cf4e1acd6761c"
@@ -3448,7 +3127,7 @@
         "authType": "",
         "senderr": false,
         "x": 280,
-        "y": 340,
+        "y": 160,
         "wires": [
             [
                 "e442c0011415cc9e"
@@ -3477,7 +3156,7 @@
         "payload": "斗罗大陆",
         "payloadType": "str",
         "x": 100,
-        "y": 240,
+        "y": 60,
         "wires": [
             [
                 "37997b3009e518a0"
@@ -3496,7 +3175,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 340,
+        "y": 160,
         "wires": [
             [
                 "09d303c90655af90"
@@ -3515,7 +3194,7 @@
         "finalize": "",
         "libs": [],
         "x": 300,
-        "y": 240,
+        "y": 60,
         "wires": [
             [
                 "7fad866da316b261"
@@ -3535,7 +3214,7 @@
         "authType": "",
         "senderr": false,
         "x": 440,
-        "y": 240,
+        "y": 60,
         "wires": [
             [
                 "191ed70ca8b1975e"
@@ -3554,7 +3233,7 @@
         "finalize": "",
         "libs": [],
         "x": 640,
-        "y": 240,
+        "y": 60,
         "wires": [
             [
                 "e0837fb8765b5415"
@@ -3573,7 +3252,7 @@
         "finalize": "",
         "libs": [],
         "x": 640,
-        "y": 340,
+        "y": 160,
         "wires": [
             [
                 "4480ecb71d21e59e"
@@ -3592,7 +3271,7 @@
         "finalize": "",
         "libs": [],
         "x": 790,
-        "y": 340,
+        "y": 160,
         "wires": [
             [
                 "18c2e27f4462868d",
@@ -3614,7 +3293,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 950,
-        "y": 340,
+        "y": 160,
         "wires": []
     },
     {
@@ -3639,7 +3318,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 90,
-        "y": 420,
+        "y": 240,
         "wires": [
             [
                 "9468455c333c2f37"
