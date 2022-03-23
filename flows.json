@@ -1929,7 +1929,7 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "const CryptoJS = global.get('CryptoJS')\nconst key = CryptoJS.enc.Utf8.parse(\"1234123412ABCDEF\");\nconst iv = CryptoJS.enc.Utf8.parse('ABCDEF1234123412');   //十六位十六进制数作为密钥偏移量\n//解密方法\nfunction Decrypt(word) {\n    let encryptedHexStr = CryptoJS.enc.Hex.parse(word);\n    let srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);\n    let decrypt = CryptoJS.AES.decrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);\n    return decryptedStr.toString();\n}\n//加密方法\nfunction Encrypt(word) {\n    let srcs = CryptoJS.enc.Utf8.parse(word);\n    let encrypted = CryptoJS.AES.encrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    return encrypted.ciphertext.toString().toUpperCase();\n}\nmsg.Encrypt = Encrypt('This is a clear text')\nmsg.Decrypt = Decrypt('4ACEA01505ADAF9FB59A03B22FC1EF1B244AE28DDACFDFAEFA7E263655C44357')\nreturn msg;",
+        "func": "const CryptoJS = global.get('CryptoJS')\nconst key = CryptoJS.enc.Utf8.parse(\"c4c93ce65ca1541d\");\nconst iv = CryptoJS.enc.Utf8.parse('763f0fe6940b7da9');   //十六位十六进制数作为密钥偏移量\n//解密方法\nfunction Decrypt(word) {\n    let encryptedHexStr = CryptoJS.enc.Hex.parse(word);\n    let srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);\n    let decrypt = CryptoJS.AES.decrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);\n    return decryptedStr.toString();\n}\n//加密方法\nfunction Encrypt(word) {\n    let srcs = CryptoJS.enc.Utf8.parse(word);\n    let encrypted = CryptoJS.AES.encrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    return encrypted.ciphertext.toString().toUpperCase();\n}\nmsg.Encrypt = Encrypt('https://om.tc.qq.com/gzc_1000102_0b53kiabiaaaz4aob3bgfjrmauwdcrkaaeca.f10218.mp4?vkey=6694A1A681587E9016796921FCFCB59287D1E4180EBB5091412C2BE8D80F3EE3173C2D98D300EA96CDB94741CB43BF66B74F5EADE0EA4D7555465FCA404C923CEDF393B5D950970421DAD7E024B14998E406F4C7A5EED2FABD52E642D47DC9FDA96F1F71CE5DFAFF58C8BCC4A860B4FA970D57A56C01D7FB30B4FE0C77BFF961B834772FA8D8CB07&sdtfrom=v1080&type=mp4&platform=10201&br=117&fmt=hd&sp=0&guid=1F78117BB3DD94210EC924D61BBE1F21FD660D84')\n//msg.Decrypt = Decrypt('4ACEA01505ADAF9FB59A03B22FC1EF1B244AE28DDACFDFAEFA7E263655C44357')\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1940,6 +1940,71 @@
         "wires": [
             [
                 "3ff63ec7b40ac43a"
+            ]
+        ]
+    },
+    {
+        "id": "95fafe2d41119539",
+        "type": "inject",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 2320,
+        "wires": [
+            [
+                "9775483a1d092d62"
+            ]
+        ]
+    },
+    {
+        "id": "be9ef87ab810b13c",
+        "type": "debug",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 2320,
+        "wires": []
+    },
+    {
+        "id": "9775483a1d092d62",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "const CryptoJS = global.get('CryptoJS')\n//msg.Decrypt = Decrypt('4ACEA01505ADAF9FB59A03B22FC1EF1B244AE28DDACFDFAEFA7E263655C44357')\nreturn CryptoJS;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 2320,
+        "wires": [
+            [
+                "be9ef87ab810b13c"
             ]
         ]
     },
@@ -4074,7 +4139,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "const CryptoJS = global.get('CryptoJS')\n//const key = 'f1765686ebd68e7a';\n//const iv = '2b514be88834e850';   //十六位十六进制数作为密钥偏移量\nconst key = CryptoJS.enc.Utf8.parse(\"f1765686ebd68e7a\");\nconst iv = CryptoJS.enc.Utf8.parse('2b514be88834e850');\n//解密方法\nfunction Decrypt(word) {\n    let encryptedHexStr = CryptoJS.enc.Hex.parse(word);\n    let srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);\n    let decrypt = CryptoJS.AES.decrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);\n    return decryptedStr.toString();\n}\n//msg.Encrypt = Encrypt('This is a clear text')\nabc = 'BII9lWDgH2TANXxRH4G2s%2Fu%2BtbQDzgUBMyQir8Arl3EXJx44whOsiKbxJ6xehDOh6fwCniqbHnLzIpWMmKxeUjT5la8TAXZwuHeDNZ9QJ6PJUlfZDi0eQ022nFLsgrnl5Z%2FiFQcmqNGkyAINyJLa5laKHF0Sq%2FRI6plN6wIAKDhV2OS8nEHKWkQBc4CZTkoF4w7RpNQHooyUY2QiSqth6dTGiGSGybNhR5cvSbZbQpuxGCwAUDiu3pAbl8yClk0wFq2Jn1osEX5sjuoYXMm1gFEM7%2FusJqVboRLbSgeioXcOc5zc59xlc37PrcPdBan2cIor%2Fd4j%2BvqPBzxDtUtv6mspGYwLoifrFF8MH8rBY3aOyB9neWEifXHjTOWQL5Rsgp5ynl2doSKXoLFIScBB5CjJdEcFyJ9yPhdnHqag%2Bym9a8WrUQQfkccxWF8VGVNtS57FcRCMVY3X%2FXKMJKXu5V9cd5LeC4jZK5GY3KvAvz48RXTptiGRUggCKY6psj88h8MJbA39v2%2FtdpmZz1zwDquoXFF%2Ftk5VqIi5x5YDbwEwFt7Ei9SR7FY%2Fb3oPDbTEr5z5SzGI8RNE86snrKyrYZa64cPxL4H8jcCLrU%2FTB9o%3D'\nmsg.Decrypt = Decrypt(abc)\nreturn msg;",
+        "func": "const CryptoJS = global.get('CryptoJS')\n//const key = 'f1765686ebd68e7a';\n//const iv = '2b514be88834e850';   //十六位十六进制数作为密钥偏移量\nconst key = CryptoJS.enc.Base64.parse('f1765686ebd68e7a');\nconst iv = CryptoJS.enc.Base64.parse('2b514be88834e850');\n//解密方法\nfunction Decrypt(word) {\n    let encryptedHexStr = CryptoJS.enc.Hex.parse(word);\n    let srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);\n    let decrypt = CryptoJS.AES.decrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    let decryptedStr = decrypt.toString(CryptoJS.enc.Base64);\n    return decryptedStr.toString();\n}\n//msg.Encrypt = Encrypt('This is a clear text')\nabc = 'BII9lWDgH2TANXxRH4G2s%2Fu%2BtbQDzgUBMyQir8Arl3EXJx44whOsiKbxJ6xehDOh6fwCniqbHnLzIpWMmKxeUjT5la8TAXZwuHeDNZ9QJ6PJUlfZDi0eQ022nFLsgrnl5Z%2FiFQcmqNGkyAINyJLa5laKHF0Sq%2FRI6plN6wIAKDhV2OS8nEHKWkQBc4CZTkoF4w7RpNQHooyUY2QiSqth6dTGiGSGybNhR5cvSbZbQpuxGCwAUDiu3pAbl8yClk0wFq2Jn1osEX5sjuoYXMm1gFEM7%2FusJqVboRLbSgeioXcOc5zc59xlc37PrcPdBan2cIor%2Fd4j%2BvqPBzxDtUtv6mspGYwLoifrFF8MH8rBY3aOyB9neWEifXHjTOWQL5Rsgp5ynl2doSKXoLFIScBB5CjJdEcFyJ9yPhdnHqag%2Bym9a8WrUQQfkccxWF8VGVNtS57FcRCMVY3X%2FXKMJKXu5V9cd5LeC4jZK5GY3KvAvz48RXTptiGRUggCKY6psj88h8MJbA39v2%2FtdpmZz1zwDquoXFF%2Ftk5VqIi5x5YDbwEwFt7Ei9SR7FY%2Fb3oPDbTEr5z5SzGI8RNE86snrKyrYZa64cPxL4H8jcCLrU%2FTB9o%3D'\nmsg.Decrypt = Decrypt(abc)\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4149,7 +4214,7 @@
         "y": 540,
         "wires": [
             [
-                "7610f8d3f3e6a7c5"
+                "6ffce26479402cf3"
             ]
         ]
     },
