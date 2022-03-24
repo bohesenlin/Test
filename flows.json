@@ -3362,35 +3362,6 @@
         ]
     },
     {
-        "id": "46f5720d0d3d5d6f",
-        "type": "inject",
-        "z": "e3562182c0530220",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "斗罗大陆",
-        "payloadType": "str",
-        "x": 100,
-        "y": 60,
-        "wires": [
-            [
-                "e8fa4eda9cf19f98"
-            ]
-        ]
-    },
-    {
         "id": "a2ed61e0b7c1379d",
         "type": "function",
         "z": "e3562182c0530220",
@@ -3405,8 +3376,7 @@
         "y": 160,
         "wires": [
             [
-                "60e931fcd9adacf2",
-                "fb8044923bd345ae"
+                "8302236d8c86173e"
             ]
         ]
     },
@@ -3471,23 +3441,6 @@
         ]
     },
     {
-        "id": "60e931fcd9adacf2",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "计数",
-        "func": "var count = context.get('count')||150;\ncount = count + 1\nmsg.count = count - 2\ncontext.set('count',count);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 670,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "4e0fad11af9aa7b5",
         "type": "ui_template",
         "z": "e3562182c0530220",
@@ -3496,17 +3449,16 @@
         "order": 1,
         "width": 0,
         "height": 0,
-        "format": "<script>\n    this.scope.action = function() {\n        var input = document.getElementById('content');\n        var filepath = document.getElementById('filepath');\n        var filepath1 = document.getElementById('filepath1');\n        var subtype = document.getElementById('subtype');\n        var value = {'filepath':filepath.value,'filepath1':filepath1.value}\n        return value; \n    }\n</script>\n<md-button ng-click=\"send({payload:action()})\">\n    下载\n</md-button>\n\n\n\n<div id=\"pagewrap\">\n   1.节点文件路径：<br><textarea placeholder=\"请输入影片名称\" id=\"filepath\" cols=\"50\" rows=\"10\"></textarea><br>\n   2.将格式转换为：<br><textarea placeholder=\"请输入下载集数\" id=\"filepath1\" cols=\"10\" rows=\"10\"></textarea><br>\n   <br>\n   \n   <br><br>\n\n</div>",
+        "format": "<script>\n    this.scope.action = function() {\n        var filepath = document.getElementById('filepath');\n        var filepath1 = document.getElementById('filepath1');\n        var value = {'filepath':filepath.value,'filepath1':filepath1.value};\n        return value; \n    }\n</script>\n<div id=\"pagewrap\">\n   1.影片名称：<br><textarea placeholder=\"请输入影片名称\" id=\"filepath\" cols=\"20\" rows=\"1\"></textarea><br>\n   2.下载集数：<br><textarea placeholder=\"请输入下载集数\" id=\"filepath1\" cols=\"20\" rows=\"1\"></textarea><br>\n    <md-button ng-click=\"send({payload:action()})\">下载</md-button>\n</div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
         "x": 100,
-        "y": 140,
+        "y": 60,
         "wires": [
             [
-                "fb8044923bd345ae",
                 "e8fa4eda9cf19f98"
             ]
         ]
