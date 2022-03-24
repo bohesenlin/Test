@@ -3486,7 +3486,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "搜索数据",
-        "func": "msg.url = \"https://v.qq.com/x/search/?q=\"+msg.payload.filepath+\"&stag=102&smartbox_ab=\"\nmsg.name1 = msg.payload\n\nvar count = context.get('count')||Number(msg.payload.filepath1);\ncount = count + 1\nmsg.count = count - 2\ncontext.set('count',count);\n\nreturn msg;",
+        "func": "msg.url = \"https://v.qq.com/x/search/?q=\"+msg.payload.filepath+\"&stag=102&smartbox_ab=\"\nmsg.name1 = msg.payload.filepath\n\nvar count = context.get('count')||Number(msg.payload.filepath1);\ncount = count + 1\nmsg.count = count - 2\ncontext.set('count',count);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
