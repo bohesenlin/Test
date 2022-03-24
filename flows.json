@@ -159,8 +159,8 @@
             "allowTempTheme": "true",
             "dateFormat": "DD/MM/YYYY",
             "sizes": {
-                "sx": 24,
-                "sy": 24,
+                "sx": 48,
+                "sy": 48,
                 "gx": 6,
                 "gy": 6,
                 "cx": 6,
