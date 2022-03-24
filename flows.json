@@ -3406,7 +3406,9 @@
         "y": 160,
         "wires": [
             [
-                "60e931fcd9adacf2"
+                "60e931fcd9adacf2",
+                "8302236d8c86173e",
+                "fb8044923bd345ae"
             ]
         ]
     },
@@ -3415,7 +3417,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "搜索数据",
-        "func": "msg.url = \"https://v.qq.com/x/search/?q=\"+msg.payload+\"&stag=102&smartbox_ab=\"\nmsg.name1 = msg.payload\nreturn msg;",
+        "func": "msg.url = \"https://v.qq.com/x/search/?q=\"+msg.payload+\"&stag=102&smartbox_ab=\"\nmsg.name1 = msg.payload\n\nvar count = context.get('count')||158;\ncount = count + 1\nmsg.count = count - 2\ncontext.set('count',count);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3484,10 +3486,7 @@
         "x": 670,
         "y": 160,
         "wires": [
-            [
-                "8302236d8c86173e",
-                "fb8044923bd345ae"
-            ]
+            []
         ]
     },
     {
@@ -3499,7 +3498,7 @@
         "order": 1,
         "width": 0,
         "height": 0,
-        "format": "<script>\nfunction  create() {\n    var input = document.getElementById('content');\n    var kd = document.getElementById('kd');\n    var filepath = document.getElementById('filepath');\n    var subtype = document.getElementById('subtype');\n    if (filepath.value===\"\"){\n        alert(\"本地节点文件路径不能为空！\");\n        return false;\n    }\n    kd.href = 'http://192.168.0.210:25500/sub?target='+subtype.value+'&url='+encodeURIComponent((filepath.value).replace(/\\n/g,\"|\"))+'&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Mini_MultiMode.ini&emoji=true&list=false&udp=false&tfo=false&scv=false&fdn=false&sort=false'; \n    kd.style = ''; \n    kd.innerText = 'http://192.168.0.210:25500/sub?target='+subtype.value+'&url='+encodeURIComponent((filepath.value).replace(/\\n/g,\"|\"))+'&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Mini_MultiMode.ini&emoji=true&list=false&udp=false&tfo=false&scv=false&fdn=false&sort=false'; \n\n}\n</script>\n\n\n<script>\n    this.scope.action = function() {\n        var input = document.getElementById('content');\n        var filepath = document.getElementById('filepath');\n        var subtype = document.getElementById('subtype');\n        var value = filepath.value\n        return value; \n    }\n</script>\n<md-button ng-click=\"send({payload:action()})\">\n    Click me to send a hello world\n</md-button>\n\n\n\n<div id=\"pagewrap\">\n   1.节点文件路径：<br><textarea placeholder=\"支持单个节点、多个节点、直链和本地文件路径\" id=\"filepath\" cols=\"50\" rows=\"10\"></textarea><br>\n   2.将格式转换为：<select id=\"subtype\">\n  <option value=\"clash\">clash</option>\n  <option value=\"mixed\">Base64通用</option>\n</select><br>\n   <input type=\"button\" value=\"生成链接\" onclick=\"create();\"> <br> <br>\n   <a id=\"kd\" style=\"pointer-events: none;\">请先生成链接！</a><br><br>\n\n</div>",
+        "format": "<script>\nfunction  create() {\n    var input = document.getElementById('content');\n    var kd = document.getElementById('kd');\n    var filepath = document.getElementById('filepath');\n    var subtype = document.getElementById('subtype');\n    if (filepath.value===\"\"){\n        alert(\"本地节点文件路径不能为空！\");\n        return false;\n    }\n    kd.href = 'http://192.168.0.210:25500/sub?target='+subtype.value+'&url='+encodeURIComponent((filepath.value).replace(/\\n/g,\"|\"))+'&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Mini_MultiMode.ini&emoji=true&list=false&udp=false&tfo=false&scv=false&fdn=false&sort=false'; \n    kd.style = ''; \n    kd.innerText = 'http://192.168.0.210:25500/sub?target='+subtype.value+'&url='+encodeURIComponent((filepath.value).replace(/\\n/g,\"|\"))+'&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Mini_MultiMode.ini&emoji=true&list=false&udp=false&tfo=false&scv=false&fdn=false&sort=false'; \n\n}\n</script>\n\n\n<script>\n    this.scope.action = function() {\n        var input = document.getElementById('content');\n        var filepath = document.getElementById('filepath');\n        var filepath1 = document.getElementById('filepath1');\n        var subtype = document.getElementById('subtype');\n        var value = {'filepath':filepath.value,'filepath1':filepath1.value}\n        return value; \n    }\n</script>\n<md-button ng-click=\"send({payload:action()})\">\n    Click me to send a hello world\n</md-button>\n\n\n\n<div id=\"pagewrap\">\n   1.节点文件路径：<br><textarea placeholder=\"支持单个节点、多个节点、直链和本地文件路径\" id=\"filepath\" cols=\"50\" rows=\"10\"></textarea><br>\n   <br><textarea placeholder=\"支持单个节点、多个节点、直链和本地文件路径\" id=\"filepath1\" cols=\"10\" rows=\"10\"></textarea><br>\n   2.将格式转换为：<select id=\"subtype\">\n  <option value=\"clash\">clash</option>\n  <option value=\"mixed\">Base64通用</option>\n</select><br>\n   <input type=\"button\" value=\"生成链接\" onclick=\"create();\"> <br> <br>\n   <a id=\"kd\" style=\"pointer-events: none;\">请先生成链接！</a><br><br>\n\n</div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -3509,8 +3508,7 @@
         "y": 140,
         "wires": [
             [
-                "fb8044923bd345ae",
-                "e8fa4eda9cf19f98"
+                "fb8044923bd345ae"
             ]
         ]
     }
