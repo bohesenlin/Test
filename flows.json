@@ -3595,7 +3595,7 @@
         "order": 31,
         "width": 0,
         "height": 0,
-        "format": "<div layout=\"row\" layout-align=\"space-between\">\n  <p>The number is</p>\n  <font color=\"{{((msg.payload || 0) % 2 === 0) ? 'green' : 'red'}}\">\n    {{(msg.payload || 0) % 2 === 0 ? 'even' : 'odd'}}\n  </font>\n</div>",
+        "format": "<div layout=\"row\" layout-align=\"space-between\">\n  <p>{{msg.payload}}</p>\n  <font color=\"{{((msg.payload || 0) % 2 === 0) ? 'green' : 'red'}}\">\n    {{(msg.payload || 0) % 2 === 0 ? 'even' : 'odd'}}\n  </font>\n</div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -3605,6 +3605,35 @@
         "y": 500,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "de128d5638b70ea5",
+        "type": "inject",
+        "z": "e3562182c0530220",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "123456",
+        "payloadType": "num",
+        "x": 310,
+        "y": 440,
+        "wires": [
+            [
+                "b3f5b8b621d00795"
+            ]
         ]
     }
 ]
