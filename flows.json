@@ -3486,7 +3486,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "搜索数据",
-        "func": "msg.url = \"https://v.qq.com/x/search/?q=\"+msg.payload.filepath+\"&stag=102&smartbox_ab=\"\nmsg.name1 = msg.payload.filepath\n\nvar count = context.get('count')||Number(msg.payload.filepath1);\ncount = count + 1\nmsg.count = count - 2\ncontext.set('count',count);\n\nreturn msg;",
+        "func": "msg.url = \"https://v.qq.com/x/search/?q=\"+msg.payload.filepath+\"&stag=102&smartbox_ab=\"\nmsg.name1 = msg.payload.filepath\nmsg.count = Number(msg.payload.filepath1)-1\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3551,7 +3551,7 @@
         "order": 1,
         "width": 0,
         "height": 0,
-        "format": "<script>\n    this.scope.action = function() {\n        var filepath = document.getElementById('filepath');\n        var filepath1 = document.getElementById('filepath1');\n        var value = {'filepath':filepath.value,'filepath1':filepath1.value};\n        return value; \n    }\n    window.onload = function(){\n        var btn01 = document.getElementById('btn01')\n        btn01.onclick = function(){\n            alert(\"123\")\n        }\n    }\n    \n</script>\n<div id=\"pagewrap\">\n   1.影片名称：<br><textarea placeholder=\"请输入影片名称\" id=\"filepath\" cols=\"20\" rows=\"1\"></textarea><br>\n   2.下载集数：<br><textarea placeholder=\"请输入下载集数\" id=\"filepath1\" cols=\"20\" rows=\"1\"></textarea><br>\n    <md-button ng-click=\"send({payload:action()})\">下载</md-button>\n    <button id = \"btn01\">123</button>\n</div>",
+        "format": "<script>\n    this.scope.action = function() {\n        var filepath = document.getElementById('filepath');\n        var filepath1 = document.getElementById('filepath1');\n        var value = {'filepath':filepath.value,'filepath1':filepath1.value};\n        return value; \n    }\n    window.onload = function(){\n        var btn01 = document.getElementById('btn01')\n        btn01.onclick = function(){\n            alert(\"123\")\n        }\n    }\n    \n</script>\n<div id=\"pagewrap\">\n   1.影片名称：<br><textarea placeholder=\"请输入影片名称\" id=\"filepath\" cols=\"20\" rows=\"1\"></textarea><br>\n   2.下载集数：<br><textarea placeholder=\"请输入下载集数\" id=\"filepath1\" cols=\"20\" rows=\"1\"></textarea><br>\n    <md-button ng-click=\"send({payload:action()})\">下载</md-button>\n    <button id = \"btn01\">123</button>\n</div>\n<script>\n    var btn01 = document.getElementById('btn01')\n    btn01.onclick = function(){\n        alert(\"123\")\n    }\n</script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -3581,27 +3581,6 @@
         "templateScope": "local",
         "className": "",
         "x": 220,
-        "y": 500,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "3f6938c8f82331f5",
-        "type": "ui_template",
-        "z": "e3562182c0530220",
-        "group": "32dbb2ecc043e986",
-        "name": "",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "format": "\n<div id=\"pagewrap\">\n   1.影片名称：<br><textarea placeholder=\"请输入影片名称\" id=\"filepath\" cols=\"20\" rows=\"1\"></textarea><br>\n   2.下载集数：<br><textarea placeholder=\"请输入下载集数\" id=\"filepath1\" cols=\"20\" rows=\"1\"></textarea><br>\n    <md-button >下载</md-button>\n    <button id = \"btn01\">123</button>\n</div>\n<script>\n    var btn01 = document.getElementById('btn01')\n    btn01.onclick = function(){\n        alert(\"123\")\n    }\n</script>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 420,
         "y": 500,
         "wires": [
             []
