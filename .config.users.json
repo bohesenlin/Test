@@ -16,7 +16,7 @@
                 "welcome": "2.2.2"
             }
         },
-        "menu-menu-item-sidebar": false,
+        "menu-menu-item-sidebar": true,
         "menu-deploymenu-item-node": true,
         "menu-deploymenu-item-full": false
     }
