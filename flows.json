@@ -3574,7 +3574,7 @@
         "order": 1,
         "width": "20",
         "height": "20",
-        "format": "",
+        "format": "<body>\n<table>\n    <tr>\n        <td>name</td>\n        <td>email</td>\n        <td><a href='javascript:;'>123</a></td>\n    </tr>\n</table>\n</body>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
