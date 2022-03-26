@@ -3693,7 +3693,7 @@
             },
             {
                 "p": "count1",
-                "v": "10",
+                "v": "30",
                 "vt": "num"
             }
         ],
@@ -3702,7 +3702,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "林俊杰",
+        "payload": "陈奕迅",
         "payloadType": "str",
         "x": 270,
         "y": 480,
@@ -3800,7 +3800,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "var count = context.get('count')||0;\nif(msg.t == 1){\n    count = 0;\n    msg.t = 0\n}\nmsg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[count]+'&type=convert_url3&br=320kmp3'\nmsg.name1 = msg.name[count]\nmsg.artist1 = msg.artist[count]\ncount = count + 1\ncontext.set('count',count);\nif(count < (msg.count1+1)){\n    return msg;\n}",
+        "func": "var count = context.get('count')||0;\nif(msg.t == 1){\n    count = 0;\n    msg.t = 0\n}\nmsg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[count]+'&type=convert_url3&br=320kmp3'\nmsg.name1 = msg.name[count]\nmsg.artist1 = msg.artist[count]\ncount = count + 1\ncontext.set('count',count);\nif(count < (msg.count1 + 1) && count < (msg.artist.length + 1)){\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
