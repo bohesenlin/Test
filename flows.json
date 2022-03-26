@@ -3428,6 +3428,89 @@
         ]
     },
     {
+        "id": "3d6a2eef80d1114c",
+        "type": "ha-entity",
+        "z": "2d47d0348f062886",
+        "name": "DIRECT",
+        "server": "a5e643a4b8a035cf",
+        "version": 2,
+        "debugenabled": false,
+        "outputs": 2,
+        "entityType": "switch",
+        "config": [
+            {
+                "property": "name",
+                "value": "DIRECT"
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            },
+            {
+                "property": "last_reset",
+                "value": ""
+            }
+        ],
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "resend": true,
+        "outputLocation": "payload",
+        "outputLocationType": "none",
+        "inputOverride": "allow",
+        "outputOnStateChange": true,
+        "outputPayload": "1",
+        "outputPayloadType": "str",
+        "x": 80,
+        "y": 1040,
+        "wires": [
+            [
+                "7cde97d19b6ac706",
+                "3113e145d2c940ea"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3113e145d2c940ea",
+        "type": "api-call-service",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "server": "a5e643a4b8a035cf",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "switch",
+        "service": "turn_off",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.zi_dong_xuan_ze"
+        ],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 300,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "17e7c93fb2cab104",
         "type": "inject",
         "z": "5646dda1b303b00d",
