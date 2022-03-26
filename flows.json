@@ -3651,8 +3651,7 @@
         "y": 480,
         "wires": [
             [
-                "016f66cabdc16e26",
-                "c0377683cfe83cd3"
+                "016f66cabdc16e26"
             ]
         ]
     },
@@ -3703,10 +3702,10 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "陈奕迅",
+        "payload": "林俊杰",
         "payloadType": "str",
         "x": 90,
-        "y": 420,
+        "y": 480,
         "wires": [
             [
                 "3a84d0f303af75aa"
@@ -3746,11 +3745,10 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 920,
-        "y": 480,
+        "x": 420,
+        "y": 560,
         "wires": [
             [
-                "c0377683cfe83cd3",
                 "63e373f908419a98",
                 "d9b9b45f19fa3dfb"
             ]
@@ -3761,14 +3759,14 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "下载数据",
-        "func": "var url = msg.payload.data.url\nvar name = msg.name1 + ' - ' + msg.artist1 + \".mp3\"\nvar dir = \"/downloads/music\"\nmsg.payload = {}\n\nmsg.payload = {\n    \"jsonrpc\":\"2.0\",\n    \"method\":\"aria2.addUri\",\n    \"id\":\"QXJpYU5nXzE2NDcwODAyMjFfMC4wNjE0NDQxMTQ5NzI0MzA1Mg==\",\n    \"params\":[\"token:P3TERX\",url,{\n        \"out\": name,\n        \"dir\": dir\n    }]\n}\nmsg.url = \"http://192.168.0.210:6800/jsonrpc\"\nreturn msg;",
+        "func": "var url = msg.payload.data.url\nvar name = msg.name1 + ' - ' + msg.artist1 + \".mp3\"\nvar dir = \"/downloads/music\"\nmsg.payload = {}\n\nmsg.payload = {\n    \"jsonrpc\":\"2.0\",\n    \"method\":\"aria2.addUri\",\n    \"id\":\"QXJpYU5nXzE2NDcwODAyMjFfMC4wNjE0NDQxMTQ5NzI0MzA1Mg==\",\n    \"params\":[\"token:P3TERX\",[url],{\n        \"out\": name,\n        \"dir\": dir\n    }]\n}\nmsg.url = \"http://192.168.0.210:6800/jsonrpc\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1100,
-        "y": 480,
+        "x": 600,
+        "y": 560,
         "wires": [
             [
                 "02309fe5800d3438"
@@ -3789,30 +3787,13 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 1260,
-        "y": 480,
+        "x": 780,
+        "y": 560,
         "wires": [
             [
-                "c0377683cfe83cd3"
+                "6d9871f726d2cbc6"
             ]
         ]
-    },
-    {
-        "id": "c0377683cfe83cd3",
-        "type": "debug",
-        "z": "e3562182c0530220",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1250,
-        "y": 560,
-        "wires": []
     },
     {
         "id": "63e373f908419a98",
@@ -3825,8 +3806,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
-        "y": 480,
+        "x": 250,
+        "y": 560,
         "wires": [
             [
                 "710c435b977cee1e"
@@ -3896,7 +3877,7 @@
         "payload": "儿歌多多",
         "payloadType": "str",
         "x": 100,
-        "y": 620,
+        "y": 680,
         "wires": [
             [
                 "309e72712bd4e39a"
@@ -4107,5 +4088,21 @@
                 "47910ead4cf19cd9"
             ]
         ]
+    },
+    {
+        "id": "6d9871f726d2cbc6",
+        "type": "debug",
+        "z": "e3562182c0530220",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 560,
+        "wires": []
     }
 ]
