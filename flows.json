@@ -2690,7 +2690,7 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "msg.url = \"http://192.168.0.213/cgi-bin/luci/admin/services/openclash/config-subscribe\"\nmsg.payload={\n    'token': 'd188e5f4578edee29600a167568578bc',\n    'cbi.submit': '1',\n    'cbi.cbe.openclash.config.auto_update': '1',\n    'cbid.openclash.config.auto_update': '1',\n    'cbid.openclash.config.config_auto_update_mode': '0',\n    'cbid.openclash.config.config_update_week_time': '*',\n    'cbid.openclash.config.auto_update_time': '13',\n    'cbi.sts.openclash.config_subscribe': '',\n    'cbi.cbe.openclash.cfg15b6bc.enabled': '1',\n    'cbid.openclash.cfg15b6bc.enabled': '1',\n    'cbid.openclash.cfg15b6bc.address': 'http://192.168.0.210:25500/sub?target=clash&url=https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/Eternity&insert=false&config=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini_MultiMode.ini&emoji=true&list=false&udp=false&tfo=false&scv=false&fdn=false&sort=false',\n    'cbid.table.1.Apply': '更新配置'\n}\nmsg.headers = {\n    'Content-Type': 'multipart/form-data',\n    'Accept': 'application/json',\n    'Cookie': 'sysauth=bdc717e93b225fe3f1d7749721fb8ce4; agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213',\n    'Origin': 'http://192.168.0.213',\n    'Referer': 'http://192.168.0.213/cgi-bin/luci/admin/services/openclash/config-subscribe',\n    'Upgrade-Insecure-Requests': '1',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
+        "func": "msg.url = \"http://192.168.0.213/cgi-bin/luci/admin/services/openclash/config-subscribe\"\nmsg.payload={\n    'token': msg.token,\n    'cbi.submit': '1',\n    'cbi.cbe.openclash.config.auto_update': '1',\n    'cbid.openclash.config.auto_update': '1',\n    'cbid.openclash.config.config_auto_update_mode': '0',\n    'cbid.openclash.config.config_update_week_time': '*',\n    'cbid.openclash.config.auto_update_time': '13',\n    'cbi.sts.openclash.config_subscribe': '',\n    'cbi.cbe.openclash.cfg15b6bc.enabled': '1',\n    'cbid.openclash.cfg15b6bc.enabled': '1',\n    'cbid.openclash.cfg15b6bc.address': 'http://192.168.0.210:25500/sub?target=clash&url=https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/Eternity&insert=false&config=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini_MultiMode.ini&emoji=true&list=false&udp=false&tfo=false&scv=false&fdn=false&sort=false',\n    'cbid.table.1.Apply': '更新配置'\n}\ncookie = msg.headers[Cookie]\nmsg.headers = {\n    'Content-Type': 'multipart/form-data',\n    //'Accept': 'application/json',\n    'Cookie': cookie,\n    'Host': '192.168.0.213',\n    'Origin': 'http://192.168.0.213',\n    'Referer': 'http://192.168.0.213/cgi-bin/luci/admin/services/openclash/config-subscribe',\n    'Upgrade-Insecure-Requests': '1',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2882,7 +2882,6 @@
         "y": 720,
         "wires": [
             [
-                "a73ff1de687a6819",
                 "3c740a64f48dc8e1"
             ]
         ]
@@ -2940,13 +2939,55 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "msg.headers['Cookie'] = 'sysauth='+msg.redirectList[0].cookies.sysauth.value+'; agh_session=e8dc8a70b7b509eb4b1698564924210b'\n\nreturn msg;",
+        "func": "msg.headers = {}\nmsg.headers['Cookie'] = 'sysauth='+msg.redirectList[0].cookies.sysauth.value+'; agh_session=e8dc8a70b7b509eb4b1698564924210b'\nmsg.url = 'http://192.168.0.213/cgi-bin/luci/admin/services/openclash'\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 550,
+        "y": 720,
+        "wires": [
+            [
+                "230bb5fdcd154069"
+            ]
+        ]
+    },
+    {
+        "id": "230bb5fdcd154069",
+        "type": "http request",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 720,
+        "y": 720,
+        "wires": [
+            [
+                "a1eb4225609833ed",
+                "a73ff1de687a6819"
+            ]
+        ]
+    },
+    {
+        "id": "a1eb4225609833ed",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "func": "reg = /<input type=\"hidden\" name=\"token\" value=\"(.*?)\" \\/>/\nmsg.token = reg.exec(msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
         "y": 720,
         "wires": [
             [
