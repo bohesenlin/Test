@@ -907,25 +907,6 @@
             }
         }
     },
-    "@dainer88/node-red-contrib-send-form": {
-        "name": "@dainer88/node-red-contrib-send-form",
-        "version": "0.0.41",
-        "local": true,
-        "user": true,
-        "nodes": {
-            "http-send-multipart-form-v3": {
-                "name": "http-send-multipart-form-v3",
-                "types": [
-                    "http-send-multipart-form-v3"
-                ],
-                "enabled": true,
-                "local": true,
-                "user": false,
-                "module": "@dainer88/node-red-contrib-send-form",
-                "file": "/data/node_modules/@dainer88/node-red-contrib-send-form/http-send-multipart-form.js"
-            }
-        }
-    },
     "node-red-contrib-send-form": {
         "name": "node-red-contrib-send-form",
         "version": "0.3.19",
@@ -942,25 +923,6 @@
                 "user": false,
                 "module": "node-red-contrib-send-form",
                 "file": "/data/node_modules/node-red-contrib-send-form/http-send-multipart-form.js"
-            }
-        }
-    },
-    "@rbflurry/node-red-contrib-send-form": {
-        "name": "@rbflurry/node-red-contrib-send-form",
-        "version": "0.0.5",
-        "local": true,
-        "user": true,
-        "nodes": {
-            "http-send-multipart-form-v2": {
-                "name": "http-send-multipart-form-v2",
-                "types": [
-                    "http-send-multipart-form-v2"
-                ],
-                "enabled": true,
-                "local": true,
-                "user": false,
-                "module": "@rbflurry/node-red-contrib-send-form",
-                "file": "/data/node_modules/@rbflurry/node-red-contrib-send-form/http-send-multipart-form.js"
             }
         }
     }
