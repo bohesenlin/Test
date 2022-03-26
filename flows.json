@@ -3673,7 +3673,8 @@
         "y": 480,
         "wires": [
             [
-                "fb8044923bd345ae"
+                "fb8044923bd345ae",
+                "432e3f31f68b97ad"
             ]
         ]
     },
@@ -3703,6 +3704,25 @@
         "wires": [
             [
                 "3a84d0f303af75aa"
+            ]
+        ]
+    },
+    {
+        "id": "432e3f31f68b97ad",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "msg.artist = msg.payload.data.list[0].artist\nmsg.rid = payload.data.list[0].rid\nmsg.album = payload.data.list[0].album\nmsg.name = payload.data.list[0].name\nmsg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid+'&type=convert_url3&br=320kmp3'\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 480,
+        "wires": [
+            [
+                "fb8044923bd345ae"
             ]
         ]
     }
