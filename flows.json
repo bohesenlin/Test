@@ -2934,11 +2934,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 590,
-        "y": 820,
+        "x": 790,
+        "y": 940,
         "wires": []
     },
     {
@@ -2946,14 +2947,14 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "reg = /<time-ago datetime=\"(.*?)\" data-view-component=\"true\"/\n\nmsg.payload = reg.exec(msg.payload)\nreturn msg;",
+        "func": "var count = context.get('count')||msg.payload[0].datetime;\nif(count == msg.payload[0].datetime){\n    return\n}else{\n    count = msg.payload[0].datetime\n    context.set('count',count);\n    msg.topic = '节点有更新'\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
-        "y": 880,
+        "x": 630,
+        "y": 940,
         "wires": [
             [
                 "c80f71166a6b3d95"
@@ -2967,14 +2968,14 @@
         "name": "",
         "property": "payload",
         "outproperty": "payload",
-        "tag": "div:nth-child(8) > div.color-fg-muted.text-right > time-ago",
-        "ret": "html",
+        "tag": "div:nth-child(8) > div.color-fg-muted.text-right > time-ago[datetime]",
+        "ret": "attr",
         "as": "single",
-        "x": 550,
+        "x": 280,
         "y": 940,
         "wires": [
             [
-                "c80f71166a6b3d95"
+                "1e3c339aa72883e3"
             ]
         ]
     },
