@@ -3641,7 +3641,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "msg.url = 'http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=' + msg.payload + '&pn=1&rn=30'\nmsg.headers = {\n    'Connection':'keep-alive',\n    'Cookie':'kw_token=K8GF5NROMGS',\n    'csrf':'K8GF5NROMGS',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/search/list?key=%E9%99%88%E5%A5%95%E8%BF%85',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "func": "msg.url = 'http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=' + msg.payload + '&pn=1&rn=' + msg.count1.toString()\nmsg.headers = {\n    'Connection':'keep-alive',\n    'Cookie':'kw_token=K8GF5NROMGS',\n    'csrf':'K8GF5NROMGS',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/search/list?key=%E9%99%88%E5%A5%95%E8%BF%85',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3651,7 +3651,8 @@
         "y": 480,
         "wires": [
             [
-                "016f66cabdc16e26"
+                "016f66cabdc16e26",
+                "c0377683cfe83cd3"
             ]
         ]
     },
@@ -3687,8 +3688,14 @@
                 "p": "payload"
             },
             {
-                "p": "topic",
-                "vt": "str"
+                "p": "t",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "p": "count1",
+                "v": "10",
+                "vt": "num"
             }
         ],
         "repeat": "",
@@ -3696,9 +3703,9 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "儿歌多多",
+        "payload": "陈奕迅",
         "payloadType": "str",
-        "x": 100,
+        "x": 90,
         "y": 420,
         "wires": [
             [
@@ -3711,7 +3718,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "// var a = msg.payload.data\nmsg.artist = []\nmsg.rid = []\nmsg.album = []\nmsg.name = []\nmsg.url = []\nfor(var i=0 ; i < msg.payload.data.list.length ; i++){\n    msg.artist.push(msg.payload.data.list[i].artist)\n    msg.rid.push(msg.payload.data.list[i].rid)\n    msg.album.push(msg.payload.data.list[i].album)\n    msg.name.push(msg.payload.data.list[i].name)\n    msg.url.push('http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[i]+'&type=convert_url3&br=320kmp3')\n}\n// msg.artist = msg.payload.data.list[0].artist\n// msg.rid = msg.payload.data.list[0].rid\n// msg.album = msg.payload.data.list[0].album\n// msg.name = msg.payload.data.list[0].name\n//msg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid+'&type=convert_url3&br=320kmp3'\nreturn msg;",
+        "func": "msg.artist = []\nmsg.rid = []\nmsg.album = []\nmsg.name = []\nmsg.url = []\nfor(var i=0 ; i < msg.payload.data.list.length ; i++){\n    msg.artist.push(msg.payload.data.list[i].artist)\n    msg.rid.push(msg.payload.data.list[i].rid)\n    msg.album.push(msg.payload.data.list[i].album)\n    msg.name.push(msg.payload.data.list[i].name)\n    msg.url.push('http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[i]+'&type=convert_url3&br=320kmp3')\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3720,7 +3727,9 @@
         "x": 590,
         "y": 480,
         "wires": [
-            []
+            [
+                "63e373f908419a98"
+            ]
         ]
     },
     {
@@ -3741,6 +3750,8 @@
         "y": 480,
         "wires": [
             [
+                "c0377683cfe83cd3",
+                "63e373f908419a98",
                 "d9b9b45f19fa3dfb"
             ]
         ]
@@ -3750,7 +3761,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "下载数据",
-        "func": "//var url = msg.payload.data.url\n//var name = msg.name1 + ' - ' + msg.artist1 + \".mp3\"\nvar dir = \"/downloads/music\"\nmsg.payload = {}\n\nmsg.payload = {\n    \"jsonrpc\":\"2.0\",\n    \"method\":\"aria2.addUri\",\n    \"id\":\"QXJpYU5nXzE2NDcwODAyMjFfMC4wNjE0NDQxMTQ5NzI0MzA1Mg==\",\n    \"params\":[\"token:P3TERX\",msg.payload.data.url,{\n        \"out\": msg.name,\n        \"dir\": dir\n    }]\n}\nmsg.url = \"http://192.168.0.210:6800/jsonrpc\"\nreturn msg;",
+        "func": "var url = msg.payload.data.url\nvar name = msg.name1 + ' - ' + msg.artist1 + \".mp3\"\nvar dir = \"/downloads/music\"\nmsg.payload = {}\n\nmsg.payload = {\n    \"jsonrpc\":\"2.0\",\n    \"method\":\"aria2.addUri\",\n    \"id\":\"QXJpYU5nXzE2NDcwODAyMjFfMC4wNjE0NDQxMTQ5NzI0MzA1Mg==\",\n    \"params\":[\"token:P3TERX\",url,{\n        \"out\": name,\n        \"dir\": dir\n    }]\n}\nmsg.url = \"http://192.168.0.210:6800/jsonrpc\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3795,10 +3806,11 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1270,
+        "x": 1250,
         "y": 560,
         "wires": []
     },
@@ -3807,14 +3819,14 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "var count = context.get('count')||0;\nmsg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[count]+'&type=convert_url3&br=320kmp3'\nmsg.name1 = msg.name[count]\nmsg.artist1 = msg.artist[count]\ncount =count + 1\ncontext.set('count',count);\nif(count<31){\n    return msg;\n}",
+        "func": "var count = context.get('count')||0;\nif(msg.t == 1){\n    count = 0;\n    msg.t = 0\n}\nmsg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[count]+'&type=convert_url3&br=320kmp3'\nmsg.name1 = msg.name[count]\nmsg.artist1 = msg.artist[count]\ncount = count + 1\ncontext.set('count',count);\nif(count < (msg.count1+1)){\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 750,
-        "y": 440,
+        "y": 480,
         "wires": [
             [
                 "710c435b977cee1e"
