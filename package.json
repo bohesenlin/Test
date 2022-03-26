@@ -4,10 +4,12 @@
     "version": "0.0.1",
     "private": true,
     "dependencies": {
+        "@dainer88/node-red-contrib-send-form": "0.0.41",
         "crypto-js": "^4.1.1",
         "node-red-contrib-crypto-js-dynamic": "~0.1.22",
         "node-red-contrib-git-nodes": "~0.2.2",
         "node-red-contrib-home-assistant-websocket": "~0.43.0",
+        "node-red-contrib-send-form": "~0.3.19",
         "node-red-contrib-send-multipart-formdata": "~1.1.0",
         "node-red-contrib-xiaoai-tts": "~1.0.5",
         "node-red-dashboard": "~3.1.6",
