@@ -8,9 +8,12 @@
     },
     "10fadd7af7843abc": {
       "lastPayload": {
-        "state": "DIRECT",
+        "state": "♻️ 自动选择",
         "attributes": {}
       }
+    },
+    "51c3350b870cd183": {
+      "isEnabled": true
     }
   }
 }
