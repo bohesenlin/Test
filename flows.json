@@ -3697,7 +3697,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "听我说",
+        "payload": "周杰伦",
         "payloadType": "str",
         "x": 90,
         "y": 420,
@@ -3712,7 +3712,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "msg.artist = msg.payload.data.list[0].artist\nmsg.rid = msg.payload.data.list[0].rid\nmsg.album = msg.payload.data.list[0].album\nmsg.name = msg.payload.data.list[0].name\nmsg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid+'&type=convert_url3&br=320kmp3'\nreturn msg;",
+        "func": "// var a = msg.payload.data\nmsg.artist = []\nmsg.rid = []\nmsg.album = []\nmsg.name = []\nmsg.url = []\nfor(var i=0 ; i < msg.payload.data.list.length ; i++){\n    msg.artist.push(msg.payload.data.list[i].artist)\n    msg.rid.push(msg.payload.data.list[i].rid)\n    msg.album.push(msg.payload.data.list[i].album)\n    msg.name.push(msg.payload.data.list[i].name)\n    msg.url.push('http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[i]+'&type=convert_url3&br=320kmp3')\n}\n// msg.artist = msg.payload.data.list[0].artist\n// msg.rid = msg.payload.data.list[0].rid\n// msg.album = msg.payload.data.list[0].album\n// msg.name = msg.payload.data.list[0].name\n//msg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid+'&type=convert_url3&br=320kmp3'\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3722,8 +3722,7 @@
         "y": 480,
         "wires": [
             [
-                "fb8044923bd345ae",
-                "710c435b977cee1e"
+                "fb8044923bd345ae"
             ]
         ]
     },
