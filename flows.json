@@ -3011,7 +3011,7 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "msg.payload = {\"name\":\"♻️ 自动选择\"}\nmsg.url = 'http://192.168.0.213:9090/proxies/🚀 节点选择'\n msg.headers = {\n    'Authorization': 'Bearer 123456',\n    'Connection': 'keep-alive',\n    'Content-Length': '30',\n    'Content-Type': 'application/json',\n    'Cookie': 'agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213:9090',\n    'Origin': 'http://192.168.0.213:9090',\n    'Referer': 'http://192.168.0.213:9090/ui/?host=192.168.0.213&port=9090&secret=123456',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n }\nreturn msg;",
+        "func": "msg.payload = {\"name\":\"♻️ 自动选择\"}\nmsg.url = 'http://192.168.0.213:9090/proxies/🚀 节点选择'\n msg.headers = {\n    'Authorization': 'Bearer 123456',\n    'Connection': 'keep-alive',\n    //'Content-Length': '30',\n    'Content-Type': 'application/json',\n    'Cookie': 'agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213:9090',\n    'Origin': 'http://192.168.0.213:9090',\n    'Referer': 'http://192.168.0.213:9090/ui/?host=192.168.0.213&port=9090&secret=123456',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3073,6 +3073,150 @@
         "wires": [
             [
                 "409c0e1fe309c7b7"
+            ]
+        ]
+    },
+    {
+        "id": "4ca1b0c76bb8c4de",
+        "type": "inject",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 860,
+        "wires": [
+            [
+                "2f11ac93546b2601"
+            ]
+        ]
+    },
+    {
+        "id": "2f11ac93546b2601",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "func": "msg.payload = {\"name\":\"🔯 故障转移\"}\nmsg.url = 'http://192.168.0.213:9090/proxies/🚀 节点选择'\n msg.headers = {\n    'Authorization': 'Bearer 123456',\n    'Connection': 'keep-alive',\n    //'Content-Length': '30',\n    'Content-Type': 'application/json',\n    'Cookie': 'agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213:9090',\n    'Origin': 'http://192.168.0.213:9090',\n    'Referer': 'http://192.168.0.213:9090/ui/?host=192.168.0.213&port=9090&secret=123456',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 860,
+        "wires": [
+            [
+                "45a2b32bc1bfbf00"
+            ]
+        ]
+    },
+    {
+        "id": "da3e3cb8f54e2528",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "func": "msg.payload = {\"name\":\"🔮 负载均衡\"}\nmsg.url = 'http://192.168.0.213:9090/proxies/🚀 节点选择'\n msg.headers = {\n    'Authorization': 'Bearer 123456',\n    'Connection': 'keep-alive',\n    //'Content-Length': '30',\n    'Content-Type': 'application/json',\n    'Cookie': 'agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213:9090',\n    'Origin': 'http://192.168.0.213:9090',\n    'Referer': 'http://192.168.0.213:9090/ui/?host=192.168.0.213&port=9090&secret=123456',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 920,
+        "wires": [
+            [
+                "45a2b32bc1bfbf00"
+            ]
+        ]
+    },
+    {
+        "id": "a767679419f5318c",
+        "type": "inject",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 920,
+        "wires": [
+            [
+                "da3e3cb8f54e2528"
+            ]
+        ]
+    },
+    {
+        "id": "7cde97d19b6ac706",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "func": "msg.payload = {\"name\":\"DIRECT\"}\nmsg.url = 'http://192.168.0.213:9090/proxies/🚀 节点选择'\n msg.headers = {\n    'Authorization': 'Bearer 123456',\n    'Connection': 'keep-alive',\n    //'Content-Length': '30',\n    'Content-Type': 'application/json',\n    'Cookie': 'agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213:9090',\n    'Origin': 'http://192.168.0.213:9090',\n    'Referer': 'http://192.168.0.213:9090/ui/?host=192.168.0.213&port=9090&secret=123456',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 980,
+        "wires": [
+            [
+                "45a2b32bc1bfbf00"
+            ]
+        ]
+    },
+    {
+        "id": "85d8099e3f6129fb",
+        "type": "inject",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 980,
+        "wires": [
+            [
+                "7cde97d19b6ac706"
             ]
         ]
     },
