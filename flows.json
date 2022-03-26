@@ -2722,7 +2722,8 @@
         "y": 580,
         "wires": [
             [
-                "a73ff1de687a6819"
+                "a73ff1de687a6819",
+                "b841398b61348e59"
             ]
         ]
     },
@@ -2771,6 +2772,27 @@
         "x": 530,
         "y": 580,
         "wires": []
+    },
+    {
+        "id": "b841398b61348e59",
+        "type": "ui_template",
+        "z": "2d47d0348f062886",
+        "group": "32dbb2ecc043e986",
+        "name": "",
+        "order": 3,
+        "width": "20",
+        "height": "20",
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 540,
+        "y": 680,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "17e7c93fb2cab104",
