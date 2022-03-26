@@ -2892,8 +2892,7 @@
         "y": 820,
         "wires": [
             [
-                "c80f71166a6b3d95",
-                "1e3c339aa72883e3"
+                "739eb8095e450051"
             ]
         ]
     },
@@ -2955,6 +2954,24 @@
         "libs": [],
         "x": 410,
         "y": 880,
+        "wires": [
+            [
+                "c80f71166a6b3d95"
+            ]
+        ]
+    },
+    {
+        "id": "739eb8095e450051",
+        "type": "html",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "div:nth-child(8) > div.color-fg-muted.text-right > time-ago",
+        "ret": "html",
+        "as": "single",
+        "x": 550,
+        "y": 940,
         "wires": [
             [
                 "c80f71166a6b3d95"
