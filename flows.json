@@ -3647,7 +3647,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 250,
+        "x": 430,
         "y": 480,
         "wires": [
             [
@@ -3669,7 +3669,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 420,
+        "x": 600,
         "y": 480,
         "wires": [
             [
@@ -3704,7 +3704,7 @@
         "topic": "",
         "payload": "林俊杰",
         "payloadType": "str",
-        "x": 90,
+        "x": 270,
         "y": 480,
         "wires": [
             [
@@ -3723,8 +3723,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 480,
+        "x": 270,
+        "y": 560,
         "wires": [
             [
                 "63e373f908419a98"
@@ -3745,7 +3745,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 420,
+        "x": 600,
         "y": 560,
         "wires": [
             [
@@ -3765,8 +3765,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 600,
-        "y": 560,
+        "x": 280,
+        "y": 640,
         "wires": [
             [
                 "02309fe5800d3438"
@@ -3787,8 +3787,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 780,
-        "y": 560,
+        "x": 440,
+        "y": 640,
         "wires": [
             [
                 "6d9871f726d2cbc6"
@@ -3806,7 +3806,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 250,
+        "x": 430,
         "y": 560,
         "wires": [
             [
@@ -3825,8 +3825,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 250,
-        "y": 680,
+        "x": 270,
+        "y": 780,
         "wires": [
             [
                 "5a1098b1ae3f7e6d"
@@ -3847,8 +3847,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 420,
-        "y": 680,
+        "x": 440,
+        "y": 780,
         "wires": [
             [
                 "24a1e90b835d1b42"
@@ -3876,8 +3876,8 @@
         "topic": "",
         "payload": "儿歌多多",
         "payloadType": "str",
-        "x": 100,
-        "y": 680,
+        "x": 120,
+        "y": 780,
         "wires": [
             [
                 "309e72712bd4e39a"
@@ -3895,8 +3895,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 680,
+        "x": 610,
+        "y": 780,
         "wires": [
             [
                 "ee026d1ab653a79e"
@@ -3917,8 +3917,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 920,
-        "y": 680,
+        "x": 940,
+        "y": 780,
         "wires": [
             [
                 "909be763d0e17fae",
@@ -3937,8 +3937,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1100,
-        "y": 680,
+        "x": 1120,
+        "y": 780,
         "wires": [
             [
                 "60e142c5511c7ae4"
@@ -3959,8 +3959,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 1260,
-        "y": 680,
+        "x": 1280,
+        "y": 780,
         "wires": [
             [
                 "909be763d0e17fae"
@@ -3980,8 +3980,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1250,
-        "y": 760,
+        "x": 1270,
+        "y": 860,
         "wires": []
     },
     {
@@ -3995,97 +3995,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
-        "y": 680,
+        "x": 770,
+        "y": 780,
         "wires": [
             [
                 "70e15d3d52073432"
-            ]
-        ]
-    },
-    {
-        "id": "47910ead4cf19cd9",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "下载数据",
-        "func": "var dir = \"/downloads\"\nmsg.payload = {}\nmsg.name = ['1','2']\nmsg.payload.url = ['https://sr-sycdn.kuwo.cn/694026ffd060b3c13c6e949ea474417e/623ed323/resource/n2/9/37/2971633634.mp3','https://nu01-sycdn.kuwo.cn/349d4848ba24c9090c41fa4ec5e7c131/623ed323/resource/n1/43/39/381749978.mp3']\nmsg.payload = {\n    \"jsonrpc\":\"2.0\",\n    \"method\":\"aria2.addUri\",\n    \"id\":\"QXJpYU5nXzE2NDcwODAyMjFfMC4wNjE0NDQxMTQ5NzI0MzA1Mg==\",\n    \"params\":[\"token:P3TERX\",msg.payload.url,{\n        \"out\": msg.name,\n        \"dir\": dir\n    }]\n}\nmsg.url = \"http://192.168.0.210:6800/jsonrpc\"\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 240,
-        "y": 900,
-        "wires": [
-            [
-                "dbc4af2ab2b284cf"
-            ]
-        ]
-    },
-    {
-        "id": "dbc4af2ab2b284cf",
-        "type": "http request",
-        "z": "e3562182c0530220",
-        "name": "下载请求",
-        "method": "POST",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 400,
-        "y": 900,
-        "wires": [
-            [
-                "fbbfa2a53e42dd35"
-            ]
-        ]
-    },
-    {
-        "id": "fbbfa2a53e42dd35",
-        "type": "debug",
-        "z": "e3562182c0530220",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 570,
-        "y": 900,
-        "wires": []
-    },
-    {
-        "id": "6d704cbe1f2354af",
-        "type": "inject",
-        "z": "e3562182c0530220",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 900,
-        "wires": [
-            [
-                "47910ead4cf19cd9"
             ]
         ]
     },
@@ -4101,8 +4015,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 970,
-        "y": 560,
+        "x": 610,
+        "y": 640,
         "wires": []
     }
 ]
