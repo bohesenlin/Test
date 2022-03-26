@@ -3711,7 +3711,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "// var a = msg.payload.data\nmsg.artist = []\nmsg.rid = []\nmsg.album = []\nmsg.name = []\n//msg.url = []\nfor(var i=0 ; i < msg.payload.data.list.length ; i++){\n    msg.artist.push(msg.payload.data.list[i].artist)\n    msg.rid.push(msg.payload.data.list[i].rid)\n    msg.album.push(msg.payload.data.list[i].album)\n    msg.name.push(msg.payload.data.list[i].name)\n    //msg.url.push('http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[i]+'&type=convert_url3&br=320kmp3')\n}\n// msg.artist = msg.payload.data.list[0].artist\n// msg.rid = msg.payload.data.list[0].rid\n// msg.album = msg.payload.data.list[0].album\n// msg.name = msg.payload.data.list[0].name\n//msg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid+'&type=convert_url3&br=320kmp3'\nreturn msg;",
+        "func": "// var a = msg.payload.data\nmsg.artist = []\nmsg.rid = []\nmsg.album = []\nmsg.name = []\nmsg.url = []\nfor(var i=0 ; i < msg.payload.data.list.length ; i++){\n    msg.artist.push(msg.payload.data.list[i].artist)\n    msg.rid.push(msg.payload.data.list[i].rid)\n    msg.album.push(msg.payload.data.list[i].album)\n    msg.name.push(msg.payload.data.list[i].name)\n    msg.url.push('http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[i]+'&type=convert_url3&br=320kmp3')\n}\n// msg.artist = msg.payload.data.list[0].artist\n// msg.rid = msg.payload.data.list[0].rid\n// msg.album = msg.payload.data.list[0].album\n// msg.name = msg.payload.data.list[0].name\n//msg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid+'&type=convert_url3&br=320kmp3'\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3720,9 +3720,7 @@
         "x": 590,
         "y": 480,
         "wires": [
-            [
-                "63e373f908419a98"
-            ]
+            []
         ]
     },
     {
@@ -3752,7 +3750,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "下载数据",
-        "func": "var url = msg.payload.data.url\nvar name = msg.name1 + ' - ' + msg.artist1 + \".mp3\"\nvar dir = \"/downloads/music\"\nmsg.payload = {}\n\nmsg.payload = {\n    \"jsonrpc\":\"2.0\",\n    \"method\":\"aria2.addUri\",\n    \"id\":\"QXJpYU5nXzE2NDcwODAyMjFfMC4wNjE0NDQxMTQ5NzI0MzA1Mg==\",\n    \"params\":[\"token:P3TERX\",[url],{\n        \"out\": name,\n        \"dir\": dir\n    }]\n}\nmsg.url = \"http://192.168.0.210:6800/jsonrpc\"\nreturn msg;",
+        "func": "//var url = msg.payload.data.url\n//var name = msg.name1 + ' - ' + msg.artist1 + \".mp3\"\nvar dir = \"/downloads/music\"\nmsg.payload = {}\n\nmsg.payload = {\n    \"jsonrpc\":\"2.0\",\n    \"method\":\"aria2.addUri\",\n    \"id\":\"QXJpYU5nXzE2NDcwODAyMjFfMC4wNjE0NDQxMTQ5NzI0MzA1Mg==\",\n    \"params\":[\"token:P3TERX\",msg.payload.data.url,{\n        \"out\": msg.name,\n        \"dir\": dir\n    }]\n}\nmsg.url = \"http://192.168.0.210:6800/jsonrpc\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3762,7 +3760,6 @@
         "y": 480,
         "wires": [
             [
-                "63e373f908419a98",
                 "02309fe5800d3438"
             ]
         ]
@@ -3817,10 +3814,198 @@
         "finalize": "",
         "libs": [],
         "x": 750,
-        "y": 480,
+        "y": 440,
         "wires": [
             [
                 "710c435b977cee1e"
+            ]
+        ]
+    },
+    {
+        "id": "309e72712bd4e39a",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "msg.url = 'http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=' + msg.payload + '&pn=1&rn=30'\nmsg.headers = {\n    'Connection':'keep-alive',\n    'Cookie':'kw_token=K8GF5NROMGS',\n    'csrf':'K8GF5NROMGS',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/search/list?key=%E9%99%88%E5%A5%95%E8%BF%85',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 680,
+        "wires": [
+            [
+                "5a1098b1ae3f7e6d"
+            ]
+        ]
+    },
+    {
+        "id": "5a1098b1ae3f7e6d",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 420,
+        "y": 680,
+        "wires": [
+            [
+                "24a1e90b835d1b42"
+            ]
+        ]
+    },
+    {
+        "id": "ab43a43b102cd5c4",
+        "type": "inject",
+        "z": "e3562182c0530220",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "儿歌多多",
+        "payloadType": "str",
+        "x": 100,
+        "y": 620,
+        "wires": [
+            [
+                "309e72712bd4e39a"
+            ]
+        ]
+    },
+    {
+        "id": "24a1e90b835d1b42",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "// var a = msg.payload.data\nmsg.artist = []\nmsg.rid = []\nmsg.album = []\nmsg.name = []\nmsg.url1 = []\nfor(var i=0 ; i < msg.payload.data.list.length ; i++){\n    msg.artist.push(msg.payload.data.list[i].artist)\n    msg.rid.push(msg.payload.data.list[i].rid)\n    msg.album.push(msg.payload.data.list[i].album)\n    msg.name.push(msg.payload.data.list[i].name)\n    msg.url1.push('http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[i]+'&type=convert_url3&br=320kmp3')\n}\n// msg.artist = msg.payload.data.list[0].artist\n// msg.rid = msg.payload.data.list[0].rid\n// msg.album = msg.payload.data.list[0].album\n// msg.name = msg.payload.data.list[0].name\n//msg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid+'&type=convert_url3&br=320kmp3'\n//msg.url = msg.url1[]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 680,
+        "wires": [
+            [
+                "ee026d1ab653a79e"
+            ]
+        ]
+    },
+    {
+        "id": "70e15d3d52073432",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 920,
+        "y": 680,
+        "wires": [
+            [
+                "909be763d0e17fae",
+                "ee026d1ab653a79e"
+            ]
+        ]
+    },
+    {
+        "id": "e46a7c0a0a8bf0f6",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "下载数据",
+        "func": "//var url = msg.payload.data.url\n//var name = msg.name1 + ' - ' + msg.artist1 + \".mp3\"\nvar dir = \"/downloads/music\"\nmsg.payload = {}\n\nmsg.payload = {\n    \"jsonrpc\":\"2.0\",\n    \"method\":\"aria2.addUri\",\n    \"id\":\"QXJpYU5nXzE2NDcwODAyMjFfMC4wNjE0NDQxMTQ5NzI0MzA1Mg==\",\n    \"params\":[\"token:P3TERX\",msg.payload.data.url,{\n        \"out\": msg.name,\n        \"dir\": dir\n    }]\n}\nmsg.url = \"http://192.168.0.210:6800/jsonrpc\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 680,
+        "wires": [
+            [
+                "60e142c5511c7ae4"
+            ]
+        ]
+    },
+    {
+        "id": "60e142c5511c7ae4",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "下载请求",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1260,
+        "y": 680,
+        "wires": [
+            [
+                "909be763d0e17fae"
+            ]
+        ]
+    },
+    {
+        "id": "909be763d0e17fae",
+        "type": "debug",
+        "z": "e3562182c0530220",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1270,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "ee026d1ab653a79e",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "var count = context.get('count')||0;\nmsg.url = msg.url1[count]\n//msg.name1 = msg.name[count]\n//msg.artist1 = msg.artist[count]\ncount = count + 1\ncontext.set('count',count);\nif(count<31){\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 680,
+        "wires": [
+            [
+                "70e15d3d52073432"
             ]
         ]
     }
