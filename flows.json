@@ -3983,10 +3983,11 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1270,
+        "x": 1250,
         "y": 760,
         "wires": []
     },
@@ -3995,7 +3996,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "var count = context.get('count')||0;\nmsg.url = msg.url1[count]\n//msg.name1 = msg.name[count]\n//msg.artist1 = msg.artist[count]\ncount = count + 1\ncontext.set('count',count);\nif(count<31){\n    return msg;\n}",
+        "func": "var count = context.get('count')||0;\nmsg.url = msg.url1[count]\n//msg.name1 = msg.name[count]\n//msg.artist1 = msg.artist[count]\ncount =count + 1\ncontext.set('count',count);\nif(count<31){\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4006,6 +4007,92 @@
         "wires": [
             [
                 "70e15d3d52073432"
+            ]
+        ]
+    },
+    {
+        "id": "47910ead4cf19cd9",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "下载数据",
+        "func": "var dir = \"/downloads\"\nmsg.payload = {}\nmsg.name = ['1','2']\nmsg.payload.url = ['https://sr-sycdn.kuwo.cn/694026ffd060b3c13c6e949ea474417e/623ed323/resource/n2/9/37/2971633634.mp3','https://nu01-sycdn.kuwo.cn/349d4848ba24c9090c41fa4ec5e7c131/623ed323/resource/n1/43/39/381749978.mp3']\nmsg.payload = {\n    \"jsonrpc\":\"2.0\",\n    \"method\":\"aria2.addUri\",\n    \"id\":\"QXJpYU5nXzE2NDcwODAyMjFfMC4wNjE0NDQxMTQ5NzI0MzA1Mg==\",\n    \"params\":[\"token:P3TERX\",msg.payload.url,{\n        \"out\": msg.name,\n        \"dir\": dir\n    }]\n}\nmsg.url = \"http://192.168.0.210:6800/jsonrpc\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 900,
+        "wires": [
+            [
+                "dbc4af2ab2b284cf"
+            ]
+        ]
+    },
+    {
+        "id": "dbc4af2ab2b284cf",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "下载请求",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 400,
+        "y": 900,
+        "wires": [
+            [
+                "fbbfa2a53e42dd35"
+            ]
+        ]
+    },
+    {
+        "id": "fbbfa2a53e42dd35",
+        "type": "debug",
+        "z": "e3562182c0530220",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "6d704cbe1f2354af",
+        "type": "inject",
+        "z": "e3562182c0530220",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 900,
+        "wires": [
+            [
+                "47910ead4cf19cd9"
             ]
         ]
     }
