@@ -3641,7 +3641,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "msg.url = 'http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=' + msg.payload + '&pn=1&rn=60'\nmsg.headers = {\n    'Connection':'keep-alive',\n    'Cookie':'kw_token=K8GF5NROMGS',\n    'csrf':'K8GF5NROMGS',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/search/list?key=%E9%99%88%E5%A5%95%E8%BF%85',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "func": "msg.url = 'http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=' + msg.payload + '&pn=1&rn=10'\nmsg.headers = {\n    'Connection':'keep-alive',\n    'Cookie':'kw_token=K8GF5NROMGS',\n    'csrf':'K8GF5NROMGS',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/search/list?key=%E9%99%88%E5%A5%95%E8%BF%85',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3673,7 +3673,6 @@
         "y": 480,
         "wires": [
             [
-                "fb8044923bd345ae",
                 "432e3f31f68b97ad"
             ]
         ]
@@ -3712,7 +3711,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "// var a = msg.payload.data\nmsg.artist = []\nmsg.rid = []\nmsg.album = []\nmsg.name = []\nmsg.url = []\nfor(var i=0 ; i < msg.payload.data.list.length ; i++){\n    msg.artist.push(msg.payload.data.list[i].artist)\n    msg.rid.push(msg.payload.data.list[i].rid)\n    msg.album.push(msg.payload.data.list[i].album)\n    msg.name.push(msg.payload.data.list[i].name)\n    msg.url.push('http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[i]+'&type=convert_url3&br=320kmp3')\n}\n// msg.artist = msg.payload.data.list[0].artist\n// msg.rid = msg.payload.data.list[0].rid\n// msg.album = msg.payload.data.list[0].album\n// msg.name = msg.payload.data.list[0].name\n//msg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid+'&type=convert_url3&br=320kmp3'\nreturn msg;",
+        "func": "// var a = msg.payload.data\nmsg.artist = []\nmsg.rid = []\nmsg.album = []\nmsg.name = []\n//msg.url = []\nfor(var i=0 ; i < msg.payload.data.list.length ; i++){\n    msg.artist.push(msg.payload.data.list[i].artist)\n    msg.rid.push(msg.payload.data.list[i].rid)\n    msg.album.push(msg.payload.data.list[i].album)\n    msg.name.push(msg.payload.data.list[i].name)\n    //msg.url.push('http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[i]+'&type=convert_url3&br=320kmp3')\n}\n// msg.artist = msg.payload.data.list[0].artist\n// msg.rid = msg.payload.data.list[0].rid\n// msg.album = msg.payload.data.list[0].album\n// msg.name = msg.payload.data.list[0].name\n//msg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid+'&type=convert_url3&br=320kmp3'\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3722,7 +3721,7 @@
         "y": 480,
         "wires": [
             [
-                "fb8044923bd345ae"
+                "63e373f908419a98"
             ]
         ]
     },
@@ -3740,12 +3739,13 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 780,
-        "y": 480,
+        "x": 800,
+        "y": 540,
         "wires": [
             [
                 "364d312e82279975",
-                "d9b9b45f19fa3dfb"
+                "d9b9b45f19fa3dfb",
+                "63e373f908419a98"
             ]
         ]
     },
@@ -3762,7 +3762,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1000,
+        "x": 1180,
         "y": 480,
         "wires": []
     },
@@ -3781,7 +3781,7 @@
         "y": 600,
         "wires": [
             [
-                "02309fe5800d3438"
+                "c0377683cfe83cd3"
             ]
         ]
     },
@@ -3800,7 +3800,7 @@
         "authType": "",
         "senderr": false,
         "x": 800,
-        "y": 600,
+        "y": 640,
         "wires": [
             [
                 "c0377683cfe83cd3"
@@ -3822,5 +3822,24 @@
         "x": 990,
         "y": 600,
         "wires": []
+    },
+    {
+        "id": "63e373f908419a98",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "var count = context.get('count')||0;\nmsg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[count]+'&type=convert_url3&br=320kmp3'\ncount = count + 1\ncontext.set('count',count);\nif(count<5){\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 480,
+        "wires": [
+            [
+                "710c435b977cee1e"
+            ]
+        ]
     }
 ]
