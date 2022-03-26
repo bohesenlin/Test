@@ -3257,7 +3257,8 @@
         "y": 820,
         "wires": [
             [
-                "c80f71166a6b3d95"
+                "c80f71166a6b3d95",
+                "53d87ccfbabed377"
             ]
         ]
     },
@@ -3288,6 +3289,86 @@
             [
                 "c3954da1757d0960"
             ]
+        ]
+    },
+    {
+        "id": "53d87ccfbabed377",
+        "type": "change",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.providers[\"🎯 全球直连\"].proxies[1].now",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 820,
+        "wires": [
+            [
+                "c80f71166a6b3d95",
+                "10fadd7af7843abc"
+            ]
+        ]
+    },
+    {
+        "id": "10fadd7af7843abc",
+        "type": "ha-entity",
+        "z": "2d47d0348f062886",
+        "name": "节点选择",
+        "server": "a5e643a4b8a035cf",
+        "version": 2,
+        "debugenabled": false,
+        "outputs": 1,
+        "entityType": "sensor",
+        "config": [
+            {
+                "property": "name",
+                "value": "节点选择"
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            },
+            {
+                "property": "last_reset",
+                "value": ""
+            }
+        ],
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "resend": true,
+        "outputLocation": "payload",
+        "outputLocationType": "none",
+        "inputOverride": "allow",
+        "outputOnStateChange": false,
+        "outputPayload": "",
+        "outputPayloadType": "str",
+        "x": 1140,
+        "y": 820,
+        "wires": [
+            []
         ]
     },
     {
