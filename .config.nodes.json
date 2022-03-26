@@ -887,5 +887,24 @@
                 "file": "/data/node_modules/node-red-contrib-crypto-js-dynamic/cryptojs/decode.js"
             }
         }
+    },
+    "node-red-contrib-send-multipart-formdata": {
+        "name": "node-red-contrib-send-multipart-formdata",
+        "version": "1.1.0",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "http-send-multipart-formdata": {
+                "name": "http-send-multipart-formdata",
+                "types": [
+                    "http-send-multipart-formdata"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-send-multipart-formdata",
+                "file": "/data/node_modules/node-red-contrib-send-multipart-formdata/http-send-multipart-formdata.js"
+            }
+        }
     }
 }

@@ -2690,7 +2690,7 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "msg.url = \"http://192.168.0.213/cgi-bin/luci/admin/services/openclash/config-subscribe\"\nmsg.payload={\n    'token': '00852978f8408914a480d0749e8649c9',\n    'cbi.submit': '1',\n    'cbi.cbe.openclash.config.auto_update': '1',\n    'cbid.openclash.config.auto_update': '1',\n    'cbid.openclash.config.config_auto_update_mode': '0',\n    'cbid.openclash.config.config_update_week_time': '*',\n    'cbid.openclash.config.auto_update_time': '13',\n    'cbi.sts.openclash.config_subscribe': '',\n    'cbi.cbe.openclash.cfg15b6bc.enabled': '1',\n    'cbid.openclash.cfg15b6bc.enabled': '1',\n    'cbid.openclash.cfg15b6bc.address': 'http://192.168.0.210:25500/sub?target=clash&url=https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/Eternity&insert=false&config=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini_MultiMode.ini&emoji=true&list=false&udp=false&tfo=false&scv=false&fdn=false&sort=false',\n    'cbid.table.1.Apply': '更新配置'\n}\nmsg.payload = '------WebKitFormBoundaryJWzR1SLcx5dyDWnc\\nContent-Disposition: form-data; name=\"cbid.table.1.Apply\"\\n\\n更新配置\\n------WebKitFormBoundaryJWzR1SLcx5dyDWnc--'\nmsg.headers = {\n    //'Cache-Control': 'max-age=0',\n    //'Connection': 'keep-alive',\n    //'Content-Length': '1857',\n    'Content-Type': 'multipart/form-data',\n    'Cookie': 'sysauth=2bdd540524b2d7bd8db91314772851a0; agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213',\n    'Origin': 'http://192.168.0.213',\n    'Referer': 'http://192.168.0.213/cgi-bin/luci/admin/services/openclash/config-subscribe',\n    'Upgrade-Insecure-Requests': '1',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\n\nreturn msg;",
+        "func": "msg.url = \"http://192.168.0.213/cgi-bin/luci/admin/services/openclash/config-subscribe\"\nmsg.formdata={\n    'token': '00852978f8408914a480d0749e8649c9',\n    'cbi.submit': '1',\n    'cbi.cbe.openclash.config.auto_update': '1',\n    'cbid.openclash.config.auto_update': '1',\n    'cbid.openclash.config.config_auto_update_mode': '0',\n    'cbid.openclash.config.config_update_week_time': '*',\n    'cbid.openclash.config.auto_update_time': '13',\n    'cbi.sts.openclash.config_subscribe': '',\n    'cbi.cbe.openclash.cfg15b6bc.enabled': '1',\n    'cbid.openclash.cfg15b6bc.enabled': '1',\n    'cbid.openclash.cfg15b6bc.address': 'http://192.168.0.210:25500/sub?target=clash&url=https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/Eternity&insert=false&config=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini_MultiMode.ini&emoji=true&list=false&udp=false&tfo=false&scv=false&fdn=false&sort=false',\n    'cbid.table.1.Apply': '更新配置'\n}\n//msg.payload = '------WebKitFormBoundaryJWzR1SLcx5dyDWnc\\nContent-Disposition: form-data; name=\"cbid.table.1.Apply\"\\n\\n更新配置\\n------WebKitFormBoundaryJWzR1SLcx5dyDWnc--'\nmsg.headers = {\n    //'Cache-Control': 'max-age=0',\n    //'Connection': 'keep-alive',\n    //'Content-Length': '1857',\n    'Content-Type': 'multipart/form-data',\n    'Cookie': 'sysauth=2bdd540524b2d7bd8db91314772851a0; agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213',\n    'Origin': 'http://192.168.0.213',\n    'Referer': 'http://192.168.0.213/cgi-bin/luci/admin/services/openclash/config-subscribe',\n    'Upgrade-Insecure-Requests': '1',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2700,7 +2700,7 @@
         "y": 580,
         "wires": [
             [
-                "21303edc8c744e72"
+                "1e84ad275483f52b"
             ]
         ]
     },
@@ -2792,6 +2792,23 @@
         "y": 680,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "1e84ad275483f52b",
+        "type": "http-send-multipart-formdata",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "ret": "txt",
+        "headers": [],
+        "formdata": [],
+        "url": "http://192.168.0.213/cgi-bin/luci/admin/services/openclash/config-subscribe",
+        "x": 330,
+        "y": 660,
+        "wires": [
+            [
+                "a73ff1de687a6819"
+            ]
         ]
     },
     {
