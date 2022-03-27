@@ -1482,20 +1482,6 @@
         "wires": []
     },
     {
-        "id": "3c2207eb6d1ea1cd",
-        "type": "e-mail",
-        "z": "df04831a8742eac0",
-        "server": "smtp.qq.com",
-        "port": "465",
-        "secure": true,
-        "tls": true,
-        "name": "2720699551@qq.com",
-        "dname": "发邮件",
-        "x": 750,
-        "y": 1880,
-        "wires": []
-    },
-    {
         "id": "f87cfff4869a17f9",
         "type": "http request",
         "z": "df04831a8742eac0",
@@ -1580,24 +1566,9 @@
         "y": 1880,
         "wires": [
             [
-                "ded2bf4be4999fab",
-                "3c2207eb6d1ea1cd"
+                "0630b1abbd3a5e68"
             ]
         ]
-    },
-    {
-        "id": "ded2bf4be4999fab",
-        "type": "e-mail",
-        "z": "df04831a8742eac0",
-        "server": "smtp.qq.com",
-        "port": "465",
-        "secure": true,
-        "tls": true,
-        "name": "1784162089@qq.com",
-        "dname": "发邮件",
-        "x": 590,
-        "y": 1880,
-        "wires": []
     },
     {
         "id": "01b0bc6b977cadcd",
@@ -1770,8 +1741,7 @@
         "y": 2060,
         "wires": [
             [
-                "ded2bf4be4999fab",
-                "3c2207eb6d1ea1cd"
+                "0630b1abbd3a5e68"
             ]
         ]
     },
@@ -1859,13 +1829,15 @@
         "z": "df04831a8742eac0",
         "name": "发邮件",
         "links": [
-            "6079cbc048beab4d"
+            "6079cbc048beab4d",
+            "0630b1abbd3a5e68"
         ],
         "x": 1125,
         "y": 520,
         "wires": [
             [
-                "636a5a7274fea306"
+                "636a5a7274fea306",
+                "d00f3d8d323ae209"
             ]
         ]
     },
@@ -1912,6 +1884,67 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "0630b1abbd3a5e68",
+        "type": "link out",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "183fb1400752ce18",
+            "7bcc9e0bad949cea"
+        ],
+        "x": 575,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "2e128cac9a212142",
+        "type": "e-mail",
+        "z": "df04831a8742eac0",
+        "server": "smtp.qq.com",
+        "port": "465",
+        "secure": true,
+        "tls": true,
+        "name": "2720699551@qq.com",
+        "dname": "发邮件1",
+        "x": 1240,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "183fb1400752ce18",
+        "type": "link in",
+        "z": "df04831a8742eac0",
+        "name": "发邮件1",
+        "links": [
+            "0630b1abbd3a5e68"
+        ],
+        "x": 1115,
+        "y": 600,
+        "wires": [
+            [
+                "2e128cac9a212142",
+                "d00f3d8d323ae209"
+            ]
+        ]
+    },
+    {
+        "id": "d00f3d8d323ae209",
+        "type": "debug",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1250,
+        "y": 680,
+        "wires": []
     },
     {
         "id": "4c21ef519ea65406",
