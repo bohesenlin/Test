@@ -3864,7 +3864,7 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "reg = /\\w{1,5}:\\/\\/(.*)/g\nret = []\nfor(var i = 0;i<1000 ; i++){\n    ret[i] = reg.exec(msg.payload)\n    if(reg.lastIndex==0 && i >= 1){\n        break\n    }\n}\n\nfor(var n = 0; n < ret.length ; i++){\n    msg.payload += ret[n]\n}\nreturn msg;",
+        "func": "reg = /\\w{1,5}:\\/\\/(.*)/g\nret = []\nfor(var i = 0;i<1000 ; i++){\n    ret[i] = reg.exec(msg.payload)\n    if(reg.lastIndex==0 && i >= 1){\n        break\n    }\n    msg.ret +=ret[i][0]\n}\n// msg.payload = ret\n// msg.payload = ''\n// for(var n = 0; n < ret.length; i++){\n//     msg.payload = msg.payload + ret[n]\n// }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
