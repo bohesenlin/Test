@@ -3801,7 +3801,7 @@
         "method": "GET",
         "ret": "txt",
         "paytoqs": "ignore",
-        "url": "https://raw.githubusercontent.com/changfengoss/pub/main/data/2022_03_26/AqMrHp.txt",
+        "url": "https://raw.githubusercontent.com/changfengoss/pub/main/data/2022_03_26/AqMrHp.txthttps://raw.githubusercontent.com/changfengoss/pub/main/data/2022_03_26/AqMrHp.txt",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -3811,7 +3811,8 @@
         "y": 980,
         "wires": [
             [
-                "f8b2e240938a02dd"
+                "f8b2e240938a02dd",
+                "c80f71166a6b3d95"
             ]
         ]
     },
@@ -3864,7 +3865,7 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "reg = /\\w{1,5}:\\/\\/(.*)\\n/g\nmsg.ret = []\nfor(var i = 0;i<1000 ; i++){\n    msg.ret[i] = reg.exec(msg.payload)[0]\n    if(reg.lastIndex==0){\n        break\n    }\n}\nmsg.payload = msg.ret\nreturn msg;",
+        "func": "reg = /\\w{1,5}:\\/\\/(.*)\\n/g\nmsg.ret = []\nfor(var i = 0;i<1000 ; i++){\n    msg.ret[i] = reg.exec(msg.payload)\n    if(reg.lastIndex==0 && msg.ret.length >= 1){\n        break\n    }\n    \n}\nmsg.payload = msg.ret\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
