@@ -12,6 +12,7 @@
         "node-red-contrib-send-multipart-formdata": "~1.1.0",
         "node-red-contrib-xiaoai-tts": "~1.0.5",
         "node-red-dashboard": "~3.1.6",
+        "node-red-node-base64": "~0.3.0",
         "node-red-node-email": "~1.14.0"
     }
 }

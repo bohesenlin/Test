@@ -3801,7 +3801,7 @@
         "method": "GET",
         "ret": "txt",
         "paytoqs": "ignore",
-        "url": "https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/Eternity",
+        "url": "https://raw.githubusercontent.com/changfengoss/pub/main/data/2022_03_26/AqMrHp.txt",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -3811,7 +3811,9 @@
         "y": 980,
         "wires": [
             [
-                "0c317832076e5599"
+                "0c317832076e5599",
+                "c80f71166a6b3d95",
+                "f8b2e240938a02dd"
             ]
         ]
     },
@@ -3849,13 +3851,11 @@
         "type": "decode",
         "z": "2d47d0348f062886",
         "name": "",
-        "encode": "Hex",
+        "encode": "Base64",
         "x": 800,
         "y": 980,
         "wires": [
-            [
-                "c61055cbcb1325be"
-            ]
+            []
         ]
     },
     {
@@ -3871,6 +3871,21 @@
         "libs": [],
         "x": 970,
         "y": 980,
+        "wires": [
+            [
+                "c80f71166a6b3d95"
+            ]
+        ]
+    },
+    {
+        "id": "f8b2e240938a02dd",
+        "type": "base64",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "action": "b64",
+        "property": "payload",
+        "x": 960,
+        "y": 1040,
         "wires": [
             [
                 "c80f71166a6b3d95"
