@@ -2824,8 +2824,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 240,
-        "y": 600,
+        "x": 300,
+        "y": 540,
         "wires": [
             [
                 "739eb8095e450051"
@@ -2874,8 +2874,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1110,
-        "y": 600,
+        "x": 1130,
+        "y": 480,
         "wires": []
     },
     {
@@ -2889,12 +2889,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 910,
-        "y": 600,
+        "x": 970,
+        "y": 540,
         "wires": [
             [
                 "c80f71166a6b3d95",
-                "4898076ec0258355"
+                "4898076ec0258355",
+                "9f603bd5c2bbaeb5"
             ]
         ]
     },
@@ -2908,8 +2909,8 @@
         "tag": "div:nth-child(8) > div.color-fg-muted.text-right > time-ago[datetime]",
         "ret": "attr",
         "as": "single",
-        "x": 580,
-        "y": 600,
+        "x": 640,
+        "y": 540,
         "wires": [
             [
                 "1e3c339aa72883e3"
@@ -2942,8 +2943,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 230,
-        "y": 800,
+        "x": 470,
+        "y": 1040,
         "wires": [
             [
                 "45a2b32bc1bfbf00"
@@ -2964,8 +2965,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 420,
-        "y": 820,
+        "x": 640,
+        "y": 1100,
         "wires": [
             [
                 "c3954da1757d0960"
@@ -2983,8 +2984,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 230,
-        "y": 860,
+        "x": 470,
+        "y": 1100,
         "wires": [
             [
                 "45a2b32bc1bfbf00"
@@ -3002,8 +3003,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 230,
-        "y": 920,
+        "x": 470,
+        "y": 1160,
         "wires": [
             [
                 "45a2b32bc1bfbf00"
@@ -3021,8 +3022,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 230,
-        "y": 980,
+        "x": 470,
+        "y": 1220,
         "wires": [
             [
                 "45a2b32bc1bfbf00"
@@ -3040,8 +3041,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 820,
+        "x": 790,
+        "y": 1100,
         "wires": [
             [
                 "10d32d09ed2a733c"
@@ -3062,8 +3063,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 760,
-        "y": 820,
+        "x": 940,
+        "y": 1100,
         "wires": [
             [
                 "53d87ccfbabed377"
@@ -3091,8 +3092,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
-        "y": 740,
+        "x": 690,
+        "y": 1040,
         "wires": [
             [
                 "c3954da1757d0960"
@@ -3118,11 +3119,10 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 950,
-        "y": 820,
+        "x": 1130,
+        "y": 1100,
         "wires": [
             [
-                "c80f71166a6b3d95",
                 "10fadd7af7843abc"
             ]
         ]
@@ -3173,8 +3173,8 @@
         "outputOnStateChange": false,
         "outputPayload": "",
         "outputPayloadType": "str",
-        "x": 1140,
-        "y": 820,
+        "x": 1160,
+        "y": 1160,
         "wires": [
             []
         ]
@@ -3226,7 +3226,7 @@
         "outputPayload": "1",
         "outputPayloadType": "str",
         "x": 80,
-        "y": 800,
+        "y": 1040,
         "wires": [
             [
                 "409c0e1fe309c7b7",
@@ -3282,7 +3282,7 @@
         "outputPayload": "1",
         "outputPayloadType": "str",
         "x": 80,
-        "y": 980,
+        "y": 1220,
         "wires": [
             [
                 "7cde97d19b6ac706",
@@ -3367,7 +3367,7 @@
         "outputPayload": "1",
         "outputPayloadType": "str",
         "x": 80,
-        "y": 860,
+        "y": 1100,
         "wires": [
             [
                 "2f11ac93546b2601",
@@ -3423,7 +3423,7 @@
         "outputPayload": "1",
         "outputPayloadType": "str",
         "x": 80,
-        "y": 920,
+        "y": 1160,
         "wires": [
             [
                 "da3e3cb8f54e2528",
@@ -3534,7 +3534,7 @@
         "authType": "",
         "senderr": false,
         "x": 260,
-        "y": 440,
+        "y": 620,
         "wires": [
             [
                 "f8b2e240938a02dd"
@@ -3563,7 +3563,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 100,
-        "y": 440,
+        "y": 620,
         "wires": [
             [
                 "9f603bd5c2bbaeb5"
@@ -3577,8 +3577,8 @@
         "name": "",
         "action": "b64",
         "property": "payload",
-        "x": 440,
-        "y": 440,
+        "x": 420,
+        "y": 620,
         "wires": [
             [
                 "85a7fe55905e6a3b"
@@ -3596,8 +3596,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 440,
+        "x": 570,
+        "y": 620,
         "wires": [
             [
                 "21e1045b3874ea39"
@@ -3611,43 +3611,14 @@
         "name": "",
         "action": "str",
         "property": "payload",
-        "x": 760,
-        "y": 440,
+        "x": 720,
+        "y": 620,
         "wires": [
             [
                 "c80f71166a6b3d95",
-                "bae210a9467470bb"
-            ]
-        ]
-    },
-    {
-        "id": "b48570863ef4564e",
-        "type": "link in",
-        "z": "2d47d0348f062886",
-        "name": "数据输入",
-        "links": [
-            "bae210a9467470bb"
-        ],
-        "x": 925,
-        "y": 80,
-        "wires": [
-            [
                 "1cef1eedb2b0af24"
             ]
         ]
-    },
-    {
-        "id": "bae210a9467470bb",
-        "type": "link out",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "b48570863ef4564e"
-        ],
-        "x": 925,
-        "y": 440,
-        "wires": []
     },
     {
         "id": "1cef1eedb2b0af24",
@@ -3660,8 +3631,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1040,
-        "y": 80,
+        "x": 880,
+        "y": 620,
         "wires": [
             [
                 "041ca33050e5c924"
@@ -3682,8 +3653,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 1210,
-        "y": 80,
+        "x": 1050,
+        "y": 620,
         "wires": [
             []
         ]
