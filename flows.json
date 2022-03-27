@@ -2674,7 +2674,7 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "msg.url = \"http://192.168.0.213/cgi-bin/luci/admin/services/openclash/config-subscribe\"\nmsg.payload={\n    'token': msg.token,\n    'cbi.submit': '1',\n    'cbi.cbe.openclash.config.auto_update': '1',\n    'cbid.openclash.config.auto_update': '1',\n    'cbid.openclash.config.config_auto_update_mode': '0',\n    'cbid.openclash.config.config_update_week_time': '*',\n    'cbid.openclash.config.auto_update_time': '13',\n    'cbi.sts.openclash.config_subscribe': '',\n    'cbi.cbe.openclash.cfg15b6bc.enabled': '1',\n    'cbid.openclash.cfg15b6bc.enabled': '1',\n    'cbid.openclash.cfg15b6bc.address': 'http://192.168.0.210:25500/sub?target=clash&url=https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/Eternity&insert=false&config=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini_MultiMode.ini&emoji=true&list=false&udp=false&tfo=false&scv=false&fdn=false&sort=false',\n    'cbid.table.1.Apply': '更新配置'\n}\nmsg.headers = {\n    'Content-Length': msg.payload.length,\n    'Content-Type': 'multipart/form-data',\n    'Cookie': msg.cookie,\n    'Host': '192.168.0.213',\n    'Origin': 'http://192.168.0.213',\n    'Referer': 'http://192.168.0.213/cgi-bin/luci/admin/services/openclash/config-subscribe',\n    'Upgrade-Insecure-Requests': '1',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
+        "func": "msg.url = \"http://192.168.0.213/cgi-bin/luci/admin/services/openclash/config-subscribe\"\nmsg.payload={\n    'token': msg.token,\n    'cbi.submit': '1',\n    'cbi.cbe.openclash.config.auto_update': '1',\n    'cbid.openclash.config.auto_update': '1',\n    'cbid.openclash.config.config_auto_update_mode': '0',\n    'cbid.openclash.config.config_update_week_time': '*',\n    'cbid.openclash.config.auto_update_time': '13',\n    'cbi.sts.openclash.config_subscribe': '',\n    'cbi.cbe.openclash.cfg15b6bc.enabled': '1',\n    'cbid.openclash.cfg15b6bc.enabled': '1',\n    'cbid.openclash.cfg15b6bc.address': 'http://192.168.0.210:25500/sub?target=clash&url=https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/Eternity&insert=false&config=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini_MultiMode.ini&emoji=true&list=false&udp=false&tfo=false&scv=false&fdn=false&sort=false',\n    'cbid.table.1.Apply': '更新配置'\n}\nmsg.headers = {\n    'Content-Type': 'multipart/form-data',\n    'Cookie': msg.cookie,\n    'Host': '192.168.0.213',\n    'Origin': 'http://192.168.0.213',\n    'Referer': 'http://192.168.0.213/cgi-bin/luci/admin/services/openclash/config-subscribe',\n    'Upgrade-Insecure-Requests': '1',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2684,7 +2684,8 @@
         "y": 700,
         "wires": [
             [
-                "c80f71166a6b3d95"
+                "c80f71166a6b3d95",
+                "21303edc8c744e72"
             ]
         ]
     },
@@ -2702,10 +2703,12 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 1140,
+        "x": 1120,
         "y": 700,
         "wires": [
-            []
+            [
+                "688eb60c3730c57f"
+            ]
         ]
     },
     {
@@ -3687,6 +3690,88 @@
             [
                 "8795456d1255b15f"
             ]
+        ]
+    },
+    {
+        "id": "bb36a6e6682b8f44",
+        "type": "ha-entity",
+        "z": "2d47d0348f062886",
+        "name": "更新openclash",
+        "server": "a5e643a4b8a035cf",
+        "version": 2,
+        "debugenabled": false,
+        "outputs": 2,
+        "entityType": "switch",
+        "config": [
+            {
+                "property": "name",
+                "value": "更新openclash"
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            },
+            {
+                "property": "last_reset",
+                "value": ""
+            }
+        ],
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "resend": true,
+        "outputLocation": "payload",
+        "outputLocationType": "none",
+        "inputOverride": "allow",
+        "outputOnStateChange": true,
+        "outputPayload": "1",
+        "outputPayloadType": "str",
+        "x": 180,
+        "y": 760,
+        "wires": [
+            [
+                "8795456d1255b15f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "688eb60c3730c57f",
+        "type": "api-call-service",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "server": "a5e643a4b8a035cf",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "switch",
+        "service": "turn_off",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.geng_xin_openclash"
+        ],
+        "data": "",
+        "dataType": "jsonata",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 1300,
+        "y": 700,
+        "wires": [
+            []
         ]
     },
     {
