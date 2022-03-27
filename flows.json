@@ -3673,7 +3673,7 @@
         "wires": [
             [
                 "b75e71f5725760f9",
-                "ec31ab7fdde7489e"
+                "7967ec77977cf4bf"
             ]
         ]
     },
@@ -3799,7 +3799,8 @@
         "y": 420,
         "wires": [
             [
-                "c5502097d040f335"
+                "c5502097d040f335",
+                "4ba894f18eae7272"
             ]
         ]
     },
@@ -3822,6 +3823,59 @@
         "wires": [
             [
                 "4ba894f18eae7272"
+            ]
+        ]
+    },
+    {
+        "id": "7967ec77977cf4bf",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "func": "msg.payload =msg.payload.text\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 460,
+        "wires": [
+            [
+                "0710e8b321f301cf"
+            ]
+        ]
+    },
+    {
+        "id": "2ecdfde88f6b967d",
+        "type": "base64",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 580,
+        "y": 460,
+        "wires": [
+            [
+                "09232fb2994d0571"
+            ]
+        ]
+    },
+    {
+        "id": "0710e8b321f301cf",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "func": "reg = /trojan:\\/\\/(.*)/g\nret = msg.payload.replace(reg, '')\nmsg.payload = ret\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 460,
+        "wires": [
+            [
+                "2ecdfde88f6b967d"
             ]
         ]
     },
