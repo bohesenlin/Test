@@ -1556,7 +1556,7 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "//var str = msg.payload.toString()\n//str = str.replace(/(^\\s*)/,\"\")\n//ret = str.replace(/\\s{2}/g, \"\\n    \")\n//msg.payload = msg.topic + \"\\n\" + \"    \" + ret\n\nvar count = context.get('count')||\"\";\nif(msg.time == count||typeof msg.time == \"undefined\"){\n    return null\n}else{\n    count = msg.time\n    context.set('count',count);\n    msg.payload = msg.topic + msg.payload\n    msg.topic = '小说更新(《万相之王》)' + '(' + msg.time + ')'\n    return msg;\n}",
+        "func": "//var str = msg.payload.toString()\n//str = str.replace(/(^\\s*)/,\"\")\n//ret = str.replace(/\\s{2}/g, \"\\n    \")\n//msg.payload = msg.topic + \"\\n\" + \"    \" + ret\n\nvar count = context.get('count')||'';\nif(msg.time == count||typeof msg.time == \"undefined\"){\n    return null\n}else{\n    count = msg.time\n    context.set('count',count);\n    msg.payload = msg.topic + msg.payload\n    msg.topic = '小说更新(《万相之王》)' + '(' + msg.time + ')'\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1731,7 +1731,7 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "var count = context.get('count')||\"\";\nif(msg.time == count||typeof msg.time == \"undefined\"){\n    return null\n}else{\n    count = msg.time\n    context.set('count',count);\n    msg.payload = msg.title + msg.payload[0]\n    msg.topic = '小说更新(《天唐锦绣》)' + '(' + msg.time + ')'\n    return msg;\n}",
+        "func": "var count = context.get('count')||'';\nif(msg.time == count||typeof msg.time == \"undefined\"){\n    return null\n}else{\n    count = msg.time\n    context.set('count',count);\n    msg.payload = msg.title + msg.payload[0]\n    msg.topic = '小说更新(《天唐锦绣》)' + '(' + msg.time + ')'\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1842,57 +1842,12 @@
         ]
     },
     {
-        "id": "9b9006d33f6ed73a",
-        "type": "inject",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "test",
-        "payload": "测试",
-        "payloadType": "str",
-        "x": 600,
-        "y": 760,
-        "wires": [
-            [
-                "67b77c72e8cb7878"
-            ]
-        ]
-    },
-    {
-        "id": "67b77c72e8cb7878",
-        "type": "link call",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "links": [
-            "7bcc9e0bad949cea"
-        ],
-        "timeout": "30",
-        "x": 730,
-        "y": 760,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "0630b1abbd3a5e68",
         "type": "link out",
         "z": "df04831a8742eac0",
         "name": "",
         "mode": "link",
         "links": [
-            "183fb1400752ce18",
             "7bcc9e0bad949cea"
         ],
         "x": 575,
@@ -1918,15 +1873,12 @@
         "type": "link in",
         "z": "df04831a8742eac0",
         "name": "发邮件1",
-        "links": [
-            "0630b1abbd3a5e68"
-        ],
-        "x": 1115,
+        "links": [],
+        "x": 1125,
         "y": 600,
         "wires": [
             [
-                "2e128cac9a212142",
-                "d00f3d8d323ae209"
+                "2e128cac9a212142"
             ]
         ]
     },
@@ -1943,7 +1895,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1250,
-        "y": 680,
+        "y": 480,
         "wires": []
     },
     {
@@ -2360,7 +2312,7 @@
         "y": 260,
         "wires": [
             [
-                "8571391314c20527"
+                "58cc6e177e575df5"
             ]
         ]
     },
@@ -2374,7 +2326,7 @@
         "tls": true,
         "name": "1784162089@qq.com",
         "dname": "发邮件",
-        "x": 970,
+        "x": 1030,
         "y": 260,
         "wires": []
     },
@@ -2393,6 +2345,21 @@
         "x": 990,
         "y": 300,
         "wires": []
+    },
+    {
+        "id": "58cc6e177e575df5",
+        "type": "link call",
+        "z": "0143542654182c64",
+        "name": "发邮件",
+        "links": [
+            "7bcc9e0bad949cea"
+        ],
+        "timeout": "30",
+        "x": 1030,
+        "y": 220,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "b944fb4e914dc9c8",
@@ -3455,7 +3422,6 @@
         "wires": [
             [
                 "409c0e1fe309c7b7",
-                "c80f71166a6b3d95",
                 "a74018e3cefe2b0c"
             ],
             []
