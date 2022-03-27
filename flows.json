@@ -2836,7 +2836,7 @@
         "id": "211e629de4af4e86",
         "type": "inject",
         "z": "2d47d0348f062886",
-        "name": "",
+        "name": "查看节点更新",
         "props": [
             {
                 "p": "payload"
@@ -2853,8 +2853,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 100,
-        "y": 600,
+        "x": 120,
+        "y": 540,
         "wires": [
             [
                 "13a04be37629cde7"
@@ -2894,7 +2894,6 @@
         "wires": [
             [
                 "c80f71166a6b3d95",
-                "8795456d1255b15f",
                 "4898076ec0258355"
             ]
         ]
@@ -2965,70 +2964,11 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 380,
-        "y": 800,
+        "x": 420,
+        "y": 820,
         "wires": [
             [
-                "c80f71166a6b3d95",
                 "c3954da1757d0960"
-            ]
-        ]
-    },
-    {
-        "id": "5beaf66fb4fb4ad3",
-        "type": "inject",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 800,
-        "wires": [
-            [
-                "409c0e1fe309c7b7"
-            ]
-        ]
-    },
-    {
-        "id": "4ca1b0c76bb8c4de",
-        "type": "inject",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 860,
-        "wires": [
-            [
-                "2f11ac93546b2601"
             ]
         ]
     },
@@ -3071,35 +3011,6 @@
         ]
     },
     {
-        "id": "a767679419f5318c",
-        "type": "inject",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 920,
-        "wires": [
-            [
-                "da3e3cb8f54e2528"
-            ]
-        ]
-    },
-    {
         "id": "7cde97d19b6ac706",
         "type": "function",
         "z": "2d47d0348f062886",
@@ -3115,35 +3026,6 @@
         "wires": [
             [
                 "45a2b32bc1bfbf00"
-            ]
-        ]
-    },
-    {
-        "id": "85d8099e3f6129fb",
-        "type": "inject",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 980,
-        "wires": [
-            [
-                "7cde97d19b6ac706"
             ]
         ]
     },
@@ -3184,8 +3066,7 @@
         "y": 820,
         "wires": [
             [
-                "53d87ccfbabed377",
-                "c80f71166a6b3d95"
+                "53d87ccfbabed377"
             ]
         ]
     },
@@ -3193,7 +3074,7 @@
         "id": "ac2d80f7c5a9ee83",
         "type": "inject",
         "z": "2d47d0348f062886",
-        "name": "",
+        "name": "获取节点选择模式",
         "props": [
             {
                 "p": "payload"
@@ -3210,8 +3091,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 430,
-        "y": 860,
+        "x": 130,
+        "y": 740,
         "wires": [
             [
                 "c3954da1757d0960"
@@ -3345,7 +3226,7 @@
         "outputPayload": "1",
         "outputPayloadType": "str",
         "x": 80,
-        "y": 740,
+        "y": 800,
         "wires": [
             [
                 "409c0e1fe309c7b7",
@@ -3401,7 +3282,7 @@
         "outputPayload": "1",
         "outputPayloadType": "str",
         "x": 80,
-        "y": 1040,
+        "y": 980,
         "wires": [
             [
                 "7cde97d19b6ac706",
@@ -3434,7 +3315,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 260,
-        "y": 1040,
+        "y": 1220,
         "wires": [
             []
         ]
@@ -3486,7 +3367,7 @@
         "outputPayload": "1",
         "outputPayloadType": "str",
         "x": 80,
-        "y": 1120,
+        "y": 860,
         "wires": [
             [
                 "2f11ac93546b2601",
@@ -3542,7 +3423,7 @@
         "outputPayload": "1",
         "outputPayloadType": "str",
         "x": 80,
-        "y": 1180,
+        "y": 920,
         "wires": [
             [
                 "da3e3cb8f54e2528",
@@ -3575,7 +3456,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 260,
-        "y": 760,
+        "y": 1040,
         "wires": [
             []
         ]
@@ -3604,7 +3485,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 260,
-        "y": 1120,
+        "y": 1100,
         "wires": [
             []
         ]
@@ -3633,7 +3514,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 260,
-        "y": 1180,
+        "y": 1160,
         "wires": [
             []
         ]
@@ -3664,7 +3545,7 @@
         "id": "c96e538ca31e7c7f",
         "type": "inject",
         "z": "2d47d0348f062886",
-        "name": "",
+        "name": "节点过滤",
         "props": [
             {
                 "p": "payload"
@@ -3681,7 +3562,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 90,
+        "x": 100,
         "y": 440,
         "wires": [
             [
