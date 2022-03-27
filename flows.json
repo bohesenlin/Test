@@ -2926,8 +2926,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 470,
-        "y": 1040,
+        "x": 230,
+        "y": 860,
         "wires": [
             [
                 "45a2b32bc1bfbf00"
@@ -2948,8 +2948,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 640,
-        "y": 1100,
+        "x": 400,
+        "y": 920,
         "wires": [
             [
                 "c3954da1757d0960"
@@ -2967,8 +2967,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 470,
-        "y": 1100,
+        "x": 230,
+        "y": 920,
         "wires": [
             [
                 "45a2b32bc1bfbf00"
@@ -2986,8 +2986,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 470,
-        "y": 1160,
+        "x": 230,
+        "y": 980,
         "wires": [
             [
                 "45a2b32bc1bfbf00"
@@ -3005,8 +3005,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 470,
-        "y": 1220,
+        "x": 230,
+        "y": 1040,
         "wires": [
             [
                 "45a2b32bc1bfbf00"
@@ -3024,8 +3024,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
-        "y": 1100,
+        "x": 550,
+        "y": 920,
         "wires": [
             [
                 "10d32d09ed2a733c"
@@ -3046,8 +3046,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 940,
-        "y": 1100,
+        "x": 700,
+        "y": 920,
         "wires": [
             [
                 "53d87ccfbabed377"
@@ -3075,8 +3075,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 690,
-        "y": 1040,
+        "x": 450,
+        "y": 860,
         "wires": [
             [
                 "c3954da1757d0960"
@@ -3102,8 +3102,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1130,
-        "y": 1100,
+        "x": 890,
+        "y": 920,
         "wires": [
             [
                 "10fadd7af7843abc"
@@ -3156,8 +3156,8 @@
         "outputOnStateChange": false,
         "outputPayload": "",
         "outputPayloadType": "str",
-        "x": 1160,
-        "y": 1160,
+        "x": 1080,
+        "y": 920,
         "wires": [
             []
         ]
@@ -3209,11 +3209,10 @@
         "outputPayload": "1",
         "outputPayloadType": "str",
         "x": 80,
-        "y": 1040,
+        "y": 860,
         "wires": [
             [
-                "409c0e1fe309c7b7",
-                "a74018e3cefe2b0c"
+                "409c0e1fe309c7b7"
             ],
             []
         ]
@@ -3265,11 +3264,10 @@
         "outputPayload": "1",
         "outputPayloadType": "str",
         "x": 80,
-        "y": 1220,
+        "y": 1040,
         "wires": [
             [
-                "7cde97d19b6ac706",
-                "3113e145d2c940ea"
+                "7cde97d19b6ac706"
             ],
             []
         ]
@@ -3297,8 +3295,8 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 260,
-        "y": 1220,
+        "x": 880,
+        "y": 1160,
         "wires": [
             []
         ]
@@ -3350,11 +3348,10 @@
         "outputPayload": "1",
         "outputPayloadType": "str",
         "x": 80,
-        "y": 1100,
+        "y": 920,
         "wires": [
             [
-                "2f11ac93546b2601",
-                "73c2bd3c047b04d0"
+                "2f11ac93546b2601"
             ],
             []
         ]
@@ -3406,11 +3403,10 @@
         "outputPayload": "1",
         "outputPayloadType": "str",
         "x": 80,
-        "y": 1160,
+        "y": 980,
         "wires": [
             [
-                "da3e3cb8f54e2528",
-                "b9be8c698a1bee92"
+                "da3e3cb8f54e2528"
             ],
             []
         ]
@@ -3438,8 +3434,8 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 260,
-        "y": 1040,
+        "x": 880,
+        "y": 980,
         "wires": [
             []
         ]
@@ -3467,8 +3463,8 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 260,
-        "y": 1100,
+        "x": 880,
+        "y": 1040,
         "wires": [
             []
         ]
@@ -3496,8 +3492,8 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 260,
-        "y": 1160,
+        "x": 880,
+        "y": 1100,
         "wires": [
             []
         ]
@@ -3810,29 +3806,62 @@
                 "valueType": "triggerId"
             }
         ],
-        "x": 350,
-        "y": 1320,
+        "x": 430,
+        "y": 1060,
         "wires": [
             [
-                "04605433aa1f56e9"
+                "0de1fcd504bdc7ba"
             ]
         ]
     },
     {
-        "id": "04605433aa1f56e9",
-        "type": "debug",
+        "id": "0de1fcd504bdc7ba",
+        "type": "switch",
         "z": "2d47d0348f062886",
         "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 530,
-        "y": 1320,
-        "wires": []
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "♻️ 自动选择",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "🔯 故障转移",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "🔮 负载均衡",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "DIRECT",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 610,
+        "y": 1060,
+        "wires": [
+            [
+                "a74018e3cefe2b0c"
+            ],
+            [
+                "73c2bd3c047b04d0"
+            ],
+            [
+                "b9be8c698a1bee92"
+            ],
+            [
+                "3113e145d2c940ea"
+            ]
+        ]
     },
     {
         "id": "17e7c93fb2cab104",
