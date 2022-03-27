@@ -8,12 +8,12 @@
     },
     "10fadd7af7843abc": {
       "lastPayload": {
-        "state": "♻️ 自动选择",
+        "state": "🔮 负载均衡",
         "attributes": {}
       }
     },
     "51c3350b870cd183": {
-      "isEnabled": true
+      "isEnabled": false
     },
     "3d6a2eef80d1114c": {
       "isEnabled": false
@@ -22,7 +22,7 @@
       "isEnabled": false
     },
     "f7ebb5315cbc2a45": {
-      "isEnabled": false
+      "isEnabled": true
     },
     "bb36a6e6682b8f44": {
       "isEnabled": false

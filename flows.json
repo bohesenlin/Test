@@ -3756,6 +3756,85 @@
         ]
     },
     {
+        "id": "96b49962af9aff83",
+        "type": "server-state-changed",
+        "z": "2d47d0348f062886",
+        "name": "节点选择状态",
+        "server": "a5e643a4b8a035cf",
+        "version": 4,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "sensor.jie_dian_xuan_ze",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 350,
+        "y": 1320,
+        "wires": [
+            [
+                "04605433aa1f56e9"
+            ]
+        ]
+    },
+    {
+        "id": "04605433aa1f56e9",
+        "type": "debug",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 1320,
+        "wires": []
+    },
+    {
         "id": "17e7c93fb2cab104",
         "type": "inject",
         "z": "5646dda1b303b00d",
