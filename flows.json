@@ -714,13 +714,13 @@
         "order": 1,
         "width": 10,
         "height": 9,
-        "format": "<iframe src={msg.payload} scrolling=\"no\" border=\"0\" frameborder=\"no\" framespacing=\"0\" allowfullscreen=\"true\"> </iframe>",
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 670,
+        "x": 570,
         "y": 860,
         "wires": [
             []
@@ -1904,13 +1904,13 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "msg.payload=\"//player.bilibili.com/player.html?aid=\"+msg.payload.data.list.vlist[0].aid+\"&bvid=BV14r4y1W7ar&cid=515423527&page=1\"\nreturn msg;",
+        "func": "url=\"//player.bilibili.com/player.html?aid=\"+msg.payload.data.list.vlist[0].aid+\"&bvid=BV14r4y1W7ar&cid=515423527&page=1\"\nmsg.payload = '<iframe src='+url+' scrolling=\"no\" border=\"0\" frameborder=\"no\" framespacing=\"0\" allowfullscreen=\"true\"> </iframe>'\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
+        "x": 410,
         "y": 860,
         "wires": [
             [
