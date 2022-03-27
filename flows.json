@@ -3801,7 +3801,7 @@
         "method": "GET",
         "ret": "txt",
         "paytoqs": "ignore",
-        "url": "https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/Eternity.yml",
+        "url": "https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/Eternity",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -3811,7 +3811,7 @@
         "y": 980,
         "wires": [
             [
-                "c80f71166a6b3d95"
+                "0c317832076e5599"
             ]
         ]
     },
@@ -3841,6 +3841,39 @@
         "wires": [
             [
                 "9f603bd5c2bbaeb5"
+            ]
+        ]
+    },
+    {
+        "id": "0c317832076e5599",
+        "type": "decode",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "encode": "Hex",
+        "x": 800,
+        "y": 980,
+        "wires": [
+            [
+                "c61055cbcb1325be"
+            ]
+        ]
+    },
+    {
+        "id": "c61055cbcb1325be",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "func": "msg.payload = msg.payload.toString()\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 980,
+        "wires": [
+            [
+                "c80f71166a6b3d95"
             ]
         ]
     },
