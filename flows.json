@@ -2674,13 +2674,13 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "msg.url = \"http://192.168.0.213/cgi-bin/luci/admin/services/openclash/config-subscribe\"\nmsg.payload={\n    'token': msg.token,\n    'cbi.submit': '1',\n    'cbi.cbe.openclash.config.auto_update': '1',\n    'cbid.openclash.config.auto_update': '1',\n    'cbid.openclash.config.config_auto_update_mode': '0',\n    'cbid.openclash.config.config_update_week_time': '*',\n    'cbid.openclash.config.auto_update_time': '13',\n    'cbi.sts.openclash.config_subscribe': '',\n    'cbi.cbe.openclash.cfg15b6bc.enabled': '1',\n    'cbid.openclash.cfg15b6bc.enabled': '1',\n    'cbid.openclash.cfg15b6bc.address': 'http://192.168.0.210:25500/sub?target=clash&url=https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/Eternity&insert=false&config=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini_MultiMode.ini&emoji=true&list=false&udp=false&tfo=false&scv=false&fdn=false&sort=false',\n    'cbid.table.1.Apply': '更新配置'\n}\nmsg.headers = {\n    'Content-Type': 'multipart/form-data',\n    'Cookie': msg.cookie,\n    'Host': '192.168.0.213',\n    'Origin': 'http://192.168.0.213',\n    'Referer': 'http://192.168.0.213/cgi-bin/luci/admin/services/openclash/config-subscribe',\n    'Upgrade-Insecure-Requests': '1',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
+        "func": "reg = /<input type=\"hidden\" name=\"token\" value=\"(.*?)\" \\/>/\ntoken = reg.exec(msg.payload)[1]\nmsg.url = \"http://192.168.0.213/cgi-bin/luci/admin/services/openclash/config-subscribe\"\nmsg.payload={\n    'token': token,\n    'cbi.submit': '1',\n    'cbi.cbe.openclash.config.auto_update': '1',\n    'cbid.openclash.config.auto_update': '1',\n    'cbid.openclash.config.config_auto_update_mode': '0',\n    'cbid.openclash.config.config_update_week_time': '*',\n    'cbid.openclash.config.auto_update_time': '13',\n    'cbi.sts.openclash.config_subscribe': '',\n    'cbi.cbe.openclash.cfg15b6bc.enabled': '1',\n    'cbid.openclash.cfg15b6bc.enabled': '1',\n    'cbid.openclash.cfg15b6bc.address': 'http://192.168.0.210:25500/sub?target=clash&url=https%3A%2F%2Fgitlab.com%2Fapi%2Fv4%2Fprojects%2F34199133%2Frepository%2Ffiles%2Fdata%252Fv2ray%252F123456.yaml%2Fraw%3Fref%3Dmain%26private_token%3Dglpat-bix9rWK6svSw7qEzB-tS&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Mini_MultiMode.ini&emoji=true&list=false&udp=false&tfo=false&scv=false&fdn=false&sort=false',\n    'cbid.table.1.Apply': '更新配置'\n}\nmsg.headers = {\n    'Content-Type': 'multipart/form-data',\n    'Cookie': msg.cookie,\n    'Host': '192.168.0.213',\n    'Origin': 'http://192.168.0.213',\n    'Referer': 'http://192.168.0.213/cgi-bin/luci/admin/services/openclash/config-subscribe',\n    'Upgrade-Insecure-Requests': '1',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 970,
+        "x": 830,
         "y": 700,
         "wires": [
             [
@@ -2703,7 +2703,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 1120,
+        "x": 980,
         "y": 700,
         "wires": [
             [
@@ -2789,25 +2789,6 @@
         "y": 700,
         "wires": [
             [
-                "a1eb4225609833ed"
-            ]
-        ]
-    },
-    {
-        "id": "a1eb4225609833ed",
-        "type": "function",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "func": "reg = /<input type=\"hidden\" name=\"token\" value=\"(.*?)\" \\/>/\nmsg.token = reg.exec(msg.payload)[1]\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 830,
-        "y": 700,
-        "wires": [
-            [
                 "e27e569517e1731c"
             ]
         ]
@@ -2876,8 +2857,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1150,
-        "y": 460,
+        "x": 1250,
+        "y": 580,
         "wires": []
     },
     {
@@ -2928,7 +2909,7 @@
             "7bcc9e0bad949cea"
         ],
         "timeout": "30",
-        "x": 1110,
+        "x": 1190,
         "y": 540,
         "wires": [
             []
@@ -3738,7 +3719,7 @@
         "outputOnStateChange": true,
         "outputPayload": "1",
         "outputPayloadType": "str",
-        "x": 180,
+        "x": 120,
         "y": 760,
         "wires": [
             [
@@ -3768,7 +3749,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 1300,
+        "x": 1160,
         "y": 700,
         "wires": [
             []
