@@ -2430,23 +2430,6 @@
         ]
     },
     {
-        "id": "1e83c289636e591e",
-        "type": "debug",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 870,
-        "y": 80,
-        "wires": []
-    },
-    {
         "id": "7a89fddc8e005960",
         "type": "http request",
         "z": "2d47d0348f062886",
@@ -2487,23 +2470,6 @@
         ]
     },
     {
-        "id": "c284e9c359a786e5",
-        "type": "debug",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 870,
-        "y": 180,
-        "wires": []
-    },
-    {
         "id": "9ed2fd8641f07fef",
         "type": "http request",
         "z": "2d47d0348f062886",
@@ -2540,8 +2506,8 @@
         "y": 180,
         "wires": [
             [
-                "c284e9c359a786e5",
-                "f70e8d02ea9e8f48"
+                "f70e8d02ea9e8f48",
+                "4ba894f18eae7272"
             ]
         ]
     },
@@ -2560,8 +2526,8 @@
         "y": 80,
         "wires": [
             [
-                "1e83c289636e591e",
-                "9ed2fd8641f07fef"
+                "9ed2fd8641f07fef",
+                "4ba894f18eae7272"
             ]
         ]
     },
@@ -2702,67 +2668,6 @@
         "x": 410,
         "y": 400,
         "wires": []
-    },
-    {
-        "id": "f46ed1740693c99c",
-        "type": "http request",
-        "z": "2d47d0348f062886",
-        "name": "http获取yaml数据",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 250,
-        "y": 480,
-        "wires": [
-            [
-                "06ac68aa7eb3b234"
-            ]
-        ]
-    },
-    {
-        "id": "06ac68aa7eb3b234",
-        "type": "function",
-        "z": "2d47d0348f062886",
-        "name": "put 数据",
-        "func": "var yaml = msg.payload\nmsg.headers = {};\nmsg.headers = {\n  'Authorization': 'Bearer glpat-bix9rWK6svSw7qEzB-tS'\n}\nmsg.url = \"https://gitlab.com/api/v4/projects/34199133/repository/files/data%2Fv2ray%2F123.yaml\"\nmsg.payload = {};\nmsg.payload={'branch': 'main',\n    'content': yaml,\n    'commit_message': 'update file'\n    \n};\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 440,
-        "y": 480,
-        "wires": [
-            [
-                "1680f6187b56eb48"
-            ]
-        ]
-    },
-    {
-        "id": "1680f6187b56eb48",
-        "type": "http request",
-        "z": "2d47d0348f062886",
-        "name": "update file",
-        "method": "PUT",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 650,
-        "y": 480,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "e27e569517e1731c",
@@ -3835,64 +3740,6 @@
         ]
     },
     {
-        "id": "9c2ef8288afb112d",
-        "type": "http request",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "https://gitlab.com/api/v4/projects/34199133/repository/files/data%2Fv2ray%2F123.yaml/raw?ref=main",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 920,
-        "y": 420,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "71823175f94ba9d3",
-        "type": "inject",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 670,
-        "y": 420,
-        "wires": [
-            [
-                "fb8a16e4d5639371"
-            ]
-        ]
-    },
-    {
-        "id": "fb8a16e4d5639371",
-        "type": "function",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "func": "msg.headers = {\n    'private_token': 'glpat-bix9rWK6svSw7qEzB-tS'\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 790,
-        "y": 420,
-        "wires": [
-            [
-                "9c2ef8288afb112d"
-            ]
-        ]
-    },
-    {
         "id": "b48570863ef4564e",
         "type": "link in",
         "z": "2d47d0348f062886",
@@ -3900,11 +3747,11 @@
         "links": [
             "bae210a9467470bb"
         ],
-        "x": 285,
-        "y": 320,
+        "x": 925,
+        "y": 80,
         "wires": [
             [
-                "4409fabb0e57f7d5"
+                "1cef1eedb2b0af24"
             ]
         ]
     },
@@ -3920,6 +3767,45 @@
         "x": 1285,
         "y": 980,
         "wires": []
+    },
+    {
+        "id": "1cef1eedb2b0af24",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "put 数据",
+        "func": "var yaml = msg.payload\nmsg.headers = {};\nmsg.headers = {\n  'Authorization': 'Bearer glpat-bix9rWK6svSw7qEzB-tS'\n}\nmsg.url = \"https://gitlab.com/api/v4/projects/34199133/repository/files/data%2Fv2ray%2F123456.yaml\"\nmsg.payload = {};\nmsg.payload={'branch': 'main',\n    'content': yaml,\n    'commit_message': 'update file'\n    \n};\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 80,
+        "wires": [
+            [
+                "041ca33050e5c924"
+            ]
+        ]
+    },
+    {
+        "id": "041ca33050e5c924",
+        "type": "http request",
+        "z": "2d47d0348f062886",
+        "name": "update file",
+        "method": "PUT",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1210,
+        "y": 80,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "17e7c93fb2cab104",
