@@ -4485,6 +4485,38 @@
         "wires": []
     },
     {
+        "id": "89c39bd5c7910981",
+        "type": "status",
+        "z": "5646dda1b303b00d",
+        "name": "",
+        "scope": [
+            "b061ae01129df64a"
+        ],
+        "x": 110,
+        "y": 300,
+        "wires": [
+            [
+                "eaff2a425bd90756"
+            ]
+        ]
+    },
+    {
+        "id": "eaff2a425bd90756",
+        "type": "debug",
+        "z": "5646dda1b303b00d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 300,
+        "wires": []
+    },
+    {
         "id": "fe13f538af391a71",
         "type": "function",
         "z": "f936bcfefd29972a",
