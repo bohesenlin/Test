@@ -1757,6 +1757,109 @@
         ]
     },
     {
+        "id": "b88b0a0c39b12f29",
+        "type": "http in",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "url": "hello",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 660,
+        "wires": [
+            [
+                "cbcacfccb749d089"
+            ]
+        ]
+    },
+    {
+        "id": "cbcacfccb749d089",
+        "type": "template",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{!--This is the payload: {{payload}} !--}}\n<script>\nfunction  create() {\n    var input = document.getElementById('content');\n    var kd = document.getElementById('kd');\n    var filepath = document.getElementById('filepath');\n    var subtype = document.getElementById('subtype');\n    if (filepath.value===\"\"){\n        alert(\"本地节点文件路径不能为空！\");\n        return false;\n    }\n    kd.href = 'http://192.168.0.210:25500/sub?target='+subtype.value+'&url='+encodeURIComponent((filepath.value).replace(/\\n/g,\"|\"))+'&insert=false'; \n    kd.style = ''; \n    kd.innerText = 'http://192.168.0.210:25500/sub?target='+subtype.value+'&url='+encodeURIComponent((filepath.value).replace(/\\n/g,\"|\"))+'&insert=false'; \n}\n   </script>\n<div id=\"pagewrap\">\n   1.先下载<a href=\"https://bulianglin.com/g/aHR0cHM6Ly9naXRodWIuY29tL3RpbmR5MjAxMy9zdWJjb252ZXJ0ZXIvcmVsZWFzZXM\" target=\"_blank\">订阅转换工具</a>，并运行<br>\n   2.节点文件路径：<br><textarea placeholder=\"支持单个节点、多个节点、直链和本地文件路径\" id=\"filepath\" cols=\"50\" rows=\"10\"></textarea><br>\n   3.将格式转换为：<select id=\"subtype\">\n  <option value=\"clash\">clash</option>\n  <option value=\"mixed\">Base64通用</option>\n</select><br>\n   <input type=\"button\" value=\"生成链接\" onclick=\"create();\"> <br> <br>\n   <a id=\"kd\" style=\"pointer-events: none;\">请先生成链接！</a><br><br>\n\n   \n   </div>",
+        "output": "str",
+        "x": 330,
+        "y": 660,
+        "wires": [
+            [
+                "19296caed6c2ca46"
+            ]
+        ]
+    },
+    {
+        "id": "19296caed6c2ca46",
+        "type": "debug",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "7c23d194dfc4eb65",
+        "type": "http request",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.0.210:1880/hello",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 300,
+        "y": 720,
+        "wires": [
+            [
+                "19296caed6c2ca46"
+            ]
+        ]
+    },
+    {
+        "id": "6c4f57521bc8abf4",
+        "type": "inject",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 720,
+        "wires": [
+            [
+                "7c23d194dfc4eb65"
+            ]
+        ]
+    },
+    {
         "id": "4c21ef519ea65406",
         "type": "api-call-service",
         "z": "a8c13c8811cc5927",
