@@ -3344,21 +3344,19 @@
         "service": "turn_off",
         "areaId": [],
         "deviceId": [],
-        "entityId": [
-            "switch.fu_zai_jun_heng",
-            "switch.gu_zhang_zhuan_yi",
-            "switch.direct"
-        ],
+        "entityId": [],
         "data": "",
         "dataType": "jsonata",
         "mergeContext": "",
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 840,
-        "y": 960,
+        "x": 860,
+        "y": 920,
         "wires": [
-            []
+            [
+                "16249f1dbf53b3bf"
+            ]
         ]
     },
     {
@@ -3772,7 +3770,7 @@
         "y": 1000,
         "wires": [
             [
-                "a74018e3cefe2b0c"
+                "87e5651103fc7a2f"
             ],
             [
                 "73c2bd3c047b04d0"
@@ -4318,6 +4316,42 @@
                 "5e7b1833ceed5032"
             ]
         ]
+    },
+    {
+        "id": "87e5651103fc7a2f",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "func": "msg.payload = {\n    \"domain\": \"switch\",\n    \"service\": \"turn_off\",\n    \"target\": {\n        // \"area_id\": [\"kitchen\"],\n        // \"device_id\": [\"8932894082930482903\"],\n        \"entity_id\": [\"switch.direct\"]\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 920,
+        "wires": [
+            [
+                "a74018e3cefe2b0c"
+            ]
+        ]
+    },
+    {
+        "id": "16249f1dbf53b3bf",
+        "type": "debug",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 800,
+        "wires": []
     },
     {
         "id": "17e7c93fb2cab104",

@@ -19,12 +19,12 @@
     },
     "10fadd7af7843abc": {
       "lastPayload": {
-        "state": "🔯 故障转移",
+        "state": "♻️ 自动选择",
         "attributes": {}
       }
     },
     "51c3350b870cd183": {
-      "isEnabled": false
+      "isEnabled": true
     },
     "3d6a2eef80d1114c": {
       "isEnabled": false
