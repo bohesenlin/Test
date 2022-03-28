@@ -1876,7 +1876,7 @@
         "type": "function",
         "z": "df04831a8742eac0",
         "name": "",
-        "func": "a = msg.payload\nmsg.payload={\n    'status': a,\n    'time': msg.title\n}\nreturn msg;",
+        "func": "attribute = msg.payload\nmsg.payload={\n    'state': msg.title,\n    'time': attribute\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1886,9 +1886,27 @@
         "y": 580,
         "wires": [
             [
+                "97b050e119ed9de1",
                 "e99c6c5e658c2273"
             ]
         ]
+    },
+    {
+        "id": "97b050e119ed9de1",
+        "type": "debug",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 580,
+        "wires": []
     },
     {
         "id": "4c21ef519ea65406",
