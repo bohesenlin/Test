@@ -2770,7 +2770,7 @@
         "type": "debug",
         "z": "2d47d0348f062886",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -3016,13 +3016,6 @@
                 "pt": "msg",
                 "to": "payload.providers[\"🎯 全球直连\"].proxies[1].now",
                 "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "payload.attributes",
-                "pt": "msg",
-                "to": "payload.providers",
-                "tot": "msg"
             }
         ],
         "action": "",
@@ -3030,7 +3023,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 880,
+        "x": 910,
         "y": 860,
         "wires": [
             [
@@ -3084,7 +3077,7 @@
         "outputOnStateChange": false,
         "outputPayload": "",
         "outputPayloadType": "str",
-        "x": 1080,
+        "x": 1120,
         "y": 860,
         "wires": [
             []
