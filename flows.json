@@ -5015,11 +5015,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
-        "y": 340,
+        "x": 760,
+        "y": 240,
         "wires": [
             [
-                "46eaf9476dfd7dbe"
+                "d77fc4f252879d26"
             ]
         ]
     },
@@ -5079,8 +5079,7 @@
         "y": 240,
         "wires": [
             [
-                "b4a25ca4eefb9fea",
-                "fb8044923bd345ae"
+                "b4a25ca4eefb9fea"
             ]
         ]
     },
@@ -5097,8 +5096,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 810,
-        "y": 340,
+        "x": 1290,
+        "y": 300,
         "wires": []
     },
     {
@@ -5106,14 +5105,14 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "下载数据",
-        "func": "var url = msg.payload\nvar name = (msg.count+1).toString()+\".mp4\"\nvar dir = \"/downloads/\"+msg.name1\nmsg.payload = {}\n\nmsg.payload = {\n    \"jsonrpc\":\"2.0\",\n    \"method\":\"aria2.addUri\",\n    \"id\":\"QXJpYU5nXzE2NDcwODAyMjFfMC4wNjE0NDQxMTQ5NzI0MzA1Mg==\",\n    \"params\":[\"token:P3TERX\",[url],{\n        \"out\": name,\n        \"dir\": dir\n    }]\n}\nmsg.url = \"http://192.168.0.210:6800/jsonrpc\"\nreturn msg;",
+        "func": "// var url = msg.payload\n// var name = (msg.count+1).toString()+\".mp4\"\n// var dir = \"/downloads/\"+msg.name1\n// msg.payload = {}\n\nmsg.payload = {\n    \"jsonrpc\":\"2.0\",\n    \"method\":\"aria2.addUri\",\n    \"id\":\"QXJpYU5nXzE2NDcwODAyMjFfMC4wNjE0NDQxMTQ5NzI0MzA1Mg==\",\n    \"params\":[\"token:P3TERX\",[msg.url],{\n        \"out\": msg.name,\n        \"dir\": msg.dir\n    }]\n}\nmsg.url = \"http://192.168.0.210:6800/jsonrpc\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
-        "y": 340,
+        "x": 980,
+        "y": 300,
         "wires": [
             [
                 "9ef716d8da155c8d"
@@ -5134,8 +5133,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 640,
-        "y": 340,
+        "x": 1140,
+        "y": 300,
         "wires": [
             [
                 "fb8044923bd345ae"
@@ -5718,5 +5717,49 @@
         "x": 610,
         "y": 640,
         "wires": []
+    },
+    {
+        "id": "583e3b5a37593547",
+        "type": "link in",
+        "z": "e3562182c0530220",
+        "name": "",
+        "links": [],
+        "x": 875,
+        "y": 300,
+        "wires": [
+            [
+                "46eaf9476dfd7dbe"
+            ]
+        ]
+    },
+    {
+        "id": "041afb39671d545a",
+        "type": "link out",
+        "z": "e3562182c0530220",
+        "name": "",
+        "mode": "link",
+        "links": [],
+        "x": 1065,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "d77fc4f252879d26",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "var a\na.url = msg.payload\na.name = (msg.count+1).toString()+\".mp4\"\na.dir = \"/downloads/\"+msg.name1\nmsg = a\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 240,
+        "wires": [
+            [
+                "fb8044923bd345ae"
+            ]
+        ]
     }
 ]
