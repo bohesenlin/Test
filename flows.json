@@ -2182,7 +2182,7 @@
         "tag": ".blog-posts h2 a",
         "ret": "attr",
         "as": "single",
-        "x": 420,
+        "x": 460,
         "y": 80,
         "wires": [
             [
@@ -2194,7 +2194,7 @@
         "id": "a4191da274d39c2d",
         "type": "inject",
         "z": "2d47d0348f062886",
-        "name": "",
+        "name": "长风节点",
         "props": [
             {
                 "p": "payload"
@@ -2211,7 +2211,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 100,
+        "x": 110,
         "y": 80,
         "wires": [
             [
@@ -2233,7 +2233,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 240,
+        "x": 280,
         "y": 80,
         "wires": [
             [
@@ -2251,8 +2251,8 @@
         "tag": "[role] div [face]",
         "ret": "html",
         "as": "single",
-        "x": 420,
-        "y": 180,
+        "x": 1020,
+        "y": 80,
         "wires": [
             [
                 "d3618b7dff124e43"
@@ -2273,8 +2273,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 240,
-        "y": 180,
+        "x": 840,
+        "y": 80,
         "wires": [
             [
                 "0cd4b5175782a796"
@@ -2292,12 +2292,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 180,
+        "x": 1230,
+        "y": 80,
         "wires": [
             [
-                "f70e8d02ea9e8f48",
-                "4ba894f18eae7272"
+                "f70e8d02ea9e8f48"
             ]
         ]
     },
@@ -2316,8 +2315,7 @@
         "y": 80,
         "wires": [
             [
-                "9ed2fd8641f07fef",
-                "4ba894f18eae7272"
+                "9ed2fd8641f07fef"
             ]
         ]
     },
@@ -2335,8 +2333,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 250,
-        "y": 260,
+        "x": 270,
+        "y": 140,
         "wires": [
             [
                 "4409fabb0e57f7d5"
@@ -2356,8 +2354,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 870,
-        "y": 260,
+        "x": 830,
+        "y": 140,
         "wires": []
     },
     {
@@ -2371,8 +2369,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 260,
+        "x": 460,
+        "y": 140,
         "wires": [
             [
                 "ce66ea369c0dfbdf"
@@ -2393,8 +2391,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 650,
-        "y": 260,
+        "x": 630,
+        "y": 140,
         "wires": [
             [
                 "4ba894f18eae7272"
@@ -2413,11 +2411,9 @@
         "finalize": "",
         "libs": [],
         "x": 640,
-        "y": 340,
+        "y": 180,
         "wires": [
-            [
-                "4ba894f18eae7272"
-            ]
+            []
         ]
     },
     {
@@ -2435,8 +2431,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 980,
-        "y": 180,
+        "x": 1040,
+        "y": 140,
         "wires": [
             [
                 "a347121adb196bcc"
@@ -2455,8 +2451,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1150,
-        "y": 180,
+        "x": 1210,
+        "y": 140,
         "wires": []
     },
     {
@@ -2471,7 +2467,7 @@
         "finalize": "",
         "libs": [],
         "x": 830,
-        "y": 700,
+        "y": 520,
         "wires": [
             [
                 "c80f71166a6b3d95",
@@ -2494,7 +2490,7 @@
         "authType": "",
         "senderr": false,
         "x": 980,
-        "y": 700,
+        "y": 520,
         "wires": [
             [
                 "688eb60c3730c57f"
@@ -2516,7 +2512,7 @@
         "authType": "",
         "senderr": false,
         "x": 380,
-        "y": 700,
+        "y": 520,
         "wires": [
             [
                 "3c740a64f48dc8e1"
@@ -2535,7 +2531,7 @@
         "finalize": "",
         "libs": [],
         "x": 230,
-        "y": 700,
+        "y": 520,
         "wires": [
             [
                 "046efd2ab0826820"
@@ -2554,7 +2550,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 700,
+        "y": 520,
         "wires": [
             [
                 "230bb5fdcd154069"
@@ -2576,7 +2572,7 @@
         "authType": "",
         "senderr": false,
         "x": 680,
-        "y": 700,
+        "y": 520,
         "wires": [
             [
                 "e27e569517e1731c"
@@ -2597,8 +2593,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 300,
-        "y": 540,
+        "x": 340,
+        "y": 360,
         "wires": [
             [
                 "739eb8095e450051"
@@ -2609,7 +2605,7 @@
         "id": "211e629de4af4e86",
         "type": "inject",
         "z": "2d47d0348f062886",
-        "name": "查看节点更新",
+        "name": "查看github节点更新",
         "props": [
             {
                 "p": "payload"
@@ -2626,8 +2622,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
-        "y": 540,
+        "x": 140,
+        "y": 360,
         "wires": [
             [
                 "13a04be37629cde7"
@@ -2648,7 +2644,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1250,
-        "y": 580,
+        "y": 400,
         "wires": []
     },
     {
@@ -2662,8 +2658,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 970,
-        "y": 540,
+        "x": 1010,
+        "y": 360,
         "wires": [
             [
                 "c80f71166a6b3d95",
@@ -2682,8 +2678,8 @@
         "tag": "div:nth-child(8) > div.color-fg-muted.text-right > time-ago[datetime]",
         "ret": "attr",
         "as": "single",
-        "x": 640,
-        "y": 540,
+        "x": 680,
+        "y": 360,
         "wires": [
             [
                 "1e3c339aa72883e3"
@@ -2700,7 +2696,7 @@
         ],
         "timeout": "30",
         "x": 1190,
-        "y": 540,
+        "y": 360,
         "wires": [
             []
         ]
@@ -3303,7 +3299,7 @@
         "authType": "",
         "senderr": false,
         "x": 260,
-        "y": 620,
+        "y": 440,
         "wires": [
             [
                 "f8b2e240938a02dd"
@@ -3332,7 +3328,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 100,
-        "y": 620,
+        "y": 440,
         "wires": [
             [
                 "9f603bd5c2bbaeb5"
@@ -3347,7 +3343,7 @@
         "action": "b64",
         "property": "payload",
         "x": 420,
-        "y": 620,
+        "y": 440,
         "wires": [
             [
                 "85a7fe55905e6a3b"
@@ -3366,7 +3362,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 620,
+        "y": 440,
         "wires": [
             [
                 "21e1045b3874ea39"
@@ -3381,7 +3377,7 @@
         "action": "str",
         "property": "payload",
         "x": 720,
-        "y": 620,
+        "y": 440,
         "wires": [
             [
                 "c80f71166a6b3d95",
@@ -3401,7 +3397,7 @@
         "finalize": "",
         "libs": [],
         "x": 880,
-        "y": 620,
+        "y": 440,
         "wires": [
             [
                 "041ca33050e5c924"
@@ -3423,7 +3419,7 @@
         "authType": "",
         "senderr": false,
         "x": 1050,
-        "y": 620,
+        "y": 440,
         "wires": [
             [
                 "c80f71166a6b3d95"
@@ -3452,7 +3448,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 90,
-        "y": 700,
+        "y": 520,
         "wires": [
             [
                 "8795456d1255b15f"
@@ -3505,8 +3501,8 @@
         "outputOnStateChange": true,
         "outputPayload": "1",
         "outputPayloadType": "str",
-        "x": 120,
-        "y": 760,
+        "x": 100,
+        "y": 600,
         "wires": [
             [
                 "8795456d1255b15f"
@@ -3537,7 +3533,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 1160,
-        "y": 700,
+        "y": 520,
         "wires": [
             []
         ]
@@ -3669,31 +3665,13 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 140,
-        "y": 420,
+        "x": 980,
+        "y": 200,
         "wires": [
             [
-                "b75e71f5725760f9",
                 "7967ec77977cf4bf"
             ]
         ]
-    },
-    {
-        "id": "b75e71f5725760f9",
-        "type": "debug",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 290,
-        "y": 360,
-        "wires": []
     },
     {
         "id": "09232fb2994d0571",
@@ -3706,12 +3684,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 740,
-        "y": 420,
+        "x": 1140,
+        "y": 260,
         "wires": [
             [
-                "c5502097d040f335",
-                "4ba894f18eae7272"
+                "c5502097d040f335"
             ]
         ]
     },
@@ -3729,8 +3706,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 910,
-        "y": 420,
+        "x": 1310,
+        "y": 260,
         "wires": [
             []
         ]
@@ -3746,8 +3723,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 290,
-        "y": 420,
+        "x": 1130,
+        "y": 200,
         "wires": [
             [
                 "0710e8b321f301cf"
@@ -3761,8 +3738,8 @@
         "name": "",
         "action": "str",
         "property": "payload",
-        "x": 580,
-        "y": 420,
+        "x": 980,
+        "y": 260,
         "wires": [
             [
                 "09232fb2994d0571"
@@ -3780,8 +3757,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 420,
+        "x": 1270,
+        "y": 200,
         "wires": [
             [
                 "2ecdfde88f6b967d"
@@ -3834,8 +3811,8 @@
         "outputOnStateChange": true,
         "outputPayload": "2",
         "outputPayloadType": "str",
-        "x": 120,
-        "y": 820,
+        "x": 100,
+        "y": 660,
         "wires": [
             [
                 "8795456d1255b15f"
