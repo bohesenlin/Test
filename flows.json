@@ -866,7 +866,7 @@
                 "value": ""
             }
         ],
-        "state": "payload[0]",
+        "state": "payload",
         "stateType": "msg",
         "attributes": [],
         "resend": true,
@@ -876,7 +876,7 @@
         "outputOnStateChange": false,
         "outputPayload": "",
         "outputPayloadType": "str",
-        "x": 930,
+        "x": 1010,
         "y": 440,
         "wires": [
             []
@@ -947,7 +947,6 @@
         "y": 440,
         "wires": [
             [
-                "e99c6c5e658c2273",
                 "7eaed87968638b08",
                 "dcb6cec1d1afb4fd"
             ]
@@ -984,7 +983,8 @@
         "y": 520,
         "wires": [
             [
-                "4eb9dbc293017cbf"
+                "4eb9dbc293017cbf",
+                "cec39284c31b6390"
             ]
         ]
     },
@@ -1870,6 +1870,25 @@
         "x": 470,
         "y": 660,
         "wires": []
+    },
+    {
+        "id": "cec39284c31b6390",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "a = msg.payload\nmsg.payload={\n    'status': a,\n    'time': msg.title\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 580,
+        "wires": [
+            [
+                "e99c6c5e658c2273"
+            ]
+        ]
     },
     {
         "id": "4c21ef519ea65406",
@@ -4188,6 +4207,115 @@
         "wires": [
             [
                 "bcd13c146e93ea12"
+            ]
+        ]
+    },
+    {
+        "id": "5e7b1833ceed5032",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "func": "// msg.payload = {\"name\":\"♻️ 自动选择\"}\nmsg.url = 'http://192.168.0.213:9090/proxies'\n msg.headers = {\n    'Authorization': 'Bearer 123456',\n    'Connection': 'keep-alive',\n    //'Content-Length': '30',\n    'Content-Type': 'application/json',\n    'Cookie': 'agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213:9090',\n    // 'Origin': 'http://192.168.0.213:9090',\n    'Referer': 'http://192.168.0.213:9090/ui/?host=192.168.0.213&port=9090&secret=123456',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 1400,
+        "wires": [
+            [
+                "3a9b68f6ce09c98f"
+            ]
+        ]
+    },
+    {
+        "id": "3a9b68f6ce09c98f",
+        "type": "http request",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 440,
+        "y": 1400,
+        "wires": [
+            [
+                "a85dd2c85fd9694a"
+            ]
+        ]
+    },
+    {
+        "id": "3861aab318372e9d",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "func": "msg.payload = ''\nmsg.url = 'http://192.168.0.213:9090/providers/proxies'\nmsg.headers = {\n    'Authorization': 'Bearer 123456',\n    'Connection': 'keep-alive',\n    'Cookie': 'agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213:9090',\n    'Referer': 'http://192.168.0.213:9090/ui/?host=192.168.0.213&port=9090&secret=123456',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 1400,
+        "wires": [
+            [
+                "7e0b1a6ad4f8b309"
+            ]
+        ]
+    },
+    {
+        "id": "7e0b1a6ad4f8b309",
+        "type": "http request",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 740,
+        "y": 1400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f10a74a18393829b",
+        "type": "inject",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 1400,
+        "wires": [
+            [
+                "5e7b1833ceed5032"
             ]
         ]
     },
