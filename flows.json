@@ -4472,6 +4472,134 @@
         ]
     },
     {
+        "id": "01eaaf0dbb6e8651",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "func": "msg.url = 'http://192.168.0.213/cgi-bin/luci/admin/services/passwall/connect_status?type=google&url=https://www.google.com/generate_204&_=0.8077079259791362'\nmsg.headers = {\n    'Cookie': 'sysauth=9187260f6612a02db70a9521eb090c52; agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213',\n    'Referer': 'http://192.168.0.213/cgi-bin/luci/admin/services/passwall',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.55'\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 1500,
+        "wires": [
+            [
+                "79a4ba7b3a0a5e49"
+            ]
+        ]
+    },
+    {
+        "id": "79a4ba7b3a0a5e49",
+        "type": "http request",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 420,
+        "y": 1500,
+        "wires": [
+            [
+                "94db92d80d98cba5"
+            ]
+        ]
+    },
+    {
+        "id": "94db92d80d98cba5",
+        "type": "debug",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "58987ae0925178d8",
+        "type": "inject",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 1500,
+        "wires": [
+            [
+                "01eaaf0dbb6e8651"
+            ]
+        ]
+    },
+    {
+        "id": "a45a06ce63d232bd",
+        "type": "http request",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 300,
+        "y": 1620,
+        "wires": [
+            [
+                "94db92d80d98cba5"
+            ]
+        ]
+    },
+    {
+        "id": "eebc77287dfee955",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "func": "// if(msg.payload =='1'){\n//     msg.url1 = 'http://192.168.0.210:25500/sub?target=clash&url=https%3A%2F%2Fgitlab.com%2Fapi%2Fv4%2Fprojects%2F34199133%2Frepository%2Ffiles%2Fdata%252Fv2ray%252F123456.yaml%2Fraw%3Fref%3Dmain%26private_token%3Dglpat-bix9rWK6svSw7qEzB-tS&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Mini_MultiMode.ini&emoji=true&list=false&udp=false&tfo=false&scv=false&fdn=false&sort=false'\n// }else{\n//     msg.url1 = 'http://192.168.0.210:25500/sub?target=clash&url=https%3A%2F%2Fgitlab.com%2Fapi%2Fv4%2Fprojects%2F34199133%2Frepository%2Ffiles%2Fdata%252Fv2ray%252F123456.yaml%2Fraw%3Fref%3Dmain%26private_token%3Dglpat-bix9rWK6svSw7qEzB-tS%7Chttps%3A%2F%2Fgitlab.com%2Fapi%2Fv4%2Fprojects%2F34199133%2Frepository%2Ffiles%2Fdata%252Fv2ray%252F123.txt%2Fraw%3Fref%3Dmain%26private_token%3Dglpat-bix9rWK6svSw7qEzB-tS&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Mini_MultiMode.ini&emoji=true&list=false&udp=false&tfo=false&scv=false&fdn=false&sort=false'\n// }\nmsg.url1 = msg.payload\nmsg.url = 'http://192.168.0.213/cgi-bin/luci/'\nmsg.payload={\n    'luci_username': 'root',\n    'luci_password': 'password'\n}\nmsg.headers = {\n    'Content-Type': 'application/x-www-form-urlencoded',\n    //'Accept': 'application/json',\n    'Cookie': 'sysauth=bdc717e93b225fe3f1d7749721fb8ce4; agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213',\n    'Origin': 'http://192.168.0.213',\n    'Referer': 'http://192.168.0.213/cgi-bin/luci/',\n    'Upgrade-Insecure-Requests': '1',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 150,
+        "y": 1620,
+        "wires": [
+            [
+                "a45a06ce63d232bd"
+            ]
+        ]
+    },
+    {
         "id": "17e7c93fb2cab104",
         "type": "inject",
         "z": "5646dda1b303b00d",
