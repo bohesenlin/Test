@@ -46,11 +46,11 @@
     },
     "6efd403af327ca32": {
       "lastPayload": {
-        "state": "0.25",
+        "state": "0.06",
         "attributes": {
-          "load1": "0.25",
-          "load5": "0.27",
-          "load15": "0.19",
+          "load1": "0.06",
+          "load5": "0.10",
+          "load15": "0.13",
           "cpu": 0,
           "ram": "498M"
         }
@@ -58,7 +58,7 @@
     },
     "21bb90c40de292cb": {
       "lastPayload": {
-        "state": "564.78",
+        "state": "423.02",
         "attributes": {}
       }
     }
