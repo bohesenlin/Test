@@ -4517,14 +4517,14 @@
                 "vt": "str"
             }
         ],
-        "repeat": "60",
+        "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 100,
+        "x": 90,
         "y": 1500,
         "wires": [
             [
