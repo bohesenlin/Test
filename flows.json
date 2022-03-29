@@ -2370,20 +2370,6 @@
         "wires": []
     },
     {
-        "id": "7b1a75d9da5b2161",
-        "type": "snmp set",
-        "z": "0143542654182c64",
-        "host": "127.0.0.1",
-        "community": "public",
-        "version": "1",
-        "varbinds": "",
-        "timeout": 5,
-        "name": "",
-        "x": 330,
-        "y": 560,
-        "wires": []
-    },
-    {
         "id": "b944fb4e914dc9c8",
         "type": "html",
         "z": "2d47d0348f062886",
