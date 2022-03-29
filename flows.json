@@ -4743,46 +4743,17 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "proxies = msg.payload\nfor(var i =0;i<proxies.length;i++){\n    msg.url = 'http://192.168.0.213:9090/proxies/'+proxies[i]+'/delay?timeout=5000&url=http://www.gstatic.com/generate_204'\n    msg.headers = {\n    'Authorization': 'Bearer 123456',\n    'Connection': 'keep-alive',\n    'Cookie': 'agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213:9090',\n    'Referer': 'http://192.168.0.213:9090/ui/?host=192.168.0.213&port=9090&secret=123456',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.55'\n    }\n    return msg;\n}\n",
+        "func": "proxies = msg.payload\nfor(var i =0;i<proxies.length;i++){\n    msg.url = 'http://192.168.0.213:9090/proxies/'+proxies[i]+'/delay?timeout=5000&url=http://www.gstatic.com/generate_204'\n    msg.headers = {\n    'Authorization': 'Bearer 123456',\n    'Connection': 'keep-alive',\n    'Cookie': 'agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213:9090',\n    'Referer': 'http://192.168.0.213:9090/ui/?host=192.168.0.213&port=9090&secret=123456',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.55'\n    }\n    node.send(msg)\n}\nreturn",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 1800,
+        "x": 710,
+        "y": 1680,
         "wires": [
             [
                 "fb45a385da3183b1"
-            ]
-        ]
-    },
-    {
-        "id": "38cc05abbcafd4f9",
-        "type": "inject",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 1800,
-        "wires": [
-            [
-                "447c766c1a85c49a"
             ]
         ]
     },
@@ -4791,7 +4762,7 @@
         "type": "debug",
         "z": "2d47d0348f062886",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4799,8 +4770,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 570,
-        "y": 1800,
+        "x": 1010,
+        "y": 1680,
         "wires": []
     },
     {
@@ -4817,8 +4788,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 420,
-        "y": 1800,
+        "x": 860,
+        "y": 1680,
         "wires": [
             [
                 "34b89bdf52df296e"
@@ -4836,8 +4807,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 190,
-        "y": 1720,
+        "x": 270,
+        "y": 1680,
         "wires": [
             [
                 "be2176a697e5bb3e"
@@ -4858,8 +4829,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 340,
-        "y": 1720,
+        "x": 420,
+        "y": 1680,
         "wires": [
             [
                 "f3829dd153fb6d69"
@@ -4870,7 +4841,7 @@
         "id": "1f0bbbe1a58eef71",
         "type": "inject",
         "z": "2d47d0348f062886",
-        "name": "",
+        "name": "定时测速",
         "props": [
             {
                 "p": "payload"
@@ -4880,15 +4851,15 @@
                 "vt": "str"
             }
         ],
-        "repeat": "",
+        "repeat": "300",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 90,
-        "y": 1660,
+        "x": 110,
+        "y": 1680,
         "wires": [
             [
                 "a4159ceb7d5514e8"
@@ -4906,8 +4877,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
-        "y": 1720,
+        "x": 570,
+        "y": 1680,
         "wires": [
             [
                 "447c766c1a85c49a"
