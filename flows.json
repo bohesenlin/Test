@@ -4422,7 +4422,7 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "var arr = msg.payload.providers[\"♻️ 自动选择\"].proxies\n// delete arr.DIRECT\n\nvar arr1 = []\nfor(var a in arr){\n    arr1.push([arr[a].history[9].delay,arr[a].name])\n    //msg.payload = arr[a].history[9].delay\n    //payload.providers[\"♻️ 自动选择\"].proxies[333].name\n    \n}\narr1.sort(function(x, y){\n  return (x[0]-y[0]);\n});\nmsg.payload = arr1\nreturn msg;",
+        "func": "var arr = msg.payload.providers[\"♻️ 自动选择\"].proxies\n// delete arr.DIRECT\n\nvar arr1 = []\nfor(var a in arr){\n    arr1.push([arr[a].history[9].delay,arr[a].name])\n    //msg.payload = arr[a].history[9].delay\n    //payload.providers[\"♻️ 自动选择\"].proxies[333].name\n    \n}\narr1.sort(function(x, y){\n  return (x[0]-y[0]);\n});\n\n// arr1.forEach(myFunction(vaule,index){\n//     if(vaule>0){\n//         return arr1[index+1]\n//     }\n// })\nfor(var i = 0;i<arr1.length;i++){\n    if(arr1[i][0]>0){\n        msg.payload = arr1[i+1]\n        break\n    }\n}\n// msg.payload = arr1\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
