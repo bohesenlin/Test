@@ -4318,35 +4318,6 @@
         "wires": []
     },
     {
-        "id": "8799b8e2dc692415",
-        "type": "inject",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 650,
-        "y": 1260,
-        "wires": [
-            [
-                "bcd13c146e93ea12"
-            ]
-        ]
-    },
-    {
         "id": "87e5651103fc7a2f",
         "type": "function",
         "z": "2d47d0348f062886",
@@ -4424,7 +4395,7 @@
         "id": "175286de773d893c",
         "type": "http request",
         "z": "2d47d0348f062886",
-        "name": "",
+        "name": "自动选择节点",
         "method": "PUT",
         "ret": "txt",
         "paytoqs": "ignore",
@@ -4434,7 +4405,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 880,
+        "x": 900,
         "y": 1400,
         "wires": [
             [
@@ -4463,8 +4434,8 @@
         "links": [
             "8787e53e10616bab"
         ],
-        "x": 445,
-        "y": 1320,
+        "x": 505,
+        "y": 1400,
         "wires": [
             [
                 "678316b53583a30c"
@@ -4699,8 +4670,8 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "if(msg.statusCode == 200 && msg.payload.ret == 0){\n    msg.payload ='连接正常'\n    return msg\n}else{\n    msg.payload = '连接错误'\n    return msg;\n}\n",
-        "outputs": 2,
+        "func": "if(msg.statusCode == 403){\n    \n}\nif(msg.statusCode == 200 && msg.payload.ret == 0){\n    msg.payload ='连接正常'\n    return msg\n}else{\n    msg.payload = '连接错误'\n    return msg;\n}\n",
+        "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -4710,27 +4681,8 @@
         "wires": [
             [
                 "94db92d80d98cba5"
-            ],
-            [
-                "03fcf2c209da00da"
             ]
         ]
-    },
-    {
-        "id": "03fcf2c209da00da",
-        "type": "debug",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 770,
-        "y": 1680,
-        "wires": []
     },
     {
         "id": "17e7c93fb2cab104",
