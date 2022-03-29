@@ -3128,7 +3128,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "30",
+        "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
@@ -4306,7 +4306,7 @@
         "type": "debug",
         "z": "2d47d0348f062886",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4359,7 +4359,7 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "var arr = msg.payload.providers[\"♻️ 自动选择\"].proxies\n// delete arr.DIRECT\nvar arr1 = []\n//创建数组\nfor(var a in arr){\n    arr1.push([arr[a].history[9].delay,arr[a].name])\n}\nreturn arr1\n//排序\n// arr1.sort(function(x, y){\n//   return (x[0]-y[0]);\n// });\n// //取出排序第二的数组\n// for(var i = 0;i<arr1.length;i++){\n//     if(arr1[i][0]>0){\n//         msg.payload = arr1[i+9]\n//         break\n//     }\n// }\n// return msg;",
+        "func": "var arr = msg.payload.providers[\"♻️ 自动选择\"].proxies\n// delete arr.DIRECT\nvar arr1 = []\n//创建数组\nvar n = arr[0].history.length - 1\nfor(var a in arr){\n    arr1.push([arr[a].history[n].delay,arr[a].name])\n}\n// 排序\narr1.sort(function(x, y){\n  return (x[0]-y[0]);\n});\n//取出排序第二的数组\nfor(var i = 0;i<arr1.length;i++){\n    if(arr1[i][0]>0){\n        msg.payload = arr1[i+9]\n        break\n    }\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4369,7 +4369,8 @@
         "y": 1400,
         "wires": [
             [
-                "a85dd2c85fd9694a"
+                "a85dd2c85fd9694a",
+                "6a052bb651b79b1d"
             ]
         ]
     },
@@ -4490,7 +4491,7 @@
         "type": "debug",
         "z": "2d47d0348f062886",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
