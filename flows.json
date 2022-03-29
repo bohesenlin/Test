@@ -4670,7 +4670,7 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "if(msg.statusCode == 403){\n    \n}\nif(msg.statusCode == 200 && msg.payload.ret == 0){\n    msg.payload ='连接正常'\n    return msg\n}else{\n    msg.payload = '连接错误'\n    return msg;\n}\n",
+        "func": "if(msg.statusCode == 403){\n    msg.topic = '2'\n}else{\n    msg.topic = '1'\n}\nif(msg.statusCode == 200 && msg.payload.ret == 0){\n    msg.payload ='连接正常'\n    return msg\n}else{\n    msg.payload = '连接错误'\n    return msg;\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4680,8 +4680,39 @@
         "y": 1560,
         "wires": [
             [
-                "94db92d80d98cba5"
+                "37217d51e694d23e"
             ]
+        ]
+    },
+    {
+        "id": "37217d51e694d23e",
+        "type": "switch",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 670,
+        "y": 1560,
+        "wires": [
+            [
+                "94db92d80d98cba5"
+            ],
+            []
         ]
     },
     {
