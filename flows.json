@@ -4359,7 +4359,7 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "var arr = msg.payload.providers[\"♻️ 自动选择\"].proxies\n// delete arr.DIRECT\nvar arr1 = []\n//创建数组\nvar n = arr[0].history.length - 1\nfor(var a in arr){\n    arr1.push([arr[a].history[n].delay,arr[a].name])\n}\n// 排序\narr1.sort(function(x, y){\n  return (x[0]-y[0]);\n});\n//取出排序第二的数组\nfor(var i = 0;i<arr1.length;i++){\n    if(arr1[i][0]>0){\n        msg.payload = arr1[i+9]\n        break\n    }\n}\nreturn msg;",
+        "func": "var arr = msg.payload.providers[\"♻️ 自动选择\"].proxies\n// delete arr.DIRECT\nvar arr1 = []\n//创建数组\nvar n = 0\nfor(var a in arr){\n    n = arr[a].history.length - 1\n    arr1.push([arr[a].history[n].delay,arr[a].name])\n}\n// 排序\narr1.sort(function(x, y){\n  return (x[0]-y[0]);\n});\n//取出排序第二的数组\nfor(var i = 0;i<arr1.length;i++){\n    if(arr1[i][0]>0){\n        msg.payload = arr1[i+9]\n        break\n    }\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4743,16 +4743,86 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "msg.url = 'http://192.168.0.213:9090/proxies/CYL-科技（2022.03.27） 334/delay?timeout=5000&url=http://www.gstatic.com/generate_204'\nmsg.headers = {\n    \n}\nreturn msg;",
+        "func": "msg.url = 'http://192.168.0.213:9090/proxies/'+proxies+'/delay?timeout=5000&url=http://www.gstatic.com/generate_204'\nmsg.headers = {\n    'Authorization': 'Bearer 123456',\n    'Connection': 'keep-alive',\n    'Cookie': 'agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213:9090',\n    'Referer': 'http://192.168.0.213:9090/ui/?host=192.168.0.213&port=9090&secret=123456',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.55'\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
+        "x": 270,
         "y": 1800,
         "wires": [
-            []
+            [
+                "fb45a385da3183b1"
+            ]
+        ]
+    },
+    {
+        "id": "38cc05abbcafd4f9",
+        "type": "inject",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 1800,
+        "wires": [
+            [
+                "447c766c1a85c49a"
+            ]
+        ]
+    },
+    {
+        "id": "34b89bdf52df296e",
+        "type": "debug",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "fb45a385da3183b1",
+        "type": "http request",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 420,
+        "y": 1800,
+        "wires": [
+            [
+                "34b89bdf52df296e"
+            ]
         ]
     },
     {
