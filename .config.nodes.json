@@ -930,5 +930,24 @@
                 "file": "/data/node_modules/node-red-node-snmp/snmp.js"
             }
         }
+    },
+    "node-red-contrib-snmp-trap-listener": {
+        "name": "node-red-contrib-snmp-trap-listener",
+        "version": "2.4.0",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "snmp-trap-listener": {
+                "name": "snmp-trap-listener",
+                "types": [
+                    "snmp-trap-listener"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-snmp-trap-listener",
+                "file": "/data/node_modules/node-red-contrib-snmp-trap-listener/snmp-trap-listener.js"
+            }
+        }
     }
 }

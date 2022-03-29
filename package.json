@@ -8,6 +8,7 @@
         "node-red-contrib-crypto-js-dynamic": "~0.1.22",
         "node-red-contrib-git-nodes": "~0.2.2",
         "node-red-contrib-home-assistant-websocket": "~0.43.1",
+        "node-red-contrib-snmp-trap-listener": "~2.4.0",
         "node-red-contrib-xiaoai-tts": "~1.0.5",
         "node-red-dashboard": "~3.1.6",
         "node-red-node-base64": "~0.3.0",
