@@ -907,5 +907,28 @@
                 "file": "/data/node_modules/node-red-node-base64/70-base64.js"
             }
         }
+    },
+    "node-red-node-snmp": {
+        "name": "node-red-node-snmp",
+        "version": "0.0.25",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "snmp": {
+                "name": "snmp",
+                "types": [
+                    "snmp",
+                    "snmp set",
+                    "snmp table",
+                    "snmp subtree",
+                    "snmp walker"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-node-snmp",
+                "file": "/data/node_modules/node-red-node-snmp/snmp.js"
+            }
+        }
     }
 }

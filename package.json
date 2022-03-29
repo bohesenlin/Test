@@ -11,6 +11,7 @@
         "node-red-contrib-xiaoai-tts": "~1.0.5",
         "node-red-dashboard": "~3.1.6",
         "node-red-node-base64": "~0.3.0",
-        "node-red-node-email": "~1.15.0"
+        "node-red-node-email": "~1.15.0",
+        "node-red-node-snmp": "0.0.25"
     }
 }

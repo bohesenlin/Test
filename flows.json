@@ -2307,6 +2307,69 @@
         ]
     },
     {
+        "id": "898b28230e558eea",
+        "type": "snmp",
+        "z": "0143542654182c64",
+        "host": "192.168.0.211",
+        "community": "public",
+        "version": "1",
+        "oids": "1.3.6.1.4.1.2021.10.1.3.1",
+        "timeout": 5,
+        "name": "",
+        "x": 320,
+        "y": 480,
+        "wires": [
+            [
+                "6cc76bcdb612f345"
+            ]
+        ]
+    },
+    {
+        "id": "1db9fe9eab5a86d8",
+        "type": "inject",
+        "z": "0143542654182c64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 480,
+        "wires": [
+            [
+                "898b28230e558eea"
+            ]
+        ]
+    },
+    {
+        "id": "6cc76bcdb612f345",
+        "type": "debug",
+        "z": "0143542654182c64",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 480,
+        "wires": []
+    },
+    {
         "id": "b944fb4e914dc9c8",
         "type": "html",
         "z": "2d47d0348f062886",
