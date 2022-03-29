@@ -3108,8 +3108,6 @@
         "wires": [
             [
                 "53d87ccfbabed377",
-                "c80f71166a6b3d95",
-                "16249f1dbf53b3bf",
                 "4faa59c19ff81afe"
             ]
         ]
@@ -3135,7 +3133,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 450,
+        "x": 330,
         "y": 800,
         "wires": [
             [
@@ -3493,9 +3491,7 @@
         "x": 860,
         "y": 920,
         "wires": [
-            [
-                "16249f1dbf53b3bf"
-            ]
+            []
         ]
     },
     {
@@ -4148,177 +4144,6 @@
         ]
     },
     {
-        "id": "bcd13c146e93ea12",
-        "type": "function",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "func": "// reg = /<input type=\"hidden\" name=\"token\" value=\"(.*?)\" \\/>/\n// token = reg.exec(msg.payload)[1]\nmsg.url = \"http://192.168.0.211/cgi-bin/luci/admin/services/openclash/config-subscribe\"\nmsg.payload={\n    // 'token': token,\n    'cbi.submit': '1',\n    'cbi.cbe.openclash.config.auto_update': '1',\n    // 'cbid.openclash.config.auto_update': '1',\n    // 'cbid.openclash.config.config_auto_update_mode': '0',\n    // 'cbid.openclash.config.config_update_week_time': '*',\n    // 'cbid.openclash.config.auto_update_time': '13',\n    'cbi.sts.openclash.config_subscribe': '',\n    'cbi.cbe.openclash.cfg15b6bc.enabled': '1',\n    'cbid.openclash.cfg15b6bc.enabled': '1',\n    'cbid.openclash.cfg15b6bc.address': 'https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/Eternity.yml',\n    'cbid.table.1.Apply': '更新配置'\n}\nmsg.headers = {\n    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',\n    'Accept-Encoding': 'gzip, deflate',\n    'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6',\n    'Cache-Control': 'max-age=0',\n    'Connection': 'keep-alive',\n    'Content-Type': 'multipart/form-data',\n    'Content-Length': msg.payload.toString().length,\n    // 'Cookie': msg.cookie,\n    'Host': '192.168.0.211',\n    'Origin': 'http://192.168.0.211',\n    'Referer': 'http://192.168.0.211/cgi-bin/luci/admin/services/openclash/config-subscribe',\n    'Upgrade-Insecure-Requests': '1',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 830,
-        "y": 1180,
-        "wires": [
-            [
-                "a85dd2c85fd9694a"
-            ]
-        ]
-    },
-    {
-        "id": "244b564424a3802a",
-        "type": "http request",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "method": "POST",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 1060,
-        "y": 1180,
-        "wires": [
-            [
-                "a85dd2c85fd9694a"
-            ]
-        ]
-    },
-    {
-        "id": "83c1a30405fb6140",
-        "type": "http request",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "method": "POST",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 380,
-        "y": 1180,
-        "wires": [
-            [
-                "8c84b8460b756af6"
-            ]
-        ]
-    },
-    {
-        "id": "3b60393b10d4e25e",
-        "type": "function",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "func": "msg.url = 'http://192.168.0.211/cgi-bin/luci/'\nmsg.payload={\n    'luci_username': 'root',\n    'luci_password': 'password'\n}\nmsg.headers = {\n    'Content-Type': 'application/x-www-form-urlencoded',\n    'Cookie': 'sysauth=bdc717e93b225fe3f1d7749721fb8ce4; agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.211',\n    'Origin': 'http://192.168.0.211',\n    'Referer': 'http://192.168.0.211/cgi-bin/luci/',\n    'Upgrade-Insecure-Requests': '1',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 230,
-        "y": 1180,
-        "wires": [
-            [
-                "83c1a30405fb6140"
-            ]
-        ]
-    },
-    {
-        "id": "8c84b8460b756af6",
-        "type": "function",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "func": "msg.headers = {}\nmsg.headers['Cookie'] = 'sysauth='+msg.redirectList[0].cookies.sysauth.value+'; agh_session=7cd651ae2eac08640f50ee89c87d66d5'\nmsg.url = 'http://192.168.0.211/cgi-bin/luci/admin/services/openclash'\nmsg.cookie=msg.headers['Cookie']\nreturn msg;\n// sysauth=24f356341e402da4dab3ed3aa605769b; agh_session=7cd651ae2eac08640f50ee89c87d66d5",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 530,
-        "y": 1180,
-        "wires": [
-            [
-                "2a98b25dd0ba3e24",
-                "a85dd2c85fd9694a"
-            ]
-        ]
-    },
-    {
-        "id": "2a98b25dd0ba3e24",
-        "type": "http request",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 680,
-        "y": 1180,
-        "wires": [
-            [
-                "bcd13c146e93ea12",
-                "a85dd2c85fd9694a"
-            ]
-        ]
-    },
-    {
-        "id": "2155778028a59fb5",
-        "type": "inject",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 1180,
-        "wires": [
-            [
-                "3b60393b10d4e25e"
-            ]
-        ]
-    },
-    {
-        "id": "a85dd2c85fd9694a",
-        "type": "debug",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 990,
-        "y": 1260,
-        "wires": []
-    },
-    {
         "id": "87e5651103fc7a2f",
         "type": "function",
         "z": "2d47d0348f062886",
@@ -4338,23 +4163,6 @@
         ]
     },
     {
-        "id": "16249f1dbf53b3bf",
-        "type": "debug",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1050,
-        "y": 800,
-        "wires": []
-    },
-    {
         "id": "678316b53583a30c",
         "type": "function",
         "z": "2d47d0348f062886",
@@ -4365,11 +4173,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 1400,
+        "x": 530,
+        "y": 1420,
         "wires": [
             [
-                "a85dd2c85fd9694a",
                 "6a052bb651b79b1d"
             ]
         ]
@@ -4385,8 +4192,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
-        "y": 1400,
+        "x": 670,
+        "y": 1420,
         "wires": [
             [
                 "175286de773d893c"
@@ -4407,12 +4214,10 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 900,
-        "y": 1400,
+        "x": 840,
+        "y": 1420,
         "wires": [
-            [
-                "a85dd2c85fd9694a"
-            ]
+            []
         ]
     },
     {
@@ -4424,8 +4229,8 @@
         "links": [
             "1e0eb8d8f07cbb57"
         ],
-        "x": 925,
-        "y": 760,
+        "x": 955,
+        "y": 820,
         "wires": []
     },
     {
@@ -4436,8 +4241,8 @@
         "links": [
             "8787e53e10616bab"
         ],
-        "x": 125,
-        "y": 1400,
+        "x": 65,
+        "y": 1420,
         "wires": [
             [
                 "e0112db317d0fbb1"
@@ -4449,7 +4254,7 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "N1",
-        "func": "msg.url = 'http://192.168.0.213/cgi-bin/luci/admin/services/passwall/connect_status?type=google&url=https://www.google.com/generate_204&_=0.8077079259791362'\nmsg.headers = {\n    'Cookie': 'sysauth=9187260f6612a02db70a9521eb090c52; agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213',\n    'Referer': 'http://192.168.0.213/cgi-bin/luci/admin/services/passwall',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.55'\n}\nreturn msg;",
+        "func": "msg.url = 'http://192.168.0.213/cgi-bin/luci/admin/services/passwall/connect_status?type=google&url=https://www.google.com/generate_204&_=0.8077079259791362'\nmsg.headers = {\n    'Cookie': 'sysauth=45f593ef676afd2f3d354f5089f5ba78; agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213',\n    'Referer': 'http://192.168.0.213/cgi-bin/luci/admin/services/passwall',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.55'\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4481,27 +4286,9 @@
         "y": 1500,
         "wires": [
             [
-                "94db92d80d98cba5",
                 "21bb90c40de292cb"
             ]
         ]
-    },
-    {
-        "id": "94db92d80d98cba5",
-        "type": "debug",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 870,
-        "y": 1500,
-        "wires": []
     },
     {
         "id": "58987ae0925178d8",
@@ -4525,7 +4312,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 100,
-        "y": 1500,
+        "y": 1560,
         "wires": [
             [
                 "b61f71e605330b2a"
@@ -4619,8 +4406,8 @@
         "outputOnStateChange": false,
         "outputPayload": "",
         "outputPayloadType": "str",
-        "x": 580,
-        "y": 1460,
+        "x": 800,
+        "y": 1500,
         "wires": [
             []
         ]
@@ -4677,7 +4464,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
+        "x": 570,
         "y": 1560,
         "wires": [
             [
@@ -4707,11 +4494,10 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 700,
+        "x": 740,
         "y": 1560,
         "wires": [
             [
-                "94db92d80d98cba5",
                 "c0b147f0f34769a1"
             ],
             [
@@ -4918,8 +4704,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1110,
-        "y": 1560,
+        "x": 1090,
+        "y": 1620,
         "wires": []
     },
     {
@@ -4931,7 +4717,7 @@
             "019340b2c81c126e"
         ],
         "x": 395,
-        "y": 720,
+        "y": 760,
         "wires": [
             [
                 "c3954da1757d0960"
@@ -4947,8 +4733,8 @@
         "links": [
             "449781a1d68b186d"
         ],
-        "x": 1095,
-        "y": 1500,
+        "x": 1065,
+        "y": 1560,
         "wires": []
     },
     {
@@ -4968,8 +4754,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 810,
-        "y": 760,
+        "x": 850,
+        "y": 820,
         "wires": [
             [
                 "8787e53e10616bab"
@@ -5006,11 +4792,40 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 340,
-        "y": 1400,
+        "x": 280,
+        "y": 1420,
         "wires": [
             [
                 "678316b53583a30c"
+            ]
+        ]
+    },
+    {
+        "id": "243bad553ca53b04",
+        "type": "inject",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "30",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 1500,
+        "wires": [
+            [
+                "01eaaf0dbb6e8651"
             ]
         ]
     },
