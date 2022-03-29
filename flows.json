@@ -4551,7 +4551,6 @@
         "y": 1620,
         "wires": [
             [
-                "94db92d80d98cba5",
                 "ae116e17917032de"
             ]
         ]
@@ -4561,7 +4560,7 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "// if(msg.payload =='1'){\n//     msg.url1 = 'http://192.168.0.210:25500/sub?target=clash&url=https%3A%2F%2Fgitlab.com%2Fapi%2Fv4%2Fprojects%2F34199133%2Frepository%2Ffiles%2Fdata%252Fv2ray%252F123456.yaml%2Fraw%3Fref%3Dmain%26private_token%3Dglpat-bix9rWK6svSw7qEzB-tS&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Mini_MultiMode.ini&emoji=true&list=false&udp=false&tfo=false&scv=false&fdn=false&sort=false'\n// }else{\n//     msg.url1 = 'http://192.168.0.210:25500/sub?target=clash&url=https%3A%2F%2Fgitlab.com%2Fapi%2Fv4%2Fprojects%2F34199133%2Frepository%2Ffiles%2Fdata%252Fv2ray%252F123456.yaml%2Fraw%3Fref%3Dmain%26private_token%3Dglpat-bix9rWK6svSw7qEzB-tS%7Chttps%3A%2F%2Fgitlab.com%2Fapi%2Fv4%2Fprojects%2F34199133%2Frepository%2Ffiles%2Fdata%252Fv2ray%252F123.txt%2Fraw%3Fref%3Dmain%26private_token%3Dglpat-bix9rWK6svSw7qEzB-tS&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Mini_MultiMode.ini&emoji=true&list=false&udp=false&tfo=false&scv=false&fdn=false&sort=false'\n// }\n// msg.url1 = msg.payload\nmsg.url = 'http://192.168.0.211/cgi-bin/luci/'\nmsg.payload={\n    'luci_username': 'root',\n    'luci_password': 'password'\n}\nmsg.headers = {\n    'Content-Type': 'application/x-www-form-urlencoded',\n    'Cookie': 'sysauth=bdc717e93b225fe3f1d7749721fb8ce4; agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.211',\n    'Origin': 'http://192.168.0.211',\n    'Referer': 'http://192.168.0.211/cgi-bin/luci/',\n    'Upgrade-Insecure-Requests': '1',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
+        "func": "msg.url = 'http://192.168.0.211/cgi-bin/luci/'\nmsg.payload={\n    'luci_username': 'root',\n    'luci_password': 'password'\n}\nmsg.headers = {\n    'Content-Type': 'application/x-www-form-urlencoded',\n    'Cookie': 'sysauth=8bc041b0450ac814fb80ab10595427f5; agh_session=7cd651ae2eac08640f50ee89c87d66d5',\n    'Host': '192.168.0.211',\n    'Origin': 'http://192.168.0.211',\n    'Referer': 'http://192.168.0.211/cgi-bin/luci/',\n    'Upgrade-Insecure-Requests': '1',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4632,7 +4631,7 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "var count = context.get('count')||'sysauth=8bc041b0450ac814fb80ab10595427f5; agh_session=7cd651ae2eac08640f50ee89c87d66d5';\nif(msg.topic == '2'){\n    count = msg.Cookie\n    \n    msg.topic = '1'\n}\nmsg.headers[Cookie] = \nmsg.url = 'http://192.168.0.211/cgi-bin/luci/admin/services/shadowsocksr/check?set=google&_=0.6529891977372675'\nmsg.headers = {\n    'Cookie': count,\n    'Host': '192.168.0.211',\n    'Referer': 'http://192.168.0.211/cgi-bin/luci/admin/services/shadowsocksr/status',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.55'\n}\ncontext.set('count',count);\nreturn msg;\n\n\n// var count = context.get('count')||'';\n// if(msg.time == count||typeof msg.time == \"undefined\"){\n//     return null\n// }else{\n//     count = msg.time\n//     context.set('count',count);\n//     msg.payload = msg.title + msg.payload[0]\n//     msg.topic = '小说更新(《天唐锦绣》)' + '(' + msg.time + ')'\n//     return msg;\n// }",
+        "func": "var count = context.get('count')||'sysauth=8bc041b0450ac814fb80ab10595427f5; agh_session=7cd651ae2eac08640f50ee89c87d66d5';\nif(msg.topic == '2'){\n    count = msg.payload\n    \n    msg.topic = '1'\n}\nmsg.url = 'http://192.168.0.211/cgi-bin/luci/admin/services/shadowsocksr/check?set=google&_=0.6529891977372675'\nmsg.headers = {\n    'Cookie': count,\n    'Host': '192.168.0.211',\n    'Referer': 'http://192.168.0.211/cgi-bin/luci/admin/services/shadowsocksr/status',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.55'\n}\ncontext.set('count',count);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4691,7 +4690,7 @@
         "id": "37217d51e694d23e",
         "type": "switch",
         "z": "2d47d0348f062886",
-        "name": "",
+        "name": "判断获取cookie",
         "property": "topic",
         "propertyType": "msg",
         "rules": [
@@ -4709,7 +4708,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 670,
+        "x": 700,
         "y": 1560,
         "wires": [
             [
@@ -4724,14 +4723,14 @@
         "id": "ae116e17917032de",
         "type": "function",
         "z": "2d47d0348f062886",
-        "name": "",
-        "func": "msg.headers = {}\nmsg.Cookie = 'sysauth='+msg.redirectList[0].cookies.sysauth.value+'; agh_session=e8dc8a70b7b509eb4b1698564924210b'\n// msg.url = 'http://192.168.0.211/cgi-bin/luci/admin/services/openclash'\n// msg.cookie=msg.headers['Cookie']\nreturn msg;",
+        "name": "获取cookie",
+        "func": "msg.headers = {}\nmsg.payload = 'sysauth='+msg.redirectList[0].cookies.sysauth.value+'; agh_session=e8dc8a70b7b509eb4b1698564924210b'\n// msg.url = 'http://192.168.0.211/cgi-bin/luci/admin/services/openclash'\n// msg.cookie=msg.headers['Cookie']\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
+        "x": 590,
         "y": 1620,
         "wires": [
             [
