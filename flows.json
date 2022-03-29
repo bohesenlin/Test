@@ -4308,7 +4308,8 @@
         "y": 1400,
         "wires": [
             [
-                "a85dd2c85fd9694a"
+                "a85dd2c85fd9694a",
+                "678316b53583a30c"
             ]
         ]
     },
@@ -4415,6 +4416,25 @@
         "x": 1050,
         "y": 800,
         "wires": []
+    },
+    {
+        "id": "678316b53583a30c",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "func": "msg.payload = msg.payload.proxies.length\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 1460,
+        "wires": [
+            [
+                "a85dd2c85fd9694a"
+            ]
+        ]
     },
     {
         "id": "17e7c93fb2cab104",
