@@ -3109,7 +3109,8 @@
             [
                 "53d87ccfbabed377",
                 "c80f71166a6b3d95",
-                "8787e53e10616bab"
+                "8787e53e10616bab",
+                "16249f1dbf53b3bf"
             ]
         ]
     },
@@ -4305,7 +4306,7 @@
         "type": "debug",
         "z": "2d47d0348f062886",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4358,7 +4359,7 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "var arr = msg.payload.providers[\"♻️ 自动选择\"].proxies\n// delete arr.DIRECT\nvar arr1 = []\n//创建数组\nfor(var a in arr){\n    arr1.push([arr[a].history[9].delay,arr[a].name])\n}\n//排序\narr1.sort(function(x, y){\n  return (x[0]-y[0]);\n});\n//取出排序第二的数组\nfor(var i = 0;i<arr1.length;i++){\n    if(arr1[i][0]>0){\n        msg.payload = arr1[i+9]\n        break\n    }\n}\nreturn msg;",
+        "func": "var arr = msg.payload.providers[\"♻️ 自动选择\"].proxies\n// delete arr.DIRECT\nvar arr1 = []\n//创建数组\nfor(var a in arr){\n    arr1.push([arr[a].history[9].delay,arr[a].name])\n}\nreturn arr1\n//排序\n// arr1.sort(function(x, y){\n//   return (x[0]-y[0]);\n// });\n// //取出排序第二的数组\n// for(var i = 0;i<arr1.length;i++){\n//     if(arr1[i][0]>0){\n//         msg.payload = arr1[i+9]\n//         break\n//     }\n// }\n// return msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4368,7 +4369,7 @@
         "y": 1400,
         "wires": [
             [
-                "6a052bb651b79b1d"
+                "a85dd2c85fd9694a"
             ]
         ]
     },
@@ -4383,7 +4384,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
+        "x": 750,
         "y": 1400,
         "wires": [
             [
@@ -4489,7 +4490,7 @@
         "type": "debug",
         "z": "2d47d0348f062886",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
