@@ -4890,7 +4890,7 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "判断连接状态",
-        "func": "var count = context.get('count')||[0,0];\nif(msg.payload == '连接正常'){\n    count[0] = count[0] + 1\n    context.set('count',count);\n    return null\n}else{\n    count[1] = count[1] + 1\n    if(count[1] >= 5 && count[0] == 0){\n        msg.topic = '0'\n        count[1] = 0\n    }else{\n        count = [0,0]\n    }\n    context.set('count',count);\n    return msg;\n}",
+        "func": "var count = context.get('count')||[0,0];\nif(msg.payload == '连接正常'){\n    count[0] = count[0] + 1\n    \n    msg.payload =count\n    context.set('count',count);\n    return msg\n}else{\n    count[1] = count[1] + 1\n    if(count[1] >= 5 && count[0] == 0){\n        msg.topic = '0'\n        count[1] = 0\n        context.set('count',count);\n        return msg;\n    }else{\n        count = [0,0]\n        return null\n    }\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
