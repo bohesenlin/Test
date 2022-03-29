@@ -46,11 +46,11 @@
     },
     "6efd403af327ca32": {
       "lastPayload": {
-        "state": "0.08",
+        "state": "0.00",
         "attributes": {
-          "load1": "0.08",
-          "load5": "0.13",
-          "load15": "0.09",
+          "load1": "0.00",
+          "load5": "0.04",
+          "load15": "0.07",
           "cpu": 0,
           "ram": "498M"
         }
