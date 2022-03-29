@@ -2320,7 +2320,8 @@
         "y": 480,
         "wires": [
             [
-                "6cc76bcdb612f345"
+                "6cc76bcdb612f345",
+                "1efdceaa7cbd92a3"
             ]
         ]
     },
@@ -2362,12 +2363,32 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 550,
+        "x": 870,
         "y": 480,
         "wires": []
+    },
+    {
+        "id": "1efdceaa7cbd92a3",
+        "type": "function",
+        "z": "0143542654182c64",
+        "name": "",
+        "func": "\nattributes = {\n    'load1': msg.payload[0].value,\n    'load5': msg.payload[1].value,\n    'load15': msg.payload[2].value,\n    'cpu': msg.payload[3].value,\n    'ram': msg.payload[4].value\n}\nmsg.payload={\n    'state': attributes.load1,\n    'attributes': attributes\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 560,
+        "wires": [
+            [
+                "6cc76bcdb612f345"
+            ]
+        ]
     },
     {
         "id": "b944fb4e914dc9c8",
@@ -4231,7 +4252,7 @@
         "type": "debug",
         "z": "2d47d0348f062886",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
