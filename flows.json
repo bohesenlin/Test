@@ -4496,7 +4496,7 @@
         "z": "2d47d0348f062886",
         "name": "",
         "method": "GET",
-        "ret": "txt",
+        "ret": "obj",
         "paytoqs": "ignore",
         "url": "",
         "tls": "",
@@ -4508,7 +4508,8 @@
         "y": 1500,
         "wires": [
             [
-                "94db92d80d98cba5"
+                "94db92d80d98cba5",
+                "21bb90c40de292cb"
             ]
         ]
     },
@@ -4543,14 +4544,14 @@
                 "vt": "str"
             }
         ],
-        "repeat": "",
+        "repeat": "60",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 90,
+        "x": 100,
         "y": 1500,
         "wires": [
             [
@@ -4597,6 +4598,58 @@
             [
                 "a45a06ce63d232bd"
             ]
+        ]
+    },
+    {
+        "id": "21bb90c40de292cb",
+        "type": "ha-entity",
+        "z": "2d47d0348f062886",
+        "name": "网络状态",
+        "server": "a5e643a4b8a035cf",
+        "version": 2,
+        "debugenabled": false,
+        "outputs": 1,
+        "entityType": "sensor",
+        "config": [
+            {
+                "property": "name",
+                "value": "网络状态"
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            },
+            {
+                "property": "last_reset",
+                "value": ""
+            }
+        ],
+        "state": "payload.use_time",
+        "stateType": "msg",
+        "attributes": [],
+        "resend": true,
+        "outputLocation": "payload",
+        "outputLocationType": "none",
+        "inputOverride": "allow",
+        "outputOnStateChange": false,
+        "outputPayload": "",
+        "outputPayloadType": "str",
+        "x": 560,
+        "y": 1560,
+        "wires": [
+            []
         ]
     },
     {
