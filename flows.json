@@ -4743,7 +4743,7 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "msg.url = 'http://192.168.0.213:9090/proxies/'+proxies+'/delay?timeout=5000&url=http://www.gstatic.com/generate_204'\nmsg.headers = {\n    'Authorization': 'Bearer 123456',\n    'Connection': 'keep-alive',\n    'Cookie': 'agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213:9090',\n    'Referer': 'http://192.168.0.213:9090/ui/?host=192.168.0.213&port=9090&secret=123456',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.55'\n}\nreturn msg;",
+        "func": "proxies = msg.payload\nfor(var i =0;i<proxies.length;i++){\n    msg.url = 'http://192.168.0.213:9090/proxies/'+proxies[i]+'/delay?timeout=5000&url=http://www.gstatic.com/generate_204'\n    msg.headers = {\n    'Authorization': 'Bearer 123456',\n    'Connection': 'keep-alive',\n    'Cookie': 'agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213:9090',\n    'Referer': 'http://192.168.0.213:9090/ui/?host=192.168.0.213&port=9090&secret=123456',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.55'\n    }\n    return msg;\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4822,6 +4822,95 @@
         "wires": [
             [
                 "34b89bdf52df296e"
+            ]
+        ]
+    },
+    {
+        "id": "a4159ceb7d5514e8",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "func": "msg.payload = ''\nmsg.url = 'http://192.168.0.213:9090/providers/proxies'\nmsg.headers = {\n    'Authorization': 'Bearer 123456',\n    'Connection': 'keep-alive',\n    'Cookie': 'agh_session=e8dc8a70b7b509eb4b1698564924210b',\n    'Host': '192.168.0.213:9090',\n    'Referer': 'http://192.168.0.213:9090/ui/?host=192.168.0.213&port=9090&secret=123456',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 1720,
+        "wires": [
+            [
+                "be2176a697e5bb3e"
+            ]
+        ]
+    },
+    {
+        "id": "be2176a697e5bb3e",
+        "type": "http request",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 340,
+        "y": 1720,
+        "wires": [
+            [
+                "f3829dd153fb6d69"
+            ]
+        ]
+    },
+    {
+        "id": "1f0bbbe1a58eef71",
+        "type": "inject",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 1660,
+        "wires": [
+            [
+                "a4159ceb7d5514e8"
+            ]
+        ]
+    },
+    {
+        "id": "f3829dd153fb6d69",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "func": "var arr = msg.payload.providers[\"♻️ 自动选择\"].proxies\n// delete arr.DIRECT\nvar arr1 = []\n//创建数组\nfor(var a in arr){\n    arr1.push(arr[a].name)\n}\nmsg.payload = arr1\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 1720,
+        "wires": [
+            [
+                "447c766c1a85c49a"
             ]
         ]
     },
@@ -4954,38 +5043,6 @@
         "statusType": "auto",
         "x": 480,
         "y": 180,
-        "wires": []
-    },
-    {
-        "id": "89c39bd5c7910981",
-        "type": "status",
-        "z": "5646dda1b303b00d",
-        "name": "",
-        "scope": [
-            "b061ae01129df64a"
-        ],
-        "x": 110,
-        "y": 300,
-        "wires": [
-            [
-                "eaff2a425bd90756"
-            ]
-        ]
-    },
-    {
-        "id": "eaff2a425bd90756",
-        "type": "debug",
-        "z": "5646dda1b303b00d",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 330,
-        "y": 300,
         "wires": []
     },
     {

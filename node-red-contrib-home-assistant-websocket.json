@@ -19,7 +19,7 @@
     },
     "10fadd7af7843abc": {
       "lastPayload": {
-        "state": "CYL-科技（2022.03.27） 57",
+        "state": "CYL-科技（2022.03.27） 216",
         "attributes": {}
       }
     },
@@ -46,11 +46,11 @@
     },
     "6efd403af327ca32": {
       "lastPayload": {
-        "state": "0.01",
+        "state": "0.08",
         "attributes": {
-          "load1": "0.01",
-          "load5": "0.04",
-          "load15": "0.06",
+          "load1": "0.08",
+          "load5": "0.06",
+          "load15": "0.05",
           "cpu": 0,
           "ram": "498M"
         }
