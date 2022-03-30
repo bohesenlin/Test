@@ -3761,7 +3761,7 @@
         "outputLocationType": "none",
         "inputOverride": "allow",
         "outputOnStateChange": true,
-        "outputPayload": "http://192.168.0.210:25500/sub?target=clash&url=https%3A%2F%2Fgitlab.com%2Fapi%2Fv4%2Fprojects%2F34199133%2Frepository%2Ffiles%2Fdata%252Fv2ray%252F123456.yaml%2Fraw%3Fref%3Dmain%26private_token%3Dglpat-bix9rWK6svSw7qEzB-tS&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Mini_MultiMode.ini&emoji=true&list=false&udp=false&tfo=false&scv=false&fdn=false&sort=false",
+        "outputPayload": "http://192.168.0.210:25500/sub?target=clash&url=https%3A%2F%2Fgitlab.com%2Fapi%2Fv4%2Fprojects%2F34199133%2Frepository%2Ffiles%2Fdata%252Fv2ray%252Fgithub.yaml%2Fraw%3Fref%3Dmain%26private_token%3Dglpat-bix9rWK6svSw7qEzB-tS&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Mini_MultiMode.ini&emoji=true&list=false&udp=false&tfo=false&scv=false&fdn=false&sort=false",
         "outputPayloadType": "str",
         "x": 100,
         "y": 600,
@@ -4299,7 +4299,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "",
+        "repeat": "5",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
