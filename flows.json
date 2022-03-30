@@ -1685,7 +1685,8 @@
         "name": "发邮件",
         "links": [
             "6079cbc048beab4d",
-            "0630b1abbd3a5e68"
+            "0630b1abbd3a5e68",
+            "0badc744f1b956c9"
         ],
         "x": 1125,
         "y": 520,
@@ -3000,8 +3001,8 @@
         "y": 360,
         "wires": [
             [
-                "4898076ec0258355",
-                "9f603bd5c2bbaeb5"
+                "9f603bd5c2bbaeb5",
+                "0badc744f1b956c9"
             ]
         ]
     },
@@ -3021,21 +3022,6 @@
             [
                 "1e3c339aa72883e3"
             ]
-        ]
-    },
-    {
-        "id": "4898076ec0258355",
-        "type": "link call",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "links": [
-            "7bcc9e0bad949cea"
-        ],
-        "timeout": "30",
-        "x": 1190,
-        "y": 360,
-        "wires": [
-            []
         ]
     },
     {
@@ -4365,7 +4351,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "",
+        "repeat": "10",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
@@ -5123,6 +5109,19 @@
         "statusType": "auto",
         "x": 490,
         "y": 640,
+        "wires": []
+    },
+    {
+        "id": "0badc744f1b956c9",
+        "type": "link out",
+        "z": "2d47d0348f062886",
+        "name": "发邮件",
+        "mode": "link",
+        "links": [
+            "7bcc9e0bad949cea"
+        ],
+        "x": 1135,
+        "y": 360,
         "wires": []
     },
     {
