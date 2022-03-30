@@ -564,6 +564,20 @@
         "height": 1
     },
     {
+        "id": "37ea1b5e8f9b7c0d",
+        "type": "filebrowser",
+        "repositoryType": "SMB",
+        "share": "192.168.0.210/",
+        "port": "445",
+        "domain": "",
+        "username": "share",
+        "password": "sambashare",
+        "workdir": "",
+        "name": "Share",
+        "sshKeyPath": "",
+        "additionalLftpCommands": ""
+    },
+    {
         "id": "3cc11d24.ff01a2",
         "type": "comment",
         "z": "f6f2187d.f17ca8",
@@ -1956,6 +1970,71 @@
                 "e9152c023b3cdb3f"
             ]
         ]
+    },
+    {
+        "id": "6de02d7bcbdd9e14",
+        "type": "filebrowser in",
+        "z": "df04831a8742eac0",
+        "filebrowser": "37ea1b5e8f9b7c0d",
+        "repositoryType": "",
+        "rules": [
+            {
+                "t": "37ea1b5e8f9b7c0d"
+            }
+        ],
+        "property": "payload",
+        "x": 950,
+        "y": 840,
+        "wires": [
+            [
+                "4e2373b45c095c0c"
+            ]
+        ]
+    },
+    {
+        "id": "693acad5d1df371f",
+        "type": "inject",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 790,
+        "y": 860,
+        "wires": [
+            [
+                "6de02d7bcbdd9e14"
+            ]
+        ]
+    },
+    {
+        "id": "4e2373b45c095c0c",
+        "type": "debug",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 840,
+        "wires": []
     },
     {
         "id": "4c21ef519ea65406",
