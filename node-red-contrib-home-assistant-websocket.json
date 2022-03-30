@@ -19,7 +19,7 @@
     },
     "10fadd7af7843abc": {
       "lastPayload": {
-        "state": "CYL-科技（2022.03.27） 45",
+        "state": "♻️ 自动选择",
         "attributes": {}
       }
     },
@@ -46,11 +46,11 @@
     },
     "6efd403af327ca32": {
       "lastPayload": {
-        "state": "0.27",
+        "state": "0.09",
         "attributes": {
-          "load1": "0.27",
-          "load5": "0.12",
-          "load15": "0.08",
+          "load1": "0.09",
+          "load5": "0.07",
+          "load15": "0.07",
           "cpu": 0,
           "ram": "498M",
           "os": "Linux NEWIFI3 5.4.175 #0 SMP Sat Feb 5 13:08:46 2022 mips"

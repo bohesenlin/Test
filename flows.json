@@ -4163,7 +4163,7 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "var arr = msg.payload.providers[\"♻️ 自动选择\"].proxies\n// delete arr.DIRECT\nvar arr1 = []\n//创建数组\nvar n = 0\nfor(var a in arr){\n    n = arr[a].history.length - 1\n    arr1.push([arr[a].history[n].delay,arr[a].name])\n}\n// 排序\narr1.sort(function(x, y){\n  return (x[0]-y[0]);\n});\n\n\nvar list = context.get('list')||[];\nlist.push(msg.state)\n// context.set('list',list);\n\n\n//取出数组之中和list中元素不同的节点名称\nfor(var i = 0;i<arr1.length;i++){\n    if(arr1[i][0]>0){\n        for(var t =0;t<list.length;t++){\n            if(arr1[i][1] == list[t]){\n                break\n            }else if(t==(list.length-1)){\n                msg.payload = arr1[i]\n                context.set('list',list);\n                return msg;\n            }\n        }\n    }\n}\n",
+        "func": "var arr = msg.payload.providers[\"♻️ 自动选择\"].proxies\n// delete arr.DIRECT\nvar arr1 = []\n//创建数组\nvar n = 0\nfor(var a in arr){\n    n = arr[a].history.length - 1\n    arr1.push([arr[a].history[n].delay,arr[a].name])\n}\n// 排序\narr1.sort(function(x, y){\n  return (x[0]-y[0]);\n});\n\nvar list = context.get('list')||[];\nlist.push(msg.state)\n// context.set('list',list);\n\n\n//取出数组之中和list中元素不同的节点名称\nfor(var i = 0;i<arr1.length;i++){\n    if(arr1[i][0]>0){\n        for(var t =0;t<list.length;t++){\n            if(arr1[i][1] == list[t]){\n                break\n            }else if(t==(list.length-1)){\n                msg.payload = arr1[i]\n                context.set('list',list);\n                return msg;\n            }\n        }\n    }\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4301,12 +4301,12 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "1",
+        "topic": "",
         "x": 90,
-        "y": 1560,
+        "y": 1680,
         "wires": [
             [
-                "b61f71e605330b2a"
+                "fbbd9b97a4706c37"
             ]
         ]
     },
@@ -4324,7 +4324,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 420,
+        "x": 840,
         "y": 1620,
         "wires": [
             [
@@ -4343,7 +4343,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
+        "x": 690,
         "y": 1620,
         "wires": [
             [
@@ -4397,7 +4397,7 @@
         "outputOnStateChange": false,
         "outputPayload": "",
         "outputPayloadType": "str",
-        "x": 800,
+        "x": 580,
         "y": 1500,
         "wires": [
             []
@@ -4414,7 +4414,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
+        "x": 540,
         "y": 1560,
         "wires": [
             [
@@ -4436,7 +4436,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 420,
+        "x": 680,
         "y": 1560,
         "wires": [
             [
@@ -4455,7 +4455,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
+        "x": 830,
         "y": 1560,
         "wires": [
             [
@@ -4485,7 +4485,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 740,
+        "x": 1000,
         "y": 1560,
         "wires": [
             [
@@ -4507,7 +4507,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
+        "x": 1010,
         "y": 1620,
         "wires": [
             [
@@ -4526,7 +4526,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
+        "x": 990,
         "y": 1680,
         "wires": [
             [
@@ -4547,7 +4547,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1010,
+        "x": 1290,
         "y": 1680,
         "wires": []
     },
@@ -4565,7 +4565,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 860,
+        "x": 1140,
         "y": 1680,
         "wires": [
             [
@@ -4584,7 +4584,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
+        "x": 550,
         "y": 1680,
         "wires": [
             [
@@ -4606,7 +4606,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 420,
+        "x": 700,
         "y": 1680,
         "wires": [
             [
@@ -4649,7 +4649,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
+        "x": 850,
         "y": 1680,
         "wires": [
             [
@@ -4668,31 +4668,14 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 940,
+        "x": 1200,
         "y": 1560,
         "wires": [
             [
-                "c97efcf2209e3b1b",
-                "019340b2c81c126e"
+                "019340b2c81c126e",
+                "f8936c472372c9ca"
             ]
         ]
-    },
-    {
-        "id": "c97efcf2209e3b1b",
-        "type": "debug",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1090,
-        "y": 1620,
-        "wires": []
     },
     {
         "id": "449781a1d68b186d",
@@ -4719,7 +4702,7 @@
         "links": [
             "449781a1d68b186d"
         ],
-        "x": 1065,
+        "x": 1325,
         "y": 1560,
         "wires": []
     },
@@ -4882,8 +4865,7 @@
         "y": 1740,
         "wires": [
             [
-                "a4159ceb7d5514e8",
-                "c97efcf2209e3b1b"
+                "a4159ceb7d5514e8"
             ],
             [
                 "18556a1bcf6078ba"
@@ -4966,32 +4948,6 @@
         "y": 1740,
         "wires": [
             [
-                "de270635c3598320"
-            ]
-        ]
-    },
-    {
-        "id": "de270635c3598320",
-        "type": "delay",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "10",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 1140,
-        "y": 1740,
-        "wires": [
-            [
-                "d6a27028857219c2",
                 "724656b6e18a172b"
             ]
         ]
@@ -5009,8 +4965,77 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1250,
-        "y": 1820,
+        "x": 1130,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "fbbd9b97a4706c37",
+        "type": "function",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "func": "\nvar state1 = global.get('state1') || false;\n\nif(state1 == true){\n    msg.topic = '1'\n}else{\n    msg.topic = '3'\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 1680,
+        "wires": [
+            [
+                "d352549c331dcd9a"
+            ]
+        ]
+    },
+    {
+        "id": "d352549c331dcd9a",
+        "type": "switch",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 370,
+        "y": 1680,
+        "wires": [
+            [
+                "b61f71e605330b2a"
+            ],
+            [
+                "18556a1bcf6078ba"
+            ]
+        ]
+    },
+    {
+        "id": "f8936c472372c9ca",
+        "type": "debug",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1230,
+        "y": 1620,
         "wires": []
     },
     {
