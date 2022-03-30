@@ -969,5 +969,25 @@
                 "file": "/data/node_modules/node-red-contrib-filebrowser/filebrowser.js"
             }
         }
+    },
+    "node-red-contrib-smb": {
+        "name": "node-red-contrib-smb",
+        "version": "1.2.0",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "SMB": {
+                "name": "SMB",
+                "types": [
+                    "SMB",
+                    "smb config"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-smb",
+                "file": "/data/node_modules/node-red-contrib-smb/red/smb.js"
+            }
+        }
     }
 }

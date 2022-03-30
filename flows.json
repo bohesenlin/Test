@@ -567,7 +567,7 @@
         "id": "37ea1b5e8f9b7c0d",
         "type": "filebrowser",
         "repositoryType": "SMB",
-        "share": "192.168.0.210/",
+        "share": "\\\\192.168.0.210\\nextcloud",
         "port": "445",
         "domain": "",
         "username": "share",
@@ -576,6 +576,13 @@
         "name": "Share",
         "sshKeyPath": "",
         "additionalLftpCommands": ""
+    },
+    {
+        "id": "5b3a2dafd7890641",
+        "type": "smb config",
+        "name": "",
+        "share": "\\\\192.168.0.210\\Nextcloud",
+        "domain": ""
     },
     {
         "id": "3cc11d24.ff01a2",
@@ -2035,6 +2042,53 @@
         "x": 1130,
         "y": 840,
         "wires": []
+    },
+    {
+        "id": "ed49eb0c0b2391d3",
+        "type": "SMB",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "config": "5b3a2dafd7890641",
+        "operation": "read-dir",
+        "path": "",
+        "path_new": "",
+        "format": "string",
+        "x": 1010,
+        "y": 980,
+        "wires": [
+            [
+                "4e2373b45c095c0c"
+            ]
+        ]
+    },
+    {
+        "id": "47483a6b9d41681f",
+        "type": "inject",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 770,
+        "y": 980,
+        "wires": [
+            [
+                "ed49eb0c0b2391d3"
+            ]
+        ]
     },
     {
         "id": "4c21ef519ea65406",
