@@ -3714,7 +3714,7 @@
         "wires": [
             [
                 "8795456d1255b15f",
-                "bd4480f718c8b43f"
+                "4489dc8343172b9c"
             ]
         ]
     },
@@ -4882,7 +4882,8 @@
         "y": 1740,
         "wires": [
             [
-                "a4159ceb7d5514e8"
+                "a4159ceb7d5514e8",
+                "c97efcf2209e3b1b"
             ],
             [
                 "18556a1bcf6078ba"
@@ -4910,7 +4911,7 @@
         "y": 1740,
         "wires": [
             [
-                "38215d012fdb51d1"
+                "3b981e242549045b"
             ]
         ]
     },
@@ -4919,7 +4920,7 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "var count = context.get('count')||'';\nif(msg.topic == '3'){\n    count ='3'\n    context.set('count',count);\n    msg.topic ='3'\n    return msg;\n}\nif(msg.topic == '6'){\n    count ='1'\n    context.set('count',count);\n}\nif(count =='3'){\n    msg.topic = '3'\n    return msg;\n}\nreturn msg;",
+        "func": "\nvar state1 = global.get('state1') || false;\n\nif(state1 == true){\n    msg.topic = '1'\n}else{\n    msg.topic = '3'\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4934,60 +4935,83 @@
         ]
     },
     {
-        "id": "bd4480f718c8b43f",
-        "type": "link out",
+        "id": "4489dc8343172b9c",
+        "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "mode": "link",
-        "links": [
-            "84dca963f271adb4"
-        ],
-        "x": 295,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "84dca963f271adb4",
-        "type": "link in",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "links": [
-            "bd4480f718c8b43f"
-        ],
-        "x": 135,
-        "y": 1680,
+        "func": "var state1 = global.get('state1') || false;\nglobal.set(\"state1\",false);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 640,
         "wires": [
-            [
-                "d6a27028857219c2"
-            ]
+            []
         ]
     },
     {
-        "id": "38215d012fdb51d1",
-        "type": "change",
+        "id": "3b981e242549045b",
+        "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "6",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1020,
+        "func": "var state1 = global.get('state1');\nglobal.set(\"state1\",true);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
         "y": 1740,
         "wires": [
             [
-                "d6a27028857219c2"
+                "de270635c3598320"
             ]
         ]
+    },
+    {
+        "id": "de270635c3598320",
+        "type": "delay",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1140,
+        "y": 1740,
+        "wires": [
+            [
+                "d6a27028857219c2",
+                "724656b6e18a172b"
+            ]
+        ]
+    },
+    {
+        "id": "724656b6e18a172b",
+        "type": "debug",
+        "z": "2d47d0348f062886",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1250,
+        "y": 1820,
+        "wires": []
     },
     {
         "id": "17e7c93fb2cab104",
