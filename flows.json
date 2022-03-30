@@ -4293,9 +4293,6 @@
         "name": "",
         "props": [
             {
-                "p": "payload"
-            },
-            {
                 "p": "topic",
                 "vt": "str"
             }
@@ -4304,10 +4301,8 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 100,
+        "topic": "1",
+        "x": 90,
         "y": 1560,
         "wires": [
             [
@@ -4626,22 +4621,17 @@
         "name": "定时测速",
         "props": [
             {
-                "p": "payload"
-            },
-            {
                 "p": "topic",
                 "vt": "str"
             }
         ],
-        "repeat": "300",
+        "repeat": "600",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 1640,
+        "topic": "1",
+        "x": 110,
+        "y": 1740,
         "wires": [
             [
                 "d6a27028857219c2"
@@ -4836,8 +4826,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 1780,
+        "x": 550,
+        "y": 1740,
         "wires": [
             [
                 "bf1a4778b487973d"
@@ -4858,8 +4848,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 420,
-        "y": 1780,
+        "x": 700,
+        "y": 1740,
         "wires": [
             [
                 "8a45c58996906376"
@@ -4867,57 +4857,11 @@
         ]
     },
     {
-        "id": "ab14dfa7130cdbf2",
-        "type": "inject",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 1780,
-        "wires": [
-            [
-                "18556a1bcf6078ba"
-            ]
-        ]
-    },
-    {
-        "id": "e717ce963f62f55c",
-        "type": "debug",
-        "z": "2d47d0348f062886",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 790,
-        "y": 1780,
-        "wires": []
-    },
-    {
         "id": "8a4e9d1e84609412",
         "type": "switch",
         "z": "2d47d0348f062886",
         "name": "",
-        "property": "payload",
+        "property": "topic",
         "propertyType": "msg",
         "rules": [
             {
@@ -4934,12 +4878,11 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 290,
+        "x": 410,
         "y": 1740,
         "wires": [
             [
-                "a4159ceb7d5514e8",
-                "34b89bdf52df296e"
+                "a4159ceb7d5514e8"
             ],
             [
                 "18556a1bcf6078ba"
@@ -4963,11 +4906,10 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 570,
-        "y": 1780,
+        "x": 850,
+        "y": 1740,
         "wires": [
             [
-                "e717ce963f62f55c",
                 "38215d012fdb51d1"
             ]
         ]
@@ -4977,13 +4919,13 @@
         "type": "function",
         "z": "2d47d0348f062886",
         "name": "",
-        "func": "var count = context.get('count')||'';\n\nif(msg.topic == '3'){\n    count ='3'\n    context.set('count',count);\n    msg.topic ='3'\n}\nif(msg.topic == '6'){\n    count ='1'\n    context.set('count',count);\n}\nif(count =='3'){\n    msg.topic = '3'\n}\n\nreturn msg;",
+        "func": "var count = context.get('count')||'';\nif(msg.topic == '3'){\n    count ='3'\n    context.set('count',count);\n    msg.topic ='3'\n    return msg;\n}\nif(msg.topic == '6'){\n    count ='1'\n    context.set('count',count);\n}\nif(count =='3'){\n    msg.topic = '3'\n    return msg;\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 150,
+        "x": 270,
         "y": 1740,
         "wires": [
             [
@@ -5012,8 +4954,8 @@
         "links": [
             "bd4480f718c8b43f"
         ],
-        "x": 45,
-        "y": 1740,
+        "x": 135,
+        "y": 1680,
         "wires": [
             [
                 "d6a27028857219c2"
@@ -5039,8 +4981,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 660,
-        "y": 1840,
+        "x": 1020,
+        "y": 1740,
         "wires": [
             [
                 "d6a27028857219c2"
