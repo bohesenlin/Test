@@ -581,7 +581,7 @@
         "id": "5b3a2dafd7890641",
         "type": "smb config",
         "name": "",
-        "share": "\\\\192.168.0.210\\Nextcloud",
+        "share": "\\\\192.168.0.210\\jellyfin",
         "domain": ""
     },
     {
@@ -2050,10 +2050,10 @@
         "name": "",
         "config": "5b3a2dafd7890641",
         "operation": "read-dir",
-        "path": "",
+        "path": "\\",
         "path_new": "",
         "format": "string",
-        "x": 1010,
+        "x": 1000,
         "y": 980,
         "wires": [
             [
