@@ -1891,6 +1891,72 @@
         ]
     },
     {
+        "id": "118caed2de8e26ca",
+        "type": "http in",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "url": "hello1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 630,
+        "y": 760,
+        "wires": [
+            [
+                "54e5a7ae81ba8ff8"
+            ]
+        ]
+    },
+    {
+        "id": "e9152c023b3cdb3f",
+        "type": "template",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "",
+        "output": "str",
+        "x": 930,
+        "y": 760,
+        "wires": [
+            [
+                "ca70e17d6b996ede"
+            ]
+        ]
+    },
+    {
+        "id": "ca70e17d6b996ede",
+        "type": "http response",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1070,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "54e5a7ae81ba8ff8",
+        "type": "function",
+        "z": "df04831a8742eac0",
+        "name": "",
+        "func": "msg.template = '192.168.0.210:25500/sub?target=clash&url=vmess%3A%2F%2Few0KICAidiI6ICIyIiwNCiAgInBzIjogIuiLseWbvemYv%2BS8n%2BenkeaKgEBURy%2FmsrnnrqEiLA0KICAiYWRkIjogImxvbjEuYnB5dW4ubGl2ZSIsDQogICJwb3J0IjogIjQ0MyIsDQogICJpZCI6ICIwMjliN2MyMC02YTFiLTM5N2MtYmU1OC1mOGQ0YzNmN2YyZjkiLA0KICAiYWlkIjogIjAiLA0KICAic2N5IjogImF1dG8iLA0KICAibmV0IjogIndzIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogImxvbjEuYnB5dW4ubGl2ZSIsDQogICJwYXRoIjogIi9jb2Nrc3Vja2VyIiwNCiAgInRscyI6ICJ0bHMiLA0KICAic25pIjogIiINCn0%3D&&insert=false&config=https%3A%2F%2Fgithub.com%2FACL4SSR%2FACL4SSR%2Fblob%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online_Full.ini&emoji=true&list=false&udp=false&tfo=false&scv=false&fdn=false&sort=false'\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 760,
+        "wires": [
+            [
+                "e9152c023b3cdb3f"
+            ]
+        ]
+    },
+    {
         "id": "4c21ef519ea65406",
         "type": "api-call-service",
         "z": "a8c13c8811cc5927",
