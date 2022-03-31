@@ -6433,8 +6433,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 250,
-        "y": 760,
+        "x": 90,
+        "y": 740,
         "wires": [
             [
                 "a61a740e7a186d24"
@@ -6448,8 +6448,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 870,
-        "y": 900,
+        "x": 1130,
+        "y": 740,
         "wires": []
     },
     {
@@ -6465,8 +6465,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 570,
-        "y": 920,
+        "x": 830,
+        "y": 800,
         "wires": []
     },
     {
@@ -6480,8 +6480,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
-        "y": 760,
+        "x": 250,
+        "y": 740,
         "wires": [
             [
                 "977d08a2ca167350"
@@ -6502,8 +6502,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 580,
-        "y": 760,
+        "x": 400,
+        "y": 740,
         "wires": [
             [
                 "d57c3ceefb224b70"
@@ -6521,8 +6521,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 250,
-        "y": 840,
+        "x": 550,
+        "y": 740,
         "wires": [
             [
                 "ed1e3d9276ecbe56"
@@ -6543,8 +6543,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 580,
-        "y": 840,
+        "x": 840,
+        "y": 740,
         "wires": [
             [
                 "ed1e3d9276ecbe56",
@@ -6563,8 +6563,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
-        "y": 840,
+        "x": 690,
+        "y": 740,
         "wires": [
             [
                 "03280bbe88ad9bf9",
@@ -6583,8 +6583,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
-        "y": 840,
+        "x": 990,
+        "y": 740,
         "wires": [
             [
                 "e4d1e93f8ca6cabf",
@@ -6605,8 +6605,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 870,
-        "y": 840,
+        "x": 1130,
+        "y": 800,
         "wires": []
     },
     {
@@ -6618,10 +6618,10 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<html>\n\n<head>\n    <script>\n        window.onload = function () {\n            function add(arr) {\n                for (var val in arr) {\n                    // for (var i = 0; i < arr[val].length; i++) {\n                    var tr = document.createElement(\"tr\");\n                    //设置tr中的内容\n                    tr.innerHTML = \"<td>\" + arr[val][0] + \"</td>\" +\n                        \"<td>\" + arr[val][1] + \"</td>\" +\n                        \"<td>\" + arr[val][2] + \"</td>\" +\n                        \"<td><a href=\"+arr[val][4]+\">下载</a></td>\";\n\n                    //获取刚刚添加的a元素，并为其绑定单击响应函数\t\t\t\t\n                    // var a = tr.getElementsByTagName(\"a\")[0];\n                    // a.onclick = function () { };\n\n                    //获取table\n                    var employeeTable = document.getElementById(\"employeeTable\");\n                    //获取employeeTable中的tbody\n                    var tbody = employeeTable.getElementsByTagName(\"tbody\")[0];\n                    //将tr添加到tbodye中\n                    tbody.appendChild(tr);\n                    // }\n                }\n                \n            };\n            //\n            btn = document.querySelectorAll('button')\n            btn[0].onclick = function () {\n                // alert('hello')\n                getmusic()\n            }\n            text = document.querySelectorAll('input')\n            text[0].value = \"周杰伦\"\n            text[1].value = \"5\"\n            a = document.querySelectorAll('a')\n            function getmusic() {\n\n                var xhr = new XMLHttpRequest();\n                xhr.withCredentials = true;\n\n                xhr.addEventListener(\"readystatechange\", function () {\n                    if (this.readyState === 4) {\n                        console.log(this.responseText);\n                        // ab(this.responseText);\n                        \n                        var response = eval('('+this.responseText+')')\n                        add(response)\n                    }\n                });\n                url = \"http://192.168.0.210:1880/music?a=\"+text[0].value+\"&b=\"+text[1].value\n                dataType: 'json'\n                \n                xhr.open(\"GET\", url);\n                xhr.send();\n                \n            }\n            function ab(txt){\n                a[0].innerHTML = txt\n            }\n        }\n    </script>\n</head>\n\n<body>\n    <div>\n        歌手或歌曲名称\n    </div>\n    <div>\n        <input type=\"text\">\n\n    </div>\n    <div>\n        显示数量\n    </div>\n    <input type=\"text1\">\n    <div>\n        <button>提交</button>\n    </div>\n    <div>\n        <a id=\"abc\"></a>\n    </div>\n    \n    <table id=\"employeeTable\">\n        <tr>\n            <th>Name</th>\n            <th>Email</th>\n            <th>Salary</th>\n            <th>&nbsp;</th>\n        </tr>\n        <tr>\n            <td>Tom</td>\n            <td>tom@tom.com</td>\n            <td>5000</td>\n            <td>\n                <a href=\"javascript:;\">Delete</a>\n            </td>\n        </tr>\n        <tr>\n            <td>Jerry</td>\n            <td>jerry@sohu.com</td>\n            <td>8000</td>\n            <td>\n                <a href=\"deleteEmp?id=002\">Delete</a>\n            </td>\n        </tr>\n        <tr>\n            <td>Bob</td>\n            <td>bob@tom.com</td>\n            <td>10000</td>\n            <td>\n                <a href=\"deleteEmp?id=003\">Delete</a>\n            </td>\n        </tr>\n    </table>\n    {{!--<div id=\"formDiv\">--}}\n\n    {{!--    <h4>添加新员工</h4>--}}\n\n    {{!--    <table>--}}\n    {{!--        <tr>--}}\n    {{!--            <td class=\"word\">name: </td>--}}\n    {{!--            <td class=\"inp\">--}}\n    {{!--                <input type=\"text\" name=\"empName\" id=\"empName\" />--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--        <tr>--}}\n    {{!--            <td class=\"word\">email: </td>--}}\n    {{!--            <td class=\"inp\">--}}\n    {{!--                <input type=\"text\" name=\"email\" id=\"email\" />--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--        <tr>--}}\n    {{!--            <td class=\"word\">salary: </td>--}}\n    {{!--            <td class=\"inp\">--}}\n    {{!--                <input type=\"text\" name=\"salary\" id=\"salary\" />--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--        <tr>--}}\n    {{!--            <td colspan=\"2\" align=\"center\">--}}\n    {{!--                <button id=\"addEmpButton\">--}}\n    {{!--                    Submit--}}\n    {{!--                </button>--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--    </table>--}}\n\n    {{!--</div>--}}\n    \n</body>\n\n</html>",
+        "template": "<html>\n\n<head>\n    <script>\n        window.onload = function () {\n            function add(arr) {\n                for (var val in arr) {\n                    // for (var i = 0; i < arr[val].length; i++) {\n                    var tr = document.createElement(\"tr\");\n                    //设置tr中的内容\n                    tr.innerHTML = \"<td>\" + arr[val][0] + \"</td>\" +\n                        \"<td>\" + arr[val][1] + \"</td>\" +\n                        \"<td>\" + arr[val][2] + \"</td>\" +\n                        \"<td><a href=\"+arr[val][4]+\">下载</a></td>\";\n\n                    //获取刚刚添加的a元素，并为其绑定单击响应函数\t\t\t\t\n                    // var a = tr.getElementsByTagName(\"a\")[0];\n                    // a.onclick = function () { };\n\n                    //获取table\n                    var employeeTable = document.getElementById(\"employeeTable\");\n                    //获取employeeTable中的tbody\n                    var tbody = employeeTable.getElementsByTagName(\"tbody\")[0];\n                    //将tr添加到tbodye中\n                    tbody.appendChild(tr);\n                    // }\n                }\n                \n            };\n            //\n            btn = document.querySelectorAll('button')\n            btn[0].onclick = function () {\n                // alert('hello')\n                getmusic()\n            }\n            text = document.querySelectorAll('input')\n            text[0].value = \"周杰伦\"\n            text[1].value = \"5\"\n            a = document.querySelectorAll('a')\n            function getmusic() {\n\n                var xhr = new XMLHttpRequest();\n                xhr.withCredentials = true;\n\n                xhr.addEventListener(\"readystatechange\", function () {\n                    if (this.readyState === 4) {\n                        console.log(this.responseText);\n                        // ab(this.responseText);\n                        \n                        var response = eval('('+this.responseText+')')\n                        add(response)\n                    }\n                });\n                url = \"http://192.168.0.210:1880/music?a=\"+text[0].value+\"&b=\"+text[1].value\n                dataType: 'json'\n                \n                xhr.open(\"GET\", url);\n                xhr.send();\n                \n            }\n            function ab(txt){\n                a[0].innerHTML = txt\n            }\n        }\n    </script>\n</head>\n\n<body>\n    <div>\n        歌手或歌曲名称\n    </div>\n    <div>\n        <input type=\"text\">\n\n    </div>\n    <div>\n        显示数量\n    </div>\n    <input type=\"text1\">\n    <div>\n        <button>提交</button>\n    </div>\n    <div>\n        <a id=\"abc\"></a>\n    </div>\n    \n    <table id=\"employeeTable\">\n        <tr>\n            <th>Name</th>\n            <th>歌手</th>\n            <th>专辑</th>\n            <th>下载</th>\n        </tr>\n        \n        {{!--<tr>--}}\n        {{!--    <td></td>--}}\n        {{!--    <td></td>--}}\n        {{!--    <td></td>--}}\n        {{!--    <td>--}}\n        {{!--        <a href=\"deleteEmp?id=003\"></a>--}}\n        {{!--    </td>--}}\n        {{!--</tr>--}}\n    </table>\n    {{!--<div id=\"formDiv\">--}}\n\n    {{!--    <h4>添加新员工</h4>--}}\n\n    {{!--    <table>--}}\n    {{!--        <tr>--}}\n    {{!--            <td class=\"word\">name: </td>--}}\n    {{!--            <td class=\"inp\">--}}\n    {{!--                <input type=\"text\" name=\"empName\" id=\"empName\" />--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--        <tr>--}}\n    {{!--            <td class=\"word\">email: </td>--}}\n    {{!--            <td class=\"inp\">--}}\n    {{!--                <input type=\"text\" name=\"email\" id=\"email\" />--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--        <tr>--}}\n    {{!--            <td class=\"word\">salary: </td>--}}\n    {{!--            <td class=\"inp\">--}}\n    {{!--                <input type=\"text\" name=\"salary\" id=\"salary\" />--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--        <tr>--}}\n    {{!--            <td colspan=\"2\" align=\"center\">--}}\n    {{!--                <button id=\"addEmpButton\">--}}\n    {{!--                    Submit--}}\n    {{!--                </button>--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--    </table>--}}\n\n    {{!--</div>--}}\n    \n</body>\n\n</html>",
         "output": "str",
-        "x": 390,
-        "y": 700,
+        "x": 230,
+        "y": 680,
         "wires": [
             [
                 "508d94a9c9102702"
@@ -6637,8 +6637,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 240,
-        "y": 700,
+        "x": 80,
+        "y": 680,
         "wires": [
             [
                 "97213dc17b2c5cd1"
@@ -6652,8 +6652,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 530,
-        "y": 700,
+        "x": 370,
+        "y": 680,
         "wires": []
     }
 ]
