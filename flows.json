@@ -1791,7 +1791,8 @@
         "y": 660,
         "wires": [
             [
-                "cbcacfccb749d089"
+                "cbcacfccb749d089",
+                "19296caed6c2ca46"
             ]
         ]
     },
@@ -6422,5 +6423,79 @@
                 "a5b256c5138eab3d"
             ]
         ]
+    },
+    {
+        "id": "b2c778b030809e23",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "\nmsg.url = 'http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=' + msg.payload.a + '&pn=1&rn=30'\nmsg.headers = {\n    'Connection':'keep-alive',\n    'Cookie':'kw_token=K8GF5NROMGS',\n    'csrf':'K8GF5NROMGS',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/search/list?key=%E9%99%88%E5%A5%95%E8%BF%85',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 700,
+        "wires": [
+            [
+                "a769399abc22351d"
+            ]
+        ]
+    },
+    {
+        "id": "a769399abc22351d",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 520,
+        "y": 700,
+        "wires": [
+            [
+                "b165b16b173bf9b9"
+            ]
+        ]
+    },
+    {
+        "id": "5c1fd296cf04e281",
+        "type": "http in",
+        "z": "e3562182c0530220",
+        "name": "",
+        "url": "music",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 700,
+        "wires": [
+            [
+                "b2c778b030809e23"
+            ]
+        ]
+    },
+    {
+        "id": "b165b16b173bf9b9",
+        "type": "debug",
+        "z": "e3562182c0530220",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 700,
+        "wires": []
     }
 ]
