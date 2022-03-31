@@ -6516,7 +6516,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "msg.artist = []\nmsg.rid = []\nmsg.album = []\nmsg.name = []\nmsg.url = []\nfor(var i=0 ; i < msg.payload.data.list.length ; i++){\n    msg.artist.push(msg.payload.data.list[i].artist)\n    msg.rid.push(msg.payload.data.list[i].rid)\n    msg.album.push(msg.payload.data.list[i].album)\n    msg.name.push(msg.payload.data.list[i].name)\n    msg.url.push('http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[i]+'&type=convert_url3&br=320kmp3')\n}\nmsg.payload={\n    artist:msg.artist\n    \n}\nreturn msg;",
+        "func": "msg.artist = []\nmsg.rid = []\nmsg.album = []\nmsg.name = []\nmsg.url = []\nfor(var i=0 ; i < msg.payload.data.list.length ; i++){\n    msg.artist.push(msg.payload.data.list[i].artist)\n    msg.rid.push(msg.payload.data.list[i].rid)\n    msg.album.push(msg.payload.data.list[i].album)\n    msg.name.push(msg.payload.data.list[i].name)\n    msg.url.push('http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[i]+'&type=convert_url3&br=320kmp3')\n}\nmsg.payload={\n    artist:msg.artist,\n    rid:msg.rid,\n    album:msg.album,\n    name:msg.name,\n    url:msg.url\n    \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
