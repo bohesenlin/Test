@@ -4482,7 +4482,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "10",
+        "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
