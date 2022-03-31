@@ -6577,7 +6577,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "var list = context.get('list')||[];\nif(msg.t1 == 1){\n    list = []\n    msg.t1 = 0\n}\nlist.push(\n    [\n        msg.artist1,\n        msg.rid1,\n        msg.album1,\n        msg.name1,\n        msg.payload.data.url\n    ]\n)\nif(msg.t2 == 1){\n    msg.payload = list\n    delete(msg.headers)\n    return msg;\n}\n// context.set('url',url);\ncontext.set('list',list);",
+        "func": "var list = context.get('list')||[];\nif(msg.t1 == 1){\n    list = []\n    msg.t1 = 0\n}\nlist.push(\n    [\n        msg.name1,\n        msg.artist1,\n        msg.album1,\n        msg.rid1,\n        msg.payload.data.url\n    ]\n)\nif(msg.t2 == 1){\n    msg.payload = list\n    delete(msg.headers)\n    return msg;\n}\n// context.set('url',url);\ncontext.set('list',list);",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
