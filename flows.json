@@ -6462,7 +6462,7 @@
         "wires": [
             [
                 "b165b16b173bf9b9",
-                "cfccec600d69aca5"
+                "21e2e6111af701c0"
             ]
         ]
     },
@@ -6496,8 +6496,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 670,
-        "y": 700,
+        "x": 930,
+        "y": 760,
         "wires": []
     },
     {
@@ -6507,8 +6507,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 670,
-        "y": 760,
+        "x": 590,
+        "y": 940,
         "wires": []
     },
     {
@@ -6516,14 +6516,14 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "msg.artist = []\nmsg.rid = []\nmsg.album = []\nmsg.name = []\nmsg.url = []\nfor(var i=0 ; i < msg.payload.data.list.length ; i++){\n    msg.artist.push(msg.payload.data.list[i].artist)\n    msg.rid.push(msg.payload.data.list[i].rid)\n    msg.album.push(msg.payload.data.list[i].album)\n    msg.name.push(msg.payload.data.list[i].name)\n    msg.url.push('http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[i]+'&type=convert_url3&br=320kmp3')\n}\nmsg.payload={\n    artist:msg.artist,\n    rid:msg.rid,\n    album:msg.album,\n    name:msg.name,\n    url:msg.url\n    \n}\nreturn msg;",
+        "func": "msg.artist = []\nmsg.rid = []\nmsg.album = []\nmsg.name = []\nmsg.url = []\nfor(var i=0 ; i < msg.payload.data.list.length ; i++){\n    msg.artist.push(msg.payload.data.list[i].artist)\n    msg.rid.push(msg.payload.data.list[i].rid)\n    msg.album.push(msg.payload.data.list[i].album)\n    msg.name.push(msg.payload.data.list[i].name)\n    msg.url.push('http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[i]+'&type=convert_url3&br=320kmp3')\n}\n// msg.payload={\n//     artist:msg.artist,\n//     rid:msg.rid,\n//     album:msg.album,\n//     name:msg.name,\n//     url:msg.url\n    \n// }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
-        "y": 760,
+        "x": 290,
+        "y": 940,
         "wires": [
             [
                 "c2a7cf14db218763"
@@ -6535,19 +6535,118 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "var count = context.get('count')||0;\nif(msg.t == 1){\n    count = 0;\n    msg.t = 0\n}\nmsg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[count]+'&type=convert_url3&br=320kmp3'\nmsg.name1 = msg.name[count]\nmsg.artist1 = msg.artist[count]\ncount = count + 1\ncontext.set('count',count);\n// if(count < (msg.count1 + 1) && count < (msg.artist.length + 1)){\n    return msg;\n// }",
+        "func": "// var count = context.get('count')||0;\n// if(msg.t == 1){\n//     count = 0;\n//     msg.t = 0\n// }\nmsg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[count]+'&type=convert_url3&br=320kmp3'\nmsg.name1 = msg.name[count]\nmsg.artist1 = msg.artist[count]\ncount = count + 1\ncontext.set('count',count);\n// if(count < (msg.count1 + 1) && count < (msg.artist.length + 1)){\n    return msg;\n// }",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
-        "y": 760,
+        "x": 450,
+        "y": 940,
         "wires": [
             [
                 "93c0f5ddc44ceb60",
                 "b165b16b173bf9b9"
             ]
         ]
+    },
+    {
+        "id": "6a019f1026fe85f7",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "// var count = context.get('count')||0;\nvar url = context.get('url')||[];\nurl.push(msg.payload.data.url)\ncontext.set('url',url);\nif(url.length == 30){\n    msg.payload = url\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 840,
+        "wires": [
+            [
+                "b165b16b173bf9b9"
+            ]
+        ]
+    },
+    {
+        "id": "21e2e6111af701c0",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "msg.artist = []\nmsg.rid = []\nmsg.album = []\nmsg.name = []\nmsg.url = []\nfor(var i=0 ; i < msg.payload.data.list.length ; i++){\n    msg.artist.push(msg.payload.data.list[i].artist)\n    msg.rid.push(msg.payload.data.list[i].rid)\n    msg.album.push(msg.payload.data.list[i].album)\n    msg.name.push(msg.payload.data.list[i].name)\n    msg.url.push('http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[i]+'&type=convert_url3&br=320kmp3')\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 110,
+        "y": 840,
+        "wires": [
+            [
+                "0eecd537cbb72481",
+                "b165b16b173bf9b9"
+            ]
+        ]
+    },
+    {
+        "id": "bce99c09eb900c16",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 480,
+        "y": 800,
+        "wires": [
+            [
+                "0eecd537cbb72481",
+                "6a019f1026fe85f7",
+                "b165b16b173bf9b9"
+            ]
+        ]
+    },
+    {
+        "id": "0eecd537cbb72481",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "\nvar count = context.get('count')||0;\nif(msg.t == 1){\n    count = 0;\n    msg.t = 0\n}\nmsg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[count]+'&type=convert_url3&br=320kmp3'\nmsg.name1 = msg.name[count]\nmsg.artist1 = msg.artist[count]\ncount = count + 1\ncontext.set('count',count);\nif(count < (msg.count1 + 1) && count < (msg.artist.length + 1)){\n    return msg;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 840,
+        "wires": [
+            [
+                "1cb842717e2876ad"
+            ]
+        ]
+    },
+    {
+        "id": "1cb842717e2876ad",
+        "type": "debug",
+        "z": "e3562182c0530220",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 960,
+        "wires": []
     }
 ]
