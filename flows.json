@@ -6552,13 +6552,13 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "// var count = context.get('count')||0;\n\nvar url = context.get('url')||[];\n// if(msg.t1 == 1){\n//     url = [];\n//     msg.t1 = 0\n// }\nurl.push(msg.payload.data.url)\n\nif(url.length >= msg.name.length){\n    // var a\n    // a.url = url\n    msg.payload = url\n    delete(msg.headers)\n    return msg;\n}\ncontext.set('url',url);\n// msg.payload = url\n// return msg;\n// return msg;",
+        "func": "// var count = context.get('count')||0;\n\nvar url = context.get('url')||[];\nif(msg.t1 == 1){\n    url = [];\n    msg.t1 = 0\n}\n// if(url.length%msg.name.length)\n\nif(url.length >= msg.name.length){\n    // var a\n    // a.url = url\n    msg.payload = url\n    delete(msg.headers)\n    return msg;\n}\nurl.push(msg.payload.data.url)\ncontext.set('url',url);\n// msg.payload = url\n// return msg;\n// return msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
+        "x": 630,
         "y": 840,
         "wires": [
             [
