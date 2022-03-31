@@ -3311,7 +3311,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "15",
+        "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
@@ -3348,9 +3348,7 @@
         "x": 910,
         "y": 860,
         "wires": [
-            [
-                "10fadd7af7843abc"
-            ]
+            []
         ]
     },
     {
