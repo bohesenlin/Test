@@ -6401,7 +6401,7 @@
         "links": [
             "583e3b5a37593547"
         ],
-        "x": 895,
+        "x": 855,
         "y": 560,
         "wires": []
     },
@@ -6420,7 +6420,7 @@
         "y": 560,
         "wires": [
             [
-                "03280bbe88ad9bf9"
+                "a5b256c5138eab3d"
             ]
         ]
     },
@@ -6433,8 +6433,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 290,
-        "y": 1040,
+        "x": 250,
+        "y": 760,
         "wires": [
             [
                 "a61a740e7a186d24"
@@ -6448,8 +6448,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 910,
-        "y": 1180,
+        "x": 870,
+        "y": 900,
         "wires": []
     },
     {
@@ -6465,8 +6465,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 790,
-        "y": 880,
+        "x": 570,
+        "y": 920,
         "wires": []
     },
     {
@@ -6480,8 +6480,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
-        "y": 1040,
+        "x": 410,
+        "y": 760,
         "wires": [
             [
                 "977d08a2ca167350"
@@ -6502,8 +6502,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 620,
-        "y": 1040,
+        "x": 580,
+        "y": 760,
         "wires": [
             [
                 "d57c3ceefb224b70"
@@ -6521,8 +6521,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 290,
-        "y": 1120,
+        "x": 250,
+        "y": 840,
         "wires": [
             [
                 "ed1e3d9276ecbe56"
@@ -6543,8 +6543,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 620,
-        "y": 1120,
+        "x": 580,
+        "y": 840,
         "wires": [
             [
                 "ed1e3d9276ecbe56",
@@ -6563,8 +6563,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
-        "y": 1120,
+        "x": 410,
+        "y": 840,
         "wires": [
             [
                 "03280bbe88ad9bf9",
@@ -6583,8 +6583,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
-        "y": 1120,
+        "x": 730,
+        "y": 840,
         "wires": [
             [
                 "e4d1e93f8ca6cabf",
@@ -6605,8 +6605,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
-        "y": 1120,
+        "x": 870,
+        "y": 840,
         "wires": []
     },
     {
@@ -6618,10 +6618,10 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<html>\n\n<head>\n    <script>\n        window.onload = function () {\n            btn = document.querySelectorAll('button')\n            btn[0].onclick = function () {\n                // alert('hello')\n                getmusic()\n            }\n            text = document.querySelectorAll('input')\n            text[0].value = \"周杰伦\"\n            text[1].value = \"5\"\n            a = document.querySelectorAll('a')\n            function getmusic() {\n\n                var xhr = new XMLHttpRequest();\n                xhr.withCredentials = true;\n\n                xhr.addEventListener(\"readystatechange\", function () {\n                    if (this.readyState === 4) {\n                        console.log(this.responseText);\n                        ab(this.responseText);\n                    }\n                });\n                url = \"http://192.168.0.210:1880/music?a=\"+text[0].value+\"&b=\"+text[1].value\n                xhr.open(\"GET\", url);\n                xhr.send();\n                \n            }\n            function ab(txt){\n                a[0].innerHTML = txt\n            }\n        }\n    </script>\n</head>\n\n<body>\n    <div>\n        歌手或歌曲名称\n    </div>\n    <div>\n        <input type=\"text\">\n\n    </div>\n    <div>\n        显示数量\n    </div>\n    <input type=\"text1\">\n    <div>\n        <button>提交</button>\n    </div>\n    <div>\n        <a id=\"abc\"></a>\n    </div>\n</body>\n\n</html>",
+        "template": "<html>\n\n<head>\n    <script>\n        window.onload = function () {\n            btn = document.querySelectorAll('button')\n            btn[0].onclick = function () {\n                // alert('hello')\n                getmusic()\n            }\n            text = document.querySelectorAll('input')\n            text[0].value = \"周杰伦\"\n            text[1].value = \"5\"\n            a = document.querySelectorAll('a')\n            function getmusic() {\n\n                var xhr = new XMLHttpRequest();\n                xhr.withCredentials = true;\n\n                xhr.addEventListener(\"readystatechange\", function () {\n                    if (this.readyState === 4) {\n                        console.log(this.responseText);\n                        ab(this.responseText);\n                    }\n                });\n                url = \"http://192.168.0.210:1880/music?a=\"+text[0].value+\"&b=\"+text[1].value\n                dataType: 'json'\n                xhr.open(\"GET\", url);\n                xhr.send();\n                \n            }\n            function ab(txt){\n                a[0].innerHTML = txt\n            }\n        }\n    </script>\n</head>\n\n<body>\n    <div>\n        歌手或歌曲名称\n    </div>\n    <div>\n        <input type=\"text\">\n\n    </div>\n    <div>\n        显示数量\n    </div>\n    <input type=\"text1\">\n    <div>\n        <button>提交</button>\n    </div>\n    <div>\n        <a id=\"abc\"></a>\n    </div>\n</body>\n\n</html>",
         "output": "str",
-        "x": 430,
-        "y": 980,
+        "x": 390,
+        "y": 700,
         "wires": [
             [
                 "508d94a9c9102702"
@@ -6637,8 +6637,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 280,
-        "y": 980,
+        "x": 240,
+        "y": 700,
         "wires": [
             [
                 "97213dc17b2c5cd1"
@@ -6652,8 +6652,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 570,
-        "y": 980,
+        "x": 530,
+        "y": 700,
         "wires": []
     }
 ]
