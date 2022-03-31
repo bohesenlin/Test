@@ -6429,7 +6429,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "msg.url = 'http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=' + msg.payload.a + '&pn=1&rn=5'\nmsg.headers = {\n    'Connection':'keep-alive',\n    'Cookie':'kw_token=K8GF5NROMGS',\n    'csrf':'K8GF5NROMGS',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/search/list?key=%E9%99%88%E5%A5%95%E8%BF%85',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nmsg.t = 1\nmsg.t1 = 1\nreturn msg;",
+        "func": "msg.url = 'http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=' + msg.payload.a + '&pn=1&rn=3'\nmsg.headers = {\n    'Connection':'keep-alive',\n    'Cookie':'kw_token=K8GF5NROMGS',\n    'csrf':'K8GF5NROMGS',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/search/list?key=%E9%99%88%E5%A5%95%E8%BF%85',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nmsg.t = 1\nmsg.t1 = 1\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6461,7 +6461,6 @@
         "y": 700,
         "wires": [
             [
-                "b165b16b173bf9b9",
                 "21e2e6111af701c0"
             ]
         ]
@@ -6496,8 +6495,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 930,
-        "y": 760,
+        "x": 630,
+        "y": 800,
         "wires": []
     },
     {
@@ -6552,7 +6551,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "// var count = context.get('count')||0;\n\nvar url = context.get('url')||[];\nif(msg.t1 == 1){\n    url = [];\n    msg.t1 = 0\n}\n// if(url.length%msg.name.length)\n\n\n\n// msg.payload = url\n// return msg;\n// return msg;\nif(msg.t2 == 1){\n    // var a\n    // a.url = url\n    if(msg.payload.data.url!= undefined){\n        url.push(msg.payload.data.url)\n    }\n    \n    msg.payload = url\n    delete(msg.headers)\n    return msg;\n}\nurl.push(msg.payload.data.url)\ncontext.set('url',url);",
+        "func": "var url = context.get('url')||[];\nif(msg.t1 == 1){\n    url = [];\n    msg.t1 = 0\n}\n\nif(msg.t2 == 1){\n    // var a\n    // a.url = url\n    if(msg.payload.data.url!= undefined){\n        url.push(msg.payload.data.url)\n    }\n    \n    msg.payload = url\n    delete(msg.headers)\n    return msg;\n}\nif(msg.payload.data.url!= undefined){\n        url.push(msg.payload.data.url)\n    }\n// url.push(msg.payload.data.url)\ncontext.set('url',url);",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6643,8 +6642,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 810,
-        "y": 960,
+        "x": 430,
+        "y": 900,
         "wires": []
     },
     {
@@ -6659,8 +6658,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 930,
-        "y": 900,
+        "x": 810,
+        "y": 880,
         "wires": []
     }
 ]
