@@ -6263,7 +6263,7 @@
             },
             {
                 "p": "count1",
-                "v": "10",
+                "v": "5",
                 "vt": "num"
             }
         ],
@@ -6401,7 +6401,7 @@
         "links": [
             "583e3b5a37593547"
         ],
-        "x": 845,
+        "x": 895,
         "y": 560,
         "wires": []
     },
@@ -6420,7 +6420,7 @@
         "y": 560,
         "wires": [
             [
-                "a5b256c5138eab3d"
+                "03280bbe88ad9bf9"
             ]
         ]
     },
@@ -6511,47 +6511,11 @@
         "wires": []
     },
     {
-        "id": "cfccec600d69aca5",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "",
-        "func": "msg.artist = []\nmsg.rid = []\nmsg.album = []\nmsg.name = []\nmsg.url = []\nfor(var i=0 ; i < msg.payload.data.list.length ; i++){\n    msg.artist.push(msg.payload.data.list[i].artist)\n    msg.rid.push(msg.payload.data.list[i].rid)\n    msg.album.push(msg.payload.data.list[i].album)\n    msg.name.push(msg.payload.data.list[i].name)\n    msg.url.push('http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[i]+'&type=convert_url3&br=320kmp3')\n}\n// msg.payload={\n//     artist:msg.artist,\n//     rid:msg.rid,\n//     album:msg.album,\n//     name:msg.name,\n//     url:msg.url\n    \n// }\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 290,
-        "y": 940,
-        "wires": [
-            [
-                "c2a7cf14db218763"
-            ]
-        ]
-    },
-    {
-        "id": "c2a7cf14db218763",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "",
-        "func": "// var count = context.get('count')||0;\n// if(msg.t == 1){\n//     count = 0;\n//     msg.t = 0\n// }\nmsg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[count]+'&type=convert_url3&br=320kmp3'\nmsg.name1 = msg.name[count]\nmsg.artist1 = msg.artist[count]\ncount = count + 1\ncontext.set('count',count);\n// if(count < (msg.count1 + 1) && count < (msg.artist.length + 1)){\n    return msg;\n// }",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 450,
-        "y": 940,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "6a019f1026fe85f7",
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "var url = context.get('url')||[];\nvar list = context.get('list')||[];\n// var count = context.get('count')||0;\ncount = msg.count\nif(msg.t1 == 1){\n    url = [];\n    list = []\n    count = 0\n    msg.t1 = 0\n}\nif(msg.payload.success == true){\n    url.push(msg.payload.data.url)\n}else{\n    url.push('0')\n}\nlist.push(\n    [\n        msg.artist[count],\n        msg.rid[count],\n        msg.album[count],\n        msg.name[count],\n        url[count]\n    ]\n)\n// count ++\nif(msg.t2 == 1){\n    msg.payload = list\n    delete(msg.headers)\n    return msg;\n}\ncontext.set('url',url);\n// context.set('count',count);\ncontext.set('list',list);",
+        "func": "var url = context.get('url')||[];\nvar list = context.get('list')||[];\ncount = msg.count\nif(msg.t1 == 1){\n    url = [];\n    list = []\n    count = 0\n    msg.t1 = 0\n}\nif(msg.payload.success == true){\n    url.push(msg.payload.data.url)\n}else{\n    url.push('0')\n}\nlist.push(\n    [\n        msg.artist[count],\n        msg.rid[count],\n        msg.album[count],\n        msg.name[count],\n        url[count]\n    ]\n)\nif(msg.t2 == 1){\n    msg.payload = list\n    delete(msg.headers)\n    return msg;\n}\ncontext.set('url',url);\ncontext.set('list',list);",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6655,10 +6619,11 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 810,
+        "x": 790,
         "y": 880,
         "wires": []
     }
