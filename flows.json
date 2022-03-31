@@ -6425,47 +6425,6 @@
         ]
     },
     {
-        "id": "b2c778b030809e23",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "",
-        "func": "msg.url = 'http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=' + msg.payload.a + '&pn=1&rn=5'\nmsg.headers = {\n    'Connection':'keep-alive',\n    'Cookie':'kw_token=K8GF5NROMGS',\n    'csrf':'K8GF5NROMGS',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/search/list?key=%E9%99%88%E5%A5%95%E8%BF%85',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nmsg.t = 1\nmsg.t1 = 1\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 370,
-        "y": 700,
-        "wires": [
-            [
-                "a769399abc22351d"
-            ]
-        ]
-    },
-    {
-        "id": "a769399abc22351d",
-        "type": "http request",
-        "z": "e3562182c0530220",
-        "name": "",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 520,
-        "y": 700,
-        "wires": [
-            [
-                "21e2e6111af701c0"
-            ]
-        ]
-    },
-    {
         "id": "5c1fd296cf04e281",
         "type": "http in",
         "z": "e3562182c0530220",
@@ -6478,26 +6437,10 @@
         "y": 1040,
         "wires": [
             [
-                "a61a740e7a186d24"
+                "a61a740e7a186d24",
+                "03280bbe88ad9bf9"
             ]
         ]
-    },
-    {
-        "id": "b165b16b173bf9b9",
-        "type": "debug",
-        "z": "e3562182c0530220",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 630,
-        "y": 800,
-        "wires": []
     },
     {
         "id": "93c0f5ddc44ceb60",
@@ -6506,108 +6449,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 790,
-        "y": 840,
-        "wires": []
-    },
-    {
-        "id": "6a019f1026fe85f7",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "",
-        "func": "var url = context.get('url')||[];\nvar list = context.get('list')||[];\ncount = msg.count\nif(msg.t1 == 1){\n    url = [];\n    list = []\n    count = 0\n    msg.t1 = 0\n}\nif(msg.payload.success == true){\n    url.push(msg.payload.data.url)\n}else{\n    url.push('0')\n}\nlist.push(\n    [\n        msg.artist[count],\n        msg.rid[count],\n        msg.album[count],\n        msg.name[count],\n        url[count]\n    ]\n)\nif(msg.t2 == 1){\n    msg.payload = list\n    delete(msg.headers)\n    return msg;\n}\ncontext.set('url',url);\ncontext.set('list',list);",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 630,
-        "y": 840,
-        "wires": [
-            [
-                "93c0f5ddc44ceb60",
-                "03280bbe88ad9bf9"
-            ]
-        ]
-    },
-    {
-        "id": "21e2e6111af701c0",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "",
-        "func": "msg.artist = []\nmsg.rid = []\nmsg.album = []\nmsg.name = []\nmsg.url = []\nfor(var i=0 ; i < msg.payload.data.list.length ; i++){\n    msg.artist.push(msg.payload.data.list[i].artist)\n    msg.rid.push(msg.payload.data.list[i].rid)\n    msg.album.push(msg.payload.data.list[i].album)\n    msg.name.push(msg.payload.data.list[i].name)\n    msg.url.push('http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[i]+'&type=convert_url3&br=320kmp3')\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 110,
-        "y": 840,
-        "wires": [
-            [
-                "0eecd537cbb72481"
-            ]
-        ]
-    },
-    {
-        "id": "bce99c09eb900c16",
-        "type": "http request",
-        "z": "e3562182c0530220",
-        "name": "",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 440,
-        "y": 840,
-        "wires": [
-            [
-                "0eecd537cbb72481",
-                "6a019f1026fe85f7",
-                "b165b16b173bf9b9"
-            ]
-        ]
-    },
-    {
-        "id": "0eecd537cbb72481",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "",
-        "func": "var count = context.get('count')||0;\nif(msg.t == 1){\n    count = 0;\n    msg.t = 0\n}\nif(count == 1){\n    msg.t1 =0\n}\nmsg.count = count\ncount ++\nif(count >= msg.name.length+1){\n    return null\n    // count = 0;\n    // msg.t = 0\n}\nmsg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[count]+'&type=convert_url3&br=320kmp3'\nif(count == msg.name.length){\n    msg.t2 =1\n    // count = 0;\n    // msg.t = 0\n}\ncontext.set('count',count);\n// if(count < (msg.count1 + 1) && count < (msg.artist.length + 1)){\n//     return msg;\n// }\n\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 270,
-        "y": 840,
-        "wires": [
-            [
-                "1cb842717e2876ad",
-                "bce99c09eb900c16"
-            ]
-        ]
-    },
-    {
-        "id": "1cb842717e2876ad",
-        "type": "debug",
-        "z": "e3562182c0530220",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 430,
-        "y": 900,
+        "x": 910,
+        "y": 1180,
         "wires": []
     },
     {
@@ -6632,7 +6475,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "msg.url = 'http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=' + msg.payload.a + '&pn=1&rn=5'\nmsg.t = 1\nmsg.t1 = 1\nmsg.count1 = 5\nmsg.headers = {\n    'Connection':'keep-alive',\n    'Cookie':'kw_token=K8GF5NROMGS',\n    'csrf':'K8GF5NROMGS',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/search/list?key=%E9%99%88%E5%A5%95%E8%BF%85',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "func": "msg.url = 'http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=' + msg.payload.a + '&pn=1&rn=5'+msg.payload.b.toString()\nmsg.t = 1\nmsg.t1 = 1\nmsg.count1 = msg.payload.b\nmsg.headers = {\n    'Connection':'keep-alive',\n    'Cookie':'kw_token=K8GF5NROMGS',\n    'csrf':'K8GF5NROMGS',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/search/list?key=%E9%99%88%E5%A5%95%E8%BF%85',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6642,7 +6485,8 @@
         "y": 1040,
         "wires": [
             [
-                "977d08a2ca167350"
+                "977d08a2ca167350",
+                "03280bbe88ad9bf9"
             ]
         ]
     },
@@ -6706,7 +6550,7 @@
         "wires": [
             [
                 "ed1e3d9276ecbe56",
-                "56a841ca3f8e34d8"
+                "7db9aeed066b2b02"
             ]
         ]
     },
@@ -6715,7 +6559,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "var count = context.get('count')||0;\nif(msg.t == 1){\n    count = 0;\n    msg.t = 0\n}\nmsg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[count]+'&type=convert_url3&br=320kmp3'\n\nmsg.name1 = msg.name[count]\nmsg.artist1 = msg.artist[count]\ncount = count + 1\nif(count == msg.name.length){\n    msg.t2 =1\n    // count = 0;\n    // msg.t = 0\n}\ncontext.set('count',count);\nif(count < (msg.count1 + 1) && count < (msg.artist.length + 1)){\n    return msg;\n}",
+        "func": "var count = context.get('count')||0;\nif(msg.t == 1){\n    count = 0;\n    msg.t = 0\n}\nif(count == 1){\n    msg.t1 =0\n}\nmsg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[count]+'&type=convert_url3&br=320kmp3'\n\nmsg.name1 = msg.name[count]\nmsg.artist1 = msg.artist[count]\nmsg.rid1 = msg.rid[count]\nmsg.album1 = msg.album[count]\n\n\ncount = count + 1\nif(count == msg.name.length){\n    msg.t2 =1\n    // count = 0;\n    // msg.t = 0\n}\ncontext.set('count',count);\nif(count < (msg.count1 + 1) && count < (msg.artist.length + 1)){\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6725,17 +6569,16 @@
         "y": 1120,
         "wires": [
             [
-                "a9751bcc6d29b738",
                 "03280bbe88ad9bf9"
             ]
         ]
     },
     {
-        "id": "56a841ca3f8e34d8",
+        "id": "7db9aeed066b2b02",
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "var a = {\n    'url': msg.payload.data.url,\n    'name': msg.name1 + ' - ' + msg.artist1 + \".mp3\",\n    'dir': \"/downloads/music\"\n}\nmsg.paload = a\nreturn msg;",
+        "func": "var list = context.get('list')||[];\nif(msg.t1 == 1){\n    list = []\n    msg.t1 = 0\n}\nlist.push(\n    [\n        msg.artist1,\n        msg.rid1,\n        msg.album1,\n        msg.name1,\n        msg.payload.data.url\n    ]\n)\nif(msg.t2 == 1){\n    msg.payload = list\n    delete(msg.headers)\n    return msg;\n}\n// context.set('url',url);\ncontext.set('list',list);",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6745,26 +6588,8 @@
         "y": 1120,
         "wires": [
             [
-                "7db9aeed066b2b02"
-            ]
-        ]
-    },
-    {
-        "id": "7db9aeed066b2b02",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "",
-        "func": "var list = context.get('list')||[];\nif(msg.t1 == 1){\n    list = []\n    msg.t1 = 0\n}\nlist.push(\n    [\n        msg.artist1,\n        // msg.rid[count],\n        // msg.album[count],\n        msg.name1,\n        msg.payload.data.url\n    ]\n)\nif(msg.t2 == 1){\n    msg.payload = list\n    delete(msg.headers)\n    return msg;\n}\n// context.set('url',url);\ncontext.set('list',list);",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 910,
-        "y": 1120,
-        "wires": [
-            [
-                "e4d1e93f8ca6cabf"
+                "e4d1e93f8ca6cabf",
+                "93c0f5ddc44ceb60"
             ]
         ]
     },
@@ -6781,7 +6606,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1050,
+        "x": 910,
         "y": 1120,
         "wires": []
     }
