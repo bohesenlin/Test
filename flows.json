@@ -6428,7 +6428,7 @@
         "type": "http in",
         "z": "e3562182c0530220",
         "name": "",
-        "url": "music1",
+        "url": "music",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
@@ -6524,7 +6524,7 @@
         "y": 740,
         "wires": [
             [
-                "05de05361a6ae79e"
+                "ed1e3d9276ecbe56"
             ]
         ]
     },
@@ -6562,7 +6562,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
+        "x": 690,
         "y": 740,
         "wires": [
             [
@@ -6617,7 +6617,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "<html>\n\n<head>\n    <script>\n        window.onload = function () {\n            function add(arr) {\n                for (var val in arr) {\n                    // for (var i = 0; i < arr[val].length; i++) {\n                    var tr = document.createElement(\"tr\");\n                    //设置tr中的内容\n                    tr.innerHTML = \"<td>\" + arr[val][0] + \"</td>\" +\n                        \"<td>\" + arr[val][1] + \"</td>\" +\n                        \"<td>\" + arr[val][2] + \"</td>\" +\n                        \"<td><a href=\"+arr[val][4]+\">下载</a></td>\";\n\n                    //获取刚刚添加的a元素，并为其绑定单击响应函数\t\t\t\t\n                    // var a = tr.getElementsByTagName(\"a\")[0];\n                    // a.onclick = function () { };\n\n                    //获取table\n                    var employeeTable = document.getElementById(\"employeeTable\");\n                    //获取employeeTable中的tbody\n                    var tbody = employeeTable.getElementsByTagName(\"tbody\")[0];\n                    //将tr添加到tbodye中\n                    tbody.appendChild(tr);\n                    // }\n                }\n                \n            };\n            //\n            btn = document.querySelectorAll('button')\n            btn[0].onclick = function () {\n                // alert('hello')\n                getmusic()\n            }\n            text = document.querySelectorAll('input')\n            text[0].value = \"周杰伦\"\n            text[1].value = \"5\"\n            a = document.querySelectorAll('a')\n            function getmusic() {\n\n                var xhr = new XMLHttpRequest();\n                xhr.withCredentials = true;\n\n                xhr.addEventListener(\"readystatechange\", function () {\n                    if (this.readyState === 4) {\n                        console.log(this.responseText);\n                        // ab(this.responseText);\n                        \n                        var response = eval('('+this.responseText+')')\n                        add(response)\n                    }\n                });\n                url = \"http://192.168.0.210:1880/music1?a=\"+text[0].value+\"&b=\"+text[1].value\n                dataType: 'json'\n                \n                xhr.open(\"GET\", url);\n                xhr.send();\n                \n            }\n            function ab(txt){\n                a[0].innerHTML = txt\n            }\n        }\n    </script>\n</head>\n\n<body>\n    <div>\n        歌手或歌曲名称\n    </div>\n    <div>\n        <input type=\"text\">\n\n    </div>\n    <div>\n        显示数量\n    </div>\n    <input type=\"text1\">\n    <div>\n        <button>提交</button>\n    </div>\n    <div>\n        <a id=\"abc\"></a>\n    </div>\n    \n    <table id=\"employeeTable\">\n        <tr>\n            <th>Name</th>\n            <th>歌手</th>\n            <th>专辑</th>\n            <th>下载</th>\n        </tr>\n        \n        {{!--<tr>--}}\n        {{!--    <td></td>--}}\n        {{!--    <td></td>--}}\n        {{!--    <td></td>--}}\n        {{!--    <td>--}}\n        {{!--        <a href=\"deleteEmp?id=003\"></a>--}}\n        {{!--    </td>--}}\n        {{!--</tr>--}}\n    </table>\n    {{!--<div id=\"formDiv\">--}}\n\n    {{!--    <h4>添加新员工</h4>--}}\n\n    {{!--    <table>--}}\n    {{!--        <tr>--}}\n    {{!--            <td class=\"word\">name: </td>--}}\n    {{!--            <td class=\"inp\">--}}\n    {{!--                <input type=\"text\" name=\"empName\" id=\"empName\" />--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--        <tr>--}}\n    {{!--            <td class=\"word\">email: </td>--}}\n    {{!--            <td class=\"inp\">--}}\n    {{!--                <input type=\"text\" name=\"email\" id=\"email\" />--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--        <tr>--}}\n    {{!--            <td class=\"word\">salary: </td>--}}\n    {{!--            <td class=\"inp\">--}}\n    {{!--                <input type=\"text\" name=\"salary\" id=\"salary\" />--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--        <tr>--}}\n    {{!--            <td colspan=\"2\" align=\"center\">--}}\n    {{!--                <button id=\"addEmpButton\">--}}\n    {{!--                    Submit--}}\n    {{!--                </button>--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--    </table>--}}\n\n    {{!--</div>--}}\n    \n</body>\n\n</html>",
+        "template": "<html>\n\n<head>\n    <script>\n        window.onload = function () {\n            function add(arr) {\n                for (var val in arr) {\n                    // for (var i = 0; i < arr[val].length; i++) {\n                    var tr = document.createElement(\"tr\");\n                    //设置tr中的内容\n                    tr.innerHTML = \"<td>\" + arr[val][0] + \"</td>\" +\n                        \"<td>\" + arr[val][1] + \"</td>\" +\n                        \"<td>\" + arr[val][2] + \"</td>\" +\n                        \"<td><a href=\"+arr[val][4]+\">下载</a></td>\";\n\n                    //获取刚刚添加的a元素，并为其绑定单击响应函数\t\t\t\t\n                    // var a = tr.getElementsByTagName(\"a\")[0];\n                    // a.onclick = function () { };\n\n                    //获取table\n                    var employeeTable = document.getElementById(\"employeeTable\");\n                    //获取employeeTable中的tbody\n                    var tbody = employeeTable.getElementsByTagName(\"tbody\")[0];\n                    //将tr添加到tbodye中\n                    tbody.appendChild(tr);\n                    // }\n                }\n                \n            };\n            //\n            btn = document.querySelectorAll('button')\n            btn[0].onclick = function () {\n                // alert('hello')\n                getmusic()\n            }\n            text = document.querySelectorAll('input')\n            text[0].value = \"周杰伦\"\n            text[1].value = \"5\"\n            a = document.querySelectorAll('a')\n            function getmusic() {\n\n                var xhr = new XMLHttpRequest();\n                xhr.withCredentials = true;\n\n                xhr.addEventListener(\"readystatechange\", function () {\n                    if (this.readyState === 4) {\n                        console.log(this.responseText);\n                        // ab(this.responseText);\n                        \n                        var response = eval('('+this.responseText+')')\n                        add(response)\n                    }\n                });\n                url = \"http://192.168.0.210:1880/music?a=\"+text[0].value+\"&b=\"+text[1].value\n                dataType: 'json'\n                \n                xhr.open(\"GET\", url);\n                xhr.send();\n                \n            }\n            function ab(txt){\n                a[0].innerHTML = txt\n            }\n        }\n    </script>\n</head>\n\n<body>\n    <div>\n        歌手或歌曲名称\n    </div>\n    <div>\n        <input type=\"text\">\n\n    </div>\n    <div>\n        显示数量\n    </div>\n    <input type=\"text1\">\n    <div>\n        <button>提交</button>\n    </div>\n    <div>\n        <a id=\"abc\"></a>\n    </div>\n    \n    <table id=\"employeeTable\">\n        <tr>\n            <th>Name</th>\n            <th>歌手</th>\n            <th>专辑</th>\n            <th>下载</th>\n        </tr>\n        \n        {{!--<tr>--}}\n        {{!--    <td></td>--}}\n        {{!--    <td></td>--}}\n        {{!--    <td></td>--}}\n        {{!--    <td>--}}\n        {{!--        <a href=\"deleteEmp?id=003\"></a>--}}\n        {{!--    </td>--}}\n        {{!--</tr>--}}\n    </table>\n    {{!--<div id=\"formDiv\">--}}\n\n    {{!--    <h4>添加新员工</h4>--}}\n\n    {{!--    <table>--}}\n    {{!--        <tr>--}}\n    {{!--            <td class=\"word\">name: </td>--}}\n    {{!--            <td class=\"inp\">--}}\n    {{!--                <input type=\"text\" name=\"empName\" id=\"empName\" />--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--        <tr>--}}\n    {{!--            <td class=\"word\">email: </td>--}}\n    {{!--            <td class=\"inp\">--}}\n    {{!--                <input type=\"text\" name=\"email\" id=\"email\" />--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--        <tr>--}}\n    {{!--            <td class=\"word\">salary: </td>--}}\n    {{!--            <td class=\"inp\">--}}\n    {{!--                <input type=\"text\" name=\"salary\" id=\"salary\" />--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--        <tr>--}}\n    {{!--            <td colspan=\"2\" align=\"center\">--}}\n    {{!--                <button id=\"addEmpButton\">--}}\n    {{!--                    Submit--}}\n    {{!--                </button>--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--    </table>--}}\n\n    {{!--</div>--}}\n    \n</body>\n\n</html>",
         "output": "str",
         "x": 230,
         "y": 680,
@@ -6656,14 +6656,246 @@
         "wires": []
     },
     {
-        "id": "05de05361a6ae79e",
+        "id": "9a6860d14fdb6f85",
+        "type": "http in",
+        "z": "e3562182c0530220",
+        "name": "",
+        "url": "music1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 940,
+        "wires": [
+            [
+                "4fbe73c94ea53b06"
+            ]
+        ]
+    },
+    {
+        "id": "f2c9c29500ee6939",
+        "type": "http response",
+        "z": "e3562182c0530220",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1130,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "8c46dd2ed8a06c2b",
+        "type": "debug",
+        "z": "e3562182c0530220",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "4fbe73c94ea53b06",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "msg.url = 'http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=' + msg.payload.a + '&pn=1&rn='+msg.payload.b.toString()\nmsg.t = 1\nmsg.t1 = 1\nmsg.count1 = msg.payload.b\nmsg.headers = {\n    'Connection':'keep-alive',\n    'Cookie':'kw_token=K8GF5NROMGS',\n    'csrf':'K8GF5NROMGS',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/search/list?key=%E9%99%88%E5%A5%95%E8%BF%85',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 940,
+        "wires": [
+            [
+                "a1e0f4476cc25758"
+            ]
+        ]
+    },
+    {
+        "id": "a1e0f4476cc25758",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 400,
+        "y": 940,
+        "wires": [
+            [
+                "e343ab771d7db640"
+            ]
+        ]
+    },
+    {
+        "id": "e343ab771d7db640",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "msg.artist = []\nmsg.rid = []\nmsg.album = []\nmsg.name = []\nmsg.url = []\nfor(var i=0 ; i < msg.payload.data.list.length ; i++){\n    msg.artist.push(msg.payload.data.list[i].artist)\n    msg.rid.push(msg.payload.data.list[i].rid)\n    msg.album.push(msg.payload.data.list[i].album)\n    msg.name.push(msg.payload.data.list[i].name)\n    msg.url.push('http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[i]+'&type=convert_url3&br=320kmp3')\n}\nmsg.payload = {\n    artist: msg.artist,\n    rid: msg.rid,\n    album: msg.album,\n    name: msg.name,\n    url: msg.url\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 940,
+        "wires": [
+            [
+                "369073ec0799d0f9"
+            ]
+        ]
+    },
+    {
+        "id": "fcae5af6a936b278",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 840,
+        "y": 940,
+        "wires": [
+            [
+                "1925e34df43b5fd6",
+                "3df7adde29773bbf"
+            ]
+        ]
+    },
+    {
+        "id": "1925e34df43b5fd6",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "var count = context.get('count')||0;\nif(msg.t == 1){\n    count = 0;\n    msg.t = 0\n}\nif(count == 1){\n    msg.t1 =0\n}\nmsg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[count]+'&type=convert_url3&br=320kmp3'\n\nmsg.name1 = msg.name[count]\nmsg.artist1 = msg.artist[count]\nmsg.rid1 = msg.rid[count]\nmsg.album1 = msg.album[count]\n\n\ncount = count + 1\nif(count == msg.name.length){\n    msg.t2 =1\n    // count = 0;\n    // msg.t = 0\n}\ncontext.set('count',count);\nif(count < (msg.count1 + 1) && count < (msg.artist.length + 1)){\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 940,
+        "wires": [
+            [
+                "8c46dd2ed8a06c2b",
+                "fcae5af6a936b278"
+            ]
+        ]
+    },
+    {
+        "id": "3df7adde29773bbf",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "var list = context.get('list')||{};\nif(msg.t1 == 1){\n    list = {}\n    msg.t1 = 0\n}\n// list.push(\n//     [\n//         msg.name1,\n//         msg.artist1,\n//         msg.album1,\n//         msg.rid1,\n//         msg.payload.data.url\n//     ]\n// )\nlist[msg.name1]=\n    [\n        msg.name1,\n        msg.artist1,\n        msg.album1,\n        msg.rid1,\n        msg.payload.data.url\n    ]\n\nif(msg.t2 == 1){\n    msg.payload = list\n    delete(msg.headers)\n    return msg;\n}\n// context.set('url',url);\ncontext.set('list',list);",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 940,
+        "wires": [
+            [
+                "1ddc52ca5d9b4e37",
+                "f2c9c29500ee6939"
+            ]
+        ]
+    },
+    {
+        "id": "1ddc52ca5d9b4e37",
+        "type": "debug",
+        "z": "e3562182c0530220",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "369073ec0799d0f9",
         "type": "http response",
         "z": "e3562182c0530220",
         "name": "",
         "statusCode": "",
         "headers": {},
         "x": 670,
-        "y": 820,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "086c19ca5b4953b2",
+        "type": "template",
+        "z": "e3562182c0530220",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html>\n\n<head>\n    <script>\n        window.onload = function () {\n            function add(arr) {\n                for (var val in arr) {\n                   \n                    var tr = document.createElement(\"tr\");\n                    //设置tr中的内容\n                    tr.innerHTML = \"<td>\" + arr[val][0] + \"</td>\" +\n                        \"<td>\" + arr[val][1] + \"</td>\" +\n                        \"<td>\" + arr[val][2] + \"</td>\" +\n                        \"<td><a href=\"+arr[val][4]+\">下载</a></td>\";\n\n                    //获取table\n                    var employeeTable = document.getElementById(\"employeeTable\");\n                    //获取employeeTable中的tbody\n                    var tbody = employeeTable.getElementsByTagName(\"tbody\")[0];\n                    //将tr添加到tbodye中\n                    tbody.appendChild(tr);\n                \n                }\n                \n            };\n            //\n            btn = document.querySelectorAll('button')\n            btn[0].onclick = function () {\n                // alert('hello')\n                getmusic()\n            }\n            text = document.querySelectorAll('input')\n            text[0].value = \"周杰伦\"\n            text[1].value = \"5\"\n            a = document.querySelectorAll('a')\n            function getmusic() {\n\n                var xhr = new XMLHttpRequest();\n                xhr.withCredentials = true;\n\n                xhr.addEventListener(\"readystatechange\", function () {\n                    if (this.readyState === 4) {\n                        console.log(this.responseText);\n                        // ab(this.responseText);\n                        \n                        var response = eval('('+this.responseText+')')\n                        // add(response)\n                    }\n                });\n                url = \"http://192.168.0.210:1880/music1?a=\"+text[0].value+\"&b=\"+text[1].value\n                dataType: 'json'\n                \n                xhr.open(\"GET\", url);\n                xhr.send();\n                \n            }\n            function ab(txt){\n                a[0].innerHTML = txt\n            }\n        }\n    </script>\n</head>\n\n<body>\n    <div>\n        歌手或歌曲名称\n    </div>\n    <div>\n        <input type=\"text\">\n\n    </div>\n    <div>\n        显示数量\n    </div>\n    <input type=\"text1\">\n    <div>\n        <button>提交</button>\n    </div>\n    <div>\n        <a id=\"abc\"></a>\n    </div>\n    \n    <table id=\"employeeTable\">\n        <tr>\n            <th>Name</th>\n            <th>歌手</th>\n            <th>专辑</th>\n            <th>下载</th>\n        </tr>\n        \n    </table>\n    \n    \n</body>\n\n</html>",
+        "output": "str",
+        "x": 230,
+        "y": 880,
+        "wires": [
+            [
+                "bd310d29fc3d2fc3"
+            ]
+        ]
+    },
+    {
+        "id": "55c668c65c115327",
+        "type": "http in",
+        "z": "e3562182c0530220",
+        "name": "",
+        "url": "abc1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 880,
+        "wires": [
+            [
+                "086c19ca5b4953b2"
+            ]
+        ]
+    },
+    {
+        "id": "bd310d29fc3d2fc3",
+        "type": "http response",
+        "z": "e3562182c0530220",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 370,
+        "y": 880,
         "wires": []
     }
 ]
