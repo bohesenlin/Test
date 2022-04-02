@@ -6791,5 +6791,34 @@
         "x": 370,
         "y": 880,
         "wires": []
+    },
+    {
+        "id": "24a18897cd78284d",
+        "type": "http in",
+        "z": "e3562182c0530220",
+        "name": "",
+        "url": "abc2",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 1040,
+        "wires": [
+            [
+                "74fe857140521c33",
+                "e4d1e93f8ca6cabf"
+            ]
+        ]
+    },
+    {
+        "id": "74fe857140521c33",
+        "type": "http response",
+        "z": "e3562182c0530220",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 310,
+        "y": 1040,
+        "wires": []
     }
 ]
