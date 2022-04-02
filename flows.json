@@ -6901,5 +6901,164 @@
         "x": 370,
         "y": 1220,
         "wires": []
+    },
+    {
+        "id": "02790a228ee04062",
+        "type": "http in",
+        "z": "e3562182c0530220",
+        "name": "",
+        "url": "video",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 1300,
+        "wires": [
+            [
+                "eb86c7628f04c3d9",
+                "6819f8944193ed6a"
+            ]
+        ]
+    },
+    {
+        "id": "eb86c7628f04c3d9",
+        "type": "template",
+        "z": "e3562182c0530220",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "This is the payload: {{payload}} !",
+        "output": "str",
+        "x": 230,
+        "y": 1300,
+        "wires": [
+            [
+                "91c10d300c1fa3c3"
+            ]
+        ]
+    },
+    {
+        "id": "91c10d300c1fa3c3",
+        "type": "http response",
+        "z": "e3562182c0530220",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 370,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "a350c50fc76f53ce",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "搜索数据",
+        "func": "msg.url = \"https://v.qq.com/x/search/?q=\"+msg.payload.videoname+\"&stag=102&smartbox_ab=\"\n// msg.name1 = msg.payload.filepath\n// msg.count = Number(msg.payload.filepath1)-2\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 1400,
+        "wires": [
+            [
+                "c05154a520dd67e4"
+            ]
+        ]
+    },
+    {
+        "id": "c05154a520dd67e4",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "搜索请求",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 440,
+        "y": 1400,
+        "wires": [
+            [
+                "bcc941f5ead09558",
+                "25b7f40c09229aee"
+            ]
+        ]
+    },
+    {
+        "id": "bcc941f5ead09558",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "正则匹配地址",
+        "func": "var reg=/href=\"https:\\/\\/v.qq.com\\/x\\/cover\\/(.*?)\\/(.*?).html\"/\nret = reg.exec(msg.payload)\n//msg.payload = ret\nmsg.url = \"https://v.qq.com/x/cover/\"+ret[1]+\"/\"+ret[2]+\".html\"\nmsg.vid = ret[1]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 1400,
+        "wires": [
+            [
+                "25b7f40c09229aee"
+            ]
+        ]
+    },
+    {
+        "id": "5904b9fc91de03b9",
+        "type": "http in",
+        "z": "e3562182c0530220",
+        "name": "",
+        "url": "videoname",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 1400,
+        "wires": [
+            [
+                "a350c50fc76f53ce"
+            ]
+        ]
+    },
+    {
+        "id": "6819f8944193ed6a",
+        "type": "debug",
+        "z": "e3562182c0530220",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "25b7f40c09229aee",
+        "type": "debug",
+        "z": "e3562182c0530220",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 1360,
+        "wires": []
     }
 ]
