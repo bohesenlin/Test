@@ -7091,7 +7091,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "匹配地址参数合成地址",
-        "func": "var url = []\nvar reg = /\"F\":\\d,\"V\":\"(.*?)\"/g\n\nfor (var i = 0; i < 1000; i++) {\n    url[i] = reg.exec(msg.payload)\n    if(reg.lastIndex==0){\n        msg.payload=url\n        break\n    }\n}\n\n\nvar hurl = []\nvar rsg = msg.payload\nvar a = (rsg.length + 1)/2\nfor (var n = 0; n < (rsg.length - 1)/2; n++) {\n    hurl.push(\"https://v.qq.com/x/cover/\"+msg.vid+\"/\"+msg.payload[n][1]+\".html\")\n}\nmsg.payload = hurl\nreturn msg;",
+        "func": "var url = []\nvar reg = /\"F\":\\d,\"V\":\"(.*?)\"/g\n\nfor (var i = 0; i < 1000; i++) {\n    url[i] = reg.exec(msg.payload)\n    if(reg.lastIndex==0){\n        msg.payload=url\n        break\n    }\n}\n\n\nvar hurl = []\nvar rsg = msg.payload\nvar a = (rsg.length + 1)/2\nfor (var n = 0; n < (rsg.length - 1)/2; n++) {\n    hurl.push(\"https://v.qq.com/x/cover/\"+msg.vid+\"/\"+msg.payload[n][1]+\".html\")\n}\nvar txt ={}\nfor(var j=0;j<hurl.length;j++){\n    var title = '第'+(j+1).toString()+'集'\n    txt[title]=hurl[j]\n}\nmsg.payload = txt\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
