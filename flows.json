@@ -7146,5 +7146,131 @@
                 "b4e75227c3eaadbe"
             ]
         ]
+    },
+    {
+        "id": "a153046caf92febe",
+        "type": "http in",
+        "z": "e3562182c0530220",
+        "name": "",
+        "url": "jiexi",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 1540,
+        "wires": [
+            [
+                "c409abeb6e8b5294"
+            ]
+        ]
+    },
+    {
+        "id": "7a212cbeebc0ec3c",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "数据解密",
+        "func": "const CryptoJS = global.get('CryptoJS')\nfunction Decrypt(word,key,iv) {\n    let encryptedHexStr = CryptoJS.enc.Base64.parse(word);\n    let srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);\n    let decrypt = CryptoJS.AES.decrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 });\n    let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);\n    return decryptedStr.toString();\n}\n\n\n//获取CODE\nfunction abc(id1,id2) {\n    var _pr = id1;\n    var _pu = id2;\n    var _puArr = [];\n    var _newArr = [];\n    var _code = '';\n\n    for (var i = 0; i < _pu.length; i++) {\n        _puArr.push({'id': _pu[i], 'text': _pr[i]});//将新元素添加到数组的末尾，并返回新的长度。\n    }\n//对密钥重新进行排序\n    _newArr = _puArr.sort(compare(\"id\"));\n    for (var n = 0; n < _newArr.length; n++) {\n\n        _code += _newArr[n]['text'];\n    }\n    return _code\n}\n\nfunction compare(_0x209a13) {\n    var _0x2b0a5b = {\n        'hupwx': function(_0x28592c, _0x5c0aae) {\n            return _0x28592c - _0x5c0aae;\n        }\n    };\n    return function(_0x4490c6, _0x47bde8) {\n        var _0x11d139 = _0x4490c6[_0x209a13];\n        var _0x2b383f = _0x47bde8[_0x209a13];\n        return _0x2b0a5b['hupwx'](_0x11d139, _0x2b383f);\n    }\n        ;\n}\n\n//通过加密的URL和abc函数获取的CODE，进行AES解密\nfunction secret(enStr, code) {\n    code = CryptoJS.MD5(code).toString(); //32位md5  //修改\n    var iv1 = code.substring(0, 16);  //取前16位\n    var key1 = code.substring(16);    //取后16位\n\n    const key = CryptoJS.enc.Utf8.parse(key1);\n    const iv = CryptoJS.enc.Utf8.parse(iv1);\n    return Decrypt(enStr,key,iv)\n}\n\nvar code1 = abc(msg.id1,msg.id2)\nmsg.payload = secret(msg.enurl, code1)\nreturn msg\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 1540,
+        "wires": [
+            [
+                "b6ee143b6f20909d"
+            ]
+        ]
+    },
+    {
+        "id": "c409abeb6e8b5294",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "解析地址",
+        "func": "url = msg.payload.url\nmsg.url = \"https://jx.parwix.com:4433/player/analysis.php?v=\"+url\nmsg.headers = {\n  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 1540,
+        "wires": [
+            [
+                "67c567ad9e6bb0d5"
+            ]
+        ]
+    },
+    {
+        "id": "67c567ad9e6bb0d5",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "解析请求",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 400,
+        "y": 1540,
+        "wires": [
+            [
+                "0fc0be25835ee7c8"
+            ]
+        ]
+    },
+    {
+        "id": "0fc0be25835ee7c8",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "var html = msg.payload\nvar id1 = /id=\"vod_(.*?)\"/.exec(html);\nvar id2 = /id=\"vod_([0-9]{10})\"/.exec(html);\nvar enurl = /\"url\": \"(.*?)\"/.exec(html);\nmsg.id1 = id1[1]\nmsg.id2=id2[1]\nmsg.enurl = enurl[1]\nmsg.payload = []\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 1540,
+        "wires": [
+            [
+                "7a212cbeebc0ec3c"
+            ]
+        ]
+    },
+    {
+        "id": "b6ee143b6f20909d",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "var url = msg.payload\nmsg.payload = {\n    'url':url\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 1540,
+        "wires": [
+            [
+                "b443439c81afcf12"
+            ]
+        ]
+    },
+    {
+        "id": "b443439c81afcf12",
+        "type": "http response",
+        "z": "e3562182c0530220",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1030,
+        "y": 1540,
+        "wires": []
     }
 ]
