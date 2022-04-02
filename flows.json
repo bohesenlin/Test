@@ -6955,7 +6955,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "搜索数据",
-        "func": "msg.url = \"https://v.qq.com/x/search/?q=\"+msg.payload.videoname+\"&stag=102&smartbox_ab=\"\n// msg.name1 = msg.payload.filepath\n// msg.count = Number(msg.payload.filepath1)-2\nreturn msg;",
+        "func": "msg.url = \"https://v.qq.com/x/search/?q=\"+msg.payload.videoname+\"&stag=102&smartbox_ab=\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -6965,49 +6965,7 @@
         "y": 1400,
         "wires": [
             [
-                "c05154a520dd67e4"
-            ]
-        ]
-    },
-    {
-        "id": "c05154a520dd67e4",
-        "type": "http request",
-        "z": "e3562182c0530220",
-        "name": "搜索请求",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 440,
-        "y": 1400,
-        "wires": [
-            [
-                "bcc941f5ead09558"
-            ]
-        ]
-    },
-    {
-        "id": "bcc941f5ead09558",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "正则匹配地址",
-        "func": "var reg=/href=\"https:\\/\\/v.qq.com\\/x\\/cover\\/(.*?)\\/(.*?).html\"/\nret = reg.exec(msg.payload)\n//msg.payload = ret\nmsg.url = \"https://v.qq.com/x/cover/\"+ret[1]+\"/\"+ret[2]+\".html\"\nmsg.vid = ret[1]\nmsg.payload = {\n    'videoname':'',\n    'url':msg.url\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 620,
-        "y": 1400,
-        "wires": [
-            [
-                "2ccb59dc5c62c948",
-                "46555be84e33a3f4"
+                "5e914ce5d5cfab5e"
             ]
         ]
     },
@@ -7104,8 +7062,89 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 790,
+        "x": 670,
         "y": 1460,
         "wires": []
+    },
+    {
+        "id": "b4e75227c3eaadbe",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "persist": false,
+        "authType": "",
+        "senderr": false,
+        "x": 280,
+        "y": 1460,
+        "wires": [
+            [
+                "0d148007def0bac5"
+            ]
+        ]
+    },
+    {
+        "id": "0d148007def0bac5",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "匹配地址参数合成地址",
+        "func": "var url = []\nvar reg = /\"F\":\\d,\"V\":\"(.*?)\"/g\n\nfor (var i = 0; i < 1000; i++) {\n    url[i] = reg.exec(msg.payload)\n    if(reg.lastIndex==0){\n        msg.payload=url\n        break\n    }\n}\n\n\nvar hurl = []\nvar rsg = msg.payload\nvar a = (rsg.length + 1)/2\nfor (var n = 0; n < (rsg.length - 1)/2; n++) {\n    hurl.push(\"https://v.qq.com/x/cover/\"+msg.vid+\"/\"+msg.payload[n][1]+\".html\")\n}\nmsg.payload = hurl\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 1460,
+        "wires": [
+            [
+                "46555be84e33a3f4",
+                "25b7f40c09229aee"
+            ]
+        ]
+    },
+    {
+        "id": "5e914ce5d5cfab5e",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "搜索请求",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 440,
+        "y": 1400,
+        "wires": [
+            [
+                "15c34cdf4be0c5a3"
+            ]
+        ]
+    },
+    {
+        "id": "15c34cdf4be0c5a3",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "正则匹配地址",
+        "func": "var reg=/href=\"https:\\/\\/v.qq.com\\/x\\/cover\\/(.*?)\\/(.*?).html\"/\nret = reg.exec(msg.payload)\n//msg.payload = ret\nmsg.url = \"https://v.qq.com/x/cover/\"+ret[1]+\"/\"+ret[2]+\".html\"\nmsg.vid = ret[1]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 1400,
+        "wires": [
+            [
+                "b4e75227c3eaadbe"
+            ]
+        ]
     }
 ]
