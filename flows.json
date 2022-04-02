@@ -6987,8 +6987,7 @@
         "y": 1400,
         "wires": [
             [
-                "bcc941f5ead09558",
-                "25b7f40c09229aee"
+                "bcc941f5ead09558"
             ]
         ]
     },
@@ -6997,17 +6996,18 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "正则匹配地址",
-        "func": "var reg=/href=\"https:\\/\\/v.qq.com\\/x\\/cover\\/(.*?)\\/(.*?).html\"/\nret = reg.exec(msg.payload)\n//msg.payload = ret\nmsg.url = \"https://v.qq.com/x/cover/\"+ret[1]+\"/\"+ret[2]+\".html\"\nmsg.vid = ret[1]\nreturn msg;",
+        "func": "var reg=/href=\"https:\\/\\/v.qq.com\\/x\\/cover\\/(.*?)\\/(.*?).html\"/\nret = reg.exec(msg.payload)\n//msg.payload = ret\nmsg.url = \"https://v.qq.com/x/cover/\"+ret[1]+\"/\"+ret[2]+\".html\"\nmsg.vid = ret[1]\nmsg.payload = {\n    'videoname':'',\n    'url':msg.url\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 640,
+        "x": 620,
         "y": 1400,
         "wires": [
             [
-                "25b7f40c09229aee"
+                "2ccb59dc5c62c948",
+                "46555be84e33a3f4"
             ]
         ]
     },
@@ -7057,8 +7057,55 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 810,
-        "y": 1360,
+        "x": 930,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "2ccb59dc5c62c948",
+        "type": "html",
+        "z": "e3562182c0530220",
+        "name": "标题",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "#search_container > div.wrapper > div.wrapper_main > div.mix_warp > div:nth-child(1) > div > div > div._infos > div > div > div:nth-child(1) > span.content",
+        "ret": "text",
+        "as": "single",
+        "x": 790,
+        "y": 1400,
+        "wires": [
+            [
+                "25b7f40c09229aee",
+                "ccdc92de7da7cc2f"
+            ]
+        ]
+    },
+    {
+        "id": "ccdc92de7da7cc2f",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 1400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "46555be84e33a3f4",
+        "type": "http response",
+        "z": "e3562182c0530220",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 1460,
         "wires": []
     }
 ]
