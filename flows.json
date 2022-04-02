@@ -6912,7 +6912,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 80,
-        "y": 1300,
+        "y": 1380,
         "wires": [
             [
                 "eb86c7628f04c3d9",
@@ -6929,10 +6929,10 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "This is the payload: {{payload}} !",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <link href=\"//vjs.zencdn.net/7.10.2/video-js.min.css\" rel=\"stylesheet\">\n    <script src=\"//vjs.zencdn.net/7.10.2/video.min.js\"></script>\n    <script src=\"https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\n    <title>video</title>\n    <style>\n        video {\n            width: 9000px;\n            height: 300px;\n        }\n    </style>\n    <script>\n        window.onload = function () {\n            //加载播放器\n            // var player = videojs('my-player', {\n            //     // muted: true,\n            //     // controls: true,\n            //     height: 300,\n            //     width: 300,\n            //     // loop: true,\n            //     // 更多配置.....\n            // });\n            // console.log(player)\n\n\n            input = document.querySelectorAll('input')[0]//默认数据\n            input.value = \"斗罗大陆\"//默认数据\n            $('button').on('click', function () {\n                url = 'http://192.168.0.210:1880/videoname?videoname=' + input.value\n                $.get(url, {}, function (data) {\n                    console.log(data)\n                    addtr(data)\n                }, 'json')\n            })\n\n\n            function addtr(data) {\n\n                for (var val in data) {\n                    var tr = $(\"<tr></tr>\");\n                    var td = \"<td>\" + val + \"</td><td><a href='\" + data[val] + \"' target='_blank'>观看</a></td>\"\n\n                    tr.append(td)\n                    $(\"tbody\").append(tr)\n                }\n\n                $('a').on('click', function () {\n                    url = 'http://192.168.0.210:1880/jiexi?url=' + this.href\n\n                    $.get(url, {}, function (data) {\n                        console.log(data)\n\n                        // video.pause()\n                        // source.setAttribute('src', '2.mp4');\n                        // video.load();\n                        // video.play();\n                        var player = videojs('my-player');\n                        player.src(data['a']);\n                        player.load();\n                    }, 'json')\n                    return false\n                })\n\n            }\n\n        }\n    </script>\n</head>\n<div>\n    <input type=\"text\" name=\"search\" id=\"\">\n</div>\n<div>\n    <button>搜索</button>\n</div>\n<div>\n    <!-- poster=\"//vjs.zencdn.net/v/oceans.png\" -->\n    <video id=\"my-player\" class=\"video-js\" controls preload=\"auto\" poster=\"\" width=\"800px\" height=\"600px\"\n        data-setup='{}'>\n        <source id=\"playersource\"\n            src=\"https://om.tc.qq.com/gzc_1000102_0b535yaaiaaaomapahbgkbrmb3wdatuaaaca.f10218.mp4?vkey=64BEFDC49EAD0DBFE056C4AEE07A3F80D5F453072AC9D37210092908083A1AD2D89CF430415FCCC2F07B3E4FED7F02CC20559078F65E91DF90EA3E1ADCDA3C7B14A31A9DDC091CBFDCA348B1258E55FCFC03B81E6A00FAABC9657E7F2B69498ECBF7898C704C758DCAC0BDEA99EED9EDBA13CEC6E54E6C41EAE6FE2B15946C874AB1E36375CA7146&amp;sdtfrom=v1080&amp;type=mp4&amp;platform=10201&amp;br=117&amp;fmt=hd&amp;sp=0&amp;guid=1F78117BB3DD94210EC924D61BBE1F21FD660D84\"\n            type=\"video/mp4\">\n\n        <!-- <p class=\"vjs-no-js\">\n            To view this video please enable JavaScript, and consider upgrading to a\n            web browser that\n            <a href=\"https://videojs.com/html5-video-support/\" target=\"_blank\">\n                supports HTML5 video\n            </a>\n        </p> -->\n    </video>\n</div>\n\n<body>\n    <table>\n        <tbody>\n\n        </tbody>\n\n    </table>\n\n</body>\n\n</html>",
         "output": "str",
         "x": 230,
-        "y": 1300,
+        "y": 1380,
         "wires": [
             [
                 "91c10d300c1fa3c3"
@@ -6947,7 +6947,7 @@
         "statusCode": "",
         "headers": {},
         "x": 370,
-        "y": 1300,
+        "y": 1380,
         "wires": []
     },
     {
@@ -6962,7 +6962,7 @@
         "finalize": "",
         "libs": [],
         "x": 280,
-        "y": 1400,
+        "y": 1440,
         "wires": [
             [
                 "5e914ce5d5cfab5e"
@@ -6979,7 +6979,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 100,
-        "y": 1400,
+        "y": 1440,
         "wires": [
             [
                 "a350c50fc76f53ce"
@@ -6998,8 +6998,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 390,
-        "y": 1360,
+        "x": 510,
+        "y": 1340,
         "wires": []
     },
     {
@@ -7015,8 +7015,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 930,
-        "y": 1340,
+        "x": 1190,
+        "y": 1540,
         "wires": []
     },
     {
@@ -7029,11 +7029,10 @@
         "tag": "#search_container > div.wrapper > div.wrapper_main > div.mix_warp > div:nth-child(1) > div > div > div._infos > div > div > div:nth-child(1) > span.content",
         "ret": "text",
         "as": "single",
-        "x": 790,
-        "y": 1400,
+        "x": 810,
+        "y": 1380,
         "wires": [
             [
-                "25b7f40c09229aee",
                 "ccdc92de7da7cc2f"
             ]
         ]
@@ -7049,8 +7048,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 950,
-        "y": 1400,
+        "x": 970,
+        "y": 1380,
         "wires": [
             []
         ]
@@ -7062,8 +7061,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 670,
-        "y": 1460,
+        "x": 1190,
+        "y": 1440,
         "wires": []
     },
     {
@@ -7078,8 +7077,8 @@
         "persist": false,
         "authType": "",
         "senderr": false,
-        "x": 280,
-        "y": 1460,
+        "x": 800,
+        "y": 1440,
         "wires": [
             [
                 "0d148007def0bac5"
@@ -7097,8 +7096,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
-        "y": 1460,
+        "x": 1000,
+        "y": 1440,
         "wires": [
             [
                 "46555be84e33a3f4",
@@ -7121,7 +7120,7 @@
         "authType": "",
         "senderr": false,
         "x": 440,
-        "y": 1400,
+        "y": 1440,
         "wires": [
             [
                 "15c34cdf4be0c5a3"
@@ -7140,7 +7139,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 1400,
+        "y": 1440,
         "wires": [
             [
                 "b4e75227c3eaadbe"
@@ -7157,11 +7156,10 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 80,
-        "y": 1540,
+        "y": 1500,
         "wires": [
             [
-                "c409abeb6e8b5294",
-                "25b7f40c09229aee"
+                "c409abeb6e8b5294"
             ]
         ]
     },
@@ -7177,7 +7175,7 @@
         "finalize": "",
         "libs": [],
         "x": 720,
-        "y": 1540,
+        "y": 1500,
         "wires": [
             [
                 "b6ee143b6f20909d"
@@ -7196,7 +7194,7 @@
         "finalize": "",
         "libs": [],
         "x": 240,
-        "y": 1540,
+        "y": 1500,
         "wires": [
             [
                 "67c567ad9e6bb0d5"
@@ -7218,7 +7216,7 @@
         "authType": "",
         "senderr": false,
         "x": 400,
-        "y": 1540,
+        "y": 1500,
         "wires": [
             [
                 "0fc0be25835ee7c8"
@@ -7237,7 +7235,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 1540,
+        "y": 1500,
         "wires": [
             [
                 "7a212cbeebc0ec3c"
@@ -7256,10 +7254,11 @@
         "finalize": "",
         "libs": [],
         "x": 890,
-        "y": 1540,
+        "y": 1500,
         "wires": [
             [
-                "b443439c81afcf12"
+                "b443439c81afcf12",
+                "25b7f40c09229aee"
             ]
         ]
     },
@@ -7271,7 +7270,7 @@
         "statusCode": "",
         "headers": {},
         "x": 1030,
-        "y": 1540,
+        "y": 1500,
         "wires": []
     }
 ]
