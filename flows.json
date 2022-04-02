@@ -7248,7 +7248,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "var url = msg.payload\nmsg.payload = {\n    'url':url\n}\nreturn msg;",
+        "func": "var url = {}\nurl['a'] = msg.payload\nmsg.payload = url\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
