@@ -7435,7 +7435,7 @@
         "y": 1740,
         "wires": [
             [
-                "78c8ab2ccd2b9b7a"
+                "ed33c196276d0e2f"
             ]
         ]
     },
@@ -7452,8 +7452,44 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 990,
-        "y": 1740,
+        "x": 850,
+        "y": 1820,
         "wires": []
+    },
+    {
+        "id": "ed33c196276d0e2f",
+        "type": "html",
+        "z": "e3562182c0530220",
+        "name": "前两条信息地址href",
+        "property": "payload",
+        "outproperty": "imgurl",
+        "tag": "#search_container > div.wrapper > div.wrapper_main > div.mix_warp > div > div:nth-child(1) > div > div._infos > div > a > img",
+        "ret": "attr",
+        "as": "single",
+        "x": 1010,
+        "y": 1740,
+        "wires": [
+            [
+                "e38237ccbabbce47"
+            ]
+        ]
+    },
+    {
+        "id": "e38237ccbabbce47",
+        "type": "html",
+        "z": "e3562182c0530220",
+        "name": "相关信息地址href",
+        "property": "payload",
+        "outproperty": "url2",
+        "tag": "div.figures_scroll.figures_scroll_v > div > ul > li > a",
+        "ret": "attr",
+        "as": "single",
+        "x": 650,
+        "y": 1820,
+        "wires": [
+            [
+                "78c8ab2ccd2b9b7a"
+            ]
+        ]
     }
 ]
