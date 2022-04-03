@@ -7378,7 +7378,8 @@
         "y": 1680,
         "wires": [
             [
-                "269d5abc6853f1a6"
+                "c46712a45f949ea3",
+                "580301050448b715"
             ]
         ]
     },
@@ -7400,5 +7401,59 @@
                 "a2dd37be4ed7e9ae"
             ]
         ]
+    },
+    {
+        "id": "c46712a45f949ea3",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "msg.html = msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 1740,
+        "wires": [
+            [
+                "eba6a7ae73bff6bb"
+            ]
+        ]
+    },
+    {
+        "id": "eba6a7ae73bff6bb",
+        "type": "html",
+        "z": "e3562182c0530220",
+        "name": "前两条信息地址href",
+        "property": "payload",
+        "outproperty": "url1",
+        "tag": "#search_container > div.wrapper > div.wrapper_main > div.mix_warp > div > div > div > div._infos > div > h2 > a",
+        "ret": "attr",
+        "as": "single",
+        "x": 790,
+        "y": 1740,
+        "wires": [
+            [
+                "78c8ab2ccd2b9b7a"
+            ]
+        ]
+    },
+    {
+        "id": "78c8ab2ccd2b9b7a",
+        "type": "debug",
+        "z": "e3562182c0530220",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 1740,
+        "wires": []
     }
 ]
