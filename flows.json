@@ -7491,5 +7491,22 @@
                 "78c8ab2ccd2b9b7a"
             ]
         ]
+    },
+    {
+        "id": "b0528caa388fd1a1",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "var reg = /totalData: '();'/i\nret = reg.exec(msg.payload)\nmsg.payload = ret\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 1880,
+        "wires": [
+            []
+        ]
     }
 ]
