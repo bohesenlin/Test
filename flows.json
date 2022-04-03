@@ -7507,8 +7507,7 @@
         "y": 1820,
         "wires": [
             [
-                "24c8adcfc63d46f6",
-                "6986c5b47efa4309"
+                "24c8adcfc63d46f6"
             ]
         ]
     },
@@ -7524,7 +7523,8 @@
         "y": 1820,
         "wires": [
             [
-                "78c8ab2ccd2b9b7a"
+                "78c8ab2ccd2b9b7a",
+                "21320c82c6bb22ed"
             ]
         ]
     },
@@ -7541,8 +7541,27 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
-        "y": 1900,
+        "x": 830,
+        "y": 1920,
         "wires": []
+    },
+    {
+        "id": "21320c82c6bb22ed",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "img = ''\nurl = ''\nname = ''\nlist = {}\nvar i = 0\narr = msg.payload.itemList\nfor(var val in arr){\n    \nlist[val] = {\n    var:[\n        arr[i].videoInfo.title,\n        arr[i].videoInfo.url,\n        arr[i].videoInfo.imgUrl\n        ]\n}\ni++\n}\nmsg.payload = list\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 1920,
+        "wires": [
+            [
+                "6986c5b47efa4309"
+            ]
+        ]
     }
 ]
