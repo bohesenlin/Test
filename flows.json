@@ -7607,7 +7607,9 @@
         "x": 270,
         "y": 2020,
         "wires": [
-            []
+            [
+                "7e1b5b89d25e5ff0"
+            ]
         ]
     },
     {
@@ -7628,5 +7630,33 @@
                 "e252656781e2dd6a"
             ]
         ]
+    },
+    {
+        "id": "32827bb3486baf69",
+        "type": "http in",
+        "z": "e3562182c0530220",
+        "name": "",
+        "url": "video2",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 2020,
+        "wires": [
+            [
+                "fb5578764d6c6da0"
+            ]
+        ]
+    },
+    {
+        "id": "7e1b5b89d25e5ff0",
+        "type": "http response",
+        "z": "e3562182c0530220",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 410,
+        "y": 2020,
+        "wires": []
     }
 ]
