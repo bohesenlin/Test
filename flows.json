@@ -7513,7 +7513,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "// img = ''\n// url = ''\n// name = ''\nlist = {}\nvar i = 0\narr = msg.payload.itemList\nfor(var val in arr){\n    list[val] = [\n        arr[i].videoInfo.title,\n        arr[i].videoInfo.url,\n        arr[i].videoInfo.imgUrl\n        ]\n    i++\n}\nname1 = msg.imgurl[0].alt\nname2 = msg.imgurl[1].alt\nurl1 = msg.url1[0].href\nurl2 = msg.url1[1].href\nimgurl1 = msg.imgurl[0].src\nimgurl2 = msg.imgurl[1].src\njson = {}\njson['0']=[name1,url1,imgurl1]\njson['1']=[name2,url2,imgurl2]\ni = 2\nfor(var val1 in list){\n    json[i.toString()] = list[val]\n    i++\n}\nmsg.payload = json\nreturn msg;",
+        "func": "// img = ''\n// url = ''\n// name = ''\nlist = {}\nvar i = 0\narr = msg.payload.itemList\nfor(var val in arr){\n    list[val] = [\n        arr[i].videoInfo.title,\n        arr[i].videoInfo.url,\n        arr[i].videoInfo.imgUrl\n        ]\n    i++\n}\nname1 = msg.imgurl[0].alt\nname2 = msg.imgurl[1].alt\nurl1 = msg.url1[0].href\nurl2 = msg.url1[1].href\nimgurl1 = msg.imgurl[0].src\nimgurl2 = msg.imgurl[1].src\njson = {}\njson['0']=[name1,url1,imgurl1]\njson['1']=[name2,url2,imgurl2]\ni = 2\nfor(var val1 in list){\n    json[i.toString()] = list[val1]\n    i++\n}\nmsg.payload = json\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
