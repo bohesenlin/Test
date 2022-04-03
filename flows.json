@@ -7452,7 +7452,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 850,
+        "x": 1130,
         "y": 1820,
         "wires": []
     },
@@ -7488,7 +7488,7 @@
         "y": 1820,
         "wires": [
             [
-                "78c8ab2ccd2b9b7a"
+                "b0528caa388fd1a1"
             ]
         ]
     },
@@ -7497,16 +7497,52 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "var reg = /totalData: '();'/i\nret = reg.exec(msg.payload)\nmsg.payload = ret\nreturn msg;",
+        "func": "var reg = /totalData: '(.*?)'/i\nret = reg.exec(msg.payload)\n// msg.payload = ret[1]\n// ret1 = decodeURI(ret[1])\nmsg.payload = ret\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 830,
-        "y": 1880,
+        "y": 1820,
         "wires": [
-            []
+            [
+                "24c8adcfc63d46f6",
+                "6986c5b47efa4309"
+            ]
         ]
+    },
+    {
+        "id": "24c8adcfc63d46f6",
+        "type": "json",
+        "z": "e3562182c0530220",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 970,
+        "y": 1820,
+        "wires": [
+            [
+                "78c8ab2ccd2b9b7a"
+            ]
+        ]
+    },
+    {
+        "id": "6986c5b47efa4309",
+        "type": "debug",
+        "z": "e3562182c0530220",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 1900,
+        "wires": []
     }
 ]
