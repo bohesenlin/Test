@@ -7357,7 +7357,7 @@
         "wires": [
             [
                 "6986c5b47efa4309",
-                "e252656781e2dd6a"
+                "273120b2bd763df4"
             ]
         ]
     },
@@ -7553,8 +7553,80 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 830,
-        "y": 1940,
+        "x": 1270,
+        "y": 1960,
         "wires": []
+    },
+    {
+        "id": "273120b2bd763df4",
+        "type": "json",
+        "z": "e3562182c0530220",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 810,
+        "y": 2020,
+        "wires": [
+            [
+                "23927b7970beec50"
+            ]
+        ]
+    },
+    {
+        "id": "23927b7970beec50",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "msg.payload = encodeURIComponent(msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 2020,
+        "wires": [
+            [
+                "6986c5b47efa4309",
+                "3cd1d4be5d9e9a47"
+            ]
+        ]
+    },
+    {
+        "id": "fb5578764d6c6da0",
+        "type": "template",
+        "z": "e3562182c0530220",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <script crossorigin=\"anonymous\" src=\"https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\n    <title>video search</title>\n    <style>\n        .outer {\n            width: 900px;\n            margin: 100px auto;\n            /* box-shadow: 0 0 10px rgba(0, 0, 0, .3); */\n            /* float: left; */\n        }\n\n        .search_item {\n            width: 150px;\n            /* margin: 100px auto; */\n            box-shadow: 0 0 10px rgba(0, 0, 0, .3);\n            float: left;\n            margin: 10px;\n        }\n\n        body {\n            color: #333;\n            min-width: 800px;\n            /* 限制body的宽度 */\n        }\n\n        .img-wrapper img {\n            width: 100%;\n            /* 设置图片和基线对齐 */\n            vertical-align: bottom;\n\n        }\n\n        .info {\n            /*上下不要空格 左右18个像素 */\n            padding: 0 18px;\n            color: #acaaaa;\n            font-size: 14px;\n        }\n\n        /* 设置标题 */\n        .info .title {\n            color: #717171;\n            font-size: 18px;\n            margin: -20px 0 0 -16px;\n\n        }\n\n        .figure_info {\n            position: relative;\n            padding: 0;\n            color: #acaaaa;\n            font-size: 14px;\n            top: -30px;\n            left: 10px;\n        }\n\n\n\n\n\n        /* 设置搜索框的容器 */\n        .search-wrapper {\n            width: 296px;\n            height: 50px;\n            /* float: right; */\n            margin: 30px auto;\n        }\n\n        .search-wrapper .search-inp {\n            box-sizing: border-box;\n            width: 244px;\n            border: none;\n            float: left;\n            padding: 0 10px;\n            height: 50px;\n            font-size: 16px;\n            border: 1px solid rgb(244, 244, 244);\n            outline: none;\n        }\n\n        .search-wrapper .search-inp:focus,\n        .search-wrapper .search-inp:focus+button {\n            border-color: #ff6700;\n        }\n\n        .search-wrapper .search-btn {\n            float: left;\n            height: 50px;\n            width: 52px;\n            padding: 0;\n            border: none;\n            background-color: #fff;\n            color: #616161;\n            font-size: 16px;\n            border: 1px solid rgb(244, 244, 244);\n            border-left: none;\n        }\n\n        .search-wrapper .search-btn:hover {\n            /* 背景颜色 */\n            background-color: #ff6700;\n            /* 字体颜色 */\n            color: white;\n            /* 边框 */\n            border: none;\n        }\n    </style>\n    <script>\n        window.onload = function () {\n            text = document.querySelectorAll('input')[0]\n            $('.search-btn').on('click', function () {\n                url = 'http://192.168.0.210:1880/search?videoname=' + text.value\n\n                $.get(url, {}, function (data) {\n                    console.log(data)\n                    add_search_item(data)\n                }, 'json')\n            })\n\n\n            function add_search_item(data) {\n                for (var val in data) {\n                    var div = $(\"<div class='search_item'></div>\");\n                    var imgwrappper = \"<div class='img-wrappper'>\" +\n                        \"<a href=\" + data[val][1] + \" class='search-back-img'>\" +\n                        \"<img src=\" + data[val][2] + \" width='150px'>\" +\n                        \"</a>\" +\n                        \"<span class='figure_caption'>\" +\n                        \"<span class='figure_info'>全100集</span>\" +\n                        \"</span>\" +\n                        \"</div>\" +\n                        \"<div class='info'>\" +\n                        \"<h2 class='title'>\" +\n                        \"<img src=''./img/bofang.png' width='20px' height='20px'>\" +\n                        data[val][0] +\n                        \"</h2>\" +\n                        \"</div>\"\n                    div.append(imgwrappper)\n                    $(\".outer\").append(div)\n                }\n                //为 img a标签设置点击事件\n                $('.search-back-img').on('click', function () {\n                    // var nrindex = $(this).index()\n\n                    // var nrindex = Number(this.innerText)\n                    // console.log(nrindex)\n                    url = \"http://192.168.0.210:1880/videoinfo?url=\" + this.href\n                    $.get(url, {}, function (data) {\n                        console.log(data)\n                        // add(data, nrindex)\n                    }, 'json')\n                    return false\n                })\n            }\n\n        }\n    </script>\n</head>\n\n<body>\n    <!-- 创建搜索框 -->\n    <div class=\"search_bar\">\n        <div class=\"search-wrapper\">\n            <form action=\"#\" class=\"search\">\n                <input class=\"search-inp\" type=\"text\">\n                <button class=\"search-btn\">\n                    <img class=\"search-img\" src=\"./img/search1.png\" width=\"18px\" height=\"18px\" alt=\"\">\n                </button>\n            </form>\n\n        </div>\n    </div>\n    <!-- //创建一个外层容器 -->\n    <div class=\"outer\">\n        <div class=\"search_item\">\n            <div class=\"img-wrappper\">\n                <a href=\"https://v.qq.com/x/cover/qyqaod1cfohr8st.html\" class=\"search-back-img\">\n                    <img src=\"//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/260\" width=\"150px\" alt=\"\">\n                </a>\n                <span class=\"figure_caption\">\n                    <span class=\"figure_info\">全100集</span>\n                </span>\n            </div>\n            <!-- 创建内容区容器 -->\n            <div class=\"info\">\n                <h2 class=\"title\">\n                    <img src=\"./img/bofang.png\" width=\"20px\" height=\"20px\" alt=\"\">\n                    斗罗大陆\n                </h2>\n            </div>\n        </div>\n\n\n    </div>\n\n</body>\n\n</html>",
+        "output": "str",
+        "x": 270,
+        "y": 2020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3cd1d4be5d9e9a47",
+        "type": "template",
+        "z": "e3562182c0530220",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <link href=\"//vjs.zencdn.net/7.10.2/video-js.min.css\" rel=\"stylesheet\">\n    <script src=\"//vjs.zencdn.net/7.10.2/video.min.js\"></script>\n    <script src=\"https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\n    <title>video</title>\n    <style>\n        video {\n            width: 9000px;\n            height: 300px;\n        }\n    </style>\n    <script>\n        window.onload = function () {\n            const datainfo = {{payload}}\n            //加载播放器\n            // var player = videojs('my-player', {\n            //     // muted: true,\n            //     // controls: true,\n            //     height: 300,\n            //     width: 300,\n            //     // loop: true,\n            //     // 更多配置.....\n            // });\n            // console.log(player)\n\n\n            input = document.querySelectorAll('input')[0]//默认数据\n            input.value = \"斗罗大陆\"//默认数据\n            $('button').on('click', function () {\n                url = 'http://192.168.0.210:1880/videoname?videoname=' + input.value\n                $.get(url, {}, function (data) {\n                    console.log(data)\n                    addtr(data)\n                }, 'json')\n            })\n\n\n            function addtr(data) {\n\n                for (var val in data) {\n                    var tr = $(\"<tr></tr>\");\n                    var td = \"<td>\" + val + \"</td><td><a href='\" + data[val] + \"' target='_blank'>观看</a></td>\"\n\n                    tr.append(td)\n                    $(\"tbody\").append(tr)\n                }\n\n                $('a').on('click', function () {\n                    url = 'http://192.168.0.210:1880/jiexi?url=' + this.href\n\n                    $.get(url, {}, function (data) {\n                        console.log(data)\n\n                        // video.pause()\n                        // source.setAttribute('src', '2.mp4');\n                        // video.load();\n                        // video.play();\n                        var player = videojs('my-player');\n                        player.src(data['a']);\n                        player.load();\n                    }, 'json')\n                    return false\n                })\n\n            }\n\n        }\n    </script>\n</head>\n<div>\n    <input type=\"text\" name=\"search\" id=\"\">\n</div>\n<div>\n    <button>搜索</button>\n</div>\n<div>\n    <!-- poster=\"//vjs.zencdn.net/v/oceans.png\" -->\n    <video id=\"my-player\" class=\"video-js\" controls preload=\"auto\" poster=\"\" width=\"800px\" height=\"600px\"\n        data-setup='{}'>\n        <source id=\"playersource\"\n            src=\"https://om.tc.qq.com/gzc_1000102_0b535yaaiaaaomapahbgkbrmb3wdatuaaaca.f10218.mp4?vkey=64BEFDC49EAD0DBFE056C4AEE07A3F80D5F453072AC9D37210092908083A1AD2D89CF430415FCCC2F07B3E4FED7F02CC20559078F65E91DF90EA3E1ADCDA3C7B14A31A9DDC091CBFDCA348B1258E55FCFC03B81E6A00FAABC9657E7F2B69498ECBF7898C704C758DCAC0BDEA99EED9EDBA13CEC6E54E6C41EAE6FE2B15946C874AB1E36375CA7146&amp;sdtfrom=v1080&amp;type=mp4&amp;platform=10201&amp;br=117&amp;fmt=hd&amp;sp=0&amp;guid=1F78117BB3DD94210EC924D61BBE1F21FD660D84\"\n            type=\"video/mp4\">\n\n        <!-- <p class=\"vjs-no-js\">\n            To view this video please enable JavaScript, and consider upgrading to a\n            web browser that\n            <a href=\"https://videojs.com/html5-video-support/\" target=\"_blank\">\n                supports HTML5 video\n            </a>\n        </p> -->\n    </video>\n</div>\n\n<body>\n    <table>\n        <tbody>\n\n        </tbody>\n\n    </table>\n\n</body>\n\n</html>",
+        "output": "str",
+        "x": 1090,
+        "y": 2020,
+        "wires": [
+            [
+                "e252656781e2dd6a"
+            ]
+        ]
     }
 ]
