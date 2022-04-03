@@ -7440,23 +7440,6 @@
         ]
     },
     {
-        "id": "78c8ab2ccd2b9b7a",
-        "type": "debug",
-        "z": "e3562182c0530220",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1130,
-        "y": 1820,
-        "wires": []
-    },
-    {
         "id": "ed33c196276d0e2f",
         "type": "html",
         "z": "e3562182c0530220",
@@ -7468,24 +7451,6 @@
         "as": "single",
         "x": 1010,
         "y": 1740,
-        "wires": [
-            [
-                "e38237ccbabbce47"
-            ]
-        ]
-    },
-    {
-        "id": "e38237ccbabbce47",
-        "type": "html",
-        "z": "e3562182c0530220",
-        "name": "相关信息地址href",
-        "property": "payload",
-        "outproperty": "url2",
-        "tag": "div.figures_scroll.figures_scroll_v > div > ul > li > a",
-        "ret": "attr",
-        "as": "single",
-        "x": 650,
-        "y": 1820,
         "wires": [
             [
                 "b0528caa388fd1a1"
@@ -7503,7 +7468,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 830,
+        "x": 610,
         "y": 1820,
         "wires": [
             [
@@ -7519,11 +7484,10 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 970,
+        "x": 750,
         "y": 1820,
         "wires": [
             [
-                "78c8ab2ccd2b9b7a",
                 "21320c82c6bb22ed"
             ]
         ]
@@ -7541,8 +7505,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 830,
-        "y": 1920,
+        "x": 1030,
+        "y": 1820,
         "wires": []
     },
     {
@@ -7550,14 +7514,14 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "img = ''\nurl = ''\nname = ''\nlist = {}\nvar i = 0\narr = msg.payload.itemList\nfor(var val in arr){\n    \nlist[val] = {\n    var:[\n        arr[i].videoInfo.title,\n        arr[i].videoInfo.url,\n        arr[i].videoInfo.imgUrl\n        ]\n}\ni++\n}\nmsg.payload = list\nreturn msg;",
+        "func": "// img = ''\n// url = ''\n// name = ''\nlist = {}\nvar i = 0\narr = msg.payload.itemList\nfor(var val in arr){\n    list[val] = [\n        arr[i].videoInfo.title,\n        arr[i].videoInfo.url,\n        arr[i].videoInfo.imgUrl\n        ]\n    i++\n}\nname1 = msg.imgurl[0].alt\nname2 = msg.imgurl[1].alt\nurl1 = msg.url1[0].href\nurl2 = msg.url1[1].href\nimgurl1 = msg.imgurl[0].src\nimgurl2 = msg.imgurl[1].src\njson = {}\njson['0']=[name1,url1,imgurl1]\njson['1']=[name2,url2,imgurl2]\ni = 2\nfor(var val1 in list){\n    json[i.toString()] = list[val]\n    i++\n}\nmsg.payload = json\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
-        "y": 1920,
+        "x": 890,
+        "y": 1820,
         "wires": [
             [
                 "6986c5b47efa4309"
