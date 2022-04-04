@@ -63,6 +63,14 @@
         "env": []
     },
     {
+        "id": "b32ed110abccd8e4",
+        "type": "tab",
+        "label": "视频搜索",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "e7cf0672145a47bb",
         "type": "ui_tab",
         "name": "Home",
@@ -7458,5 +7466,90 @@
                 "419af654ee0e2226"
             ]
         ]
+    },
+    {
+        "id": "a1e2284019228662",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.url = 'http://121.37.209.113:52/movie/search?keyword='+msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 120,
+        "wires": [
+            [
+                "d1a694a3663378d8"
+            ]
+        ]
+    },
+    {
+        "id": "49a70fa726541426",
+        "type": "inject",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "斗罗大陆",
+        "payloadType": "str",
+        "x": 120,
+        "y": 120,
+        "wires": [
+            [
+                "a1e2284019228662"
+            ]
+        ]
+    },
+    {
+        "id": "d1a694a3663378d8",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "persist": false,
+        "authType": "",
+        "senderr": false,
+        "x": 420,
+        "y": 120,
+        "wires": [
+            [
+                "3277f780ec9fd0bd"
+            ]
+        ]
+    },
+    {
+        "id": "3277f780ec9fd0bd",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 120,
+        "wires": []
     }
 ]
