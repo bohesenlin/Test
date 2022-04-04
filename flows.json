@@ -7037,11 +7037,11 @@
         "type": "http in",
         "z": "e3562182c0530220",
         "name": "",
-        "url": "video2",
+        "url": "video",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 110,
+        "x": 100,
         "y": 1360,
         "wires": [
             [
