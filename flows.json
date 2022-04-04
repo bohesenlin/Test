@@ -6376,8 +6376,8 @@
         "links": [
             "583e3b5a37593547"
         ],
-        "x": 1125,
-        "y": 220,
+        "x": 1045,
+        "y": 240,
         "wires": []
     },
     {
@@ -6395,7 +6395,8 @@
         "y": 240,
         "wires": [
             [
-                "fb8044923bd345ae"
+                "fb8044923bd345ae",
+                "041afb39671d545a"
             ]
         ]
     },
@@ -7419,54 +7420,6 @@
         "x": 430,
         "y": 1360,
         "wires": []
-    },
-    {
-        "id": "419af654ee0e2226",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "解析地址",
-        "func": "url = 'https://v.youku.com/v_show/id_XNTg1MDMwNDMyMA==.html?spm=a2hbt.13141534.1_3.3&s=fcffbcd8aafe49d3b5ba'\nmsg.url = \"https://jx.parwix.com:4433/player/analysis.php?v=\"+url\nmsg.headers = {\n  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 280,
-        "y": 300,
-        "wires": [
-            [
-                "c92aa5711b81cf1b"
-            ]
-        ]
-    },
-    {
-        "id": "05750d5f97a45ced",
-        "type": "inject",
-        "z": "e3562182c0530220",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 300,
-        "wires": [
-            [
-                "419af654ee0e2226"
-            ]
-        ]
     },
     {
         "id": "933540627e21eb29",
