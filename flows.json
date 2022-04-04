@@ -6433,174 +6433,6 @@
         ]
     },
     {
-        "id": "5c1fd296cf04e281",
-        "type": "http in",
-        "z": "e3562182c0530220",
-        "name": "",
-        "url": "music",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 90,
-        "y": 740,
-        "wires": [
-            [
-                "a61a740e7a186d24"
-            ]
-        ]
-    },
-    {
-        "id": "93c0f5ddc44ceb60",
-        "type": "http response",
-        "z": "e3562182c0530220",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 1130,
-        "y": 740,
-        "wires": []
-    },
-    {
-        "id": "03280bbe88ad9bf9",
-        "type": "debug",
-        "z": "e3562182c0530220",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 830,
-        "y": 800,
-        "wires": []
-    },
-    {
-        "id": "a61a740e7a186d24",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "",
-        "func": "msg.url = 'http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=' + msg.payload.a + '&pn=1&rn='+msg.payload.b.toString()\nmsg.t = 1\nmsg.t1 = 1\nmsg.count1 = msg.payload.b\nmsg.headers = {\n    'Connection':'keep-alive',\n    'Cookie':'kw_token=K8GF5NROMGS',\n    'csrf':'K8GF5NROMGS',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/search/list?key=%E9%99%88%E5%A5%95%E8%BF%85',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 250,
-        "y": 740,
-        "wires": [
-            [
-                "977d08a2ca167350"
-            ]
-        ]
-    },
-    {
-        "id": "977d08a2ca167350",
-        "type": "http request",
-        "z": "e3562182c0530220",
-        "name": "",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 400,
-        "y": 740,
-        "wires": [
-            [
-                "d57c3ceefb224b70"
-            ]
-        ]
-    },
-    {
-        "id": "d57c3ceefb224b70",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "",
-        "func": "msg.artist = []\nmsg.rid = []\nmsg.album = []\nmsg.name = []\nmsg.url = []\nfor(var i=0 ; i < msg.payload.data.list.length ; i++){\n    msg.artist.push(msg.payload.data.list[i].artist)\n    msg.rid.push(msg.payload.data.list[i].rid)\n    msg.album.push(msg.payload.data.list[i].album)\n    msg.name.push(msg.payload.data.list[i].name)\n    msg.url.push('http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[i]+'&type=convert_url3&br=320kmp3')\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 550,
-        "y": 740,
-        "wires": [
-            [
-                "ed1e3d9276ecbe56"
-            ]
-        ]
-    },
-    {
-        "id": "a9751bcc6d29b738",
-        "type": "http request",
-        "z": "e3562182c0530220",
-        "name": "",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 840,
-        "y": 740,
-        "wires": [
-            [
-                "ed1e3d9276ecbe56",
-                "7db9aeed066b2b02"
-            ]
-        ]
-    },
-    {
-        "id": "ed1e3d9276ecbe56",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "",
-        "func": "var count = context.get('count')||0;\nif(msg.t == 1){\n    count = 0;\n    msg.t = 0\n}\nif(count == 1){\n    msg.t1 =0\n}\nmsg.url = 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.rid[count]+'&type=convert_url3&br=320kmp3'\n\nmsg.name1 = msg.name[count]\nmsg.artist1 = msg.artist[count]\nmsg.rid1 = msg.rid[count]\nmsg.album1 = msg.album[count]\n\n\ncount = count + 1\nif(count == msg.name.length){\n    msg.t2 =1\n    // count = 0;\n    // msg.t = 0\n}\ncontext.set('count',count);\nif(count < (msg.count1 + 1) && count < (msg.artist.length + 1)){\n    return msg;\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 690,
-        "y": 740,
-        "wires": [
-            [
-                "03280bbe88ad9bf9",
-                "a9751bcc6d29b738"
-            ]
-        ]
-    },
-    {
-        "id": "7db9aeed066b2b02",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "",
-        "func": "var list = context.get('list')||{};\nif(msg.t1 == 1){\n    list = {}\n    msg.t1 = 0\n}\n// list.push(\n//     [\n//         msg.name1,\n//         msg.artist1,\n//         msg.album1,\n//         msg.rid1,\n//         msg.payload.data.url\n//     ]\n// )\nlist[msg.name1]=\n    [\n        msg.name1,\n        msg.artist1,\n        msg.album1,\n        msg.rid1,\n        msg.payload.data.url\n    ]\n\nif(msg.t2 == 1){\n    msg.payload = list\n    delete(msg.headers)\n    return msg;\n}\n// context.set('url',url);\ncontext.set('list',list);",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 990,
-        "y": 740,
-        "wires": [
-            [
-                "e4d1e93f8ca6cabf",
-                "93c0f5ddc44ceb60"
-            ]
-        ]
-    },
-    {
         "id": "e4d1e93f8ca6cabf",
         "type": "debug",
         "z": "e3562182c0530220",
@@ -6613,55 +6445,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1130,
-        "y": 800,
-        "wires": []
-    },
-    {
-        "id": "97213dc17b2c5cd1",
-        "type": "template",
-        "z": "e3562182c0530220",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "<html>\n\n<head>\n    <script>\n        window.onload = function () {\n            function add(arr) {\n                for (var val in arr) {\n                    // for (var i = 0; i < arr[val].length; i++) {\n                    var tr = document.createElement(\"tr\");\n                    //设置tr中的内容\n                    tr.innerHTML = \"<td>\" + arr[val][0] + \"</td>\" +\n                        \"<td>\" + arr[val][1] + \"</td>\" +\n                        \"<td>\" + arr[val][2] + \"</td>\" +\n                        \"<td><a href=\"+arr[val][4]+\">下载</a></td>\";\n\n                    //获取刚刚添加的a元素，并为其绑定单击响应函数\t\t\t\t\n                    // var a = tr.getElementsByTagName(\"a\")[0];\n                    // a.onclick = function () { };\n\n                    //获取table\n                    var employeeTable = document.getElementById(\"employeeTable\");\n                    //获取employeeTable中的tbody\n                    var tbody = employeeTable.getElementsByTagName(\"tbody\")[0];\n                    //将tr添加到tbodye中\n                    tbody.appendChild(tr);\n                    // }\n                }\n                \n            };\n            //\n            btn = document.querySelectorAll('button')\n            btn[0].onclick = function () {\n                // alert('hello')\n                getmusic()\n            }\n            text = document.querySelectorAll('input')\n            text[0].value = \"周杰伦\"\n            text[1].value = \"5\"\n            a = document.querySelectorAll('a')\n            function getmusic() {\n\n                var xhr = new XMLHttpRequest();\n                xhr.withCredentials = true;\n\n                xhr.addEventListener(\"readystatechange\", function () {\n                    if (this.readyState === 4) {\n                        console.log(this.responseText);\n                        // ab(this.responseText);\n                        \n                        var response = eval('('+this.responseText+')')\n                        add(response)\n                    }\n                });\n                url = \"http://192.168.0.210:1880/music?a=\"+text[0].value+\"&b=\"+text[1].value\n                dataType: 'json'\n                \n                xhr.open(\"GET\", url);\n                xhr.send();\n                \n            }\n            function ab(txt){\n                a[0].innerHTML = txt\n            }\n        }\n    </script>\n</head>\n\n<body>\n    <div>\n        歌手或歌曲名称\n    </div>\n    <div>\n        <input type=\"text\">\n\n    </div>\n    <div>\n        显示数量\n    </div>\n    <input type=\"text1\">\n    <div>\n        <button>提交</button>\n    </div>\n    <div>\n        <a id=\"abc\"></a>\n    </div>\n    \n    <table id=\"employeeTable\">\n        <tr>\n            <th>Name</th>\n            <th>歌手</th>\n            <th>专辑</th>\n            <th>下载</th>\n        </tr>\n        \n        {{!--<tr>--}}\n        {{!--    <td></td>--}}\n        {{!--    <td></td>--}}\n        {{!--    <td></td>--}}\n        {{!--    <td>--}}\n        {{!--        <a href=\"deleteEmp?id=003\"></a>--}}\n        {{!--    </td>--}}\n        {{!--</tr>--}}\n    </table>\n    {{!--<div id=\"formDiv\">--}}\n\n    {{!--    <h4>添加新员工</h4>--}}\n\n    {{!--    <table>--}}\n    {{!--        <tr>--}}\n    {{!--            <td class=\"word\">name: </td>--}}\n    {{!--            <td class=\"inp\">--}}\n    {{!--                <input type=\"text\" name=\"empName\" id=\"empName\" />--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--        <tr>--}}\n    {{!--            <td class=\"word\">email: </td>--}}\n    {{!--            <td class=\"inp\">--}}\n    {{!--                <input type=\"text\" name=\"email\" id=\"email\" />--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--        <tr>--}}\n    {{!--            <td class=\"word\">salary: </td>--}}\n    {{!--            <td class=\"inp\">--}}\n    {{!--                <input type=\"text\" name=\"salary\" id=\"salary\" />--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--        <tr>--}}\n    {{!--            <td colspan=\"2\" align=\"center\">--}}\n    {{!--                <button id=\"addEmpButton\">--}}\n    {{!--                    Submit--}}\n    {{!--                </button>--}}\n    {{!--            </td>--}}\n    {{!--        </tr>--}}\n    {{!--    </table>--}}\n\n    {{!--</div>--}}\n    \n</body>\n\n</html>",
-        "output": "str",
-        "x": 230,
-        "y": 680,
-        "wires": [
-            [
-                "508d94a9c9102702"
-            ]
-        ]
-    },
-    {
-        "id": "0771cfe082d23b54",
-        "type": "http in",
-        "z": "e3562182c0530220",
-        "name": "",
-        "url": "abc",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 80,
-        "y": 680,
-        "wires": [
-            [
-                "97213dc17b2c5cd1"
-            ]
-        ]
-    },
-    {
-        "id": "508d94a9c9102702",
-        "type": "http response",
-        "z": "e3562182c0530220",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 370,
-        "y": 680,
+        "x": 690,
+        "y": 1020,
         "wires": []
     },
     {
@@ -6755,152 +6540,6 @@
         "wires": []
     },
     {
-        "id": "086c19ca5b4953b2",
-        "type": "template",
-        "z": "e3562182c0530220",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "<html>\n\n<head>\n    <script>\n        window.onload = function () {\n            \n            btn = document.querySelectorAll('button')\n            btn[0].onclick = function () {\n                // alert('hello')\n                // dele()\n                url = \"http://192.168.0.210:1880/music1?a=\"+text[0].value+\"&b=\"+text[1].value\n                get1(url)\n                \n            }\n            \n            text = document.querySelectorAll('input')//默认数据\n            text[0].value = \"周杰伦\"\n            text[1].value = \"30\"\n            \n            img = document.querySelectorAll('img')[0]//图片\n            abc = document.getElementById('abc');//歌曲数量\n            // iframe = document.querySelectorAll('iframe')//播放器\n            audio = document.querySelectorAll('audio')[0]//播放器\n            \n            function add(arr) {\n                var n = 0\n                for (var val in arr) {\n                   n++\n                    var tr = document.createElement(\"tr\");\n                    //设置tr中的内容\n                    tr.innerHTML = \"<td>\" + n + \"</td>\" +//序号\n                        \"<td align='center'>\" + arr[val][3] + \"</td>\" +//歌曲\n                        \"<td align='center'>\" + arr[val][0] + \"</td>\" +//歌手\n                        \"<td align='center'>\" + arr[val][2] + \"</td>\" +//专辑\n                        \"<td>\" + arr[val][5] + \"</td>\" +//时长\n                        \"<td><a id='a' href=\"+arr[val][4]+\">试听</a></td>\" +//试听\n                        \"<td><a id='b' href=\"+arr[val][4]+\" download='\"+arr[val][3]+\".mp3'>下载</a></td>\";//下载\n                    \n                    \n                    \n                    //获取table\n                    var employeeTable = document.getElementById(\"employeeTable\");\n                    //获取employeeTable中的tbody\n                    var tbody = employeeTable.getElementsByTagName(\"tbody\")[0];\n                    //将tr添加到tbodye中\n                    tbody.appendChild(tr);\n                    \n                }\n                var a = document.querySelectorAll('#a');\n                for(var j=0;j<a.length ; j++){//为a标签创建点击事件\n                    a[j].onclick = dl\n                }\n                var b = document.querySelectorAll('#b');\n                for(var j=0;j<b.length ; j++){//为b标签创建点击事件\n                    b[j].onclick = dl1\n                }\n                abc.innerText = \"总共找到\" + arr['0'][6] + \"首歌曲\"\n                img.src = arr['0'][7]\n            };\n            //\n            function dl() {\n\t\t\t\tvar url = this.href;\n\t\t\t\t\n\t\t\t\tget2(url)\n\t\t\t\treturn false;\n\t\t\t};\n\t\t\tfunction dl1() {\n\t\t\t\tvar url = this.href;\n\t\t\t\tvar tr = this\n\t\t\t\tconsole.log(/320kmp3/i.test(this.href))\n\t\t\t\tif(/320kmp3/i.test(this.href)){\n\t\t\t\t    get3(url,tr)\n\t\t\t\t    return false;\n\t\t\t\t    \n\t\t\t\t}else{\n\t\t\t\t    // return false;\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t// return false;\n\t\t\t\t// this.href=\"https://other-web-nf01-sycdn.kuwo.cn/a671d57649748dcf5919b5527daab6cb/6246e6af/resource/n2/61/74/2962541098.mp3\";\n\t\t\t\t\n\t\t\t\t// return false;\n\t\t\t};\n            \n            function get1(url) {\n                var xhr = new XMLHttpRequest();\n                xhr.open(\"GET\", url);\n                xhr.send();\n                xhr.onreadystatechange = function(){\n                    if(xhr.readyState===4){\n                        if(xhr.status >= 200 && xhr.status < 300){\n                            console.log(xhr.response)\n                            var response = eval('('+this.responseText+')')\n                            add(response)\n                        }\n                    }\n                }\n                \n            }\n            \n            function get2(url) {\n                var xhr = new XMLHttpRequest();\n                xhr.open(\"GET\", url);\n                xhr.send();\n                xhr.onreadystatechange = function(){\n                    if(xhr.readyState===4){\n                        if(xhr.status >= 200 && xhr.status < 300){\n                            // console.log(xhr.response)\n                            var response = eval('('+this.responseText+')')\n                            audio.src = response['data']['url']\n                            \n                        }\n                    }\n                }\n                \n            }\n            function get3(url,tr) {\n                var xhr = new XMLHttpRequest();\n                xhr.open(\"GET\", url);\n                xhr.send();\n                xhr.onreadystatechange = function(){\n                    if(xhr.readyState===4){\n                        if(xhr.status >= 200 && xhr.status < 300){\n                            // console.log(xhr.response)\n                            var response = eval('('+this.responseText+')')\n                            // iframe[0].src = response['data']['url']\n                            // console.log(tr)\n                            tr.href = response['data']['url']\n                            // tr.click()\n                            // window.location.href=response['data']['url']\n                            // window.open(response['data']['url'])\n                            \n                        }\n                    }\n                }\n                \n            }\n        }\n    </script>\n</head>\n\n<body>\n    <div>\n        歌手或歌曲名称\n    </div>\n    <div>\n        <input type=\"text\">\n    </div>\n    <div>\n        显示数量\n    </div>\n    <input type=\"text1\">\n    <div>\n        <button>提交</button>\n    </div>\n    {{!--<iframe src=\"https://sy-sycdn.kuwo.cn/0a5a93b6b3ac975cc29780d61d0cc40d/624690cd/resource/n1/84/19/2974502628.mp3\"></iframe>--}}\n    <audio src=\"https://sy-sycdn.kuwo.cn/0a5a93b6b3ac975cc29780d61d0cc40d/624690cd/resource/n1/84/19/2974502628.mp3\" controls></audio>\n    <div>\n        <a id=\"abc\"></a>\n    </div>\n    <div>\n        <a id=\"dl\" href=\"\" download=\"\"></a>\n    </div>\n    \n    <table id=\"employeeTable\">\n        <tr>\n            <img class=\"cover\" src=\"\" lazy=\"loaded\">\n            <th>序号</th>\n            <th>歌曲</th>\n            <th>歌手</th>\n            <th>专辑</th>\n            <th>时长</th>\n            <th>试听</th>\n            <th>下载</th>\n        </tr>\n    </table>\n</body>\n\n</html>",
-        "output": "str",
-        "x": 230,
-        "y": 880,
-        "wires": [
-            [
-                "bd310d29fc3d2fc3"
-            ]
-        ]
-    },
-    {
-        "id": "55c668c65c115327",
-        "type": "http in",
-        "z": "e3562182c0530220",
-        "name": "",
-        "url": "abc01",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 90,
-        "y": 880,
-        "wires": [
-            [
-                "086c19ca5b4953b2"
-            ]
-        ]
-    },
-    {
-        "id": "bd310d29fc3d2fc3",
-        "type": "http response",
-        "z": "e3562182c0530220",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 370,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "24a18897cd78284d",
-        "type": "http in",
-        "z": "e3562182c0530220",
-        "name": "",
-        "url": "get",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 80,
-        "y": 1040,
-        "wires": [
-            [
-                "398fb8b6fae49298",
-                "74fe857140521c33"
-            ]
-        ]
-    },
-    {
-        "id": "74fe857140521c33",
-        "type": "http response",
-        "z": "e3562182c0530220",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 370,
-        "y": 1040,
-        "wires": []
-    },
-    {
-        "id": "130608304db819dd",
-        "type": "http in",
-        "z": "e3562182c0530220",
-        "name": "",
-        "url": "post",
-        "method": "post",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 80,
-        "y": 1080,
-        "wires": [
-            [
-                "398fb8b6fae49298",
-                "74fe857140521c33"
-            ]
-        ]
-    },
-    {
-        "id": "398fb8b6fae49298",
-        "type": "debug",
-        "z": "e3562182c0530220",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 290,
-        "y": 1140,
-        "wires": []
-    },
-    {
-        "id": "5eb1cf1af6710fd8",
-        "type": "template",
-        "z": "e3562182c0530220",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "<html>\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Document</title>\n    <script src=\"https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\n    <style>\n        div a::before {\n            content: \"⇒\";\n        }\n\n        ul {\n            list-style: none;\n        }\n\n        li,\n        i {\n            float: left;\n            width: 42px;\n            height: 42px;\n            /*  设置垂直居中 */\n            line-height: 42px;\n            /* 设置水平居中 */\n            text-align: center;\n\n        }\n\n        li:hover {\n            background-color: orange;\n        }\n\n        i:hover {\n            background-color: orange;\n        }\n\n        /* .pagedown:before {\n            content: \"\\e647\";\n        } */\n    </style>\n\n    <script>\n        window.onload = function () {\n            var N = 0//当前页面索引\n            $('#btn1').click(function () {//为提交按钮绑定事件\n                url = \"http://192.168.0.210:1880/music1?a=\" + text[0].value + \"&b=30&c=1\"\n                $.get(url, {}, function (data) {\n                    console.log(data)\n                    add(data, 1)\n                }, 'json')\n            })\n\n\n            text = document.querySelectorAll('input')//默认数据\n            text[0].value = \"周杰伦\"//默认数据\n\n\n            img = document.querySelectorAll('img')[0]//图片\n            abc = document.getElementById('abc');//歌曲数量\n            audio = document.querySelectorAll('audio')[0]//播放器\n\n            function add(arr, nrindex) {//创建表格 arr表示表格数据 nrindex 表示第几页\n                //删除元素\n                $('tr').remove()\n                console.log($('td'))\n                N = nrindex//记录当前页面索引\n                var n = (nrindex - 1) * 30\n                for (var val in arr) {\n                    n++\n                    var tr = document.createElement(\"tr\");\n                    //设置tr中的内容\n                    tr.innerHTML = \"<td>\" + n + \"</td>\" +//序号\n                        \"<td align='center'>\" + arr[val][3] + \"</td>\" +//歌曲\n                        \"<td align='center'>\" + arr[val][0] + \"</td>\" +//歌手\n                        \"<td align='center'>\" + arr[val][2] + \"</td>\" +//专辑\n                        \"<td>\" + arr[val][5] + \"</td>\" +//时长\n                        \"<td><a id='a' href=\" + arr[val][4] + \">试听</a></td>\" +//试听\n                        \"<td><a id='b' href=\" + arr[val][4] + \" download='\" + arr[val][3] + \".mp3'>下载</a></td>\";//下载\n\n                    //获取table\n                    var employeeTable = document.getElementById(\"employeeTable\");\n                    //获取employeeTable中的tbody\n                    var tbody = employeeTable.getElementsByTagName(\"tbody\")[0];\n                    //将tr添加到tbodye中\n                    tbody.appendChild(tr);\n                }\n\n                // var abcde = $('td > #a')//子代选择器\n                // console.log(abcde)\n                $('td > #a').on('click', function () {\n                    // console.log(\"下标\" + $(this).index())\n                    console.log(this.href)\n                    url = this.href\n                    $.get(url, {}, function (data) {\n                        console.log(data)\n\n                        audio.src = data['data']['url']\n                        // return false\n                    }, 'json')\n                    return false\n                })\n\n                $('td > #b').on('click', function () {\n                    console.log(this.href)\n                    url = this.href\n                    $.get(url, {}, function (data) {\n                        console.log(data)\n                        console.log(data['data']['url'])\n                        var a = document.createElement('a');\n                        a.href = data['data']['url'];\n                        a.click()\n                    }, 'json')\n                    return false\n                })\n\n                //创建ul////\n                // var ul = $(\"<ul></ul>\");\n                var nr = Math.ceil(arr['0'][6] / 30)//页数\n                console.log($('ul li span').length)\n                if ($('ul li span').length) {//判断是否存在翻页标签\n\n                } else {\n                    createul(nr)//创建翻页图标\n                }\n\n                // var user = data[val];\n                // var li = \"<li><span>\" + nr + \"</span></li>\"\n                // ul.append(li)\n                // $(\"body\").append(ul)\n\n\n                abc.innerText = \"总共找到\" + arr['0'][6] + \"首歌曲\"//查询结果\n                img.src = arr['0'][7]\n            };\n            //\n\n            function createul(nr) {//创建翻页图标\n                var ul = $(\"<ul></ul>\");\n                // var nr = Math.ceil(nr/ 30)//页数\n                // var user = data[val];\n\n                var li = \"<i class='pageup'>&lt;</i>\" +\n                    \"<li><span>1</span></li>\" +\n                    \"<li><span>2</span></li>\" +\n                    \"<li><span>3</span></li>\" +\n                    \"<li><span>\" + nr + \"</span></li>\" +\n                    \"<i class='pagedown'>&gt;</i>\"\n\n                ul.append(li)\n                $(\"body\").append(ul)\n\n\n                //为li标签设置点击事件\n                $('ul > li').on('click', function () {\n                    // var nrindex = $(this).index()\n\n                    var nrindex = Number(this.innerText)\n                    console.log(nrindex)\n                    url = \"http://192.168.0.210:1880/music1?a=\" + text[0].value + \"&b=30&c=\" + nrindex\n                    $.get(url, {}, function (data) {\n                        console.log(data)\n                        add(data, nrindex)\n                    }, 'json')\n                })\n                //为i标签设置点击事件\n                $('ul > i').on('click', function () {\n                    // var nrindex = $(this).index()\n                    if ($(this).index() == 0) {//判断是第几个i标签\n                        if ($(this).index() == N) {\n                        } else {\n                            var nrindex = N - 1\n                            console.log(nrindex)\n                            url = \"http://192.168.0.210:1880/music1?a=\" + text[0].value + \"&b=30&c=\" + nrindex\n                            $.get(url, {}, function (data) {\n                                console.log(data)\n                                add(data, nrindex)\n                            }, 'json')\n                        }\n\n                    } else {//如果是后面的i标签\n                        if ($(this).index() == N) {\n                        } else {\n                            var nrindex = N + 1\n                            console.log(nrindex)\n                            url = \"http://192.168.0.210:1880/music1?a=\" + text[0].value + \"&b=30&c=\" + nrindex\n                            $.get(url, {}, function (data) {\n                                console.log(data)\n                                add(data, nrindex)\n                            }, 'json')\n                        }\n\n                    }\n\n                })\n            }\n            // var ul = $(\"<ul></ul>\");\n            // var li = \"<li><span>&lt;</span></li>\" +\n            //     \"<li><span>1</span></li>\" +\n            //     \"<li><span>2</span></li>\" +\n            //     \"<li><span>3</span></li>\" +\n            //     \"<li><span>264</span></li>\" +\n            //     \"<li><span>&gt;</span></li>\"\n\n            // ul.append(li)\n            // $(\"body\").append(ul)\n\n\n\n\n        }\n    </script>\n</head>\n\n<body>\n    <div>\n        <div>\n            歌手或歌曲名称\n        </div>\n        <div>\n            <input type=\"text\">\n        </div>\n\n\n        <div>\n            <button id=\"btn1\">搜索</button>\n        </div>\n\n        <audio src=\"https://sy-sycdn.kuwo.cn/0a5a93b6b3ac975cc29780d61d0cc40d/624690cd/resource/n1/84/19/2974502628.mp3\"\n            controls autoplay loop></audio>\n        <!-- 允许控制 自动播放 循环播放 -->\n        <div>\n            <a id=\"abc\"></a>\n        </div>\n        <div>\n            <a id=\"dl\" href=\"\" download=\"\"></a>\n        </div>\n        <DIV>\n            <img class=\"cover\" src=\"\" lazy=\"loaded\">\n        </DIV>\n    </div>\n\n    <table id=\"employeeTable\">\n        <tr>\n            <th>序号</th>\n            <th>歌曲</th>\n            <th>歌手</th>\n            <th>专辑</th>\n            <th>时长</th>\n            <th>试听</th>\n            <th>下载</th>\n        </tr>\n    </table>\n    <div id=\"rn\">\n\n    </div>\n</body>\n\n</html>",
-        "output": "str",
-        "x": 230,
-        "y": 1220,
-        "wires": [
-            [
-                "29c3470b3659dfcb"
-            ]
-        ]
-    },
-    {
-        "id": "ad53347eaea416ad",
-        "type": "http in",
-        "z": "e3562182c0530220",
-        "name": "",
-        "url": "abc1",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 80,
-        "y": 1220,
-        "wires": [
-            [
-                "5eb1cf1af6710fd8"
-            ]
-        ]
-    },
-    {
         "id": "29c3470b3659dfcb",
         "type": "http response",
         "z": "e3562182c0530220",
@@ -6908,7 +6547,7 @@
         "statusCode": "",
         "headers": {},
         "x": 370,
-        "y": 1220,
+        "y": 880,
         "wires": []
     },
     {
@@ -7436,6 +7075,42 @@
         "wires": [
             [
                 "ed33c196276d0e2f"
+            ]
+        ]
+    },
+    {
+        "id": "906e02881e8d802f",
+        "type": "http in",
+        "z": "e3562182c0530220",
+        "name": "",
+        "url": "abc1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 880,
+        "wires": [
+            [
+                "a099838d923129b1"
+            ]
+        ]
+    },
+    {
+        "id": "a099838d923129b1",
+        "type": "template",
+        "z": "e3562182c0530220",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html>\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Document</title>\n    <script crossorigin=\"anonymous\" src=\"https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\n    <style>\n        body{\n            width: 940px;\n            margin: 0 auto;\n            background-color: rgb(211, 211, 211);\n        }\n        audio{\n            position: fixed;\n            bottom: 0;\n            left: 0;\n            \n        }\n\n        /* 设置搜索结果标题 */\n        \n        div a::before {\n            content: \"⇒\";\n        }\n\n        ul {\n            list-style: none;\n        }\n\n        li,\n        i {\n            float: left;\n            width: 42px;\n            height: 42px;\n            /*  设置垂直居中 */\n            line-height: 42px;\n            /* 设置水平居中 */\n            text-align: center;\n\n        }\n\n        li:hover {\n            background-color: orange;\n        }\n\n        li span {\n            /* 设置底部翻页span标签都能点击 */\n            display: block;\n        }\n\n        i:hover {\n            background-color: orange;\n        }\n\n\n\n        /* 设置搜索框的容器 */\n        .search-wrapper {\n            width: 296px;\n            height: 50px;\n            /* float: right; */\n            margin: 0 auto;\n        }\n\n        .search-wrapper .search-inp {\n            box-sizing: border-box;\n            width: 244px;\n            border: none;\n            float: left;\n            padding: 0 10px;\n            height: 50px;\n            font-size: 16px;\n            border: 1px solid rgb(244, 244, 244);\n            outline: none;\n        }\n\n        .search-wrapper .search-inp:focus,\n        .search-wrapper .search-inp:focus+button {\n            border-color: #ff6700;\n        }\n\n        .search-wrapper .search-btn {\n            float: left;\n            height: 50px;\n            width: 52px;\n            padding: 0;\n            border: none;\n            background-color: #fff;\n            color: #616161;\n            font-size: 16px;\n            border: 1px solid rgb(244, 244, 244);\n            border-left: none;\n        }\n\n        .search-wrapper .search-btn:hover {\n            /* 背景颜色 */\n            background-color: #ff6700;\n            /* 字体颜色 */\n            color: white;\n            /* 边框 */\n            border: none;\n        }\n\n        span{\n            display: block;\n        }\n\n        /* .pagedown:before {\n            content: \"\\e647\";\n        } */\n    </style>\n\n    <script>\n        window.onload = function () {\n            var N = 0//当前页面索引\n            $('.search-btn').click(function () {//为提交按钮绑定事件\n                url = \"http://192.168.0.210:1880/music1?a=\" + text[0].value + \"&b=30&c=1\"\n                $.get(url, {}, function (data) {\n                    console.log(data)\n                    add(data, 1)\n                }, 'json')\n            })\n\n\n            text = document.querySelectorAll('input')//默认数据\n            text[0].value = \"周杰伦\"//默认数据\n\n\n\n            img = document.querySelectorAll('img')[1]//图片\n            abc = document.getElementById('abc');//歌曲数量\n            audio = document.querySelectorAll('audio')[0]//播放器\n\n            function add(arr, nrindex) {//创建表格 arr表示表格数据 nrindex 表示第几页\n                //删除元素\n                $('tr').remove()\n                console.log($('td'))\n                N = nrindex//记录当前页面索引\n                var n = (nrindex - 1) * 30\n                for (var val in arr) {\n                    n++\n                    var tr = document.createElement(\"tr\");\n                    //设置tr中的内容\n                    tr.innerHTML = \"<td>\" + n + \"</td>\" +//序号\n                        \"<td align='center'>\" + arr[val][3] + \"</td>\" +//歌曲\n                        \"<td align='center'>\" + arr[val][0] + \"</td>\" +//歌手\n                        \"<td align='center'>\" + arr[val][2] + \"</td>\" +//专辑\n                        \"<td>\" + arr[val][5] + \"</td>\" +//时长\n                        \"<td><a id='a' href=\" + arr[val][4] + \">试听</a></td>\" +//试听\n                        \"<td><a id='b' href=\" + arr[val][4] + \" download='\" + arr[val][3] + \".mp3'>下载</a></td>\";//下载\n\n                    //获取table\n                    var employeeTable = document.getElementById(\"employeeTable\");\n                    //获取employeeTable中的tbody\n                    var tbody = employeeTable.getElementsByTagName(\"tbody\")[0];\n                    //将tr添加到tbodye中\n                    tbody.appendChild(tr);\n                }\n\n                // var abcde = $('td > #a')//子代选择器\n                // console.log(abcde)\n                $('td > #a').on('click', function () {\n                    // console.log(\"下标\" + $(this).index())\n                    console.log(this.href)\n                    url = this.href\n                    $.get(url, {}, function (data) {\n                        console.log(data)\n\n                        audio.src = data['data']['url']\n                        // return false\n                    }, 'json')\n                    return false\n                })\n\n                $('td > #b').on('click', function () {\n                    console.log(this.href)\n                    url = this.href\n                    $.get(url, {}, function (data) {\n                        console.log(data)\n                        console.log(data['data']['url'])\n                        var a = document.createElement('a');\n                        a.href = data['data']['url'];\n                        a.click()\n                    }, 'json')\n                    return false\n                })\n\n                //创建ul////\n                // var ul = $(\"<ul></ul>\");\n                var nr = Math.ceil(arr['0'][6] / 30)//页数\n                console.log($('ul li span').length)\n                if ($('ul li span').length) {//判断是否存在翻页标签\n\n                } else {\n                    createul(nr)//创建翻页图标\n                }\n\n                // var user = data[val];\n                // var li = \"<li><span>\" + nr + \"</span></li>\"\n                // ul.append(li)\n                // $(\"body\").append(ul)\n\n\n                abc.innerText = \"总共找到\" + arr['0'][6] + \"首歌曲\"//查询结果\n                img.src = arr['0'][7]\n            };\n            //\n\n            function createul(nr) {//创建翻页图标\n                var ul = $(\"<ul></ul>\");\n                // var nr = Math.ceil(nr/ 30)//页数\n                // var user = data[val];\n\n                var li = \"<i class='pageup'>&lt;</i>\" +\n                    \"<li><span>1</span></li>\" +\n                    \"<li><span>2</span></li>\" +\n                    \"<li><span>3</span></li>\" +\n                    \"<li><span>\" + nr + \"</span></li>\" +\n                    \"<i class='pagedown'>&gt;</i>\"\n\n                ul.append(li)\n                $(\"body\").append(ul)\n\n\n                //为li标签设置点击事件\n                $('ul > li').on('click', function () {\n                    // var nrindex = $(this).index()\n\n                    var nrindex = Number(this.innerText)\n                    console.log(nrindex)\n                    url = \"http://192.168.0.210:1880/music1?a=\" + text[0].value + \"&b=30&c=\" + nrindex\n                    $.get(url, {}, function (data) {\n                        console.log(data)\n                        add(data, nrindex)\n                    }, 'json')\n                })\n                //为i标签设置点击事件\n                $('ul > i').on('click', function () {\n                    // var nrindex = $(this).index()\n                    if ($(this).index() == 0) {//判断是第几个i标签\n                        if ($(this).index() == N) {\n                        } else {\n                            var nrindex = N - 1\n                            console.log(nrindex)\n                            url = \"http://192.168.0.210:1880/music1?a=\" + text[0].value + \"&b=30&c=\" + nrindex\n                            $.get(url, {}, function (data) {\n                                console.log(data)\n                                add(data, nrindex)\n                            }, 'json')\n                        }\n\n                    } else {//如果是后面的i标签\n                        if ($(this).index() == N) {\n                        } else {\n                            var nrindex = N + 1\n                            console.log(nrindex)\n                            url = \"http://192.168.0.210:1880/music1?a=\" + text[0].value + \"&b=30&c=\" + nrindex\n                            $.get(url, {}, function (data) {\n                                console.log(data)\n                                add(data, nrindex)\n                            }, 'json')\n                        }\n\n                    }\n\n                })\n            }\n            // var ul = $(\"<ul></ul>\");\n            // var li = \"<li><span>&lt;</span></li>\" +\n            //     \"<li><span>1</span></li>\" +\n            //     \"<li><span>2</span></li>\" +\n            //     \"<li><span>3</span></li>\" +\n            //     \"<li><span>264</span></li>\" +\n            //     \"<li><span>&gt;</span></li>\"\n\n            // ul.append(li)\n            // $(\"body\").append(ul)\n\n\n\n\n        }\n    </script>\n</head>\n\n<body>\n    <div>\n        <div>\n            歌手或歌曲名称\n        </div>\n        <div class=\"search-wrapper\">\n            <form action=\"#\" class=\"search\">\n                <input class=\"search-inp\" type=\"text\">\n                <button class=\"search-btn\">\n                    <img class=\"search-img\" src=\"./img/search1.png\" width=\"18px\" height=\"18px\" alt=\"\">\n                </button>\n            </form>\n\n        </div>\n\n        <audio src=\"https://sy-sycdn.kuwo.cn/0a5a93b6b3ac975cc29780d61d0cc40d/624690cd/resource/n1/84/19/2974502628.mp3\"\n            controls autoplay loop></audio>\n        <!-- 允许控制 自动播放 循环播放 -->\n        <div>\n            <a id=\"abc\"></a>\n        </div>\n        <div>\n            <a id=\"dl\" href=\"\" download=\"\"></a>\n        </div>\n        <DIV>\n            <img class=\"cover\" src=\"\" lazy=\"loaded\">\n        </DIV>\n    </div>\n\n    <table id=\"employeeTable\">\n        <tr>\n            <th>序号</th>\n            <th>歌曲</th>\n            <th>歌手</th>\n            <th>专辑</th>\n            <th>时长</th>\n            <th>试听</th>\n            <th>下载</th>\n        </tr>\n    </table>\n    <div id=\"rn\">\n\n    </div>\n\n    <ul class=\"search-bar\">\n        <li class=\"head-num\">序号</li>\n        <li class=\"head-name\">歌曲</li>\n        <li class=\"head-artist\">歌手</li>\n        <li class=\"head-album\">专辑</li>\n        <li class=\"head-time\">时长</li>\n    </ul>\n</body>\n\n</html>",
+        "output": "str",
+        "x": 230,
+        "y": 880,
+        "wires": [
+            [
+                "29c3470b3659dfcb"
             ]
         ]
     },
