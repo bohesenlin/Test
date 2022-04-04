@@ -7595,7 +7595,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "reg = /href=\"https:\\/\\/dmjx.m3u8.tv\\/\\?url=(.*?)\\?ptag=sohu.cartoon/g\nvar url = []\nfor (var i = 0; i < 1000; i++) {\n    url[i] = reg.exec(msg.payload[1])\n    if(reg.lastIndex==0){\n        msg.payload=url\n        break\n    }\n}\nmsg.url1 = url\nreturn msg;",
+        "func": "reg = /href=\"https:\\/\\/dmjx.m3u8.tv\\/\\?url=(.*?)\\?ptag=sohu.cartoon/g\nvar url = []\nfor (var i = 0; i < 1000; i++) {\n    url[i] = reg.exec(msg.payload[1])\n    if(reg.lastIndex==0){\n        msg.payload=url\n        break\n    }\n}\ncount = []\nreg =/link\">(.*?)<\\/div>/g\nfor (var j = 0; j < url.length - 1; j++) {\n    count[j] = reg.exec(msg.payload[1])\n    \n}\nmsg.url1 = url\nmsg.count = count\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
