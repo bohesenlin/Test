@@ -7188,7 +7188,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "解析地址",
-        "func": "url = msg.payload.url\nmsg.url = \"https://jx.parwix.com:4433/player/analysis.php?v=\"+url\nmsg.headers = {\n  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
+        "func": "url = msg.payload.url\nmsg.url = \"https://jx.parwix.com:4433/player/analysis.php?v=\"+url\nmsg.headers = {\n    'referer': 'http://tv.hzwdd.cn/',\n    'sec-ch-ua': \"' Not A;Brand';v='99', 'Chromium';v='100', 'Microsoft Edge';v='100'\",\n    'sec-ch-ua-mobile': '?0',\n    'sec-ch-ua-platform': \"Windows\",\n    'sec-fetch-dest': 'iframe',\n    'sec-fetch-mode': 'navigate',\n    'sec-fetch-site': 'same-origin',\n    'upgrade-insecure-requests': '1',\n    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36 Edg/100.0.1185.29'\n    // 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46'\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
