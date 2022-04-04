@@ -7578,7 +7578,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "msg.payload = encodeURIComponent(msg.payload)\nreturn msg;",
+        "func": "msg.payload = \"'\" + encodeURIComponent(msg.payload) + \"'\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
