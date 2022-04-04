@@ -6924,8 +6924,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1030,
-        "y": 1760,
+        "x": 1110,
+        "y": 1500,
         "wires": []
     },
     {
@@ -7098,8 +7098,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 870,
-        "y": 1480,
+        "x": 730,
+        "y": 1500,
         "wires": []
     },
     {
@@ -7249,8 +7249,7 @@
         "y": 1500,
         "wires": [
             [
-                "21320c82c6bb22ed",
-                "25b7f40c09229aee"
+                "21320c82c6bb22ed"
             ]
         ]
     },
@@ -7259,7 +7258,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "list = {}\nvar i = 0\narr = msg.payload.itemList\nfor(var val in arr){\n    list[val] = [\n        arr[i].videoInfo.title,\n        arr[i].videoInfo.url,\n        arr[i].videoInfo.imgUrl,\n        arr[i].videoInfo.firstBlockSites[0].episodeInfoList.length\n        ]\n    i++\n}\nif(msg.imgurl[0]){\n    msg.topic = 1\n}else{\n    msg.topic = -1\n    return msg\n}\nname1 = msg.imgurl[0].alt\nname2 = msg.imgurl[1].alt\nurl1 = msg.url1[0].href\nurl2 = msg.url1[1].href\nimgurl1 = msg.imgurl[0].src\nimgurl2 = msg.imgurl[1].src\ncount1 = msg.count[0]\ncount2 = msg.count[1]\njson = {}\njson['0']=[name1,url1,imgurl1,count1]\njson['1']=[name2,url2,imgurl2,count2]\ni = 2\nfor(var val1 in list){\n    json[i.toString()] = list[val1]\n    i++\n}\nmsg.payload = json\nreturn msg;",
+        "func": "list = {}\nvar i = 0\narr = msg.payload.itemList\nfor(var val in arr){\n    list[val] = [\n        arr[i].videoInfo.title,\n        arr[i].videoInfo.url,\n        arr[i].videoInfo.imgUrl,\n        arr[i].videoInfo.firstBlockSites[0].episodeInfoList.length\n        ]\n    i++\n}\n// if(msg.imgurl[0]){\n//     msg.topic = 1\n// }else{\n//     msg.topic = -1\n//     return msg\n// }\n// name1 = msg.imgurl[0].alt\n// name2 = msg.imgurl[1].alt\n// url1 = msg.url1[0].href\n// url2 = msg.url1[1].href\n// imgurl1 = msg.imgurl[0].src\n// imgurl2 = msg.imgurl[1].src\n// count1 = msg.count[0]\n// count2 = msg.count[1]\njson = {}\n// json['0']=[name1,url1,imgurl1,count1]\n// json['1']=[name2,url2,imgurl2,count2]\n// i = 2\nfor(var j =0;j<msg.imgurl.length;j++){\n    json[j.toString()]=[\n        msg.imgurl[j].alt,\n        url1 = msg.url1[j].href,\n        msg.imgurl[j].src,\n        msg.count[j]\n        ]\n    j++\n}\nfor(var val1 in list){\n    j++\n    json[j.toString()] = list[val1]\n    \n}\nmsg.payload = json\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7269,7 +7268,8 @@
         "y": 1500,
         "wires": [
             [
-                "6eceab214be9b0c1"
+                "580301050448b715",
+                "25b7f40c09229aee"
             ]
         ]
     },
@@ -7436,58 +7436,6 @@
         "wires": [
             [
                 "ed33c196276d0e2f"
-            ]
-        ]
-    },
-    {
-        "id": "6eceab214be9b0c1",
-        "type": "switch",
-        "z": "e3562182c0530220",
-        "name": "",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "-1",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 730,
-        "y": 1500,
-        "wires": [
-            [
-                "580301050448b715"
-            ],
-            [
-                "ac0096103d8715b4"
-            ]
-        ]
-    },
-    {
-        "id": "ac0096103d8715b4",
-        "type": "function",
-        "z": "e3562182c0530220",
-        "name": "",
-        "func": "msg.payload = msg.html\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 250,
-        "y": 1720,
-        "wires": [
-            [
-                "25b7f40c09229aee"
             ]
         ]
     },
