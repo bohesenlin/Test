@@ -6923,8 +6923,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1210,
-        "y": 1660,
+        "x": 1110,
+        "y": 1500,
         "wires": []
     },
     {
@@ -7195,7 +7195,7 @@
         "y": 1420,
         "wires": [
             [
-                "ed33c196276d0e2f"
+                "933540627e21eb29"
             ]
         ]
     },
@@ -7258,7 +7258,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "// img = ''\n// url = ''\n// name = ''\nlist = {}\nvar i = 0\narr = msg.payload.itemList\nfor(var val in arr){\n    list[val] = [\n        arr[i].videoInfo.title,\n        arr[i].videoInfo.url,\n        arr[i].videoInfo.imgUrl\n        ]\n    i++\n}\nname1 = msg.imgurl[0].alt\nname2 = msg.imgurl[1].alt\nurl1 = msg.url1[0].href\nurl2 = msg.url1[1].href\nimgurl1 = msg.imgurl[0].src\nimgurl2 = msg.imgurl[1].src\njson = {}\njson['0']=[name1,url1,imgurl1]\njson['1']=[name2,url2,imgurl2]\ni = 2\nfor(var val1 in list){\n    json[i.toString()] = list[val1]\n    i++\n}\nmsg.payload = json\nreturn msg;",
+        "func": "list = {}\nvar i = 0\narr = msg.payload.itemList\nfor(var val in arr){\n    list[val] = [\n        arr[i].videoInfo.title,\n        arr[i].videoInfo.url,\n        arr[i].videoInfo.imgUrl,\n        arr[i].videoInfo.firstBlockSites[0].episodeInfoList.length\n        ]\n    i++\n}\nname1 = msg.imgurl[0].alt\nname2 = msg.imgurl[1].alt\nurl1 = msg.url1[0].href\nurl2 = msg.url1[1].href\nimgurl1 = msg.imgurl[0].src\nimgurl2 = msg.imgurl[1].src\ncount1 = msg.count[0]\ncount2 = msg.count[1]\njson = {}\njson['0']=[name1,url1,imgurl1,count1]\njson['1']=[name2,url2,imgurl2,count2]\ni = 2\nfor(var val1 in list){\n    json[i.toString()] = list[val1]\n    i++\n}\nmsg.payload = json\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7465,6 +7465,24 @@
         "wires": [
             [
                 "419af654ee0e2226"
+            ]
+        ]
+    },
+    {
+        "id": "933540627e21eb29",
+        "type": "html",
+        "z": "e3562182c0530220",
+        "name": "更新数量",
+        "property": "payload",
+        "outproperty": "count",
+        "tag": "#search_container > div.wrapper > div.wrapper_main > div.mix_warp > div > div > div > div._infos > div > a > span.figure_caption > span",
+        "ret": "text",
+        "as": "single",
+        "x": 960,
+        "y": 1420,
+        "wires": [
+            [
+                "ed33c196276d0e2f"
             ]
         ]
     },
