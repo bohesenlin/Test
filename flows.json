@@ -7253,14 +7253,14 @@
         "name": "",
         "property": "payload",
         "outproperty": "payload",
-        "tag": "body > main > div:nth-child(1) > div > a",
+        "tag": "body > main > div",
         "ret": "html",
         "as": "single",
-        "x": 670,
+        "x": 610,
         "y": 120,
         "wires": [
             [
-                "3277f780ec9fd0bd"
+                "e74a35297ba9add5"
             ]
         ]
     },
@@ -7385,5 +7385,24 @@
         "x": 610,
         "y": 320,
         "wires": []
+    },
+    {
+        "id": "e74a35297ba9add5",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "reg=/<a href=\"https:\\/\\/dmjx.m3u8.tv\\/\\?url=(.*?)\\?(.*)alt=\"\" style=\"white-space: nowrap;\">([\\s\\S]*?)<div class=\"link\">(.*?)<\\/div>/g\nret = reg.exec(msg.payload[0])\nmsg.ret = ret\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 120,
+        "wires": [
+            [
+                "3277f780ec9fd0bd"
+            ]
+        ]
     }
 ]
