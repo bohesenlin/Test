@@ -7470,5 +7470,111 @@
                 "108f031873fa0eb2"
             ]
         ]
+    },
+    {
+        "id": "6326029763cfe281",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.url=\"https://so.youku.com/search_video/q_绝世唐门?searchfrom=1\"\nheaders = {\n    // 'referer':'https://so.youku.com/search_video/q_绝世唐门?searchfrom=2',\n    'cookie': '_m_h5_tk=76e6136b5a4a9e3502ad725cde51a9a9_1649257647805; _m_h5_tk_enc=39da72d9f31ed3f4432133773aa433fb; P_ck_ctl=BC11624D8C576F16F8E2AA6BBD0031B8; cna=HInUGnWvp3MCAd7a/Z2GLrkf; __ysuid=1649253148965YWo; __ayft=1649253148966; __aysid=16492531489677Zl; __ayscnt=1; modalFrequency={\"UUID\":\"10\"}; xlly_s=1; ctoken=1f4NChnQQBvZQouIcfgOP8XX; youku_history_word=[\"%E7%BB%9D%E4%B8%96%E5%94%90%E9%97%A8\",\"%E6%96%97%E7%BD%97%E5%A4%A7%E9%99%86\"]; __arycid=dh-3-00; __arcms=dh-3-00; __arpvid=1649254364136HPIbd3-1649254364174; __aypstp=11; __ayspstp=11; __ayvstp=13; __aysvstp=13; redMarkRead=1; l=eBQrhfNgLRYhqgzkBO5Bhurza7792QRb8SFzaNbMiInca6adZFi7zNC3OHQpodtjgtfYJeKPqhPt0RFwJlz_WjDDBeYBF4gmJxv9-; tfstk=cWlFBscO7BdedYFWHWNyAhZuRoJdanEuc1z4KvdYLEyXYT4a0sff2PbZwPzP7g2h.; isg=BHt7BGCHnc_YJaF7xnWV4DHfCl_l0I_SU6l0l20643qRzJqu9KCqIJVE5myCNOfK',\n    // 'sec-ch-ua': \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Microsoft Edge\";v=\"100\",\n    // 'sec-ch-ua-mobile': '?0',\n    // 'sec-ch-ua-platform': \"Windows\",\n    // 'sec-fetch-dest': 'document',\n    // 'sec-fetch-mode': 'navigate',\n    // 'sec-fetch-site': 'same-origin',\n    // 'sec-fetch-user': '?1',\n    'upgrade-insecure-requests': '1',\n    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36 Edg/100.0.1185.29'\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 460,
+        "wires": [
+            [
+                "0e5cf91f3ffd0e0d"
+            ]
+        ]
+    },
+    {
+        "id": "eba1bbe2aaa05f38",
+        "type": "inject",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 460,
+        "wires": [
+            [
+                "6326029763cfe281"
+            ]
+        ]
+    },
+    {
+        "id": "0e5cf91f3ffd0e0d",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 440,
+        "y": 460,
+        "wires": [
+            [
+                "88891e791ecc0d32"
+            ]
+        ]
+    },
+    {
+        "id": "c9d62418426b8a99",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "88891e791ecc0d32",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "reg=/\"\\/\\/v.youku.com\\/v_show\\/id_/g\nret = reg.exec(msg.payload)\nmsg.ret = ret\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 460,
+        "wires": [
+            [
+                "c9d62418426b8a99"
+            ]
+        ]
     }
 ]
