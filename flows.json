@@ -7391,7 +7391,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "reg = /<img src=\"(.*?)\"([\\s\\S]*?)<h3>(.*?)<\\/h3>([\\s\\S]*?)<p>(.*?)<\\/p>([\\s\\S]*?)<p>(.*?)<\\/p>([\\s\\S]*?)<p>(.*?)<\\/p>/g\nmsg.img_name = reg.exec(msg.payload[0])\nreg=/<a href=\"https:\\/\\/dmjx.m3u8.tv\\/\\?url=(.*?)\\?(.*)alt=\"\" style=\"white-space: nowrap;\">([\\s\\S]*?)<div class=\"link\">(.*?)<\\/div>/g\nmsg.list = reg.exec(msg.payload[0])\nret_list=[]\nfor (var i = 0; i < 1000; i++) {\n    ret_list[i] = reg.exec(msg.payload[0])\n    if(reg.lastIndex==0){\n        msg.payload=ret_list\n        break\n    }\n}\n// msg.payload=ret\nreturn msg;",
+        "func": "reg = /<img src=\"(.*?)\"([\\s\\S]*?)<h3>(.*?)<\\/h3>([\\s\\S]*?)<p>(.*?)<\\/p>([\\s\\S]*?)<p>(.*?)<\\/p>([\\s\\S]*?)<p>(.*?)<\\/p>/g\nmsg.img_name = reg.exec(msg.payload[0])\nreg=/<a href=\"https:\\/\\/dmjx.m3u8.tv\\/\\?url=(.*?)\\?(.*)alt=\"\" style=\"white-space: nowrap;\">([\\s\\S]*?)<div class=\"link\">(.*?)<\\/div>/g\nret_list=[]\nfor (var i = 0; i < 1000; i++) {\n    ret_list[i] = reg.exec(msg.payload[0])\n    if(reg.lastIndex==0){\n        abc=ret_list.pop()\n        msg.payload = abc\n        break\n    }\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
