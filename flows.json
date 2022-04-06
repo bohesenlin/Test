@@ -6717,7 +6717,7 @@
         "type": "http in",
         "z": "e3562182c0530220",
         "name": "",
-        "url": "search",
+        "url": "search1",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
@@ -7166,7 +7166,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "msg.url = 'http://121.37.209.113:52/movie/search?keyword='+msg.payload\nreturn msg;",
+        "func": "msg.url = 'http://121.37.209.113:52/movie/search?keyword='+msg.payload.videoname\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7201,8 +7201,8 @@
         "topic": "",
         "payload": "斗罗大陆",
         "payloadType": "str",
-        "x": 120,
-        "y": 120,
+        "x": 140,
+        "y": 160,
         "wires": [
             [
                 "eed4b29ef851dfd7"
@@ -7363,7 +7363,8 @@
         "y": 120,
         "wires": [
             [
-                "3277f780ec9fd0bd"
+                "3277f780ec9fd0bd",
+                "3ebc0827f2b9661f"
             ]
         ]
     },
@@ -7385,5 +7386,33 @@
                 "2e33794d7e150037"
             ]
         ]
+    },
+    {
+        "id": "5cc245838deca922",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "search",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 120,
+        "wires": [
+            [
+                "a1e2284019228662"
+            ]
+        ]
+    },
+    {
+        "id": "3ebc0827f2b9661f",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 950,
+        "y": 160,
+        "wires": []
     }
 ]
