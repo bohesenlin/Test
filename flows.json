@@ -7205,7 +7205,7 @@
         "y": 120,
         "wires": [
             [
-                "eed4b29ef851dfd7"
+                "a1e2284019228662"
             ]
         ]
     },
@@ -7391,7 +7391,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "// reg=/<a href=\"https:\\/\\/dmjx.m3u8.tv\\/\\?url=(.*?)\\?(.*)alt=\"\" style=\"white-space: nowrap;\">([\\s\\S]*?)<div class=\"link\">(.*?)<\\/div>/g\n// ret = reg.exec(msg.payload[0])\n// msg.ret = ret\nreg = /<h3>(.*?)<\\/h3>([\\s\\S]*?)<p>(.*?)<\\/p>([\\s\\S]*?)<p>(.*?)<\\/p>([\\s\\S]*?)<p>(.*?)<\\/p>/g\nret1 = reg.exec(msg.payload[0])\nmsg.ret = ret1\nreturn msg;",
+        "func": "reg=/<a href=\"https:\\/\\/dmjx.m3u8.tv\\/\\?url=(.*?)\\?(.*)alt=\"\" style=\"white-space: nowrap;\">([\\s\\S]*?)<div class=\"link\">(.*?)<\\/div>/g\nret = reg.exec(msg.payload[0])\nmsg.ret = ret\nreg = /<img src=\"(.*?)\"([\\s\\S]*?)<h3>(.*?)<\\/h3>([\\s\\S]*?)<p>(.*?)<\\/p>([\\s\\S]*?)<p>(.*?)<\\/p>([\\s\\S]*?)<p>(.*?)<\\/p>/g\nret1 = reg.exec(msg.payload[0])\nmsg.ret1 = ret1\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
