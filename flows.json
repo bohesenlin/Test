@@ -7225,8 +7225,7 @@
         "y": 120,
         "wires": [
             [
-                "2e33794d7e150037",
-                "b66c180beea54afe"
+                "2e33794d7e150037"
             ]
         ]
     },
@@ -7254,10 +7253,10 @@
         "name": "",
         "property": "payload",
         "outproperty": "payload",
-        "tag": "body > main > div",
-        "ret": "text",
+        "tag": "body > main > div:nth-child(1) > div > a",
+        "ret": "html",
         "as": "single",
-        "x": 610,
+        "x": 670,
         "y": 120,
         "wires": [
             [
