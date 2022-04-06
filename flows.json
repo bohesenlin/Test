@@ -7162,6 +7162,40 @@
         ]
     },
     {
+        "id": "778b217760065e23",
+        "type": "http in",
+        "z": "e3562182c0530220",
+        "name": "",
+        "url": "videoinfo1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 1260,
+        "wires": [
+            [
+                "c2d73aac95d7a304"
+            ]
+        ]
+    },
+    {
+        "id": "c2d73aac95d7a304",
+        "type": "debug",
+        "z": "e3562182c0530220",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 1260,
+        "wires": []
+    },
+    {
         "id": "a1e2284019228662",
         "type": "function",
         "z": "b32ed110abccd8e4",
