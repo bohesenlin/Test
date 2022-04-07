@@ -7717,7 +7717,8 @@
         "wires": [
             [
                 "105879e759c3a9be",
-                "20a9400ed9d495c5"
+                "20a9400ed9d495c5",
+                "ed618faab46daf04"
             ]
         ]
     },
@@ -7795,5 +7796,41 @@
                 "097f77117046e581"
             ]
         ]
+    },
+    {
+        "id": "ed618faab46daf04",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "list = {}\n\n// arr = msg.payload.itemList\nfor(var i = 0; i<msg.url_name.length; i++){\n    list[msg.url_name[i].title] = [\n        msg.url_name[i].title,\n        msg.url_name[i].href,\n        msg.figure_pic[i].src,\n        msg.count[i]\n        ]\n    i++\n}\n// if(msg.imgurl[0]){\n//     msg.topic = 1\n// }else{\n//     msg.topic = -1\n//     return msg\n// }\n// name1 = msg.imgurl[0].alt\n// name2 = msg.imgurl[1].alt\n// url1 = msg.url1[0].href\n// url2 = msg.url1[1].href\n// imgurl1 = msg.imgurl[0].src\n// imgurl2 = msg.imgurl[1].src\n// count1 = msg.count[0]\n// count2 = msg.count[1]\n// json = {}\n// // json['0']=[name1,url1,imgurl1,count1]\n// // json['1']=[name2,url2,imgurl2,count2]\n// // i = 2\n// for(var j =0;j<msg.imgurl.length;j++){\n//     json[j.toString()]=[\n//         msg.imgurl[j].alt,\n//         url1 = msg.url1[j].href,\n//         msg.imgurl[j].src,\n//         msg.count[j]\n//         ]\n//     j++\n// }\n// for(var val1 in list){\n//     j++\n//     json[j.toString()] = list[val1]\n    \n// }\nmsg.payload = list\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1170,
+        "y": 560,
+        "wires": [
+            [
+                "cf7755175be10045"
+            ]
+        ]
+    },
+    {
+        "id": "cf7755175be10045",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1310,
+        "y": 560,
+        "wires": []
     }
 ]
