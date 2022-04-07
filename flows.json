@@ -8203,7 +8203,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "msg.payload = msg.url_name[7]\nreturn msg;",
+        "func": "msg.payload = msg.url_name[7].replace(/u002F/g,'')\n// msg.payload = msg.payload.replace(/window.__INITIAL_DATA__ =/,'')\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8213,7 +8213,8 @@
         "y": 1240,
         "wires": [
             [
-                "b610160a3641a12d"
+                "70a353b744e7d509",
+                "5f99518d5e224b7f"
             ]
         ]
     },
@@ -8223,7 +8224,7 @@
         "z": "b32ed110abccd8e4",
         "name": "",
         "property": "payload",
-        "action": "",
+        "action": "obj",
         "pretty": false,
         "x": 930,
         "y": 1240,
