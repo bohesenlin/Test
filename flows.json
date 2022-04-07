@@ -8186,7 +8186,7 @@
         "name": "url_name",
         "property": "payload",
         "outproperty": "url_name",
-        "tag": "body > script:nth-child(7)",
+        "tag": "body > script",
         "ret": "html",
         "as": "single",
         "x": 620,
