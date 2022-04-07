@@ -7928,7 +7928,8 @@
         "y": 820,
         "wires": [
             [
-                "73d87a079e76e4b9"
+                "73d87a079e76e4b9",
+                "bdd66a76d2c69788"
             ]
         ]
     },
@@ -7945,8 +7946,63 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 750,
+        "x": 870,
         "y": 820,
         "wires": []
+    },
+    {
+        "id": "bdd66a76d2c69788",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.html = msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 900,
+        "wires": [
+            [
+                "5f323a5c4d929f2a"
+            ]
+        ]
+    },
+    {
+        "id": "5f323a5c4d929f2a",
+        "type": "html",
+        "z": "b32ed110abccd8e4",
+        "name": "url_name",
+        "property": "payload",
+        "outproperty": "url_name",
+        "tag": "div > .h5-show-card-wrapper > a",
+        "ret": "attr",
+        "as": "single",
+        "x": 700,
+        "y": 900,
+        "wires": [
+            [
+                "ca1d936af3263694"
+            ]
+        ]
+    },
+    {
+        "id": "ca1d936af3263694",
+        "type": "html",
+        "z": "b32ed110abccd8e4",
+        "name": "figure_pic",
+        "property": "payload",
+        "outproperty": "figure_pic",
+        "tag": "#app > div > div > div > a > div.card-main > div.card-left-section > div.show-icon-wrapper > div",
+        "ret": "attr",
+        "as": "single",
+        "x": 880,
+        "y": 900,
+        "wires": [
+            [
+                "73d87a079e76e4b9"
+            ]
+        ]
     }
 ]
