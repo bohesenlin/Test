@@ -8203,7 +8203,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "msg.payload = msg.url_name[7].replace(/u002F/g,'')\nmsg.payload = msg.payload.replace(/window.__INITIAL_DATA__ =/,'')\n\nreturn msg;",
+        "func": "// msg.payload = msg.url_name[7].replace(/u002F/g,'')\nmsg.payload = msg.url_name[7].replace(/window.__INITIAL_DATA__ =/,'')\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
