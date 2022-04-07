@@ -6775,7 +6775,8 @@
         "y": 1560,
         "wires": [
             [
-                "273120b2bd763df4"
+                "273120b2bd763df4",
+                "25b7f40c09229aee"
             ]
         ]
     },
@@ -8356,7 +8357,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "msg.url=\"https://m.youku.com/video/id_XNTIwNTAzOTEyNA==\"\nheaders = {\n    // 'referer':'https://m.youku.com/',\n    // 'cookie': 'cna=FJVQGmIA6B0CAbSKeh1lCbFy; __ysuid=1646744585034EmF; __aysid=1649053107854oUW; modalFrequency={\"UUID\":\"10\"}; __ayft=1649305244773; __ayscnt=1; pop_endTime=1649308850434; redMarkRead=1; __arycid=dh-3-00; __arcms=dh-3-00; _m_h5_tk=2cd18ebe47cac0e44e06f952c1e4cf04_1649353936377; _m_h5_tk_enc=8ef85fd6bc543e920533df1b857276cc; P_ck_ctl=C22A536ADA66C85B2D441F4D53BDE76B; youku_history_word=[\"%E6%96%97%E7%BD%97%E5%A4%A7%E9%99%862%E7%BB%9D%E4%B8%96%E5%94%90%E9%97%A8\",\"%E9%95%9C%C2%B7%E5%8F%8C%E5%9F%8E\",\"%E7%94%84%E5%AC%9B%E4%BC%A0\"]; __ayvstp=52; __aysvstp=111; __arpvid=1649351330512SJI2Hl-1649351330528; __aypstp=43; __ayspstp=101; l=eBgGhBb4j5HL2reSKOfanurza77OSIRYYuPzaNbMiOCP9B1B5hn5W6V3FD86C3GRh6mHR379KjWaBeYBq3xonxvtggGVa_kmn; isg=BCwsesq_YrCY2kphhVndacSI_Qpe5dCPF-4VKoZtOFd6kcybrvWgHyIzt18pRQjn',\n    // 'sec-ch-ua': \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Microsoft Edge\";v=\"100\",\n    // 'sec-ch-ua-mobile': '?0',\n    // 'sec-ch-ua-platform': \"Windows\",\n    // 'sec-fetch-dest': 'document',\n    // 'sec-fetch-mode': 'navigate',\n    // 'sec-fetch-site': 'same-origin',\n    // 'sec-fetch-user': '?1',\n    //'upgrade-insecure-requests': '1',\n    // 'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/100.0.4896.60'\n}\n// msg.payload=''\nreturn msg;",
+        "func": "msg.url=\"https://m.youku.com/video/id_XNTE3MDI1NTU4MA==\"\nheaders = {\n    // 'referer':'https://m.youku.com/',\n    // 'cookie': 'cna=FJVQGmIA6B0CAbSKeh1lCbFy; __ysuid=1646744585034EmF; __aysid=1649053107854oUW; modalFrequency={\"UUID\":\"10\"}; __ayft=1649305244773; __ayscnt=1; pop_endTime=1649308850434; redMarkRead=1; __arycid=dh-3-00; __arcms=dh-3-00; _m_h5_tk=2cd18ebe47cac0e44e06f952c1e4cf04_1649353936377; _m_h5_tk_enc=8ef85fd6bc543e920533df1b857276cc; P_ck_ctl=C22A536ADA66C85B2D441F4D53BDE76B; youku_history_word=[\"%E6%96%97%E7%BD%97%E5%A4%A7%E9%99%862%E7%BB%9D%E4%B8%96%E5%94%90%E9%97%A8\",\"%E9%95%9C%C2%B7%E5%8F%8C%E5%9F%8E\",\"%E7%94%84%E5%AC%9B%E4%BC%A0\"]; __ayvstp=52; __aysvstp=111; __arpvid=1649351330512SJI2Hl-1649351330528; __aypstp=43; __ayspstp=101; l=eBgGhBb4j5HL2reSKOfanurza77OSIRYYuPzaNbMiOCP9B1B5hn5W6V3FD86C3GRh6mHR379KjWaBeYBq3xonxvtggGVa_kmn; isg=BCwsesq_YrCY2kphhVndacSI_Qpe5dCPF-4VKoZtOFd6kcybrvWgHyIzt18pRQjn',\n    // 'sec-ch-ua': \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Microsoft Edge\";v=\"100\",\n    // 'sec-ch-ua-mobile': '?0',\n    // 'sec-ch-ua-platform': \"Windows\",\n    // 'sec-fetch-dest': 'document',\n    // 'sec-fetch-mode': 'navigate',\n    // 'sec-fetch-site': 'same-origin',\n    // 'sec-fetch-user': '?1',\n    //'upgrade-insecure-requests': '1',\n    // 'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/100.0.4896.60'\n}\n// msg.payload=''\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8417,7 +8418,7 @@
         "y": 1600,
         "wires": [
             [
-                "99d61e7cd42895e8"
+                "33763d33a889c934"
             ]
         ]
     },
@@ -8434,8 +8435,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 870,
-        "y": 1600,
+        "x": 990,
+        "y": 1560,
         "wires": []
     },
     {
@@ -8449,8 +8450,28 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 1560,
+        "x": 590,
+        "y": 1600,
+        "wires": [
+            [
+                "99d61e7cd42895e8",
+                "b30e1887678d2109"
+            ]
+        ]
+    },
+    {
+        "id": "b30e1887678d2109",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "匹配地址参数合成地址",
+        "func": "// var url = []\n// var reg = /\"F\":\\d,\"V\":\"(.*?)\"/g\n\n// for (var i = 0; i < 1000; i++) {\n//     url[i] = reg.exec(msg.payload)\n//     if(reg.lastIndex==0){\n//         msg.payload=url\n//         break\n//     }\n// }\n\n\nvar hurl = []\nvar rsg = msg.payload\n// var a = (rsg.length + 1)/2\nfor (var n = 0; n < rsg.length-1; n++) {\n    //https://m.youku.com/video/id_XNTIwNTAzOTEyNA==\n    hurl.push(\"https://m.youku.com/video/id_\"+rsg[n][1]+\"==\")\n}\nvar txt ={}\nfor(var j=0;j<hurl.length;j++){\n    var title = '第'+(j+1).toString()+'集'\n    txt[title]=hurl[j]\n}\nmsg.payload = txt\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 1600,
         "wires": [
             [
                 "99d61e7cd42895e8"
