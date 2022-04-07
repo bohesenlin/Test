@@ -8648,7 +8648,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 770,
+        "x": 1110,
         "y": 2000,
         "wires": []
     },
@@ -8664,6 +8664,42 @@
         "as": "single",
         "x": 600,
         "y": 2000,
+        "wires": [
+            [
+                "5b1a9d19be346255"
+            ]
+        ]
+    },
+    {
+        "id": "5b1a9d19be346255",
+        "type": "html",
+        "z": "b32ed110abccd8e4",
+        "name": "figure_pic",
+        "property": "payload",
+        "outproperty": "figure_pic",
+        "tag": "div > a > img.figure_pic",
+        "ret": "attr",
+        "as": "single",
+        "x": 780,
+        "y": 1960,
+        "wires": [
+            [
+                "44904e1cb306ffc8"
+            ]
+        ]
+    },
+    {
+        "id": "44904e1cb306ffc8",
+        "type": "html",
+        "z": "b32ed110abccd8e4",
+        "name": "count",
+        "property": "payload",
+        "outproperty": "count",
+        "tag": "div> a > div",
+        "ret": "text",
+        "as": "single",
+        "x": 930,
+        "y": 1940,
         "wires": [
             [
                 "5a81a22bd1e25d21"
