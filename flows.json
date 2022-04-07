@@ -8631,7 +8631,7 @@
         "y": 2000,
         "wires": [
             [
-                "5a81a22bd1e25d21"
+                "72629386945404b2"
             ]
         ]
     },
@@ -8651,5 +8651,23 @@
         "x": 770,
         "y": 2000,
         "wires": []
+    },
+    {
+        "id": "72629386945404b2",
+        "type": "html",
+        "z": "b32ed110abccd8e4",
+        "name": "url_name",
+        "property": "payload",
+        "outproperty": "url_name",
+        "tag": ".list_item > a",
+        "ret": "attr",
+        "as": "single",
+        "x": 600,
+        "y": 2000,
+        "wires": [
+            [
+                "5a81a22bd1e25d21"
+            ]
+        ]
     }
 ]
