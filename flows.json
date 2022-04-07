@@ -8115,7 +8115,7 @@
         "id": "464a3e2318d87cbc",
         "type": "inject",
         "z": "b32ed110abccd8e4",
-        "name": "优酷",
+        "name": "优酷主页",
         "props": [
             {
                 "p": "payload"
@@ -8132,7 +8132,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 90,
+        "x": 100,
         "y": 1180,
         "wires": [
             [
@@ -8175,7 +8175,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 870,
+        "x": 1090,
         "y": 1180,
         "wires": []
     },
@@ -8193,8 +8193,72 @@
         "y": 1180,
         "wires": [
             [
+                "70a353b744e7d509",
+                "6ac06f991355d31c"
+            ]
+        ]
+    },
+    {
+        "id": "6ac06f991355d31c",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.payload = msg.url_name[7]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 1240,
+        "wires": [
+            [
+                "b610160a3641a12d"
+            ]
+        ]
+    },
+    {
+        "id": "5f99518d5e224b7f",
+        "type": "json",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 930,
+        "y": 1240,
+        "wires": [
+            [
                 "70a353b744e7d509"
             ]
         ]
+    },
+    {
+        "id": "50f593b156927206",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "index1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 1260,
+        "wires": [
+            [
+                "34a48841e21b27a3"
+            ]
+        ]
+    },
+    {
+        "id": "b610160a3641a12d",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 930,
+        "y": 1320,
+        "wires": []
     }
 ]
