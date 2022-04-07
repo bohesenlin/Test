@@ -7625,7 +7625,8 @@
         "y": 560,
         "wires": [
             [
-                "c84eae44c7c97f06"
+                "c84eae44c7c97f06",
+                "ce5c23b16f2dbd04"
             ]
         ]
     },
@@ -7645,5 +7646,154 @@
         "x": 770,
         "y": 560,
         "wires": []
+    },
+    {
+        "id": "ce5c23b16f2dbd04",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.html = msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 620,
+        "wires": [
+            [
+                "d99465de830dc011"
+            ]
+        ]
+    },
+    {
+        "id": "d99465de830dc011",
+        "type": "html",
+        "z": "b32ed110abccd8e4",
+        "name": "url_name",
+        "property": "payload",
+        "outproperty": "url_name",
+        "tag": "body > div.mod_row_box > div > div.mod_figure.mod_figure_v_default.mod_figure_list_box > div > a",
+        "ret": "attr",
+        "as": "single",
+        "x": 740,
+        "y": 620,
+        "wires": [
+            [
+                "eaf642b688ab275b"
+            ]
+        ]
+    },
+    {
+        "id": "eaf642b688ab275b",
+        "type": "html",
+        "z": "b32ed110abccd8e4",
+        "name": "figure_pic",
+        "property": "payload",
+        "outproperty": "figure_pic",
+        "tag": "body > div.mod_row_box > div > div.mod_figure.mod_figure_v_default.mod_figure_list_box > div > a > img.figure_pic",
+        "ret": "attr",
+        "as": "single",
+        "x": 920,
+        "y": 620,
+        "wires": [
+            [
+                "57ea7e80d4e09e16"
+            ]
+        ]
+    },
+    {
+        "id": "57ea7e80d4e09e16",
+        "type": "html",
+        "z": "b32ed110abccd8e4",
+        "name": "count",
+        "property": "payload",
+        "outproperty": "count",
+        "tag": "body > div.mod_row_box > div > div.mod_figure.mod_figure_v_default.mod_figure_list_box > div> a > div",
+        "ret": "text",
+        "as": "single",
+        "x": 1070,
+        "y": 620,
+        "wires": [
+            [
+                "105879e759c3a9be",
+                "20a9400ed9d495c5"
+            ]
+        ]
+    },
+    {
+        "id": "105879e759c3a9be",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1210,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "097f77117046e581",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "persist": false,
+        "authType": "",
+        "senderr": false,
+        "x": 720,
+        "y": 720,
+        "wires": [
+            [
+                "633e30cf2b5460a4"
+            ]
+        ]
+    },
+    {
+        "id": "633e30cf2b5460a4",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "匹配地址参数合成地址",
+        "func": "var url = []\nvar reg = /\"F\":\\d,\"V\":\"(.*?)\"/g\n\nfor (var i = 0; i < 1000; i++) {\n    url[i] = reg.exec(msg.payload)\n    if(reg.lastIndex==0){\n        msg.payload=url\n        break\n    }\n}\n\n\nvar hurl = []\nvar rsg = msg.payload\nvar a = (rsg.length + 1)/2\nfor (var n = 0; n < (rsg.length - 1)/2; n++) {\n    hurl.push(\"https://v.qq.com/x/cover/\"+msg.vid+\"/\"+msg.payload[n][1]+\".html\")\n}\nvar txt ={}\nfor(var j=0;j<hurl.length;j++){\n    var title = '第'+(j+1).toString()+'集'\n    txt[title]=hurl[j]\n}\nmsg.payload = txt\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 720,
+        "wires": [
+            [
+                "105879e759c3a9be"
+            ]
+        ]
+    },
+    {
+        "id": "20a9400ed9d495c5",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.url = msg.url_name[0].href\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 720,
+        "wires": [
+            [
+                "097f77117046e581"
+            ]
+        ]
     }
 ]
