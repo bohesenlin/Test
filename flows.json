@@ -8262,5 +8262,110 @@
         "x": 930,
         "y": 1320,
         "wires": []
+    },
+    {
+        "id": "79e448dbd9608d54",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.url=\"https://v.youku.com/v_show/id_XNTIwMTA0NDE1Ng==.html\"\nheaders = {\n    // 'referer':'https://search.youku.com/search_video?keyword=斗罗大陆',\n    // 'cookie': 'cna=FJVQGmIA6B0CAbSKeh1lCbFy; __ysuid=1646744585034EmF; __aysid=1649053107854oUW; modalFrequency={\"UUID\":\"10\"}; youku_history_word=[\"%E6%96%97%E7%BD%97%E5%A4%A7%E9%99%862%E7%BB%9D%E4%B8%96%E5%94%90%E9%97%A8\",\"%E7%94%84%E5%AC%9B%E4%BC%A0\"]; __aysvstp=59; __ayft=1649305244773; __ayscnt=1; _m_h5_tk=6852d92f2e0122944a6a29be6487ae89_1649310105197; _m_h5_tk_enc=85b01f0bde0f1731406b2ca1c0965392; P_ck_ctl=5756CFF9A36B6745BAEDEA0681512F28; pop_endTime=1649308850434; __arycid=dh-3-00; __arcms=dh-3-00; __arpvid=1649306162049SmtGuY-1649306162087; __aypstp=6; __ayspstp=64; l=eBgGhBb4j5HL2qZwBOfwourza77tsIRZWuPzaNbMiOB1t3fgYpgNzHZqv3m6K3QQhtCePeKPWpcVQRI3S34dgKYKKc6iqTKs3YtN.; isg=BLe3XCqamcA_UCGgSpD2GDPhRqsBfIveoDf-Kwlk1g6JuN36EExLLvPenh7mDWNW',\n    // 'sec-ch-ua': \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Microsoft Edge\";v=\"100\",\n    // 'sec-ch-ua-mobile': '?0',\n    // 'sec-ch-ua-platform': \"Windows\",\n    // 'sec-fetch-dest': 'document',\n    // 'sec-fetch-mode': 'navigate',\n    // 'sec-fetch-site': 'same-origin',\n    // 'sec-fetch-user': '?1',\n    //'upgrade-insecure-requests': '1',\n    'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/100.0.4896.60'\n}\n// msg.payload=''\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 1440,
+        "wires": [
+            [
+                "be8e98a9555cd060"
+            ]
+        ]
+    },
+    {
+        "id": "9287e1e3e65c6081",
+        "type": "inject",
+        "z": "b32ed110abccd8e4",
+        "name": "优酷",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 1440,
+        "wires": [
+            [
+                "79e448dbd9608d54"
+            ]
+        ]
+    },
+    {
+        "id": "be8e98a9555cd060",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 420,
+        "y": 1440,
+        "wires": [
+            [
+                "54e5e0363c14a0d5"
+            ]
+        ]
+    },
+    {
+        "id": "4908cfc91116bd69",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "54e5e0363c14a0d5",
+        "type": "html",
+        "z": "b32ed110abccd8e4",
+        "name": "url_name",
+        "property": "payload",
+        "outproperty": "url_name",
+        "tag": "#app > div > div.play-top-container > div.l-container > div.module-playbox > div > div.listbox > div > div.scroll-area > div.anthology-content-scroll > div:nth-child(2) > div.anthology-content > a",
+        "ret": "attr",
+        "as": "single",
+        "x": 600,
+        "y": 1440,
+        "wires": [
+            [
+                "4908cfc91116bd69"
+            ]
+        ]
     }
 ]
