@@ -8350,5 +8350,111 @@
                 "4908cfc91116bd69"
             ]
         ]
+    },
+    {
+        "id": "3f309fa8f49d0922",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.url=\"https://m.youku.com/video/id_XNTIwNTAzOTEyNA==.html\"\nheaders = {\n    // 'referer':'https://search.youku.com/search_video?keyword=斗罗大陆',\n    'cookie': 'cna=FJVQGmIA6B0CAbSKeh1lCbFy; __ysuid=1646744585034EmF; __aysid=1649053107854oUW; modalFrequency={\"UUID\":\"10\"}; __ayft=1649305244773; __ayscnt=1; pop_endTime=1649308850434; redMarkRead=1; __arycid=dh-3-00; __arcms=dh-3-00; _m_h5_tk=2cd18ebe47cac0e44e06f952c1e4cf04_1649353936377; _m_h5_tk_enc=8ef85fd6bc543e920533df1b857276cc; P_ck_ctl=C22A536ADA66C85B2D441F4D53BDE76B; youku_history_word=[\"%E6%96%97%E7%BD%97%E5%A4%A7%E9%99%862%E7%BB%9D%E4%B8%96%E5%94%90%E9%97%A8\",\"%E9%95%9C%C2%B7%E5%8F%8C%E5%9F%8E\",\"%E7%94%84%E5%AC%9B%E4%BC%A0\"]; __arpvid=1649350470877YIu9Ku-1649350470910; __aypstp=37; __ayspstp=95; l=eBgGhBb4j5HL2F-CBO5ahurza77tiIOb8mFzaNbMiInca6p5NUtUnNC3tRhWldtjgt5AbetPqhPt0dhvzka383AihZM6F4gmJBJ68e1..; isg=BFpa-GP17BqX91xbJ0cDcwZOqwB8i95likJ1GGTSA-3z1_sRTB7RdCtvo6PLW1b9; __ayvstp=47; __aysvstp=106',\n    // 'sec-ch-ua': \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Microsoft Edge\";v=\"100\",\n    // 'sec-ch-ua-mobile': '?0',\n    // 'sec-ch-ua-platform': \"Windows\",\n    // 'sec-fetch-dest': 'document',\n    // 'sec-fetch-mode': 'navigate',\n    // 'sec-fetch-site': 'same-origin',\n    // 'sec-fetch-user': '?1',\n    //'upgrade-insecure-requests': '1',\n    'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/100.0.4896.60'\n}\n// msg.payload=''\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 1600,
+        "wires": [
+            [
+                "2a306fdbd22b30f6"
+            ]
+        ]
+    },
+    {
+        "id": "a912ac2ab72232d1",
+        "type": "inject",
+        "z": "b32ed110abccd8e4",
+        "name": "优酷",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 1600,
+        "wires": [
+            [
+                "3f309fa8f49d0922"
+            ]
+        ]
+    },
+    {
+        "id": "2a306fdbd22b30f6",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 420,
+        "y": 1600,
+        "wires": [
+            [
+                "99d61e7cd42895e8"
+            ]
+        ]
+    },
+    {
+        "id": "99d61e7cd42895e8",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "33763d33a889c934",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "reg = /value\":\"(\\w{10,16})==\"/g\nvar url = []\nfor (var i = 0; i < 1000; i++) {\n    url[i] = reg.exec(msg.payload)\n    if(reg.lastIndex==0){\n        msg.payload=url\n        break\n    }\n}\n\n// msg.ret = ret\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 1560,
+        "wires": [
+            [
+                "99d61e7cd42895e8"
+            ]
+        ]
     }
 ]
