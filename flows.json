@@ -7045,11 +7045,11 @@
         "type": "http in",
         "z": "e3562182c0530220",
         "name": "",
-        "url": "video",
+        "url": "video2",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 100,
+        "x": 110,
         "y": 1360,
         "wires": [
             [
