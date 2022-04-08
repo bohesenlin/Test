@@ -7539,7 +7539,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "// msg.url=\"https://v.qq.com/channel/cartoon?listpage=1&channel=cartoon&iarea=1\"\nif('iarea' in msg.payload){\n    msg.url=\"https://v.qq.com/channel/cartoon?listpage=1&\"+msg.payload.pagindex + \"&iarea=\"+msg.payload.iarea\n}else{\n    msg.url = \"https://v.qq.com/channel/cartoon?listpage=1&\"+msg.payload.pagindex + \"&itype=\"+msg.payload.itype\n}\n\nheaders = {\n    'referer':'https://v.qq.com/channel/cartoon',\n    //'cookie': '_m_h5_tk=34a8d30b103dff77a7c5cc2bcfd0dd8a_1649267356976; _m_h5_tk_enc=c074677bcf9093885c165ab5c8e29445; P_ck_ctl=DE792BDC739DD7387BAA7BEED1F0EAA9; cna=V67UGgZMdmQCAd7a/Z3zFmz0; __ysuid=1649262932008mJd; __ayft=1649262932011; __aysid=1649262932011BpT; __ayscnt=1; modalFrequency={\"UUID\":\"10\"}; xlly_s=1; youku_history_word=%5B%22%25E6%2596%2597%25E7%25BD%2597%25E5%25A4%25A7%25E9%2599%2586%22%5D; ctoken=s4b_tMuPWJp3ZBBsVa_lOEc5; __arpvid=1649262939147RgJBHh-1649262939274; __aypstp=2; __ayspstp=2; tfstk=cSN5BeXgx3xSnj6eaz_VasStkKcFaedSuai0PJuc6zt62MaSDsxe_cMSryxvAuuf.; l=eBTvTqugLRslVO_CBOfZhurza7799IRfguPzaNbMiOCPOpCH5PpdW6VC9hYMCnGVH6rWR3kMTdJ9BYLMFyKKnxv9-msKyuMmndC..; isg=BPf3mfYLWYNUpt0P-IEX_sk_hutBvMsew0X2JUmkIkYt-BY6UY8wbobQ3limEKOW',\n    // 'sec-ch-ua': \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Microsoft Edge\";v=\"100\",\n    // 'sec-ch-ua-mobile': '?0',\n    // 'sec-ch-ua-platform': \"Windows\",\n    // 'sec-fetch-dest': 'document',\n    // 'sec-fetch-mode': 'navigate',\n    // 'sec-fetch-site': 'same-origin',\n    // 'sec-fetch-user': '?1',\n    //'upgrade-insecure-requests': '1',\n    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36 Edg/100.0.1185.29'\n}\n// msg.payload=''\nreturn msg;",
+        "func": "// msg.url=\"https://v.qq.com/channel/cartoon?listpage=1&channel=cartoon&iarea=1\"\nstr = msg.payload.pagindex\nstr1 = str.replace(/\\=/,'/')\nif('iarea' in msg.payload){\n    msg.url=\"https://v.qq.com/\" + str1 + \"?listpage=1&\"+msg.payload.pagindex + \"&iarea=\"+msg.payload.iarea\n}else{\n    msg.url = \"https://v.qq.com/\" + str1 + \"?listpage=1&\"+msg.payload.pagindex + \"&itype=\"+msg.payload.itype\n}\n\nheaders = {\n    'referer':'https://v.qq.com/channel/cartoon',\n    //'cookie': '_m_h5_tk=34a8d30b103dff77a7c5cc2bcfd0dd8a_1649267356976; _m_h5_tk_enc=c074677bcf9093885c165ab5c8e29445; P_ck_ctl=DE792BDC739DD7387BAA7BEED1F0EAA9; cna=V67UGgZMdmQCAd7a/Z3zFmz0; __ysuid=1649262932008mJd; __ayft=1649262932011; __aysid=1649262932011BpT; __ayscnt=1; modalFrequency={\"UUID\":\"10\"}; xlly_s=1; youku_history_word=%5B%22%25E6%2596%2597%25E7%25BD%2597%25E5%25A4%25A7%25E9%2599%2586%22%5D; ctoken=s4b_tMuPWJp3ZBBsVa_lOEc5; __arpvid=1649262939147RgJBHh-1649262939274; __aypstp=2; __ayspstp=2; tfstk=cSN5BeXgx3xSnj6eaz_VasStkKcFaedSuai0PJuc6zt62MaSDsxe_cMSryxvAuuf.; l=eBTvTqugLRslVO_CBOfZhurza7799IRfguPzaNbMiOCPOpCH5PpdW6VC9hYMCnGVH6rWR3kMTdJ9BYLMFyKKnxv9-msKyuMmndC..; isg=BPf3mfYLWYNUpt0P-IEX_sk_hutBvMsew0X2JUmkIkYt-BY6UY8wbobQ3limEKOW',\n    // 'sec-ch-ua': \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Microsoft Edge\";v=\"100\",\n    // 'sec-ch-ua-mobile': '?0',\n    // 'sec-ch-ua-platform': \"Windows\",\n    // 'sec-fetch-dest': 'document',\n    // 'sec-fetch-mode': 'navigate',\n    // 'sec-fetch-site': 'same-origin',\n    // 'sec-fetch-user': '?1',\n    //'upgrade-insecure-requests': '1',\n    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36 Edg/100.0.1185.29'\n}\n// msg.payload=''\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8559,35 +8559,6 @@
         ]
     },
     {
-        "id": "55b3ce40226409ef",
-        "type": "inject",
-        "z": "b32ed110abccd8e4",
-        "name": "腾讯视频动漫推荐 翻页",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 160,
-        "y": 1940,
-        "wires": [
-            [
-                "d13239cc108c9473"
-            ]
-        ]
-    },
-    {
         "id": "6c59fe4ed7afc614",
         "type": "http request",
         "z": "b32ed110abccd8e4",
@@ -8601,7 +8572,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 440,
+        "x": 420,
         "y": 2000,
         "wires": [
             [
@@ -8619,7 +8590,7 @@
         "tag": ".list_item > a",
         "ret": "attr",
         "as": "single",
-        "x": 600,
+        "x": 580,
         "y": 2000,
         "wires": [
             [
@@ -8637,7 +8608,7 @@
         "tag": "div > a > img.figure_pic",
         "ret": "attr",
         "as": "single",
-        "x": 780,
+        "x": 740,
         "y": 2000,
         "wires": [
             [
@@ -8655,7 +8626,7 @@
         "tag": "div> a > div",
         "ret": "text",
         "as": "single",
-        "x": 950,
+        "x": 890,
         "y": 2000,
         "wires": [
             [
@@ -8674,8 +8645,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1050,
-        "y": 2120,
+        "x": 1030,
+        "y": 2000,
         "wires": [
             [
                 "4d267b33a8b45fa2",
@@ -8696,8 +8667,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1190,
-        "y": 2120,
+        "x": 1170,
+        "y": 2040,
         "wires": []
     },
     {
@@ -8707,8 +8678,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1190,
-        "y": 2080,
+        "x": 1170,
+        "y": 2000,
         "wires": []
     },
     {
@@ -8742,7 +8713,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 290,
-        "y": 2080,
+        "y": 2040,
         "wires": []
     },
     {
