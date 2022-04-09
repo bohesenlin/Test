@@ -8878,8 +8878,7 @@
         "wires": [
             [
                 "bdd33b41a3d76841",
-                "b10f8f77d587ad6d",
-                "f7453c20b2271a0f"
+                "b10f8f77d587ad6d"
             ]
         ]
     },
@@ -8957,7 +8956,7 @@
         "type": "function",
         "z": "1033162f191e6983",
         "name": "",
-        "func": "msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']}\nreturn msg;",
+        "func": "json = {'0':[msg.payload.title,msg.payload.href, msg.payload.srcurl, '']}\nmsg.payload = json\n// msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8983,8 +8982,7 @@
         "y": 540,
         "wires": [
             [
-                "a428aa0e991406a4",
-                "f7453c20b2271a0f"
+                "a428aa0e991406a4"
             ]
         ]
     },
