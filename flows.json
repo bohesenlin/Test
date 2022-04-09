@@ -8897,7 +8897,7 @@
         "wires": [
             [
                 "bdd33b41a3d76841",
-                "f7453c20b2271a0f"
+                "b10f8f77d587ad6d"
             ]
         ]
     },
@@ -8917,14 +8917,14 @@
         "type": "function",
         "z": "1033162f191e6983",
         "name": "put 数据",
-        "func": "var json = msg.payload\nmsg.headers = {};\nmsg.headers = {\n  'Authorization': 'Bearer glpat-bix9rWK6svSw7qEzB-tS'\n}\nmsg.url = \"https://gitlab.com/api/v4/projects/34199133/repository/files/data%2Fv2ray%2Fshangchuan.txt\"\nmsg.payload = {};\nmsg.payload={'branch': 'main',\n    'content': yaml,\n    'commit_message': 'update file'\n    \n};\nreturn msg",
+        "func": "json = msg.payload\n// var json = msg.payload\nmsg.headers = {};\nmsg.headers = {\n  'Authorization': 'Bearer glpat-bix9rWK6svSw7qEzB-tS'\n}\nmsg.url = \"https://gitlab.com/api/v4/projects/34199133/repository/files/recentlywatched.json\"\n// msg.payload = {};\nmsg.payload={'branch': 'main',\n    'content': json,\n    'commit_message': 'update file'\n    \n};\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
-        "y": 500,
+        "x": 600,
+        "y": 540,
         "wires": [
             [
                 "3fa76e8a1f76ede4"
@@ -8945,10 +8945,12 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 650,
-        "y": 500,
+        "x": 770,
+        "y": 540,
         "wires": [
-            []
+            [
+                "f7453c20b2271a0f"
+            ]
         ]
     },
     {
@@ -8964,8 +8966,44 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 330,
-        "y": 500,
+        "x": 850,
+        "y": 440,
         "wires": []
+    },
+    {
+        "id": "b10f8f77d587ad6d",
+        "type": "function",
+        "z": "1033162f191e6983",
+        "name": "",
+        "func": "msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 540,
+        "wires": [
+            [
+                "230e05e0ede45545"
+            ]
+        ]
+    },
+    {
+        "id": "230e05e0ede45545",
+        "type": "json",
+        "z": "1033162f191e6983",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 430,
+        "y": 540,
+        "wires": [
+            [
+                "a428aa0e991406a4",
+                "f7453c20b2271a0f"
+            ]
+        ]
     }
 ]
