@@ -8849,26 +8849,7 @@
         "y": 360,
         "wires": [
             [
-                "f5b454bc98768a22"
-            ]
-        ]
-    },
-    {
-        "id": "f5b454bc98768a22",
-        "type": "function",
-        "z": "1033162f191e6983",
-        "name": "",
-        "func": "msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 360,
-        "wires": [
-            [
-                "97c0143cf666b1d4"
+                "e6672c81637c9454"
             ]
         ]
     },
@@ -8879,7 +8860,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 470,
+        "x": 630,
         "y": 360,
         "wires": []
     },
@@ -8897,7 +8878,8 @@
         "wires": [
             [
                 "bdd33b41a3d76841",
-                "b10f8f77d587ad6d"
+                "b10f8f77d587ad6d",
+                "f7453c20b2271a0f"
             ]
         ]
     },
@@ -8917,7 +8899,7 @@
         "type": "function",
         "z": "1033162f191e6983",
         "name": "put 数据",
-        "func": "json = msg.payload\n// var json = msg.payload\nmsg.headers = {};\nmsg.headers = {\n  'Authorization': 'Bearer glpat-bix9rWK6svSw7qEzB-tS'\n}\nmsg.url = \"https://gitlab.com/api/v4/projects/34199133/repository/files/recentlywatched.json\"\n// msg.payload = {};\nmsg.payload={'branch': 'main',\n    'content': json,\n    'commit_message': 'update file'\n    \n};\nreturn msg",
+        "func": "json = msg.payload\nmsg.headers = {};\nmsg.headers = {\n  'Authorization': 'Bearer glpat-bix9rWK6svSw7qEzB-tS'\n}\nmsg.url = \"https://gitlab.com/api/v4/projects/34199133/repository/files/recentlywatched.json\"\n// msg.payload = {};\nmsg.payload={'branch': 'main',\n    'content': json,\n    'commit_message': 'update file'\n    \n};\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9003,6 +8985,45 @@
             [
                 "a428aa0e991406a4",
                 "f7453c20b2271a0f"
+            ]
+        ]
+    },
+    {
+        "id": "e6672c81637c9454",
+        "type": "http request",
+        "z": "1033162f191e6983",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://gitlab.com/api/v4/projects/34199133/repository/files/recentlywatched.json/raw?ref=main&private_token=glpat-bix9rWK6svSw7qEzB-tS",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 340,
+        "y": 360,
+        "wires": [
+            [
+                "5bdf5ef2d6d2365f"
+            ]
+        ]
+    },
+    {
+        "id": "5bdf5ef2d6d2365f",
+        "type": "json",
+        "z": "1033162f191e6983",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 490,
+        "y": 360,
+        "wires": [
+            [
+                "f7453c20b2271a0f",
+                "97c0143cf666b1d4"
             ]
         ]
     }
