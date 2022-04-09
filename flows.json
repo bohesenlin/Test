@@ -8882,5 +8882,90 @@
         "x": 470,
         "y": 360,
         "wires": []
+    },
+    {
+        "id": "2c4a3f98322a601f",
+        "type": "http in",
+        "z": "1033162f191e6983",
+        "name": "",
+        "url": "psuhrecentlywatched",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 440,
+        "wires": [
+            [
+                "bdd33b41a3d76841",
+                "f7453c20b2271a0f"
+            ]
+        ]
+    },
+    {
+        "id": "bdd33b41a3d76841",
+        "type": "http response",
+        "z": "1033162f191e6983",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 490,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "a428aa0e991406a4",
+        "type": "function",
+        "z": "1033162f191e6983",
+        "name": "put 数据",
+        "func": "var json = msg.payload\nmsg.headers = {};\nmsg.headers = {\n  'Authorization': 'Bearer glpat-bix9rWK6svSw7qEzB-tS'\n}\nmsg.url = \"https://gitlab.com/api/v4/projects/34199133/repository/files/data%2Fv2ray%2Fshangchuan.txt\"\nmsg.payload = {};\nmsg.payload={'branch': 'main',\n    'content': yaml,\n    'commit_message': 'update file'\n    \n};\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 500,
+        "wires": [
+            [
+                "3fa76e8a1f76ede4"
+            ]
+        ]
+    },
+    {
+        "id": "3fa76e8a1f76ede4",
+        "type": "http request",
+        "z": "1033162f191e6983",
+        "name": "update file",
+        "method": "PUT",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 650,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f7453c20b2271a0f",
+        "type": "debug",
+        "z": "1033162f191e6983",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 500,
+        "wires": []
     }
 ]
