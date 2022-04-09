@@ -2691,14 +2691,14 @@
                 "vt": "str"
             }
         ],
-        "repeat": "21600",
+        "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 110,
+        "x": 100,
         "y": 80,
         "wires": [
             [
@@ -3103,14 +3103,14 @@
                 "vt": "str"
             }
         ],
-        "repeat": "3600",
+        "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 140,
+        "x": 130,
         "y": 360,
         "wires": [
             [
