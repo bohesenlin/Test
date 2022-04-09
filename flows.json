@@ -8859,7 +8859,7 @@
         "type": "function",
         "z": "1033162f191e6983",
         "name": "",
-        "func": "// msg.url = msg.payload.url\nmsg.payload = {\n    '0':'斗罗大陆',\n    '1':'https://v.qq.com/x/cover/m441e3rjq9kwpsc.html',\n    '2':'//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220',\n    '3':'更新至203集'\n    \n}\nreturn msg;",
+        "func": "msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
