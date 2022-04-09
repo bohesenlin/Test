@@ -8956,7 +8956,7 @@
         "type": "function",
         "z": "1033162f191e6983",
         "name": "",
-        "func": "json = {'0':[msg.payload.title,msg.payload.href, msg.payload.srcurl, '']}\nmsg.payload = json\n// msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']}\nreturn msg;",
+        "func": "index = msg.payload.title\nmsg.json = {}\nmsg.json[index] = [msg.payload.title,msg.payload.href, msg.payload.srcurl, '']\n// msg.payload = json\n// msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8966,7 +8966,8 @@
         "y": 540,
         "wires": [
             [
-                "230e05e0ede45545"
+                "230e05e0ede45545",
+                "a5fe42fe11bc2133"
             ]
         ]
     },
@@ -8981,9 +8982,7 @@
         "x": 430,
         "y": 540,
         "wires": [
-            [
-                "a428aa0e991406a4"
-            ]
+            []
         ]
     },
     {
@@ -9024,5 +9023,98 @@
                 "97c0143cf666b1d4"
             ]
         ]
+    },
+    {
+        "id": "a5fe42fe11bc2133",
+        "type": "http request",
+        "z": "1033162f191e6983",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://gitlab.com/api/v4/projects/34199133/repository/files/recentlywatched.json/raw?ref=main&private_token=glpat-bix9rWK6svSw7qEzB-tS",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 420,
+        "y": 600,
+        "wires": [
+            [
+                "40a98a8b55e85487",
+                "f54158ed4a30ae78"
+            ]
+        ]
+    },
+    {
+        "id": "40a98a8b55e85487",
+        "type": "json",
+        "z": "1033162f191e6983",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 570,
+        "y": 600,
+        "wires": [
+            [
+                "93a8e018149fc630",
+                "f54158ed4a30ae78"
+            ]
+        ]
+    },
+    {
+        "id": "93a8e018149fc630",
+        "type": "function",
+        "z": "1033162f191e6983",
+        "name": "",
+        "func": "ret = Object.assign(msg.json, msg.payload)\nmsg.payload = ret\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 600,
+        "wires": [
+            [
+                "231eb6901c939ca8"
+            ]
+        ]
+    },
+    {
+        "id": "f54158ed4a30ae78",
+        "type": "debug",
+        "z": "1033162f191e6983",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "231eb6901c939ca8",
+        "type": "debug",
+        "z": "1033162f191e6983",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 600,
+        "wires": []
     }
 ]
