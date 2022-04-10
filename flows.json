@@ -9041,5 +9041,192 @@
                 "a428aa0e991406a4"
             ]
         ]
+    },
+    {
+        "id": "0a3c19b5a9604f21",
+        "type": "http in",
+        "z": "1033162f191e6983",
+        "name": "",
+        "url": "phonetv",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 700,
+        "wires": [
+            [
+                "557a1deca828a1cc"
+            ]
+        ]
+    },
+    {
+        "id": "c8b823ac2667c231",
+        "type": "http response",
+        "z": "1033162f191e6983",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 410,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "557a1deca828a1cc",
+        "type": "template",
+        "z": "1033162f191e6983",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    {{!--<link rel=\"stylesheet\" href=\"./手机.css\">--}}\n    <script crossorigin=\"anonymous\" src=\"https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\n    <title>Document</title>\n    <style>\n        * {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n.nav {\n  position: fixed;\n  top: 0;\n  left: 0;\n  background-color: #fff;\n  box-shadow: 0 0.53333vw 2.66667vw rgba(0, 0, 0, 0.2);\n  width: 100%;\n  z-index: 999;\n}\n.nav .channel-menu {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  height: 10.66666667vw;\n  background-color: #fff;\n  border-bottom: 1px solid #e7e7e7;\n}\n.nav .channel-menu .tabs {\n  overflow: hidden;\n  flex: 1;\n}\n.nav .channel-menu .tabs .tabs-list {\n  display: flex;\n  overflow-x: scroll;\n}\n.nav .channel-menu .tabs .tabs-list a {\n  padding: 0 4.26666667vw;\n  white-space: nowrap;\n  font-size: 3.73333333vw;\n  text-decoration: none;\n  height: 10.66666667vw;\n  line-height: 10.66666667vw;\n  color: #808080;\n}\n.nav .channel-menu .tabs .tabs-list .line {\n  position: absolute;\n  left: 4.26666667vw;\n  width: 7.46666667vw;\n  height: 0.53333333vw;\n  bottom: 0;\n  background-color: #fb7299;\n}\n.nav .channel-menu .after {\n  width: 10.66666667vw;\n  height: 10.66666667vw;\n  text-align: center;\n  line-height: 10.66666667vw;\n  background-color: #fff;\n  color: #ccc;\n}\n.nav .channel-menu .after i {\n  font-size: 5.33333333vw;\n}\n.m-home {\n  padding: 13.33333333vw 1.33333333vw 0;\n}\n.m-home .video-list {\n  display: flex;\n  justify-content: space-around;\n  flex-wrap: wrap;\n}\n.m-home .video-list .video-item {\n  width: 33%;\n  box-sizing: border-box;\n  padding: 2.13333333vw 1.33333333vw;\n  text-decoration: none;\n  color: #212121;\n}\n.m-home .video-list .video-item .card {\n  position: relative;\n  height: 41.6vw;\n}\n.m-home .video-list .video-item .card .count {\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 7.2vw;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  font-size: 3.2vw;\n  color: #fff;\n  background-image: linear-gradient(transparent, #000000);\n}\n.m-home .video-list .video-item .card img {\n  width: 29.6vw;\n}\n.m-home .video-list .video-item .title {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: -webkit-box;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n  margin-top: 1.33333333vw;\n  font-size: 3.2vw;\n}\n\n    </style>\n    <script>\n        window.onload = function () {\n            // 定义全局变量\n            var N = 0//创建当前页面索引\n            nav_index = '动漫国漫'\n            lock = false\n            pag_index = {\n                '动漫国漫': 'channel=cartoon&iarea=1',\n                '动漫日漫': 'channel=cartoon&iarea=2',\n                '动漫经典': 'channel=cartoon&itype=3',\n                '少儿益智': 'channel=child&itype=2',\n                '少儿儿歌': 'channel=child&itype=1',\n                '少儿英语': 'channel=child&itype=5',\n                '少儿手工绘画': 'channel=child&itype=3',\n                '少儿魔幻科幻': 'channel=child&itype=12',\n                '动漫搞笑': 'channel=cartoon&itype=1',\n                '电影动作': 'channel=movie&itype=100061',\n                '电影喜剧': 'channel=movie&itype=100004',\n                '电影院线大片': 'channel=movie&itype=100062'\n            }\n            //////////////////\n\n            // text = document.querySelectorAll('input')[0]\n            // $('.search-btn').on('click', function () {//搜索按钮\n            //     //删除元素\n            //     delete_item()\n            //     url = 'http://192.168.0.210:1880/search?videoname=' + text.value\n            //     $.get(url, {}, function (data) {\n            //         console.log(data)\n            //         add_search_item(data)\n\n            //     }, 'json')\n            //     $('.search_btn').click()//隐藏搜索框\n            // })\n\n            // $('.search-btn').click()//加载页面后先点击一次搜索按钮\n\n            // $.get('http://192.168.0.210:1880/index?pagindex=' + pag_index['动漫国漫'], {}, function (data) {//主页面展示动漫\n            //     // console.log(data)\n            //     // delete_item()\n            //     add_search_item(data)\n\n            // })\n\n            \n            function nextpage() {//下一页\n                N++\n                var n_index = N\n                url = \"http://192.168.0.210:1880/index2?pagindex=\" + pag_index[nav_index] + '&index=' + n_index.toString()\n\n                $.get(url, {}, function (data) {//主页面展示动漫\n                    console.log(data)\n                    add_search_item(data)\n                    lock = false\n                })\n            }\n\n            // $('.btn_back').on('click', function () {//回到顶部\n            //     document.body.scrollTop = 0;\n            //     document.documentElement.scrollTop = 0;\n            // })\n\n\n            //添加元素\n            function add_search_item(data) {\n                for (var val in data) {\n                    // var div = $(\"<div class='search_item'></div>\");\n                    // var imgwrappper = \"<div class='img-wrappper'>\" +\n                    //     \"<a href=\" + data[val][1] + \" class='search-back-img'>\" +\n                    //     \"<img src=\" + data[val][2] + \" width='128px'>\" +\n                    //     \"</a>\" +\n                    //     \"<span class='figure_caption'>\" +\n                    //     \"<span class='figure_info'>\" + data[val][3] + \"</span>\" +\n                    //     \"</span>\" +\n                    //     \"</div>\" +\n                    //     \"<div class='info'>\" +\n                    //     \"<h2 class='title'>\" +\n                    //     \"<img src=''./img/bofang.png' width='20px' height='20px'>\" +\n                    //     data[val][0] +\n                    //     \"</h2>\" +\n                    //     \"</div>\"\n                    // div.append(imgwrappper)\n                    // $(\".outer\").append(div)\n\n                    var imgwrappper = \"<a href=\" + data[val][1] + \" class='video-item'>\" +\n                        \"<div class='card'>\" +\n                        \"<img src=\" + data[val][2] + \">\" +\n                        \"<div class='count'></div>\" +\n                        \"</div>\" +\n                        \"<p class='title'>\" +\n                        data[val][0] +\n                        \"</p>\" +\n                        \"</a>\"\n                    $('.video-list').append(imgwrappper)\n                }\n\n                //为 img a标签设置点击事件\n                $('.video-list a').on('click', function () {\n                    // //提交观看记录\n                    // var title = $(this).parents('.search_item').children('.info').text()//最近观看/标题\n                    // var href = this.href//地址\n                    // var srcurl = $(this).children().attr('src')//最近观看/图片\n                    // url = 'http://192.168.0.210:1880/psuhrecentlywatched?title=' + title + '&href=' + href + '&srcurl=' + srcurl\n                    // $.get(url, {}, function (data) {\n                    //     console.log(data)\n                    // }, 'json')\n                    // \n                    // \n\n                    url = 'http://192.168.0.210:1880/videoinfo2?url=' + this.href\n                    console.log(this.href)\n                    var a = document.createElement('a');\n                    a.href = url;\n                    a.target = '_blank'\n                    a.click()\n                    return false\n                })\n            }\n\n            //删除元素\n            function delete_item() {\n                $('.video-list a').remove()\n            }\n\n            // 搜索按钮被单击\n            // $('.search_btn').on('click', function () {\n            //     if ($('.search_bar').css('display') == 'none') {\n            //         $('.search_bar').css('display', 'block')\n            //     } else {\n            //         $('.search_bar').css('display', 'none')\n            //     }\n            // })\n\n\n            // 创建页面后先点击按钮隐藏搜索框\n            // $('.search_btn').click()\n            // $('.btn_nextpage > button').hide()\n\n            $('.tabs-list a').on('click', function () {//导航栏绑定\n                nav_index = this.innerHTML//记录导航栏索引\n                // if (nav_index == '最近观看') {\n                //     $('.btn_nextpage > button').hide()//隐藏下一页按钮\n                //     // console.log($('.btn_nextpage > button'))\n                //     url = \"http://192.168.0.210:1880/recentlywatched\"\n                //     // console.log(url)\n                //     $.get(url, {}, function (data) {\n                //         console.log(data)\n                //         delete_item()//先删除元素\n                //         N = 0\n                //         //把页面索引重置为零\n                //         add_search_item(data)\n                //     }, 'json')\n                //     return null\n                // }\n                // console.log(pag_index)\n                \n                url = \"http://192.168.0.210:1880/index?pagindex=\" + pag_index[nav_index]\n                console.log(url)\n                $.get(url, {}, function (data) {\n                    console.log(data)\n                    // DATA_ = data\n                    delete_item()//先删除元素\n                    N = 0\n                    //把页面索引重置为零\n                    add_search_item(data)\n\n                }, 'json')\n            })\n\n            //滚动条到底部自动加载\n            $(window).scroll(function () {\n                var scrollTop = $(this).scrollTop()\n                var scrollHeight = $(document).height()\n                var windowHeight = $(this).height()\n                if (!lock && scrollTop + windowHeight >= scrollHeight - 10) {\n                    console.log(scrollTop + windowHeight - scrollHeight)\n                    lock = true\n                    nextpage()\n\n                }\n            })\n\n        }\n    </script>\n</head>\n\n<body>\n\n    <header class=\"nav\">\n        <div class=\"channel-menu\">\n            <div class=\"tabs\">\n                <div class=\"tabs-list\">\n                    <!-- '动漫国漫': 'channel=cartoon&iarea=1',\n                '动漫日漫': 'channel=cartoon&iarea=2',\n                '动漫经典': 'channel=cartoon&itype=3',\n                '少儿益智': 'channel=child&itype=2',\n                '少儿儿歌': 'channel=child&itype=1',\n                '少儿英语': 'channel=child&itype=5',\n                '少儿手工绘画': 'channel=child&itype=3',\n                '少儿魔幻科幻': 'channel=child&itype=12',\n                '动漫搞笑': 'channel=cartoon&itype=1',\n                '电影动作': 'channel=movie&itype=100061',\n                '电影喜剧': 'channel=movie&itype=100004',\n                '电影院线大片': 'channel=movie&itype=100062' -->\n                    <a href=\"#\">动漫国漫</a>\n                    <a href=\"#\">动漫日漫</a>\n                    <a href=\"#\">动漫经典</a>\n                    <a href=\"#\">少儿益智</a>\n                    <a href=\"#\">少儿儿歌</a>\n                    <a href=\"#\">少儿英语</a>\n                    <a href=\"#\">少儿手工绘画</a>\n                    <a href=\"#\">少儿魔幻科幻</a>\n                    <a href=\"#\">动漫搞笑</a>\n                    <a href=\"#\">电影动作</a>\n                    <div class=\"line\"></div>\n                </div>\n            </div>\n            <div class=\"after\">1</div>\n\n        </div>\n    </header>\n\n    <div class=\"m-home\">\n        <div class=\"video-list\">\n            <!-- <a href=\"#\" class=\"video-item\">\n                <div class=\"card\">\n                    <img src=\"../img/7666641e231af7aaee3b93b586b8d3d8be0d0474.jpg\">\n                    <div class=\"count\"></div>\n                </div>\n                <p class=\"title\">\n                    孤勇者\n                </p>\n            </a> -->\n            <a href=\"#\" class=\"video-item\">\n                <div class=\"card\">\n                    <img src=\"../img/1.png\">\n                    <div class=\"count\"></div>\n                </div>\n                <p class=\"title\">\n                    斗罗大陆\n                </p>\n            </a>\n            <a href=\"#\" class=\"video-item\">\n                <div class=\"card\">\n                    <img src=\"../img/1.png\">\n                    <div class=\"count\"></div>\n                </div>\n                <p class=\"title\">\n                    斗罗大陆\n                </p>\n            </a>\n            <a href=\"#\" class=\"video-item\">\n                <div class=\"card\">\n                    <img src=\"../img/1.png\">\n                    <div class=\"count\"></div>\n                </div>\n                <p class=\"title\">\n                    斗罗大陆\n                </p>\n            </a>\n            <a href=\"#\" class=\"video-item\">\n                <div class=\"card\">\n                    <img src=\"../img/1.png\">\n                    <div class=\"count\"></div>\n                </div>\n                <p class=\"title\">\n                    斗罗大陆\n                </p>\n            </a>\n            <a href=\"#\" class=\"video-item\">\n                <div class=\"card\">\n                    <img src=\"../img/1.png\">\n                    <div class=\"count\"></div>\n                </div>\n                <p class=\"title\">\n                    斗罗大陆\n                </p>\n            </a>\n            <a href=\"#\" class=\"video-item\">\n                <div class=\"card\">\n                    <img src=\"../img/1.png\">\n                    <div class=\"count\"></div>\n                </div>\n                <p class=\"title\">\n                    斗罗大陆\n                </p>\n            </a>\n\n\n        </div>\n    </div>\n    <!-- <footer class=\"app\">\n        <div class=\"btn-app\"></div>\n    </footer> -->\n</body>\n\n</html>",
+        "output": "str",
+        "x": 270,
+        "y": 700,
+        "wires": [
+            [
+                "c8b823ac2667c231"
+            ]
+        ]
+    },
+    {
+        "id": "58ddc5fb6f9b5b3a",
+        "type": "http request",
+        "z": "1033162f191e6983",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "persist": false,
+        "authType": "",
+        "senderr": false,
+        "x": 440,
+        "y": 820,
+        "wires": [
+            [
+                "5ce9d48866fd85e3"
+            ]
+        ]
+    },
+    {
+        "id": "5ce9d48866fd85e3",
+        "type": "function",
+        "z": "1033162f191e6983",
+        "name": "匹配地址参数合成地址",
+        "func": "var url = []\nvar reg = /\"F\":\\d,\"V\":\"(.*?)\"/g\n\nfor (var i = 0; i < 1000; i++) {\n    url[i] = reg.exec(msg.payload)\n    if(reg.lastIndex==0){\n        msg.payload=url\n        break\n    }\n}\n\n\nvar hurl = []\nvar rsg = msg.payload\nvar a = (rsg.length + 1)/2\nfor (var n = 0; n < (rsg.length - 1)/2; n++) {\n    hurl.push(\"https://v.qq.com/x/cover/\"+msg.vid+\"/\"+msg.payload[n][1]+\".html\")\n}\nvar txt ={}\nfor(var j=0;j<hurl.length;j++){\n    var title = (j+1).toString()\n    txt[title]=hurl[j]\n}\nmsg.payload = txt\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 820,
+        "wires": [
+            [
+                "36e8aa54833004e0"
+            ]
+        ]
+    },
+    {
+        "id": "8f6cf86bf69ac4d3",
+        "type": "function",
+        "z": "1033162f191e6983",
+        "name": "",
+        "func": "msg.url = msg.payload.url\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 820,
+        "wires": [
+            [
+                "58ddc5fb6f9b5b3a"
+            ]
+        ]
+    },
+    {
+        "id": "a14be5c892306c28",
+        "type": "http response",
+        "z": "1033162f191e6983",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1250,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "36e8aa54833004e0",
+        "type": "json",
+        "z": "1033162f191e6983",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 830,
+        "y": 820,
+        "wires": [
+            [
+                "15cc412633361902"
+            ]
+        ]
+    },
+    {
+        "id": "15cc412633361902",
+        "type": "function",
+        "z": "1033162f191e6983",
+        "name": "",
+        "func": "msg.payload = \"'\" + encodeURIComponent(msg.payload) + \"'\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 820,
+        "wires": [
+            [
+                "804572fe164b4735"
+            ]
+        ]
+    },
+    {
+        "id": "804572fe164b4735",
+        "type": "template",
+        "z": "1033162f191e6983",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <link rel=\"stylesheet\" href=\"./手机播放.css\">\n    <script crossorigin=\"anonymous\" src=\"https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\n    <title>Document</title>\n    <style>\n        * {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n.video_player {\n  margin: 0 auto;\n  width: 100%;\n  height: auto;\n  display: flex;\n  justify-content: space-evenly;\n  padding: 1.33333333vw;\n}\n.video_player iframe {\n  width: 100%;\n  height: 55.73333333vw;\n  z-index: 1;\n}\n.show_list {\n  display: flex;\n  justify-content: space-evenly;\n  flex-wrap: wrap;\n  height: 80vw;\n  overflow-y: auto;\n}\n.show_list a {\n  color: #eb7350;\n  text-decoration: none;\n  display: inline-block;\n  height: auto;\n  margin: 1.33333333vw;\n}\n.show_list a .link {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 6.66666667vw;\n  height: 10.66666667vw;\n  width: 10.66666667vw;\n  border-radius: 1.33333333vw;\n  border: lightgrey solid 0.26666667vw;\n}\n.selection {\n  height: 6.66666667vw;\n}\n\n    </style>\n    <script>\n        window.onload = function () {\n            const datainfo = {{{payload}}}\n            decode_data = decodeURIComponent(datainfo)\n            console.log(decode_data)\n            var json_data = eval('(' + decode_data + ')')\n            addtr(json_data)\n\n            const _jiexi = [{ \"name\": \"纯净1\", \"url\": \"https://z1.m1907.cn/?jx=\", \"t\": \"m\" },\n            { \"name\": \"默认\", \"url\": \"https://jx.parwix.com:4433/player/analysis.php?v=\", \"t\": \"m\" },\n            { \"name\": \"B站1\", \"url\": \"https://vip.parwix.com:4433/player/?url=\", \"t\": \"m\" },\n            { \"name\": \"爱豆\", \"url\": \"https://jx.aidouer.net/?url=\", 't': 'm' },\n            { \"name\": \"BL\", \"url\": \"https://vip.bljiex.com/?v=\" },\n            { \"name\": \"冰豆\", \"url\": \"https://api.qianqi.net/vip/?url=\" },\n            { \"name\": \"百域\", \"url\": \"https://jx.618g.com/?url=\" },\n            { \"name\": \"CK\", \"url\": \"https://www.ckplayer.vip/jiexi/?url=\" },\n            { \"name\": \"CHok\", \"url\": \"https://www.gai4.com/?url=\", \"t\": \"m\" },\n            { \"name\": \"ckmov\", \"url\": \"https://www.ckmov.vip/api.php?url=\" },\n            { \"name\": \"大幕\", \"url\": \"https://jx.52damu.com/dmjx/jiexi.php?url=\" },\n            { \"name\": \"迪奥\", \"url\": \"https://123.1dior.cn/?url=\" },\n            { \"name\": \"H8\", \"url\": \"https://www.h8jx.com/jiexi.php?url=\" },\n            { \"name\": \"解析\", \"url\": \"https://ckmov.ccyjjd.com/ckmov/?url=\" },\n            { \"name\": \"解析la\", \"url\": \"https://api.jiexi.la/?url=\" },\n            { \"name\": \"九八\", \"url\": \"https://jx.youyitv.com/?url=\" },\n            { \"name\": \"LE\", \"url\": \"https://lecurl.cn/?url=\" },\n            { \"name\": \"老板\", \"url\": \"https://vip.laobandq.com/jiexi.php?url=\" },\n            { \"name\": \"乐多\", \"url\": \"https://api.leduotv.com/wp-api/ifr.php?isDp=1&vid=\", \"t\": \"m\" },\n            { \"name\": \"MAO\", \"url\": \"https://www.mtosz.com/m3u8.php?url=\" },\n            { \"name\": \"M3U8\", \"url\": \"https://jx.m3u8.tv/jiexi/?url=\" },\n            { \"name\": \"MUTV\", \"url\": \"https://jiexi.janan.net/jiexi/?url=\" },\n            { \"name\": \"诺诺\", \"url\": \"https://www.ckmov.com/?url=\" },\n            { \"name\": \"诺讯\", \"url\": \"https://www.nxflv.com/?url=\" },\n            { \"name\": \"OK\", \"url\": \"https://okjx.cc/?url=\", \"t\": \"m\" },\n            { \"name\": \"PM\", \"url\": \"https://www.playm3u8.cn/jiexi.php?url=\" },\n            { \"name\": \"盘古\", \"url\": \"https://www.pangujiexi.cc/jiexi.php?url=\" },\n            { \"name\": \"奇米\", \"url\": \"https://qimihe.com/?url=\" },\n            { \"name\": \"全民\", \"url\": \"https://jx.blbo.cc:4433/?url=\" },\n            { \"name\": \"RDHK\", \"url\": \"https://jx.rdhk.net/?v=\", \"t\": \"m\" },\n            { \"name\": \"人人迷\", \"url\": \"https://jx.blbo.cc:4433/?url=\", \"t\": \"m\" },\n            { \"name\": \"思云\", \"url\": \"https://jx.ap2p.cn/?url=\" },\n            { \"name\": \"思古3\", \"url\": \"https://jsap.attakids.com/?url=\", \"t\": \"m\" },\n            { \"name\": \"淘电影\", \"url\": \"https://jx.vodjx.top/vip/?url=\" },\n            { \"name\": \"听乐\", \"url\": \"https://jx.dj6u.com/?url=\", \"t\": \"m\" },\n            { \"name\": \"维多\", \"url\": \"https://jx.ivito.cn/?url=\" },\n            { \"name\": \"虾米\", \"url\": \"https://jx.xmflv.com/?url=\" },\n            { \"name\": \"小蒋\", \"url\": \"https://www.kpezp.cn/jlexi.php?url=\" },\n            { \"name\": \"云端\", \"url\": \"https://sb.5gseo.net/?url=\" },\n            { \"name\": \"云析\", \"url\": \"https://jx.yparse.com/index.php?url=\" },\n            { \"name\": \"0523\", \"url\": \"https://go.yh0523.cn/y.cy?url=\" },\n            { \"name\": \"17云\", \"url\": \"https://www.1717yun.com/jx/ty.php?url=\" },\n            { \"name\": \"4K\", \"url\": \"https://jx.4kdv.com/?url=\", \"t\": \"m\" },\n            { \"name\": \"8090\", \"url\": \"https://www.8090g.cn/?url=\" }\n            ]\n\n            function addtr(data) {\n                for (var val in data) {\n                    var list_a = \"<a href='\" + data[val] + \"' style='white-space: nowrap;'><div class='link'>\" + val + \"</div></a>\"\n                    $(\".show_list\").append(list_a)\n                }\n\n                $('a').on('click', function () {\n                    index_this = $.index\n                    subtype = document.getElementById('subtype');//获取解析选择\n                    iframe_src = subtype.value + this.href\n                    // iframe_src = 'https://jx.parwix.com:4433/player/analysis.php?v=' + this.href\n                    this.style.color = 'green'\n                    $(\"iframe\").attr(\"src\", iframe_src);\n                    return false\n\n                })\n\n            }\n\n\n            //定义全局变量保存当前观看集数\n            // var index_this\n            // 进入网页自动播放\n\n            load_jiexi()//先加载解析选择，再自动播放\n            $('a').eq(0).click()\n            index_this = 0\n\n\n\n            // 加载解析选择\n            // subtype = document.getElementById('subtype');\n            // subtype.value\n            function load_jiexi() {\n                for (var i = 0; i < _jiexi.length; i++) {\n                    var option = \"<option value=\" + _jiexi[i]['url'] + \">\" + _jiexi[i]['name'] + \"</option>\"\n                    $(\"#subtype\").append(option)\n                }\n            }\n\n            // // 上一集 下一集按钮\n            // $('.up').on('click', function () {\n            //     index_this = index_this-1\n            //     console.log(index_this)\n            //     index = index_this\n            //     play(index)\n            // })\n\n            // $('.down').on('click', function () {\n\n            //     index_this++\n            //     console.log(index_this)\n            //     index = index_this\n            //     play(index)\n            // })\n            // function play(index) {\n\n            //     $('a').eq(index).click()\n            // }\n\n\n        }\n    </script>\n</head>\n\n<body>\n    <div class=\"video_player\">\n        <!-- //https://z1.m1907.cn/?jx=https://v.qq.com/x/cover/mzc0020036ro0ux/v00415hs5nn.html -->\n        <iframe src=\"\" scrolling=\"no\" border=\"0\" frameborder=\"no\" framespacing=\"0\" allowfullscreen=\"true\"> </iframe>\n    </div>\n    <div class=\"selection\">\n        <select id=\"subtype\">\n            <!-- <option value=\"https://z1.m1907.cn/?jx=\">纯净1</option>\n            <option value=\"mixed\">Base64通用</option> -->\n        </select>\n\n        <!-- <button class=\"up\">上一集</button>\n        <button class=\"down\">下一集</button> -->\n    </div>\n    <div class=\"tbody\">\n        <div class=\"show_list\">\n\n        </div>\n    </div>\n</body>\n\n</html>",
+        "output": "str",
+        "x": 1110,
+        "y": 820,
+        "wires": [
+            [
+                "a14be5c892306c28"
+            ]
+        ]
+    },
+    {
+        "id": "5bd6cb9cd1d81e7d",
+        "type": "http in",
+        "z": "1033162f191e6983",
+        "name": "",
+        "url": "videoinfo2",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 820,
+        "wires": [
+            [
+                "8f6cf86bf69ac4d3"
+            ]
+        ]
     }
 ]
