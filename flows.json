@@ -7169,6 +7169,53 @@
         ]
     },
     {
+        "id": "2384a0446640a217",
+        "type": "http response",
+        "z": "e3562182c0530220",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1230,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "5dd24593ccf58cb6",
+        "type": "template",
+        "z": "e3562182c0530220",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    {{!--<link rel=\"stylesheet\" href=\"./手机音乐.css\">--}}\n    <title>Document</title>\n    <style>\n        * {\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n}\n.nav {\n  position: fixed;\n  top: 0;\n  left: 0;\n  background-color: #fff;\n  height: 10.66666667vw;\n  width: 100%;\n  display: flex;\n}\n.nav .search_bar {\n  width: 5.33333333vw;\n  height: 100%;\n  margin-left: 2.66666667vw;\n  display: flex;\n  align-items: center;\n}\n.nav .search_bar img {\n  width: 5.33333333vw;\n}\n.search_list {\n  padding: 13.33333333vw 1.33333333vw 0;\n}\n.search_list .song_item {\n  width: 100%;\n  height: 18.66666667vw;\n  display: flex;\n  border-bottom: 1px solid #ebe9e9;\n}\n.search_list .song_item .song_rank {\n  height: 100%;\n  display: flex;\n  align-items: center;\n}\n.search_list .song_item .song_rank img {\n  width: 16vw;\n  border-radius: 5%;\n  margin-left: 2.66666667vw;\n}\n.search_list .song_item .song_info {\n  width: 70%;\n  height: 100%;\n  margin-left: 3%;\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n  font-size: 4.26666667vw;\n}\n.search_list .song_item .song_info .song_artist {\n  color: #717171;\n}\n.search_list .song_item .more_info {\n  height: 100%;\n  display: table;\n}\n.search_list .song_item .more_info a {\n  display: table-cell;\n  vertical-align: middle;\n  text-decoration: none;\n  color: #717171;\n  font-size: 8vw;\n}\n.play {\n  width: 100%;\n  height: 17.33333333vw;\n  position: fixed;\n  bottom: 0;\n  background-color: #f3f3f3;\n}\n.play .play_item {\n  display: flex;\n  width: 100%;\n  height: 17.33333333vw;\n}\n.play .play_item .play_rank {\n  height: 100%;\n  display: flex;\n  align-items: center;\n}\n.play .play_item .play_rank img {\n  width: 13.33333333vw;\n  border-radius: 5%;\n  margin-left: 2.66666667vw;\n}\n.play .play_item .play_info {\n  width: 50%;\n  height: 100%;\n  margin-left: 3%;\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n  font-size: 4.26666667vw;\n}\n.play .play_item .play_moreinfo {\n  margin-left: 8vw;\n  display: flex;\n  align-items: center;\n}\n.play .play_item .play_moreinfo img {\n  width: 5.33333333vw;\n  margin-left: 2.66666667vw;\n}\n.play .play_line {\n  position: absolute;\n  left: 0;\n  height: 0.53333333vw;\n  bottom: 0;\n  background-color: #fb7299;\n}\n.abc {\n  height: 17.33333333vw;\n}\n\n    </style>\n    <script crossorigin=\"anonymous\" src=\"https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\n    <script>\n        window.onload = function () {\n            var music_index = 0\n\n            $('.search_bar img').click(function () {//为提交按钮绑定事件\n                url = \"http://192.168.0.210:1880/music1?a=\" + '周杰伦' + \"&b=30&c=1\"\n                $.get(url, {}, function (data) {\n                    // console.log(data)\n                    del_()\n                    add(data, 1)\n                }, 'json')\n            })\n\n            function del_() {\n                $('div').remove('.song_item')\n            }\n\n            function add(arr, nrindex) {//创建表格 arr表示表格数据 nrindex 表示第几页\n                //删除元素\n                // $('tr').remove('#list_body')//删除所有id为list_body的tr标签\n                N = nrindex//记录当前页面索引\n\n                var n = (nrindex - 1) * 30\n\n\n                var div = $('.search_list')\n                for (var val in arr) {\n                    var song_item = \"<div class='song_item'>\" +\n                        \"<div class='song_rank'>\" +\n                        \"<img src=\" + arr[val][7] + \">\" +\n                        \"</div>\" +\n                        \"<div class='song_info'>\" +\n                        \"<div class='song_name'>\" + arr[val][3] + \"</div>\" +\n                        \"<div class='song_artist'>歌曲·\" + arr[val][0] + \"</div>\" +\n                        \"<a href=\" + arr[val][4] + \"></a>\" +\n                        \"</div>\" +\n                        \"<div class='more_info'>\" +\n                        \"<a href='#'>···</a>\" +\n                        \"</div>\" +\n                        \"</div>\"\n                    div.append(song_item)\n                }\n\n                $('.main').append(div)\n\n\n                // var abcde = $('td > #a')//子代选择器\n                $('.song_item').on('click', function () {//试听标签绑定\n                    // console.log(\"下标\" + $(this).index())\n\n                    url = $(this).children('.song_info').children('a').attr('href')//歌曲地址\n                    img_url = $(this).children('.song_rank').children('img').attr('src')//图片地址\n                    songname = $(this).children('.song_info').children('.song_name').html()//歌曲名称\n                    // console.log(img_url)\n                    // console.log(url)\n                    // console.log(songname)\n                    music_index = $(this).index()\n                    $.get(url, {}, function (data) {\n                        // del_()\n                        // console.log(data)\n                        $('audio').attr('src', data['data']['url'])//设置歌曲地址\n                        $('.play_rank').children('img').attr('src', img_url)//设置图片\n                        $('.play_song').html(songname)//设置歌曲名称\n                        // console.log(music_index)\n\n                    }, 'json')\n                    // return false\n                })\n\n                // $('td #b').on('click', function () {//下载标签绑定\n                //     console.log(this.href)\n                //     url = this.href\n                //     $.get(url, {}, function (data) {\n                //         console.log(data)\n                //         console.log(data['data']['url'])\n                //         var a = document.createElement('a');\n                //         a.href = data['data']['url'];\n                //         a.click()\n                //     }, 'json')\n                //     return false\n                // })\n\n\n            };\n\n            audio = document.querySelector('audio')\n            $('#play').click(function () {//播放暂停\n                console.log(1)\n                if (audio.paused) {\n                    audio.play()\n                } else {\n                    audio.pause()\n                }\n            })\n\n            $('#playnext').click(function () {//播放下一曲\n                console.log(2)\n                music_index++\n                $('.song_item').eq(music_index).click()\n            })\n        }\n\n        function updata() {\n            var audio = document.querySelector('audio')\n            width = (audio.currentTime / audio.duration * 100).toString() + 'vw'\n            $('.play_line').css('width', width)\n\n        }\n    </script>\n</head>\n\n<body>\n    <div class=\"nav\">\n        <div class=\"search_bar\">\n            <img src=\"../img/search1.png\">\n        </div>\n    </div>\n    <div class=\"main\">\n        <div class=\"search_list\">\n            <div class=\"song_item\">\n                <div class=\"song_rank\">\n                    <img src=\"https://img4.kuwo.cn/star/albumcover/120/72/44/3648126291.jpg\">\n                </div>\n                <div class=\"song_info\">\n                    <div class=\"song_name\">晴天</div>\n                    <div class=\"song_artist\">歌曲·周杰伦</div>\n                    <a href=\"#\"></a>\n                </div>\n                <!-- <div class=\"line\"></div> -->\n                <div class=\"more_info\">\n                    <a href=\"#\">···</a>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"audio_\">\n        <audio\n            src=\"https://other-web-ra01-sycdn.kuwo.cn/53277753b6df962aa3db07ecde663792/62545571/resource/n3/320/74/27/4113470514.mp3\"\n            controls autoplay loop ontimeupdate=\"updata()\" hidden=\"true\"></audio>\n    </div>\n\n    <div class=\"abc\"></div>\n    <div class=\"play\">\n        <div class=\"play_item\">\n            <div class=\"play_rank\">\n                <img src=\"https://img4.kuwo.cn/star/albumcover/120/72/44/3648126291.jpg\">\n            </div>\n            <div class=\"play_info\">\n                <div class=\"play_song\">晴天</div>\n                <!-- <div class=\"song_artist\">歌曲·周杰伦</div> -->\n            </div>\n            <!-- <div class=\"line\"></div> -->\n            <div class=\"play_moreinfo\">\n                <img id=\"play\" src=\"../img/播放2.png\">\n                <img id=\"playnext\" src=\"../img/下一首.png\">\n            </div>\n\n\n        </div>\n        <div class=\"play_line\"></div>\n    </div>\n</body>\n\n</html>",
+        "output": "str",
+        "x": 1090,
+        "y": 880,
+        "wires": [
+            [
+                "2384a0446640a217"
+            ]
+        ]
+    },
+    {
+        "id": "6f4aabc4632e8b62",
+        "type": "http in",
+        "z": "e3562182c0530220",
+        "name": "",
+        "url": "music3",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 930,
+        "y": 880,
+        "wires": [
+            [
+                "5dd24593ccf58cb6"
+            ]
+        ]
+    },
+    {
         "id": "a1e2284019228662",
         "type": "function",
         "z": "b32ed110abccd8e4",
