@@ -7216,6 +7216,167 @@
         ]
     },
     {
+        "id": "aa187dd4e4dd27d3",
+        "type": "http in",
+        "z": "e3562182c0530220",
+        "name": "",
+        "url": "pushlistenrecently",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 960,
+        "y": 960,
+        "wires": [
+            [
+                "b2abafa682a909ef",
+                "b50c5d056e930d3c"
+            ]
+        ]
+    },
+    {
+        "id": "b50c5d056e930d3c",
+        "type": "http response",
+        "z": "e3562182c0530220",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1170,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "d943c887994ff4f1",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "put 数据",
+        "func": "json = msg.payload\nmsg.headers = {};\nmsg.headers = {\n  'Authorization': 'Bearer glpat-bix9rWK6svSw7qEzB-tS'\n}\nmsg.url = \"https://gitlab.com/api/v4/projects/34199133/repository/files/listenrecently.json\"\n// msg.payload = {};\nmsg.payload={'branch': 'main',\n    'content': json,\n    'commit_message': 'update file'\n    \n};\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1120,
+        "y": 1200,
+        "wires": [
+            [
+                "cff00fb2044fc82b",
+                "e4d1e93f8ca6cabf"
+            ]
+        ]
+    },
+    {
+        "id": "cff00fb2044fc82b",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "update file",
+        "method": "PUT",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1290,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b2abafa682a909ef",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "index = msg.payload.title\nmsg.json = {}\nmsg.json[index] = [msg.payload.title,msg.payload.href, msg.payload.srcurl, '']\n// msg.payload = json\n// msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 1200,
+        "wires": [
+            [
+                "27d4d07168a4e7ec"
+            ]
+        ]
+    },
+    {
+        "id": "27d4d07168a4e7ec",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://gitlab.com/api/v4/projects/34199133/repository/files/listenrecently.json/raw?ref=main&private_token=glpat-bix9rWK6svSw7qEzB-tS",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 540,
+        "y": 1200,
+        "wires": [
+            [
+                "d3d53aedaedd9470"
+            ]
+        ]
+    },
+    {
+        "id": "d3d53aedaedd9470",
+        "type": "json",
+        "z": "e3562182c0530220",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 690,
+        "y": 1200,
+        "wires": [
+            [
+                "5dd89deb92bca082"
+            ]
+        ]
+    },
+    {
+        "id": "5dd89deb92bca082",
+        "type": "function",
+        "z": "e3562182c0530220",
+        "name": "",
+        "func": "ret = Object.assign(msg.json, msg.payload)\nmsg.payload = ret\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 1200,
+        "wires": [
+            [
+                "046ab6aaa1d3c1b7"
+            ]
+        ]
+    },
+    {
+        "id": "046ab6aaa1d3c1b7",
+        "type": "json",
+        "z": "e3562182c0530220",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 970,
+        "y": 1200,
+        "wires": [
+            [
+                "d943c887994ff4f1"
+            ]
+        ]
+    },
+    {
         "id": "a1e2284019228662",
         "type": "function",
         "z": "b32ed110abccd8e4",
