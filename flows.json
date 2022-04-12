@@ -9613,7 +9613,7 @@
         "type": "function",
         "z": "385bda6c054fb267",
         "name": "",
-        "func": "list = {}\nfor(var i=0 ; i < msg.payload.data.musicList.length ; i++){\n    list[i]=[\n        msg.payload.data.list[i].artist,\n        msg.payload.data.list[i].rid,\n        msg.payload.data.list[i].album,\n        msg.payload.data.list[i].name,\n        'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.payload.data.list[i].rid+'&type=convert_url3&br=320kmp3',\n        msg.payload.data.list[i].songTimeMinutes,\n        msg.payload.data.total,\n        msg.payload.data.list[i].pic\n        ]\n    \n}\nmsg.payload = list\nreturn msg;",
+        "func": "list = {}\nfor(var i=0 ; i < msg.payload.data.musicList.length ; i++){\n    list[i]=[\n        msg.payload.data.musicList[i].artist,\n        msg.payload.data.musicList[i].rid,\n        msg.payload.data.musicList[i].album,\n        msg.payload.data.musicList[i].name,\n        'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.payload.data.musicList[i].rid+'&type=convert_url3&br=320kmp3',\n        msg.payload.data.musicList[i].songTimeMinutes,\n        300,\n        msg.payload.data.musicList[i].pic\n        ]\n    \n}\nmsg.payload = list\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
