@@ -10100,5 +10100,217 @@
         "x": 770,
         "y": 1040,
         "wires": []
+    },
+    {
+        "id": "430ed227b87ec597",
+        "type": "function",
+        "z": "385bda6c054fb267",
+        "name": "专辑列表",
+        "func": "// if(msg.payload.a =='' || msg.payload.b == '' || msg.payload.c == ''){\n//     return null\n// }\nmsg.url = 'http://www.kuwo.cn/api/www/artist/artistAlbum?artistid=336&pn=1&rn=28'\n// msg.t = 1\n// msg.t1 = 1\n// msg.count1 = msg.payload.b\nmsg.headers = {\n    // 'Connection':'keep-alive',\n    'Cookie':'kw_token=GIERQH2W2A',\n    'csrf':'GIERQH2W2A',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/singer_detail/336/album',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1120,
+        "wires": [
+            [
+                "85d3c8ad7809c751"
+            ]
+        ]
+    },
+    {
+        "id": "85d3c8ad7809c751",
+        "type": "http request",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 540,
+        "y": 1120,
+        "wires": [
+            [
+                "a36ee70eba715bb8"
+            ]
+        ]
+    },
+    {
+        "id": "29a57124ce7ed3c2",
+        "type": "function",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "func": "list = {}\nfor(var i=0 ; i < msg.payload.data.musicList.length ; i++){\n    list[i]=[\n        msg.payload.data.musicList[i].artist,\n        msg.payload.data.musicList[i].rid,\n        msg.payload.data.musicList[i].album,\n        msg.payload.data.musicList[i].name,\n        'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.payload.data.musicList[i].rid+'&type=convert_url3&br=320kmp3',\n        msg.payload.data.musicList[i].songTimeMinutes,\n        100,\n        msg.payload.data.musicList[i].pic\n        ]\n    \n}\nmsg.payload = list\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 1120,
+        "wires": [
+            [
+                "a36ee70eba715bb8"
+            ]
+        ]
+    },
+    {
+        "id": "3eab7dad4297c218",
+        "type": "inject",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 1120,
+        "wires": [
+            [
+                "430ed227b87ec597"
+            ]
+        ]
+    },
+    {
+        "id": "a36ee70eba715bb8",
+        "type": "debug",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "3b805e30f9a0d705",
+        "type": "function",
+        "z": "385bda6c054fb267",
+        "name": "专辑详情",
+        "func": "// if(msg.payload.a =='' || msg.payload.b == '' || msg.payload.c == ''){\n//     return null\n// }\nmsg.url = 'http://www.kuwo.cn/api/www/album/albumInfo?albumId=14365066&pn=1&rn=30'\n// msg.t = 1\n// msg.t1 = 1\n// msg.count1 = msg.payload.b\nmsg.headers = {\n    // 'Connection':'keep-alive',\n    'Cookie':'kw_token=GIERQH2W2A',\n    'csrf':'GIERQH2W2A',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/singer_detail/336/album',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1320,
+        "wires": [
+            [
+                "979d320565be8226"
+            ]
+        ]
+    },
+    {
+        "id": "979d320565be8226",
+        "type": "http request",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 540,
+        "y": 1320,
+        "wires": [
+            [
+                "b6f550789b56d0c1"
+            ]
+        ]
+    },
+    {
+        "id": "7153554d69e0696e",
+        "type": "function",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "func": "list = {}\nfor(var i=0 ; i < msg.payload.data.musicList.length ; i++){\n    list[i]=[\n        msg.payload.data.musicList[i].artist,\n        msg.payload.data.musicList[i].rid,\n        msg.payload.data.musicList[i].album,\n        msg.payload.data.musicList[i].name,\n        'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.payload.data.musicList[i].rid+'&type=convert_url3&br=320kmp3',\n        msg.payload.data.musicList[i].songTimeMinutes,\n        100,\n        msg.payload.data.musicList[i].pic\n        ]\n    \n}\nmsg.payload = list\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 1320,
+        "wires": [
+            [
+                "b6f550789b56d0c1"
+            ]
+        ]
+    },
+    {
+        "id": "5e88712a636f1f77",
+        "type": "inject",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 1320,
+        "wires": [
+            [
+                "3b805e30f9a0d705"
+            ]
+        ]
+    },
+    {
+        "id": "b6f550789b56d0c1",
+        "type": "debug",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 1420,
+        "wires": []
     }
 ]
