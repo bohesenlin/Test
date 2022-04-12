@@ -7229,7 +7229,8 @@
         "wires": [
             [
                 "b50c5d056e930d3c",
-                "606fdbef39c0b3c8"
+                "606fdbef39c0b3c8",
+                "b2abafa682a909ef"
             ]
         ]
     },
@@ -7290,7 +7291,7 @@
         "type": "function",
         "z": "e3562182c0530220",
         "name": "",
-        "func": "index = msg.payload.title\nmsg.json = {}\nmsg.json[index] = [msg.payload.title,msg.payload.href, msg.payload.srcurl, '']\n// msg.payload = json\n// msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']}\nreturn msg;",
+        "func": "index = msg.payload[\"0\"]+'mid='+msg.payload[\"1\"]\nmsg.json = {}\nmsg.json[index] = [\n    msg.payload[\"0\"],\n    msg.payload[\"1\"], \n    msg.payload[\"2\"], \n    msg.payload[\"3\"], \n    '', \n    msg.payload[\"5\"], \n    msg.payload[\"6\"], \n    msg.payload[\"7\"]\n    ]\n// msg.payload = json\n// msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7410,6 +7411,72 @@
         "x": 1170,
         "y": 1020,
         "wires": []
+    },
+    {
+        "id": "44b9bdf2f035dfec",
+        "type": "http response",
+        "z": "e3562182c0530220",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "ee2c6b517ae760a8",
+        "type": "http request",
+        "z": "e3562182c0530220",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://gitlab.com/api/v4/projects/34199133/repository/files/listenrecently.json/raw?ref=main&private_token=glpat-bix9rWK6svSw7qEzB-tS",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 540,
+        "y": 1280,
+        "wires": [
+            [
+                "1e8ec7d77a88e22d"
+            ]
+        ]
+    },
+    {
+        "id": "1e8ec7d77a88e22d",
+        "type": "json",
+        "z": "e3562182c0530220",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 690,
+        "y": 1280,
+        "wires": [
+            [
+                "44b9bdf2f035dfec"
+            ]
+        ]
+    },
+    {
+        "id": "7c1edba9e6826272",
+        "type": "http in",
+        "z": "e3562182c0530220",
+        "name": "",
+        "url": "listenrecently",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 350,
+        "y": 1280,
+        "wires": [
+            [
+                "ee2c6b517ae760a8"
+            ]
+        ]
     },
     {
         "id": "a1e2284019228662",
