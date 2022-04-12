@@ -7228,7 +7228,6 @@
         "y": 960,
         "wires": [
             [
-                "b2abafa682a909ef",
                 "b50c5d056e930d3c",
                 "606fdbef39c0b3c8"
             ]
