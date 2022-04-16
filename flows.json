@@ -10319,7 +10319,7 @@
         "type": "function",
         "z": "385bda6c054fb267",
         "name": "歌词封面",
-        "func": "// if(msg.payload.a =='' || msg.payload.b == '' || msg.payload.c == ''){\n//     return null\n// }\n// href=\"http://www.kuwo.cn/api/v1/www/music/playUrl?mid=228908&type=convert_url3&br=320kmp3\"\nmsg.url = 'http://www.kuwo.cn/api/www/music/musicInfo?mid=228908'\n\nmsg.headers = {\n    // 'Connection':'keep-alive',\n    'Cookie':'kw_token=GIERQH2W2A',\n    'csrf':'GIERQH2W2A',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/play_detail/198554068',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "func": "// if(msg.payload.a =='' || msg.payload.b == '' || msg.payload.c == ''){\n//     return null\n// }\n// href=\"http://www.kuwo.cn/api/v1/www/music/playUrl?mid=228908&type=convert_url3&br=320kmp3\"\nmsg.url = 'http://www.kuwo.cn/api/www/music/musicInfo?mid='+msg.payload.songid.toString()\n\nmsg.headers = {\n    // 'Connection':'keep-alive',\n    'Cookie':'kw_token=GIERQH2W2A',\n    'csrf':'GIERQH2W2A',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/play_detail/198554068',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
