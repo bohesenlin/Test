@@ -10454,7 +10454,7 @@
         "type": "function",
         "z": "385bda6c054fb267",
         "name": "歌词",
-        "func": "// if(msg.payload.a =='' || msg.payload.b == '' || msg.payload.c == ''){\n//     return null\n// }\n// href=\"http://www.kuwo.cn/api/v1/www/music/playUrl?mid=228908&type=convert_url3&br=320kmp3\"\nmsg.url = 'http://m.kuwo.cn/newh5/singles/songinfoandlrc?musicId=440613'\n// msg.url = 'http://www.kuwo.cn/api/www/music/musicInfo?mid='+msg.payload.songid.toString()\n\nmsg.headers = {\n    'Host':'www.kuwo.cn',\n    'Origin': 'http://www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "func": "// if(msg.payload.a =='' || msg.payload.b == '' || msg.payload.c == ''){\n//     return null\n// }\n// href=\"http://www.kuwo.cn/api/v1/www/music/playUrl?mid=228908&type=convert_url3&br=320kmp3\"\nmsg.url = 'http://m.kuwo.cn/newh5/singles/songinfoandlrc?musicId='+msg.payload.songid.toString()\n// msg.url = 'http://www.kuwo.cn/api/www/music/musicInfo?mid='+msg.payload.songid.toString()\n\nmsg.headers = {\n    'Host':'www.kuwo.cn',\n    'Origin': 'http://www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10486,27 +10486,8 @@
         "y": 1760,
         "wires": [
             [
-                "5ffc93351ba8fb6c"
-            ]
-        ]
-    },
-    {
-        "id": "a3011f055fb95c49",
-        "type": "function",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "func": "list = {}\n// for(var i=0 ; i < msg.payload.data.musicList.length ; i++){\n//     list[i]=[\n//         // msg.payload.data.musicList[i].artist,\n//         // msg.payload.data.musicList[i].rid,\n//         // msg.payload.data.musicList[i].album,\n//         // msg.payload.data.musicList[i].name,\n//         // 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.payload.data.musicList[i].rid+'&type=convert_url3&br=320kmp3',\n//         // msg.payload.data.musicList[i].songTimeMinutes,\n//         // 100,\n//         // msg.payload.data.musicList[i].pic\n//         msg.payload.data.pic\n//         ]\n    \n// }\nlist['pic']=msg.payload.data.pic\nlist['artist']=msg.payload.data.artist\nlist['name']=msg.payload.data.name\nmsg.payload = list\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 690,
-        "y": 1760,
-        "wires": [
-            [
-                "3bec147fbd286726",
-                "5ffc93351ba8fb6c"
+                "5ffc93351ba8fb6c",
+                "3bec147fbd286726"
             ]
         ]
     },
