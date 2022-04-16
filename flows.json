@@ -10570,7 +10570,7 @@
         "type": "function",
         "z": "385bda6c054fb267",
         "name": "",
-        "func": "list = {}\n// for(var i=0 ; i < msg.payload.data.musicList.length ; i++){\n//     list[i]=[\n//         // msg.payload.data.musicList[i].artist,\n//         // msg.payload.data.musicList[i].rid,\n//         // msg.payload.data.musicList[i].album,\n//         // msg.payload.data.musicList[i].name,\n//         // 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.payload.data.musicList[i].rid+'&type=convert_url3&br=320kmp3',\n//         // msg.payload.data.musicList[i].songTimeMinutes,\n//         // 100,\n//         // msg.payload.data.musicList[i].pic\n//         msg.payload.data.pic\n//         ]\n    \n// }\nlist['lrclist']=msg.payload.data.lrclist\n// list['artist']=msg.payload.data.artist\n// list['name']=msg.payload.data.name\nmsg.payload = list\nreturn msg;",
+        "func": "list = {}\n// for(var i=0 ; i < msg.payload.data.musicList.length ; i++){\n//     list[i]=[\n//         // msg.payload.data.musicList[i].artist,\n//         // msg.payload.data.musicList[i].rid,\n//         // msg.payload.data.musicList[i].album,\n//         // msg.payload.data.musicList[i].name,\n//         // 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.payload.data.musicList[i].rid+'&type=convert_url3&br=320kmp3',\n//         // msg.payload.data.musicList[i].songTimeMinutes,\n//         // 100,\n//         // msg.payload.data.musicList[i].pic\n//         msg.payload.data.pic\n//         ]\n    \n// }\n// list['lrclist']=msg.payload.data.lrclist\narr = msg.payload.data.lrclist\nfor(var i = 0;i<arr.length; i++){\n    list[i] = arr\n}\nmsg.payload = list\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
