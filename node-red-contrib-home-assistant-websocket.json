@@ -1920,11 +1920,11 @@
     },
     "6efd403af327ca32": {
       "lastPayload": {
-        "state": "0.11",
+        "state": "0.08",
         "attributes": {
-          "load1": "0.11",
-          "load5": "0.10",
-          "load15": "0.08",
+          "load1": "0.08",
+          "load5": "0.06",
+          "load15": "0.05",
           "cpu": 0,
           "ram": "498M",
           "os": "Linux NEWIFI3 5.4.175 #0 SMP Sat Feb 5 13:08:46 2022 mips"
