@@ -10360,7 +10360,7 @@
         "type": "function",
         "z": "385bda6c054fb267",
         "name": "",
-        "func": "list = {}\n// for(var i=0 ; i < msg.payload.data.musicList.length ; i++){\n//     list[i]=[\n//         // msg.payload.data.musicList[i].artist,\n//         // msg.payload.data.musicList[i].rid,\n//         // msg.payload.data.musicList[i].album,\n//         // msg.payload.data.musicList[i].name,\n//         // 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.payload.data.musicList[i].rid+'&type=convert_url3&br=320kmp3',\n//         // msg.payload.data.musicList[i].songTimeMinutes,\n//         // 100,\n//         // msg.payload.data.musicList[i].pic\n//         msg.payload.data.pic\n//         ]\n    \n// }\nlist['pic']=msg.payload.data.pic\nmsg.payload = list\nreturn msg;",
+        "func": "list = {}\n// for(var i=0 ; i < msg.payload.data.musicList.length ; i++){\n//     list[i]=[\n//         // msg.payload.data.musicList[i].artist,\n//         // msg.payload.data.musicList[i].rid,\n//         // msg.payload.data.musicList[i].album,\n//         // msg.payload.data.musicList[i].name,\n//         // 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.payload.data.musicList[i].rid+'&type=convert_url3&br=320kmp3',\n//         // msg.payload.data.musicList[i].songTimeMinutes,\n//         // 100,\n//         // msg.payload.data.musicList[i].pic\n//         msg.payload.data.pic\n//         ]\n    \n// }\nlist['pic']=msg.payload.data.pic\nlist['artist']=msg.payload.data.artist\nlist['name']=msg.payload.data.name\nmsg.payload = list\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10370,8 +10370,8 @@
         "y": 1540,
         "wires": [
             [
-                "b6b3eb451b0443dd",
-                "310e37a6658c2f69"
+                "310e37a6658c2f69",
+                "b6b3eb451b0443dd"
             ]
         ]
     },
@@ -10434,8 +10434,7 @@
         "y": 1540,
         "wires": [
             [
-                "83a69de370d3face",
-                "b6b3eb451b0443dd"
+                "83a69de370d3face"
             ]
         ]
     },
