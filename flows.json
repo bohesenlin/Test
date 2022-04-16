@@ -10313,5 +10313,141 @@
         "x": 770,
         "y": 1420,
         "wires": []
+    },
+    {
+        "id": "83a69de370d3face",
+        "type": "function",
+        "z": "385bda6c054fb267",
+        "name": "歌词封面",
+        "func": "// if(msg.payload.a =='' || msg.payload.b == '' || msg.payload.c == ''){\n//     return null\n// }\nmsg.url = 'http://www.kuwo.cn/api/www/music/musicInfo?mid=440613'\n\nmsg.headers = {\n    // 'Connection':'keep-alive',\n    'Cookie':'kw_token=GIERQH2W2A',\n    'csrf':'GIERQH2W2A',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/play_detail/198554068',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1540,
+        "wires": [
+            [
+                "3aa59bdc545bb2e8"
+            ]
+        ]
+    },
+    {
+        "id": "3aa59bdc545bb2e8",
+        "type": "http request",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 540,
+        "y": 1540,
+        "wires": [
+            [
+                "b6b3eb451b0443dd",
+                "15a2e02680341c7c"
+            ]
+        ]
+    },
+    {
+        "id": "15a2e02680341c7c",
+        "type": "function",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "func": "list = {}\n// for(var i=0 ; i < msg.payload.data.musicList.length ; i++){\n//     list[i]=[\n//         // msg.payload.data.musicList[i].artist,\n//         // msg.payload.data.musicList[i].rid,\n//         // msg.payload.data.musicList[i].album,\n//         // msg.payload.data.musicList[i].name,\n//         // 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.payload.data.musicList[i].rid+'&type=convert_url3&br=320kmp3',\n//         // msg.payload.data.musicList[i].songTimeMinutes,\n//         // 100,\n//         // msg.payload.data.musicList[i].pic\n//         msg.payload.data.pic\n//         ]\n    \n// }\nlist['pic']=msg.payload.data.pic\nmsg.payload = list\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 1540,
+        "wires": [
+            [
+                "b6b3eb451b0443dd",
+                "310e37a6658c2f69"
+            ]
+        ]
+    },
+    {
+        "id": "8a807cf06c71953f",
+        "type": "inject",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 1540,
+        "wires": [
+            [
+                "83a69de370d3face"
+            ]
+        ]
+    },
+    {
+        "id": "b6b3eb451b0443dd",
+        "type": "debug",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "67bd14a74d1f89ee",
+        "type": "http in",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "url": "musicpic",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 230,
+        "y": 1600,
+        "wires": [
+            [
+                "83a69de370d3face"
+            ]
+        ]
+    },
+    {
+        "id": "310e37a6658c2f69",
+        "type": "http response",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 930,
+        "y": 1540,
+        "wires": []
     }
 ]
