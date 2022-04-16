@@ -10448,5 +10448,140 @@
         "x": 830,
         "y": 1540,
         "wires": []
+    },
+    {
+        "id": "eb5a9ca47ae7122c",
+        "type": "function",
+        "z": "385bda6c054fb267",
+        "name": "歌词",
+        "func": "// if(msg.payload.a =='' || msg.payload.b == '' || msg.payload.c == ''){\n//     return null\n// }\n// href=\"http://www.kuwo.cn/api/v1/www/music/playUrl?mid=228908&type=convert_url3&br=320kmp3\"\nmsg.url = 'http://m.kuwo.cn/newh5/singles/songinfoandlrc?musicId=440613'\n// msg.url = 'http://www.kuwo.cn/api/www/music/musicInfo?mid='+msg.payload.songid.toString()\n\nmsg.headers = {\n    'Host':'www.kuwo.cn',\n    'Origin': 'http://www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 1760,
+        "wires": [
+            [
+                "6b1c99a672a3c1df"
+            ]
+        ]
+    },
+    {
+        "id": "6b1c99a672a3c1df",
+        "type": "http request",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 540,
+        "y": 1760,
+        "wires": [
+            [
+                "5ffc93351ba8fb6c"
+            ]
+        ]
+    },
+    {
+        "id": "a3011f055fb95c49",
+        "type": "function",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "func": "list = {}\n// for(var i=0 ; i < msg.payload.data.musicList.length ; i++){\n//     list[i]=[\n//         // msg.payload.data.musicList[i].artist,\n//         // msg.payload.data.musicList[i].rid,\n//         // msg.payload.data.musicList[i].album,\n//         // msg.payload.data.musicList[i].name,\n//         // 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.payload.data.musicList[i].rid+'&type=convert_url3&br=320kmp3',\n//         // msg.payload.data.musicList[i].songTimeMinutes,\n//         // 100,\n//         // msg.payload.data.musicList[i].pic\n//         msg.payload.data.pic\n//         ]\n    \n// }\nlist['pic']=msg.payload.data.pic\nlist['artist']=msg.payload.data.artist\nlist['name']=msg.payload.data.name\nmsg.payload = list\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 1760,
+        "wires": [
+            [
+                "3bec147fbd286726",
+                "5ffc93351ba8fb6c"
+            ]
+        ]
+    },
+    {
+        "id": "6dd0423326ed8b9a",
+        "type": "inject",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 1700,
+        "wires": [
+            [
+                "eb5a9ca47ae7122c"
+            ]
+        ]
+    },
+    {
+        "id": "5ffc93351ba8fb6c",
+        "type": "debug",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 1860,
+        "wires": []
+    },
+    {
+        "id": "39b1d3c30631042f",
+        "type": "http in",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "url": "musiclyric",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 1760,
+        "wires": [
+            [
+                "eb5a9ca47ae7122c"
+            ]
+        ]
+    },
+    {
+        "id": "3bec147fbd286726",
+        "type": "http response",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 1760,
+        "wires": []
     }
 ]
