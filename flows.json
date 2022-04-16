@@ -10319,7 +10319,7 @@
         "type": "function",
         "z": "385bda6c054fb267",
         "name": "歌词封面",
-        "func": "// if(msg.payload.a =='' || msg.payload.b == '' || msg.payload.c == ''){\n//     return null\n// }\nmsg.url = 'http://www.kuwo.cn/api/www/music/musicInfo?mid=440613'\n\nmsg.headers = {\n    // 'Connection':'keep-alive',\n    'Cookie':'kw_token=GIERQH2W2A',\n    'csrf':'GIERQH2W2A',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/play_detail/198554068',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "func": "// if(msg.payload.a =='' || msg.payload.b == '' || msg.payload.c == ''){\n//     return null\n// }\n// href=\"http://www.kuwo.cn/api/v1/www/music/playUrl?mid=228908&type=convert_url3&br=320kmp3\"\nmsg.url = 'http://www.kuwo.cn/api/www/music/musicInfo?mid=228908'\n\nmsg.headers = {\n    // 'Connection':'keep-alive',\n    'Cookie':'kw_token=GIERQH2W2A',\n    'csrf':'GIERQH2W2A',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/play_detail/198554068',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10351,7 +10351,6 @@
         "y": 1540,
         "wires": [
             [
-                "b6b3eb451b0443dd",
                 "15a2e02680341c7c"
             ]
         ]
@@ -10367,7 +10366,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
+        "x": 690,
         "y": 1540,
         "wires": [
             [
@@ -10398,7 +10397,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 230,
-        "y": 1540,
+        "y": 1480,
         "wires": [
             [
                 "83a69de370d3face"
@@ -10418,7 +10417,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 770,
+        "x": 810,
         "y": 1640,
         "wires": []
     },
@@ -10431,11 +10430,12 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 230,
-        "y": 1600,
+        "x": 210,
+        "y": 1540,
         "wires": [
             [
-                "83a69de370d3face"
+                "83a69de370d3face",
+                "b6b3eb451b0443dd"
             ]
         ]
     },
@@ -10446,7 +10446,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 930,
+        "x": 830,
         "y": 1540,
         "wires": []
     }
