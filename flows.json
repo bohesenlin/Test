@@ -9838,7 +9838,8 @@
         "y": 560,
         "wires": [
             [
-                "74d5f63fd06a73ce"
+                "74d5f63fd06a73ce",
+                "b8a5ce54d81d4679"
             ]
         ]
     },
@@ -10584,5 +10585,33 @@
                 "5ffc93351ba8fb6c"
             ]
         ]
+    },
+    {
+        "id": "4159488bd387752a",
+        "type": "http in",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "url": "hotsing",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 230,
+        "y": 500,
+        "wires": [
+            [
+                "3f6704d46d5a2ecd"
+            ]
+        ]
+    },
+    {
+        "id": "b8a5ce54d81d4679",
+        "type": "http response",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 810,
+        "y": 560,
+        "wires": []
     }
 ]
