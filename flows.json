@@ -2510,9 +2510,7 @@
         "x": 810,
         "y": 260,
         "wires": [
-            [
-                "58cc6e177e575df5"
-            ]
+            []
         ]
     },
     {
@@ -10951,6 +10949,93 @@
         "headers": {},
         "x": 830,
         "y": 2420,
+        "wires": []
+    },
+    {
+        "id": "6871562a622f036e",
+        "type": "function",
+        "z": "385bda6c054fb267",
+        "name": "歌手",
+        "func": "\n// if(msg.payload.songid == '' || msg.payload.songid == undefined){\n//     return null\n// }\nmsg.url = 'http://www.kuwo.cn/api/www/artist/artistInfo?category=0&pn=1&rn=100'\nmsg.headers = {\n    'Cookie': 'kw_token=XVKTJ2C2H7',\n    'csrf': 'XVKTJ2C2H7',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/playlists',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 2640,
+        "wires": [
+            [
+                "c76b90d1a873b87c"
+            ]
+        ]
+    },
+    {
+        "id": "c76b90d1a873b87c",
+        "type": "http request",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 520,
+        "y": 2640,
+        "wires": [
+            [
+                "217e6dbf540d5f45",
+                "50059dccb827bb0a"
+            ]
+        ]
+    },
+    {
+        "id": "217e6dbf540d5f45",
+        "type": "debug",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 2740,
+        "wires": []
+    },
+    {
+        "id": "9019cbd36f7ddfa1",
+        "type": "http in",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "url": "artistlist",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 2640,
+        "wires": [
+            [
+                "6871562a622f036e"
+            ]
+        ]
+    },
+    {
+        "id": "50059dccb827bb0a",
+        "type": "http response",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 2640,
         "wires": []
     }
 ]
