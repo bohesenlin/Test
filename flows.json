@@ -10748,5 +10748,140 @@
                 "74f2ee79d0eb1c5a"
             ]
         ]
+    },
+    {
+        "id": "8bb1e2e0cb5e36cb",
+        "type": "function",
+        "z": "385bda6c054fb267",
+        "name": "歌单",
+        "func": "\n// if(msg.payload.songid == '' || msg.payload.songid == undefined){\n//     return null\n// }\nmsg.url = 'http://www.kuwo.cn/api/www/playlist/playListInfo?pid=1082685104&pn=1&rn=30'\nmsg.headers = {\n    'Cookie': 'kw_token=XVKTJ2C2H7',\n    'csrf': 'XVKTJ2C2H7',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 2200,
+        "wires": [
+            [
+                "45fe82c08f2cb498"
+            ]
+        ]
+    },
+    {
+        "id": "45fe82c08f2cb498",
+        "type": "http request",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 520,
+        "y": 2200,
+        "wires": [
+            [
+                "79e0593f2c084406",
+                "1dbae256f3248bae"
+            ]
+        ]
+    },
+    {
+        "id": "235535b30f90a748",
+        "type": "inject",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 2140,
+        "wires": [
+            [
+                "8bb1e2e0cb5e36cb"
+            ]
+        ]
+    },
+    {
+        "id": "79e0593f2c084406",
+        "type": "debug",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 2300,
+        "wires": []
+    },
+    {
+        "id": "6bf11c9bc417f1bc",
+        "type": "http in",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "url": "songlistdetails",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 2200,
+        "wires": [
+            [
+                "8bb1e2e0cb5e36cb"
+            ]
+        ]
+    },
+    {
+        "id": "1dbae256f3248bae",
+        "type": "http response",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 2200,
+        "wires": []
+    },
+    {
+        "id": "ac5a1d4d13e7b6bd",
+        "type": "function",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "func": "list = {}\n// for(var i=0 ; i < msg.payload.data.musicList.length ; i++){\n//     list[i]=[\n//         // msg.payload.data.musicList[i].artist,\n//         // msg.payload.data.musicList[i].rid,\n//         // msg.payload.data.musicList[i].album,\n//         // msg.payload.data.musicList[i].name,\n//         // 'http://www.kuwo.cn/api/v1/www/music/playUrl?mid='+msg.payload.data.musicList[i].rid+'&type=convert_url3&br=320kmp3',\n//         // msg.payload.data.musicList[i].songTimeMinutes,\n//         // 100,\n//         // msg.payload.data.musicList[i].pic\n//         msg.payload.data.pic\n//         ]\n    \n// }\n// list['lrclist']=msg.payload.data.lrclist\narr = msg.payload.data.lrclist\nfor(var i = 0;i<arr.length; i++){\n    list[i] = arr[i]\n}\nmsg.payload = list\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 2280,
+        "wires": [
+            [
+                "79e0593f2c084406"
+            ]
+        ]
     }
 ]
