@@ -11217,7 +11217,7 @@
         "type": "function",
         "z": "385bda6c054fb267",
         "name": "歌手专辑",
-        "func": "\n// if(msg.payload.songid == '' || msg.payload.songid == undefined){\n//     return null\n// }\nmsg.url = 'http://www.kuwo.cn/api/www/artist/artistAlbum?artistid=336&pn=1&rn=28'\nmsg.headers = {\n    'Cookie': 'kw_token=XVKTJ2C2H7',\n    'csrf': 'XVKTJ2C2H7',\n    'Host':'www.kuwo.cn',\n    'Referer':'Referer: http://www.kuwo.cn/singer_detail/336/album',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "func": "\n// if(msg.payload.songid == '' || msg.payload.songid == undefined){\n//     return null\n// }\nmsg.url = 'http://www.kuwo.cn/api/www/artist/artistAlbum?artistid=336&pn=1&rn=28'\nmsg.headers = {\n    'Cookie': 'kw_token=XVKTJ2C2H7',\n    'csrf': 'XVKTJ2C2H7',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/singer_detail/336/album',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -11297,6 +11297,93 @@
         "headers": {},
         "x": 830,
         "y": 3180,
+        "wires": []
+    },
+    {
+        "id": "eb6d375508b9c85a",
+        "type": "function",
+        "z": "385bda6c054fb267",
+        "name": "歌手专辑信息",
+        "func": "\n// if(msg.payload.songid == '' || msg.payload.songid == undefined){\n//     return null\n// }\nmsg.url = 'http://www.kuwo.cn/api/www/album/albumInfo?albumId=14365066&pn=1&rn=30'\nmsg.headers = {\n    'Cookie': 'kw_token=XVKTJ2C2H7',\n    'csrf': 'XVKTJ2C2H7',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/singer_detail/336/album',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 3340,
+        "wires": [
+            [
+                "fb74b481c3f5cca5"
+            ]
+        ]
+    },
+    {
+        "id": "fb74b481c3f5cca5",
+        "type": "http request",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 520,
+        "y": 3340,
+        "wires": [
+            [
+                "484dee176a18bca5",
+                "a9ea95466faafd70"
+            ]
+        ]
+    },
+    {
+        "id": "484dee176a18bca5",
+        "type": "debug",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 3440,
+        "wires": []
+    },
+    {
+        "id": "efc2db6db5a40b9b",
+        "type": "http in",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "url": "albumInfo",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 3340,
+        "wires": [
+            [
+                "eb6d375508b9c85a"
+            ]
+        ]
+    },
+    {
+        "id": "a9ea95466faafd70",
+        "type": "http response",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 3340,
         "wires": []
     }
 ]
