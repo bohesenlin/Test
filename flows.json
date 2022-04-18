@@ -10754,7 +10754,7 @@
         "type": "function",
         "z": "385bda6c054fb267",
         "name": "歌单",
-        "func": "\n// if(msg.payload.songid == '' || msg.payload.songid == undefined){\n//     return null\n// }\nmsg.url = 'http://www.kuwo.cn/api/www/playlist/playListInfo?pid=1082685104&pn=1&rn=30'\nmsg.headers = {\n    'Cookie': 'kw_token=XVKTJ2C2H7',\n    'csrf': 'XVKTJ2C2H7',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "func": "\n// if(msg.payload.songid == '' || msg.payload.songid == undefined){\n//     return null\n// }\nmsg.url = 'http://www.kuwo.cn/api/www/playlist/playListInfo?pid='+msg.payload.id+'&pn=1&rn=30'\nmsg.headers = {\n    'Cookie': 'kw_token=XVKTJ2C2H7',\n    'csrf': 'XVKTJ2C2H7',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10850,7 +10850,8 @@
         "y": 2200,
         "wires": [
             [
-                "8bb1e2e0cb5e36cb"
+                "8bb1e2e0cb5e36cb",
+                "79e0593f2c084406"
             ]
         ]
     },
