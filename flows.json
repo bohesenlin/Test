@@ -11481,7 +11481,7 @@
         "type": "function",
         "z": "385bda6c054fb267",
         "name": "排行榜音乐列表",
-        "func": "\n// if(msg.payload.songid == '' || msg.payload.songid == undefined){\n//     return null\n// }\nmsg.url = 'http://www.kuwo.cn/api/www/bang/bang/musicList?bangId=279&pn=1&rn=30'\nmsg.payload = ''\nmsg.headers = {\n    'Cookie': 'kw_token=JK0JEK8LEFP',\n    'csrf': 'JK0JEK8LEFP',\n    'Host': 'www.kuwo.cn',\n    'Referer': 'http://www.kuwo.cn/rankList',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36 Edg/100.0.1185.44'\n}\nreturn msg;",
+        "func": "\n// if(msg.payload.songid == '' || msg.payload.songid == undefined){\n//     return null\n// }\nmsg.url = 'http://www.kuwo.cn/api/www/bang/bang/musicList?bangId=' + msg.payload.id + '&pn=1&rn=30'\nmsg.payload = ''\nmsg.headers = {\n    'Cookie': 'kw_token=JK0JEK8LEFP',\n    'csrf': 'JK0JEK8LEFP',\n    'Host': 'www.kuwo.cn',\n    'Referer': 'http://www.kuwo.cn/rankList',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36 Edg/100.0.1185.44'\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
