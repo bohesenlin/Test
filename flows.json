@@ -11141,8 +11141,7 @@
         "y": 3020,
         "wires": [
             [
-                "24988004d93a42a5",
-                "cd476275f1d2eec9"
+                "24988004d93a42a5"
             ]
         ]
     },
@@ -11164,27 +11163,9 @@
         "y": 3020,
         "wires": [
             [
-                "cd476275f1d2eec9",
                 "bdb354dc184348a0"
             ]
         ]
-    },
-    {
-        "id": "cd476275f1d2eec9",
-        "type": "debug",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 810,
-        "y": 3120,
-        "wires": []
     },
     {
         "id": "58430f77042b88f4",
@@ -11225,12 +11206,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 360,
-        "y": 3180,
+        "x": 320,
+        "y": 3080,
         "wires": [
             [
-                "59a42b4bf50b4de3",
-                "09effaaef8b7d5bb"
+                "59a42b4bf50b4de3"
             ]
         ]
     },
@@ -11248,31 +11228,13 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 520,
-        "y": 3180,
+        "x": 480,
+        "y": 3080,
         "wires": [
             [
-                "09effaaef8b7d5bb",
                 "648b34e844ae4525"
             ]
         ]
-    },
-    {
-        "id": "09effaaef8b7d5bb",
-        "type": "debug",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 810,
-        "y": 3280,
-        "wires": []
     },
     {
         "id": "5b23e6ede57998ea",
@@ -11283,8 +11245,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 190,
-        "y": 3180,
+        "x": 150,
+        "y": 3080,
         "wires": [
             [
                 "4f9944dc9fff857a"
@@ -11298,8 +11260,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 830,
-        "y": 3180,
+        "x": 790,
+        "y": 3080,
         "wires": []
     },
     {
@@ -11313,8 +11275,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 360,
-        "y": 3340,
+        "x": 320,
+        "y": 3140,
         "wires": [
             [
                 "fb74b481c3f5cca5"
@@ -11335,31 +11297,13 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 520,
-        "y": 3340,
+        "x": 480,
+        "y": 3140,
         "wires": [
             [
-                "484dee176a18bca5",
                 "a9ea95466faafd70"
             ]
         ]
-    },
-    {
-        "id": "484dee176a18bca5",
-        "type": "debug",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 810,
-        "y": 3440,
-        "wires": []
     },
     {
         "id": "efc2db6db5a40b9b",
@@ -11370,8 +11314,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 180,
-        "y": 3340,
+        "x": 140,
+        "y": 3140,
         "wires": [
             [
                 "eb6d375508b9c85a"
@@ -11385,8 +11329,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 830,
-        "y": 3340,
+        "x": 790,
+        "y": 3140,
         "wires": []
     },
     {
@@ -11400,8 +11344,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
-        "y": 3520,
+        "x": 310,
+        "y": 3200,
         "wires": [
             [
                 "932ab251066a5b17"
@@ -11422,31 +11366,13 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 520,
-        "y": 3520,
+        "x": 480,
+        "y": 3200,
         "wires": [
             [
-                "ee14e7516c4d056d",
                 "94eec2f4cd0403ed"
             ]
         ]
-    },
-    {
-        "id": "ee14e7516c4d056d",
-        "type": "debug",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 810,
-        "y": 3620,
-        "wires": []
     },
     {
         "id": "297e33f072f92b4c",
@@ -11457,8 +11383,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 180,
-        "y": 3520,
+        "x": 140,
+        "y": 3200,
         "wires": [
             [
                 "8c7acf918d7936d3"
@@ -11472,8 +11398,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 830,
-        "y": 3520,
+        "x": 790,
+        "y": 3200,
         "wires": []
     },
     {
@@ -11487,8 +11413,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 360,
-        "y": 3700,
+        "x": 320,
+        "y": 3260,
         "wires": [
             [
                 "95129a159117cd92"
@@ -11509,31 +11435,13 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 520,
-        "y": 3700,
+        "x": 480,
+        "y": 3260,
         "wires": [
             [
-                "a3d4d9758f8e59a3",
                 "a7d0714bd1a68fa9"
             ]
         ]
-    },
-    {
-        "id": "a3d4d9758f8e59a3",
-        "type": "debug",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 810,
-        "y": 3800,
-        "wires": []
     },
     {
         "id": "b065a1baba275a2c",
@@ -11544,12 +11452,11 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 170,
-        "y": 3700,
+        "x": 130,
+        "y": 3260,
         "wires": [
             [
-                "d85a0c624e1649fd",
-                "a3d4d9758f8e59a3"
+                "d85a0c624e1649fd"
             ]
         ]
     },
@@ -11560,8 +11467,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 830,
-        "y": 3700,
+        "x": 790,
+        "y": 3260,
         "wires": []
     }
 ]
