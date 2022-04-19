@@ -11470,5 +11470,74 @@
         "x": 790,
         "y": 3260,
         "wires": []
+    },
+    {
+        "id": "9952bd261df61c9a",
+        "type": "http in",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "url": "searchmusiclist",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 3320,
+        "wires": [
+            [
+                "9ff2f874113bd70f"
+            ]
+        ]
+    },
+    {
+        "id": "9ff2f874113bd70f",
+        "type": "function",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "func": "// if(msg.payload.a =='' || msg.payload.b == '' || msg.payload.c == ''){\n//     return null\n// }\n// msg.url = 'http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=' + msg.payload.a + '&pn=' + msg.payload.c + '&rn=' + msg.payload.b.toString()\n// msg.url = 'http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=' + msg.payload.a + '&pn=' + msg.payload.c + '&rn=' + msg.payload.b.toString()\nmsg.url = 'http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=' + msg.payload.a + '&pn=1&rn=30'\n// msg.t = 1\n// msg.t1 = 1\n// msg.count1 = msg.payload.b\nmsg.payload = ''\nmsg.headers = {\n    'Cookie':'kw_token=K8GF5NROMGS',\n    'csrf':'K8GF5NROMGS',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/search/list?key=%E9%99%88%E5%A5%95%E8%BF%85',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 3320,
+        "wires": [
+            [
+                "49239fa84ae68788"
+            ]
+        ]
+    },
+    {
+        "id": "49239fa84ae68788",
+        "type": "http request",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 460,
+        "y": 3320,
+        "wires": [
+            [
+                "391c1e494b20f9ce"
+            ]
+        ]
+    },
+    {
+        "id": "391c1e494b20f9ce",
+        "type": "http response",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 750,
+        "y": 3320,
+        "wires": []
     }
 ]
