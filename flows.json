@@ -11689,7 +11689,7 @@
         "type": "function",
         "z": "385bda6c054fb267",
         "name": "",
-        "func": "for(var i = 0; i < msg.payload.list.length; i++){\n    if(msg.payload.list[i] == msg.jsondata){\n        return null\n    }\n}\nmsg.payload.list.push(msg.jsondata)\nreturn msg;",
+        "func": "var istrue = true\nfor(var i = 0; i < msg.payload.list.length; i++){\n    if(msg.payload.list[i] == msg.jsondata){\n        istrue = false\n        break\n    }\n}\nif(istrue){\n    msg.payload.list.push(msg.jsondata)\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
