@@ -11646,25 +11646,6 @@
         ]
     },
     {
-        "id": "79fa7e5d5df6c2d1",
-        "type": "function",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "func": "index = msg.payload[\"0\"]+'mid='+msg.payload[\"1\"]\nmsg.json = {}\nmsg.json[index] = [\n    msg.payload[\"0\"],\n    msg.payload[\"1\"], \n    msg.payload[\"2\"], \n    msg.payload[\"3\"], \n    '', \n    msg.payload[\"5\"], \n    msg.payload[\"6\"], \n    msg.payload[\"7\"]\n    ]\n// msg.payload = json\n// msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 3620,
-        "wires": [
-            [
-                "a2a613b0b5bfa60f"
-            ]
-        ]
-    },
-    {
         "id": "a2a613b0b5bfa60f",
         "type": "http request",
         "z": "385bda6c054fb267",
@@ -11698,7 +11679,8 @@
         "y": 3620,
         "wires": [
             [
-                "f6a03a313bf31d56"
+                "f6a03a313bf31d56",
+                "5cd087dd8aa774bc"
             ]
         ]
     },
@@ -11707,7 +11689,7 @@
         "type": "function",
         "z": "385bda6c054fb267",
         "name": "",
-        "func": "// ret = Object.assign(msg.json, msg.payload)\n// msg.payload = ret\nret = msg.payload['list'].push(msg.json)\nmsg.payload = ret\nreturn msg;",
+        "func": "// ret = Object.assign(msg.json, msg.payload)\n// msg.payload = ret\nret = msg.payload.list.push(msg.jsondata)\nmsg.payload = ret\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -11717,7 +11699,8 @@
         "y": 3620,
         "wires": [
             [
-                "a6385a9014ebb101"
+                "a6385a9014ebb101",
+                "5cd087dd8aa774bc"
             ]
         ]
     },
@@ -11733,7 +11716,8 @@
         "y": 3620,
         "wires": [
             [
-                "f2df5e10ba69a873"
+                "f2df5e10ba69a873",
+                "b871a8f090821408"
             ]
         ]
     },
@@ -11751,8 +11735,7 @@
         "wires": [
             [
                 "6501e680945cb927",
-                "6012b1b9b70f7cd5",
-                "ac5d1b08ca982101"
+                "4d32737df36cd759"
             ]
         ]
     },
@@ -11763,23 +11746,6 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 330,
-        "y": 3680,
-        "wires": []
-    },
-    {
-        "id": "6012b1b9b70f7cd5",
-        "type": "debug",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 330,
         "y": 3560,
         "wires": []
@@ -11832,9 +11798,7 @@
         "x": 470,
         "y": 3820,
         "wires": [
-            [
-                "a2a613b0b5bfa60f"
-            ]
+            []
         ]
     },
     {
@@ -11853,5 +11817,41 @@
         "x": 1210,
         "y": 3700,
         "wires": []
+    },
+    {
+        "id": "5cd087dd8aa774bc",
+        "type": "debug",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 3720,
+        "wires": []
+    },
+    {
+        "id": "4d32737df36cd759",
+        "type": "function",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "func": "msg.jsondata = msg.payload.data\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 3620,
+        "wires": [
+            [
+                "a2a613b0b5bfa60f"
+            ]
+        ]
     }
 ]
