@@ -11617,11 +11617,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1060,
+        "x": 1180,
         "y": 3620,
         "wires": [
             [
-                "b871a8f090821408"
+                "b871a8f090821408",
+                "cbd8774fd52fab83"
             ]
         ]
     },
@@ -11639,8 +11640,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 1230,
-        "y": 3620,
+        "x": 1190,
+        "y": 3680,
         "wires": [
             []
         ]
@@ -11659,7 +11660,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 480,
+        "x": 600,
         "y": 3620,
         "wires": [
             [
@@ -11675,12 +11676,11 @@
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 630,
+        "x": 750,
         "y": 3620,
         "wires": [
             [
-                "f6a03a313bf31d56",
-                "5cd087dd8aa774bc"
+                "f6a03a313bf31d56"
             ]
         ]
     },
@@ -11689,18 +11689,17 @@
         "type": "function",
         "z": "385bda6c054fb267",
         "name": "",
-        "func": "// ret = Object.assign(msg.json, msg.payload)\n// msg.payload = ret\nret = msg.payload.list.push(msg.jsondata)\nmsg.payload = ret\nreturn msg;",
+        "func": "// ret = Object.assign(msg.json, msg.payload)\n// msg.payload = ret\nmsg.payload.list.push(msg.jsondata)\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
+        "x": 890,
         "y": 3620,
         "wires": [
             [
-                "a6385a9014ebb101",
-                "5cd087dd8aa774bc"
+                "a6385a9014ebb101"
             ]
         ]
     },
@@ -11712,12 +11711,11 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 910,
+        "x": 1030,
         "y": 3620,
         "wires": [
             [
-                "f2df5e10ba69a873",
-                "b871a8f090821408"
+                "f2df5e10ba69a873"
             ]
         ]
     },
@@ -11735,7 +11733,7 @@
         "wires": [
             [
                 "6501e680945cb927",
-                "4d32737df36cd759"
+                "ac5d1b08ca982101"
             ]
         ]
     },
@@ -11759,46 +11757,30 @@
         "action": "obj",
         "pretty": false,
         "x": 330,
-        "y": 3740,
+        "y": 3620,
         "wires": [
             [
-                "4ea979603b2ded38",
                 "4467e92f3a171a52"
             ]
         ]
-    },
-    {
-        "id": "4ea979603b2ded38",
-        "type": "debug",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 470,
-        "y": 3740,
-        "wires": []
     },
     {
         "id": "4467e92f3a171a52",
         "type": "function",
         "z": "385bda6c054fb267",
         "name": "",
-        "func": "// index = msg.payload[\"0\"]+'mid='+msg.payload[\"1\"]\nmsg.json = msg.payload.data\n// msg.json[index] = [\n//     msg.payload[\"0\"],\n//     msg.payload[\"1\"], \n//     msg.payload[\"2\"], \n//     msg.payload[\"3\"], \n//     '', \n//     msg.payload[\"5\"], \n//     msg.payload[\"6\"], \n//     msg.payload[\"7\"]\n//     ]\n// msg.payload = json\n// msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']}\nreturn msg;",
+        "func": "// index = msg.payload[\"0\"]+'mid='+msg.payload[\"1\"]\nmsg.jsondata = msg.payload.data\n// msg.json[index] = [\n//     msg.payload[\"0\"],\n//     msg.payload[\"1\"], \n//     msg.payload[\"2\"], \n//     msg.payload[\"3\"], \n//     '', \n//     msg.payload[\"5\"], \n//     msg.payload[\"6\"], \n//     msg.payload[\"7\"]\n//     ]\n// msg.payload = json\n// msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 3820,
+        "y": 3620,
         "wires": [
-            []
+            [
+                "a2a613b0b5bfa60f"
+            ]
         ]
     },
     {
@@ -11814,44 +11796,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1210,
-        "y": 3700,
-        "wires": []
-    },
-    {
-        "id": "5cd087dd8aa774bc",
-        "type": "debug",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 910,
+        "x": 1170,
         "y": 3720,
         "wires": []
-    },
-    {
-        "id": "4d32737df36cd759",
-        "type": "function",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "func": "msg.jsondata = msg.payload.data\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 3620,
-        "wires": [
-            [
-                "a2a613b0b5bfa60f"
-            ]
-        ]
     }
 ]
