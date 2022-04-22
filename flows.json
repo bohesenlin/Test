@@ -11816,5 +11816,74 @@
         "x": 330,
         "y": 3680,
         "wires": []
+    },
+    {
+        "id": "6bcbec7299065b4e",
+        "type": "http in",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "url": "searchalbumlist",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 3380,
+        "wires": [
+            [
+                "2fc5724be0ce949e"
+            ]
+        ]
+    },
+    {
+        "id": "2fc5724be0ce949e",
+        "type": "function",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "func": "msg.url = 'http://www.kuwo.cn/api/www/search/searchAlbumBykeyWord?key=' + msg.payload.a + '&pn=1&rn=30'\nmsg.payload = ''\nmsg.headers = {\n    'Cookie':'kw_token=K8GF5NROMGS',\n    'csrf':'K8GF5NROMGS',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/search/album?key=%E5%91%A8%E6%9D%B0%E4%BC%A6',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 3380,
+        "wires": [
+            [
+                "2e6a0bfb01406ac6"
+            ]
+        ]
+    },
+    {
+        "id": "2e6a0bfb01406ac6",
+        "type": "http request",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 460,
+        "y": 3380,
+        "wires": [
+            [
+                "24487becbd856023"
+            ]
+        ]
+    },
+    {
+        "id": "24487becbd856023",
+        "type": "http response",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 750,
+        "y": 3380,
+        "wires": []
     }
 ]
