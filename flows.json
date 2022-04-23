@@ -8966,6 +8966,180 @@
         "wires": []
     },
     {
+        "id": "1d7a1ac4f9296250",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.url =\"https://pub.m.iqiyi.com/h5/main/videoList/album/?albumId=1036899628995301&size=150&page=1\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 2220,
+        "wires": [
+            [
+                "407d20425cbeb06c"
+            ]
+        ]
+    },
+    {
+        "id": "ca1d7a13d4422847",
+        "type": "inject",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 2220,
+        "wires": [
+            [
+                "1d7a1ac4f9296250"
+            ]
+        ]
+    },
+    {
+        "id": "d5de4e057237e68a",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 2220,
+        "wires": []
+    },
+    {
+        "id": "407d20425cbeb06c",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 400,
+        "y": 2220,
+        "wires": [
+            [
+                "d5de4e057237e68a"
+            ]
+        ]
+    },
+    {
+        "id": "6a9eee9b47ee13f6",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.url =\"https://pcw-api.iqiyi.com/search/recommend/list?channel_id=4&data_type=1&mode=11&page_id=2&ret_num=48\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 2320,
+        "wires": [
+            [
+                "e1248a45ab9b1924"
+            ]
+        ]
+    },
+    {
+        "id": "272ba3b3682b7b74",
+        "type": "inject",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 2320,
+        "wires": [
+            [
+                "6a9eee9b47ee13f6"
+            ]
+        ]
+    },
+    {
+        "id": "603e75a60976dc6d",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 2320,
+        "wires": []
+    },
+    {
+        "id": "e1248a45ab9b1924",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 400,
+        "y": 2320,
+        "wires": [
+            [
+                "603e75a60976dc6d"
+            ]
+        ]
+    },
+    {
         "id": "7fc1dbf78683fe51",
         "type": "http request",
         "z": "1033162f191e6983",
