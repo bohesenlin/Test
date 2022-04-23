@@ -8970,7 +8970,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "msg.url =\"https://pub.m.iqiyi.com/h5/main/videoList/album/?albumId=1036899628995301&size=150&page=1\"\nreturn msg;",
+        "func": "msg.url =\"https://pub.m.iqiyi.com/h5/main/videoList/album/?albumId=4495838764277401&size=150&page=1\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9049,7 +9049,8 @@
         "wires": [
             [
                 "d5de4e057237e68a",
-                "6c46683b1f6b1d05"
+                "6c46683b1f6b1d05",
+                "1a9954fe3eb15821"
             ]
         ]
     },
@@ -9195,6 +9196,39 @@
         "headers": {},
         "x": 550,
         "y": 2260,
+        "wires": []
+    },
+    {
+        "id": "1a9954fe3eb15821",
+        "type": "json",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 550,
+        "y": 2180,
+        "wires": [
+            [
+                "343b014998de98f6"
+            ]
+        ]
+    },
+    {
+        "id": "343b014998de98f6",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 2180,
         "wires": []
     },
     {
