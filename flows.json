@@ -11885,5 +11885,73 @@
         "x": 750,
         "y": 3380,
         "wires": []
+    },
+    {
+        "id": "9b484c2cda65dc95",
+        "type": "http request",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.0.213:8090/search?keywords=周杰伦",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 360,
+        "y": 3860,
+        "wires": [
+            [
+                "20517855bbce6e44"
+            ]
+        ]
+    },
+    {
+        "id": "20517855bbce6e44",
+        "type": "debug",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 3860,
+        "wires": []
+    },
+    {
+        "id": "9842cb0437a2667d",
+        "type": "inject",
+        "z": "385bda6c054fb267",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 3860,
+        "wires": [
+            [
+                "9b484c2cda65dc95"
+            ]
+        ]
     }
 ]
