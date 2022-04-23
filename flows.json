@@ -10756,8 +10756,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
-        "y": 2200,
+        "x": 330,
+        "y": 2760,
         "wires": [
             [
                 "45fe82c08f2cb498"
@@ -10778,60 +10778,13 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 520,
-        "y": 2200,
+        "x": 480,
+        "y": 2760,
         "wires": [
             [
-                "79e0593f2c084406",
                 "1dbae256f3248bae"
             ]
         ]
-    },
-    {
-        "id": "235535b30f90a748",
-        "type": "inject",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 230,
-        "y": 2140,
-        "wires": [
-            [
-                "8bb1e2e0cb5e36cb"
-            ]
-        ]
-    },
-    {
-        "id": "79e0593f2c084406",
-        "type": "debug",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 810,
-        "y": 2300,
-        "wires": []
     },
     {
         "id": "6bf11c9bc417f1bc",
@@ -10842,12 +10795,11 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 190,
-        "y": 2200,
+        "x": 150,
+        "y": 2760,
         "wires": [
             [
-                "8bb1e2e0cb5e36cb",
-                "79e0593f2c084406"
+                "8bb1e2e0cb5e36cb"
             ]
         ]
     },
@@ -10858,8 +10810,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 830,
-        "y": 2200,
+        "x": 790,
+        "y": 2760,
         "wires": []
     },
     {
@@ -10873,8 +10825,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
-        "y": 2420,
+        "x": 330,
+        "y": 2820,
         "wires": [
             [
                 "cefb16159eab21ad"
@@ -10895,31 +10847,13 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 520,
-        "y": 2420,
+        "x": 480,
+        "y": 2820,
         "wires": [
             [
-                "628bc1ac92c422cb",
                 "311e26c433e82ec8"
             ]
         ]
-    },
-    {
-        "id": "628bc1ac92c422cb",
-        "type": "debug",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 810,
-        "y": 2520,
-        "wires": []
     },
     {
         "id": "4b5a3f6c0f353cd4",
@@ -10930,8 +10864,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 190,
-        "y": 2420,
+        "x": 150,
+        "y": 2820,
         "wires": [
             [
                 "30c4ebcd1fbc8ccf"
@@ -10945,8 +10879,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 830,
-        "y": 2420,
+        "x": 790,
+        "y": 2820,
         "wires": []
     },
     {
@@ -10960,8 +10894,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
-        "y": 2640,
+        "x": 350,
+        "y": 2880,
         "wires": [
             [
                 "c76b90d1a873b87c"
@@ -10982,31 +10916,13 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 520,
-        "y": 2640,
+        "x": 500,
+        "y": 2880,
         "wires": [
             [
-                "217e6dbf540d5f45",
                 "50059dccb827bb0a"
             ]
         ]
-    },
-    {
-        "id": "217e6dbf540d5f45",
-        "type": "debug",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 810,
-        "y": 2740,
-        "wires": []
     },
     {
         "id": "9019cbd36f7ddfa1",
@@ -11017,8 +10933,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 190,
-        "y": 2640,
+        "x": 170,
+        "y": 2880,
         "wires": [
             [
                 "6871562a622f036e"
@@ -11032,8 +10948,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 830,
-        "y": 2640,
+        "x": 810,
+        "y": 2880,
         "wires": []
     },
     {
@@ -11047,12 +10963,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
-        "y": 2840,
+        "x": 350,
+        "y": 2940,
         "wires": [
             [
-                "a54a3dc8db0b8aff",
-                "c86ff0cb6e2659f3"
+                "a54a3dc8db0b8aff"
             ]
         ]
     },
@@ -11070,31 +10985,13 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 520,
-        "y": 2840,
+        "x": 500,
+        "y": 2940,
         "wires": [
             [
-                "c86ff0cb6e2659f3",
                 "343c319f503e4c1d"
             ]
         ]
-    },
-    {
-        "id": "c86ff0cb6e2659f3",
-        "type": "debug",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 810,
-        "y": 2940,
-        "wires": []
     },
     {
         "id": "3174450ca5e33529",
@@ -11105,8 +11002,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 180,
-        "y": 2840,
+        "x": 160,
+        "y": 2940,
         "wires": [
             [
                 "0c02583fd20179ad"
@@ -11120,8 +11017,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 830,
-        "y": 2840,
+        "x": 810,
+        "y": 2940,
         "wires": []
     },
     {
@@ -11189,7 +11086,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 830,
+        "x": 790,
         "y": 3020,
         "wires": []
     },
@@ -11490,14 +11387,14 @@
         "id": "9ff2f874113bd70f",
         "type": "function",
         "z": "385bda6c054fb267",
-        "name": "",
+        "name": "歌曲搜索列表",
         "func": "// if(msg.payload.a =='' || msg.payload.b == '' || msg.payload.c == ''){\n//     return null\n// }\n// msg.url = 'http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=' + msg.payload.a + '&pn=' + msg.payload.c + '&rn=' + msg.payload.b.toString()\n// msg.url = 'http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=' + msg.payload.a + '&pn=' + msg.payload.c + '&rn=' + msg.payload.b.toString()\nmsg.url = 'http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=' + msg.payload.a + '&pn=1&rn=30'\n// msg.t = 1\n// msg.t1 = 1\n// msg.count1 = msg.payload.b\nmsg.payload = ''\nmsg.headers = {\n    'Cookie':'kw_token=K8GF5NROMGS',\n    'csrf':'K8GF5NROMGS',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/search/list?key=%E9%99%88%E5%A5%95%E8%BF%85',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
+        "x": 340,
         "y": 3320,
         "wires": [
             [
@@ -11519,7 +11416,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 460,
+        "x": 500,
         "y": 3320,
         "wires": [
             [
@@ -11534,7 +11431,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 750,
+        "x": 790,
         "y": 3320,
         "wires": []
     },
@@ -11732,7 +11629,6 @@
         "y": 3620,
         "wires": [
             [
-                "f803357090d1e422",
                 "ac5d1b08ca982101"
             ]
         ]
@@ -11801,23 +11697,6 @@
         "wires": []
     },
     {
-        "id": "f803357090d1e422",
-        "type": "debug",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 330,
-        "y": 3680,
-        "wires": []
-    },
-    {
         "id": "6bcbec7299065b4e",
         "type": "http in",
         "z": "385bda6c054fb267",
@@ -11838,14 +11717,14 @@
         "id": "2fc5724be0ce949e",
         "type": "function",
         "z": "385bda6c054fb267",
-        "name": "",
+        "name": "专辑搜索列表",
         "func": "msg.url = 'http://www.kuwo.cn/api/www/search/searchAlbumBykeyWord?key=' + msg.payload.a + '&pn=1&rn=30'\nmsg.payload = ''\nmsg.headers = {\n    'Cookie':'kw_token=K8GF5NROMGS',\n    'csrf':'K8GF5NROMGS',\n    'Host':'www.kuwo.cn',\n    'Referer':'http://www.kuwo.cn/search/album?key=%E5%91%A8%E6%9D%B0%E4%BC%A6',\n    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46',\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
+        "x": 340,
         "y": 3380,
         "wires": [
             [
@@ -11867,7 +11746,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 460,
+        "x": 500,
         "y": 3380,
         "wires": [
             [
@@ -11882,76 +11761,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 750,
+        "x": 790,
         "y": 3380,
         "wires": []
-    },
-    {
-        "id": "9b484c2cda65dc95",
-        "type": "http request",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "http://192.168.0.213:8090/search?keywords=周杰伦",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 360,
-        "y": 3860,
-        "wires": [
-            [
-                "20517855bbce6e44"
-            ]
-        ]
-    },
-    {
-        "id": "20517855bbce6e44",
-        "type": "debug",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 510,
-        "y": 3860,
-        "wires": []
-    },
-    {
-        "id": "9842cb0437a2667d",
-        "type": "inject",
-        "z": "385bda6c054fb267",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 210,
-        "y": 3860,
-        "wires": [
-            [
-                "9b484c2cda65dc95"
-            ]
-        ]
     }
 ]
