@@ -9057,7 +9057,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "msg.url =\"https://pcw-api.iqiyi.com/search/recommend/list?channel_id=4&data_type=1&mode=4&page_id=3&ret_num=48\"\nreturn msg;",
+        "func": "msg.url =\"https://pcw-api.iqiyi.com/search/recommend/list?channel_id=4&data_type=1&mode=4&page_id=1&ret_num=48\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
