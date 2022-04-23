@@ -9048,7 +9048,8 @@
         "y": 2220,
         "wires": [
             [
-                "d5de4e057237e68a"
+                "d5de4e057237e68a",
+                "6c46683b1f6b1d05"
             ]
         ]
     },
@@ -9166,6 +9167,34 @@
         "headers": {},
         "x": 550,
         "y": 2380,
+        "wires": []
+    },
+    {
+        "id": "1814770c401713e0",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "aiqiyivideolist",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 2160,
+        "wires": [
+            [
+                "1d7a1ac4f9296250"
+            ]
+        ]
+    },
+    {
+        "id": "6c46683b1f6b1d05",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 550,
+        "y": 2260,
         "wires": []
     },
     {
