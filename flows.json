@@ -9135,9 +9135,38 @@
         "y": 2320,
         "wires": [
             [
-                "603e75a60976dc6d"
+                "603e75a60976dc6d",
+                "647d1ecd1b22e544"
             ]
         ]
+    },
+    {
+        "id": "2468f8b9fcc24486",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "aiqiyidongman",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 2280,
+        "wires": [
+            [
+                "6a9eee9b47ee13f6"
+            ]
+        ]
+    },
+    {
+        "id": "647d1ecd1b22e544",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 550,
+        "y": 2380,
+        "wires": []
     },
     {
         "id": "7fc1dbf78683fe51",
