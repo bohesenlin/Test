@@ -9296,6 +9296,92 @@
         "wires": []
     },
     {
+        "id": "7b935e40046970bb",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.url =\"https://pcw-api.iqiyi.com/strategy/pcw/data/soBaseCardLeftSide?type=list&mode=11&data_type=6;mustnot,24;mustnot,20;mustnot,1&pageSize=10&graph_type=1_1_2_-1&real_query=熊出没&entity_name=熊出没&pf=1&p=10&need_condense=1&ctgname=&character=&credits=&pageNum=1\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 2180,
+        "wires": [
+            [
+                "42c6d8a0bc8a624b"
+            ]
+        ]
+    },
+    {
+        "id": "42c6d8a0bc8a624b",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 460,
+        "y": 2180,
+        "wires": [
+            [
+                "100e9b4cd1ae6147"
+            ]
+        ]
+    },
+    {
+        "id": "a08b37e8679fc33f",
+        "type": "inject",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 2180,
+        "wires": [
+            [
+                "7b935e40046970bb"
+            ]
+        ]
+    },
+    {
+        "id": "100e9b4cd1ae6147",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 2180,
+        "wires": []
+    },
+    {
         "id": "7fc1dbf78683fe51",
         "type": "http request",
         "z": "1033162f191e6983",
