@@ -9332,7 +9332,8 @@
         "y": 2180,
         "wires": [
             [
-                "100e9b4cd1ae6147"
+                "100e9b4cd1ae6147",
+                "4e406adb83ea42c4"
             ]
         ]
     },
@@ -9379,6 +9380,34 @@
         "statusType": "auto",
         "x": 630,
         "y": 2180,
+        "wires": []
+    },
+    {
+        "id": "ebe7f8494a83e61d",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "aiqiyisearch",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 2140,
+        "wires": [
+            [
+                "7b935e40046970bb"
+            ]
+        ]
+    },
+    {
+        "id": "4e406adb83ea42c4",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 610,
+        "y": 2140,
         "wires": []
     },
     {
