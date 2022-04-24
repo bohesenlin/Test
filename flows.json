@@ -9428,6 +9428,93 @@
         "wires": []
     },
     {
+        "id": "08b8df123a5595bc",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "动漫热播榜",
+        "func": "msg.url =\"https://pcw-api.iqiyi.com/search/recommend/list?channel_id=\"+msg.payload.channel_id+\"&data_type=1&mode=\"+msg.payload.mode+\"&page_id=\"+msg.payload.page_id+\"&ret_num=48\"\nmsg.payload = ''\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 2700,
+        "wires": [
+            [
+                "6534d285dbb4333b"
+            ]
+        ]
+    },
+    {
+        "id": "a89d7302f6f57e4b",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 2740,
+        "wires": []
+    },
+    {
+        "id": "6534d285dbb4333b",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 580,
+        "y": 2700,
+        "wires": [
+            [
+                "a89d7302f6f57e4b",
+                "ce37e4bf479bf866"
+            ]
+        ]
+    },
+    {
+        "id": "59b46bc4841a26b2",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "classification",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 2700,
+        "wires": [
+            [
+                "08b8df123a5595bc"
+            ]
+        ]
+    },
+    {
+        "id": "ce37e4bf479bf866",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 730,
+        "y": 2700,
+        "wires": []
+    },
+    {
         "id": "7fc1dbf78683fe51",
         "type": "http request",
         "z": "1033162f191e6983",
