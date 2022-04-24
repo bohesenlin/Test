@@ -9745,6 +9745,128 @@
         ]
     },
     {
+        "id": "ebf6693291214291",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "// msg.url=\"https://m.youku.com/video/id_XNTIwMDMyNjgzNg==\"\nmsg.url=\"https://m.youku.com/video/id_XNTg1NjA4MjgzNg==\"\nmsg.headers = {\n    'referer':'https://m.youku.com/',\n    // 'cookie': 'cna=FJVQGmIA6B0CAbSKeh1lCbFy; __ysuid=1646744585034EmF; __aysid=1649053107854oUW; modalFrequency={\"UUID\":\"10\"}; __ayft=1649305244773; __ayscnt=1; pop_endTime=1649308850434; redMarkRead=1; __arycid=dh-3-00; __arcms=dh-3-00; _m_h5_tk=2cd18ebe47cac0e44e06f952c1e4cf04_1649353936377; _m_h5_tk_enc=8ef85fd6bc543e920533df1b857276cc; P_ck_ctl=C22A536ADA66C85B2D441F4D53BDE76B; youku_history_word=[\"%E6%96%97%E7%BD%97%E5%A4%A7%E9%99%862%E7%BB%9D%E4%B8%96%E5%94%90%E9%97%A8\",\"%E9%95%9C%C2%B7%E5%8F%8C%E5%9F%8E\",\"%E7%94%84%E5%AC%9B%E4%BC%A0\"]; __ayvstp=52; __aysvstp=111; __arpvid=1649351330512SJI2Hl-1649351330528; __aypstp=43; __ayspstp=101; l=eBgGhBb4j5HL2reSKOfanurza77OSIRYYuPzaNbMiOCP9B1B5hn5W6V3FD86C3GRh6mHR379KjWaBeYBq3xonxvtggGVa_kmn; isg=BCwsesq_YrCY2kphhVndacSI_Qpe5dCPF-4VKoZtOFd6kcybrvWgHyIzt18pRQjn',\n    // 'sec-ch-ua': \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Microsoft Edge\";v=\"100\",\n    // 'sec-ch-ua-mobile': '?0',\n    // 'sec-ch-ua-platform': \"Windows\",\n    // 'sec-fetch-dest': 'document',\n    // 'sec-fetch-mode': 'navigate',\n    // 'sec-fetch-site': 'same-origin',\n    // 'sec-fetch-user': '?1',\n    //'upgrade-insecure-requests': '1',\n    'user-agent': 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36 Edg/100.0.4896.60'\n}\n// msg.payload=''\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 3100,
+        "wires": [
+            [
+                "b25fbe1511278df7"
+            ]
+        ]
+    },
+    {
+        "id": "b25fbe1511278df7",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 440,
+        "y": 3100,
+        "wires": [
+            [
+                "f549ccabeceac29d"
+            ]
+        ]
+    },
+    {
+        "id": "f549ccabeceac29d",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "reg = /window.__INITIAL_DATA__ =(.*?); window.toFind=false/\nvar ret = reg.exec(msg.payload)\nmsg.payload = ret[1]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 3100,
+        "wires": [
+            [
+                "ce44e30dc5eef7e4",
+                "c889aba32f0e1a23"
+            ]
+        ]
+    },
+    {
+        "id": "cedd3b6397645684",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "youku",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 3100,
+        "wires": [
+            [
+                "ebf6693291214291"
+            ]
+        ]
+    },
+    {
+        "id": "ce44e30dc5eef7e4",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 770,
+        "y": 3100,
+        "wires": []
+    },
+    {
+        "id": "c889aba32f0e1a23",
+        "type": "json",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 730,
+        "y": 3040,
+        "wires": [
+            [
+                "177dc52833e63487"
+            ]
+        ]
+    },
+    {
+        "id": "177dc52833e63487",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 3040,
+        "wires": []
+    },
+    {
         "id": "7fc1dbf78683fe51",
         "type": "http request",
         "z": "1033162f191e6983",
