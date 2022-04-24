@@ -9049,8 +9049,7 @@
         "wires": [
             [
                 "d5de4e057237e68a",
-                "6c46683b1f6b1d05",
-                "1a9954fe3eb15821"
+                "6c46683b1f6b1d05"
             ]
         ]
     },
@@ -9058,47 +9057,18 @@
         "id": "6a9eee9b47ee13f6",
         "type": "function",
         "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "msg.url =\"https://pcw-api.iqiyi.com/search/recommend/list?channel_id=4&data_type=1&mode=4&page_id=1&ret_num=48\"\nreturn msg;",
+        "name": "动漫综合排序",
+        "func": "msg.url =\"https://pcw-api.iqiyi.com/search/recommend/list?channel_id=4&data_type=1&mode=24&page_id=1&ret_num=48\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 250,
-        "y": 2320,
+        "x": 380,
+        "y": 2340,
         "wires": [
             [
                 "e1248a45ab9b1924"
-            ]
-        ]
-    },
-    {
-        "id": "272ba3b3682b7b74",
-        "type": "inject",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 2320,
-        "wires": [
-            [
-                "6a9eee9b47ee13f6"
             ]
         ]
     },
@@ -9115,8 +9085,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 550,
-        "y": 2320,
+        "x": 710,
+        "y": 2380,
         "wires": []
     },
     {
@@ -9133,8 +9103,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 400,
-        "y": 2320,
+        "x": 560,
+        "y": 2340,
         "wires": [
             [
                 "603e75a60976dc6d",
@@ -9147,12 +9117,12 @@
         "type": "http in",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "url": "aiqiyidongman",
+        "url": "animationsynthesis",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 110,
-        "y": 2280,
+        "x": 150,
+        "y": 2340,
         "wires": [
             [
                 "6a9eee9b47ee13f6"
@@ -9166,8 +9136,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 550,
-        "y": 2380,
+        "x": 710,
+        "y": 2340,
         "wires": []
     },
     {
@@ -9200,39 +9170,6 @@
         "wires": []
     },
     {
-        "id": "1a9954fe3eb15821",
-        "type": "json",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "property": "payload",
-        "action": "obj",
-        "pretty": false,
-        "x": 550,
-        "y": 2180,
-        "wires": [
-            [
-                "343b014998de98f6"
-            ]
-        ]
-    },
-    {
-        "id": "343b014998de98f6",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 690,
-        "y": 2180,
-        "wires": []
-    },
-    {
         "id": "dd9b7a338d857048",
         "type": "debug",
         "z": "b32ed110abccd8e4",
@@ -9247,6 +9184,180 @@
         "statusType": "auto",
         "x": 290,
         "y": 2160,
+        "wires": []
+    },
+    {
+        "id": "b36f2ec86979dccb",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "动漫新上线",
+        "func": "msg.url =\"https://pcw-api.iqiyi.com/search/recommend/list?channel_id=4&data_type=1&mode=4&page_id=1&ret_num=48\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 2440,
+        "wires": [
+            [
+                "11642fef722fb385"
+            ]
+        ]
+    },
+    {
+        "id": "c57fd532b6648dba",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 2480,
+        "wires": []
+    },
+    {
+        "id": "11642fef722fb385",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 560,
+        "y": 2440,
+        "wires": [
+            [
+                "c57fd532b6648dba",
+                "7bcb441a9a3712e6"
+            ]
+        ]
+    },
+    {
+        "id": "1fdb876573ebb31f",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "animationnewonline",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 2440,
+        "wires": [
+            [
+                "b36f2ec86979dccb"
+            ]
+        ]
+    },
+    {
+        "id": "7bcb441a9a3712e6",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 710,
+        "y": 2440,
+        "wires": []
+    },
+    {
+        "id": "b70d526ab23db66b",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "动漫热播榜",
+        "func": "msg.url =\"https://pcw-api.iqiyi.com/search/recommend/list?channel_id=4&data_type=1&mode=11&page_id=1&ret_num=48\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 2540,
+        "wires": [
+            [
+                "6dba2cf361cb2239"
+            ]
+        ]
+    },
+    {
+        "id": "e345c92e6798ebce",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 2580,
+        "wires": []
+    },
+    {
+        "id": "6dba2cf361cb2239",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 560,
+        "y": 2540,
+        "wires": [
+            [
+                "e345c92e6798ebce",
+                "5ef6e06a79718eb1"
+            ]
+        ]
+    },
+    {
+        "id": "16182ea31c4635db",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "animationhitlist",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 2540,
+        "wires": [
+            [
+                "b70d526ab23db66b"
+            ]
+        ]
+    },
+    {
+        "id": "5ef6e06a79718eb1",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 710,
+        "y": 2540,
         "wires": []
     },
     {
