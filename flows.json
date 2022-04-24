@@ -9300,7 +9300,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "msg.url =\"https://pcw-api.iqiyi.com/strategy/pcw/data/soBaseCardLeftSide?type=list&mode=11&data_type=6;mustnot,24;mustnot,20;mustnot,1&pageSize=10&graph_type=1_1_2_-1&real_query=熊出没&entity_name=熊出没&pf=1&p=10&need_condense=1&ctgname=&character=&credits=&pageNum=1\"\nreturn msg;",
+        "func": "msg.url =\"https://pcw-api.iqiyi.com/strategy/pcw/data/soBaseCardLeftSide?type=list&mode=11&data_type=6;mustnot,24;mustnot,20;mustnot,1&pageSize=10&graph_type=1_1_2_-1&real_query=\"+msg.payload.name+\"&entity_name=\"+msg.payload.name+\"&pf=1&p=10&need_condense=1&ctgname=&character=&credits=&pageNum=1\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
