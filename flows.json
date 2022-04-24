@@ -9790,7 +9790,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "reg = /window.__INITIAL_DATA__ =(.*?); window.toFind=false/\nvar ret = reg.exec(msg.payload)\nmsg.payload = ret[1]\nreturn msg;",
+        "func": "reg = /window.__INITIAL_DATA__ =(.*?);window.__PLATOCONFIG/\nvar ret = reg.exec(msg.payload)\nmsg.payload = ret[1]\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
