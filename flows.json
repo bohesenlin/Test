@@ -8976,59 +8976,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 250,
-        "y": 2220,
+        "x": 310,
+        "y": 2240,
         "wires": [
             [
                 "407d20425cbeb06c"
             ]
         ]
-    },
-    {
-        "id": "ca1d7a13d4422847",
-        "type": "inject",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 2220,
-        "wires": [
-            [
-                "1d7a1ac4f9296250"
-            ]
-        ]
-    },
-    {
-        "id": "d5de4e057237e68a",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 550,
-        "y": 2220,
-        "wires": []
     },
     {
         "id": "407d20425cbeb06c",
@@ -9044,11 +8998,10 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 400,
-        "y": 2220,
+        "x": 460,
+        "y": 2240,
         "wires": [
             [
-                "d5de4e057237e68a",
                 "6c46683b1f6b1d05"
             ]
         ]
@@ -9149,12 +9102,11 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 110,
-        "y": 2160,
+        "x": 130,
+        "y": 2240,
         "wires": [
             [
-                "1d7a1ac4f9296250",
-                "dd9b7a338d857048"
+                "1d7a1ac4f9296250"
             ]
         ]
     },
@@ -9165,25 +9117,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 550,
-        "y": 2260,
-        "wires": []
-    },
-    {
-        "id": "dd9b7a338d857048",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 290,
-        "y": 2160,
+        "x": 610,
+        "y": 2240,
         "wires": []
     },
     {
