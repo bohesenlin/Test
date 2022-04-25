@@ -8496,11 +8496,11 @@
         "type": "http in",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "url": "tengxun",
+        "url": "tengxun1",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 90,
+        "x": 100,
         "y": 3420,
         "wires": [
             [
@@ -8530,7 +8530,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 290,
+        "x": 310,
         "y": 1840,
         "wires": [
             [
@@ -8666,11 +8666,11 @@
         "type": "http in",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "url": "tengxun",
+        "url": "tengxuncategory",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 110,
+        "x": 140,
         "y": 1840,
         "wires": [
             [
