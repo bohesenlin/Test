@@ -8675,6 +8675,7 @@
         "y": 1100,
         "wires": [
             [
+                "2bfb150ffaa1693e",
                 "94c24e4052b02390"
             ]
         ]
@@ -8726,6 +8727,23 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 290,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "2bfb150ffaa1693e",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
         "y": 1060,
         "wires": []
     },
