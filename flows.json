@@ -8496,11 +8496,11 @@
         "type": "http in",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "url": "tengxun1",
+        "url": "tengxun",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 100,
+        "x": 90,
         "y": 3420,
         "wires": [
             [
