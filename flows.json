@@ -8436,7 +8436,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "腾讯视频播放列表",
-        "func": "msg.url=\"https://v.qq.com/x/page/m00253deqqo.html\"\n// msg.headers = {\n//     'referer':'https://m.youku.com/',\n//     'user-agent': 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36 Edg/100.0.4896.60'\n// }\nmsg.payload=''\nreturn msg;",
+        "func": "msg.url=msg.payload.id\n// msg.url=\"https://v.qq.com/x/page/m00253deqqo.html\"\n// msg.headers = {\n//     'referer':'https://m.youku.com/',\n//     'user-agent': 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36 Edg/100.0.4896.60'\n// }\nmsg.payload=''\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8445,9 +8445,7 @@
         "x": 310,
         "y": 3420,
         "wires": [
-            [
-                "d218a1b59b515dad"
-            ]
+            []
         ]
     },
     {
@@ -8504,7 +8502,8 @@
         "y": 3420,
         "wires": [
             [
-                "e5b09f9b98e4f255"
+                "e5b09f9b98e4f255",
+                "7921e74ac484804c"
             ]
         ]
     },
@@ -8678,6 +8677,23 @@
                 "179e112f858b463f"
             ]
         ]
+    },
+    {
+        "id": "7921e74ac484804c",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 270,
+        "y": 3480,
+        "wires": []
     },
     {
         "id": "7fc1dbf78683fe51",
