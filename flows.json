@@ -8290,10 +8290,11 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 110,
-        "y": 1160,
+        "y": 1100,
         "wires": [
             [
-                "ebf6693291214291"
+                "e09ba944642f8a03",
+                "71be536a2c9e5c7d"
             ]
         ]
     },
@@ -8658,6 +8659,75 @@
                 "f7622c92dee5d82c"
             ]
         ]
+    },
+    {
+        "id": "e09ba944642f8a03",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "优酷视频播放列表",
+        "func": "msg.url=\"https://search.youku.com/api/search?appScene=show_episode&showIds=\" + msg.payload.showIds + \"&appCaller=h5\"\nmsg.payload=''\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 1100,
+        "wires": [
+            [
+                "94c24e4052b02390"
+            ]
+        ]
+    },
+    {
+        "id": "94c24e4052b02390",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 560,
+        "y": 1100,
+        "wires": [
+            [
+                "b856309eb9ddceed"
+            ]
+        ]
+    },
+    {
+        "id": "b856309eb9ddceed",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 730,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "71be536a2c9e5c7d",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 1060,
+        "wires": []
     },
     {
         "id": "7fc1dbf78683fe51",
