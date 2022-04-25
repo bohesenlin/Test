@@ -9954,6 +9954,157 @@
         "wires": []
     },
     {
+        "id": "e5b09f9b98e4f255",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.url=\"https://v.qq.com/x/page/m00253deqqo.html\"\n// msg.headers = {\n//     'referer':'https://m.youku.com/',\n//     'user-agent': 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36 Edg/100.0.4896.60'\n// }\nmsg.payload=''\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 3420,
+        "wires": [
+            [
+                "d218a1b59b515dad"
+            ]
+        ]
+    },
+    {
+        "id": "d218a1b59b515dad",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 440,
+        "y": 3420,
+        "wires": [
+            [
+                "4fb124b3ee4611e1"
+            ]
+        ]
+    },
+    {
+        "id": "4fb124b3ee4611e1",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "reg = /COVER_INFO = (.*?)\\n/\nvar ret = reg.exec(msg.payload)\nmsg.payload = ret[1]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 3420,
+        "wires": [
+            [
+                "fcc6087580a22529",
+                "b19b8f8a7abc00b9"
+            ]
+        ]
+    },
+    {
+        "id": "b778aec55ff22abd",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "tengxun",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 3420,
+        "wires": [
+            [
+                "e5b09f9b98e4f255"
+            ]
+        ]
+    },
+    {
+        "id": "b19b8f8a7abc00b9",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 770,
+        "y": 3420,
+        "wires": []
+    },
+    {
+        "id": "fcc6087580a22529",
+        "type": "json",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 730,
+        "y": 3360,
+        "wires": [
+            [
+                "281ddf45e15c74bf"
+            ]
+        ]
+    },
+    {
+        "id": "281ddf45e15c74bf",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 3360,
+        "wires": []
+    },
+    {
+        "id": "40164591a429f67f",
+        "type": "inject",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 3360,
+        "wires": [
+            [
+                "e5b09f9b98e4f255"
+            ]
+        ]
+    },
+    {
         "id": "7fc1dbf78683fe51",
         "type": "http request",
         "z": "1033162f191e6983",
