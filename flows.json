@@ -8520,26 +8520,26 @@
         "wires": []
     },
     {
-        "id": "b3b737a05694c47f",
+        "id": "179e112f858b463f",
         "type": "function",
         "z": "b32ed110abccd8e4",
-        "name": "腾讯视频分类",
-        "func": "msg.url=\"https://v.qq.com/channel/cartoon?listpage=1&channel=cartoon&iarea=1\"\n// str = msg.payload.pagindex\n// str1 = str.replace(/\\=/,'/')\n// if('iarea' in msg.payload){\n//     msg.url=\"https://v.qq.com/\" + str1 + \"?listpage=1&\"+msg.payload.pagindex + \"&iarea=\"+msg.payload.iarea\n// }else if('feature' in msg.payload){\n//     msg.url = \"https://v.qq.com/\" + str1 + \"?listpage=1&\"+msg.payload.pagindex + \"&feature=\"+msg.payload.feature\n// }else{\n//     msg.url = \"https://v.qq.com/\" + str1 + \"?listpage=1&\"+msg.payload.pagindex + \"&itype=\"+msg.payload.itype\n// }\nmsg.payload=''\nreturn msg;",
+        "name": "",
+        "func": "// if('iarea' in msg.payload){\n//     msg.url=\"https://v.qq.com/x/bu/pagesheet/list?append=1&\"+msg.payload.pagindex + \"&iarea=\"+msg.payload.iarea+\"&listpage=2&offset=\"+(Number(msg.payload.index)*30).toString()+\"&pagesize=30\"\n// }else{\n//     msg.url=\"https://v.qq.com/x/bu/pagesheet/list?append=1&\"+msg.payload.pagindex + \"&itype=\"+msg.payload.itype+\"&listpage=2&offset=\"+(Number(msg.payload.index)*30).toString()+\"&pagesize=30\"\n//     // msg.url = \"https://v.qq.com/channel/cartoon?listpage=1&\"+msg.payload.pagindex + \"&itype=\"+msg.payload.itype\n// }\n\nmsg.url = 'https://v.qq.com/x/bu/pagesheet/list?append=1&channel=tv&feature=8&listpage=2&offset=30&pagesize=30'\nmsg.payload=''\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
-        "y": 760,
+        "x": 290,
+        "y": 1840,
         "wires": [
             [
-                "5305b7a42d45eeed"
+                "97c4d735bcbbf0ba"
             ]
         ]
     },
     {
-        "id": "5305b7a42d45eeed",
+        "id": "97c4d735bcbbf0ba",
         "type": "http request",
         "z": "b32ed110abccd8e4",
         "name": "",
@@ -8552,108 +8552,89 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 460,
-        "y": 760,
+        "x": 440,
+        "y": 1840,
         "wires": [
             [
-                "d90f856a4cfc5121"
+                "f7622c92dee5d82c"
             ]
         ]
     },
     {
-        "id": "d90f856a4cfc5121",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "msg.html = msg.payload\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 610,
-        "y": 720,
-        "wires": [
-            [
-                "dcbca428ef7760ab"
-            ]
-        ]
-    },
-    {
-        "id": "dcbca428ef7760ab",
+        "id": "f7622c92dee5d82c",
         "type": "html",
         "z": "b32ed110abccd8e4",
         "name": "url_name",
         "property": "payload",
         "outproperty": "url_name",
-        "tag": "body > div.mod_row_box > div > div.mod_figure.mod_figure_v_default.mod_figure_list_box > div > a",
+        "tag": ".list_item > a",
         "ret": "attr",
         "as": "single",
-        "x": 700,
-        "y": 760,
+        "x": 600,
+        "y": 1840,
         "wires": [
             [
-                "6378f6e19d3ffb50"
+                "f1cef91e8e44e22c"
             ]
         ]
     },
     {
-        "id": "6378f6e19d3ffb50",
+        "id": "f1cef91e8e44e22c",
         "type": "html",
         "z": "b32ed110abccd8e4",
         "name": "figure_pic",
         "property": "payload",
         "outproperty": "figure_pic",
-        "tag": "body > div.mod_row_box > div > div.mod_figure.mod_figure_v_default.mod_figure_list_box > div > a > img.figure_pic",
+        "tag": "div > a > img.figure_pic",
         "ret": "attr",
         "as": "single",
-        "x": 860,
-        "y": 760,
+        "x": 760,
+        "y": 1840,
         "wires": [
             [
-                "3d60a4b325e639d6"
+                "8c3108a965ac0a35"
             ]
         ]
     },
     {
-        "id": "3d60a4b325e639d6",
+        "id": "8c3108a965ac0a35",
         "type": "html",
         "z": "b32ed110abccd8e4",
         "name": "count",
         "property": "payload",
         "outproperty": "count",
-        "tag": "body > div.mod_row_box > div > div.mod_figure.mod_figure_v_default.mod_figure_list_box > div> a > div",
+        "tag": "div> a > div",
         "ret": "text",
         "as": "single",
-        "x": 1010,
-        "y": 760,
+        "x": 910,
+        "y": 1840,
         "wires": [
             [
-                "8329c9bc308807d3"
+                "f903c88e574f0323"
             ]
         ]
     },
     {
-        "id": "8329c9bc308807d3",
+        "id": "f903c88e574f0323",
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "list = {}\n\n// arr = msg.payload.itemList\nfor(var i = 0; i<msg.url_name.length; i++){\n    list[i.toString()] = [\n        msg.url_name[i].title,\n        msg.url_name[i].href,\n        msg.figure_pic[i].src,\n        msg.count[i]\n        ]\n    \n}\n// if(msg.imgurl[0]){\n//     msg.topic = 1\n// }else{\n//     msg.topic = -1\n//     return msg\n// }\n// name1 = msg.imgurl[0].alt\n// name2 = msg.imgurl[1].alt\n// url1 = msg.url1[0].href\n// url2 = msg.url1[1].href\n// imgurl1 = msg.imgurl[0].src\n// imgurl2 = msg.imgurl[1].src\n// count1 = msg.count[0]\n// count2 = msg.count[1]\n// json = {}\n// // json['0']=[name1,url1,imgurl1,count1]\n// // json['1']=[name2,url2,imgurl2,count2]\n// // i = 2\n// for(var j =0;j<msg.imgurl.length;j++){\n//     json[j.toString()]=[\n//         msg.imgurl[j].alt,\n//         url1 = msg.url1[j].href,\n//         msg.imgurl[j].src,\n//         msg.count[j]\n//         ]\n//     j++\n// }\n// for(var val1 in list){\n//     j++\n//     json[j.toString()] = list[val1]\n    \n// }\nmsg.payload = list\nreturn msg;",
+        "func": "list = {}\nfor(var i = 0; i<msg.url_name.length; i++){\n    list[i.toString()] = [\n        msg.url_name[i].title,\n        msg.url_name[i].href,\n        msg.figure_pic[i].src,\n        ]\n    \n}\nmsg.payload = list\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1150,
-        "y": 760,
+        "x": 1050,
+        "y": 1840,
         "wires": [
             [
-                "bcd48336d8615ad8"
+                "3ae3f27c5ea54d5d"
             ]
         ]
     },
     {
-        "id": "bcd48336d8615ad8",
+        "id": "3ae3f27c5ea54d5d",
         "type": "debug",
         "z": "b32ed110abccd8e4",
         "name": "",
@@ -8665,55 +8646,37 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1290,
-        "y": 800,
+        "x": 1190,
+        "y": 1880,
         "wires": []
     },
     {
-        "id": "7f58e33b6daf07a5",
-        "type": "http in",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "url": "tengxun",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 110,
-        "y": 760,
-        "wires": [
-            [
-                "b3b737a05694c47f",
-                "e3769b752bde5007"
-            ]
-        ]
-    },
-    {
-        "id": "2446d434771bc80d",
+        "id": "05ee7ca74425fb59",
         "type": "http response",
         "z": "b32ed110abccd8e4",
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1290,
-        "y": 760,
+        "x": 1210,
+        "y": 1840,
         "wires": []
     },
     {
-        "id": "e3769b752bde5007",
-        "type": "debug",
+        "id": "71bcdd9edf2ca142",
+        "type": "http in",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 250,
-        "y": 820,
-        "wires": []
+        "url": "tengxun1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 1840,
+        "wires": [
+            [
+                "179e112f858b463f"
+            ]
+        ]
     },
     {
         "id": "7fc1dbf78683fe51",
