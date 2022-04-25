@@ -9867,6 +9867,122 @@
         "wires": []
     },
     {
+        "id": "e70e81e2efc1daec",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "youkucategory",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 3200,
+        "wires": [
+            [
+                "4dac9d0c587b510e"
+            ]
+        ]
+    },
+    {
+        "id": "4dac9d0c587b510e",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.url=\"https://www.youku.com/category/data?c=97&type=show&p=1\"\nmsg.headers = {\n    'referer':'https://www.youku.com/category/show/c_96.html?theme=dark'\n}\nmsg.payload=''\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 3200,
+        "wires": [
+            [
+                "aca9aeff39e8926b"
+            ]
+        ]
+    },
+    {
+        "id": "aca9aeff39e8926b",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 480,
+        "y": 3200,
+        "wires": [
+            [
+                "04c064ce096be44c",
+                "652fe2b92641f591"
+            ]
+        ]
+    },
+    {
+        "id": "652fe2b92641f591",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 650,
+        "y": 3200,
+        "wires": []
+    },
+    {
+        "id": "04c064ce096be44c",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 3260,
+        "wires": []
+    },
+    {
+        "id": "aadb7a18238879de",
+        "type": "inject",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 3260,
+        "wires": [
+            [
+                "4dac9d0c587b510e"
+            ]
+        ]
+    },
+    {
         "id": "7fc1dbf78683fe51",
         "type": "http request",
         "z": "1033162f191e6983",
