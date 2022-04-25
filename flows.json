@@ -8503,7 +8503,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "if('iarea' in msg.payload){\n    msg.url=\"https://v.qq.com/x/bu/pagesheet/list?append=1&channel=\"+msg.payload.channel + \"&iarea=\"+msg.payload.iarea+\"&listpage=2&offset=\"+(Number(msg.payload.offset)*30).toString()+\"&pagesize=30\"\n}else if('exclusive' in msg.payload){\n    msg.url=\"https://v.qq.com/x/bu/pagesheet/list?append=1&channel=\"+msg.payload.channel + \"&exclusive=\"+msg.payload.exclusive+\"&listpage=2&offset=\"+(Number(msg.payload.offset)*30).toString()+\"&pagesize=30\"\n}else if('itype' in msg.payload){\n    msg.url=\"https://v.qq.com/x/bu/pagesheet/list?append=1&channel=\"+msg.payload.channel + \"&itype=\"+msg.payload.itype+\"&listpage=2&offset=\"+(Number(msg.payload.offset)*30).toString()+\"&pagesize=30\"\n}\n\n// msg.url = 'https://v.qq.com/x/bu/pagesheet/list?append=1&channel=tv&feature=8&listpage=2&offset=30&pagesize=30'\nmsg.payload=''\nreturn msg;",
+        "func": "var arr = []\nvar data = msg.payload\nvar i = 0\nfor(var val in data){\n    arr[i] = val + '=' + data[val]\n    i++\n}\nmsg.url = \"https://v.qq.com/x/bu/pagesheet/list?append=1&\"+arr[0] + \"&\"+arr[1]+\"&listpage=2&offset=\"+(Number(msg.payload.offset)*30).toString()+\"&pagesize=30\"\n// if('iarea' in msg.payload){\n//     msg.url=\"https://v.qq.com/x/bu/pagesheet/list?append=1&channel=\"+msg.payload.channel + \"&iarea=\"+msg.payload.iarea+\"&listpage=2&offset=\"+(Number(msg.payload.offset)*30).toString()+\"&pagesize=30\"\n// }else if('exclusive' in msg.payload){\n//     msg.url=\"https://v.qq.com/x/bu/pagesheet/list?append=1&channel=\"+msg.payload.channel + \"&exclusive=\"+msg.payload.exclusive+\"&listpage=2&offset=\"+(Number(msg.payload.offset)*30).toString()+\"&pagesize=30\"\n// }else if('itype' in msg.payload){\n//     msg.url=\"https://v.qq.com/x/bu/pagesheet/list?append=1&channel=\"+msg.payload.channel + \"&itype=\"+msg.payload.itype+\"&listpage=2&offset=\"+(Number(msg.payload.offset)*30).toString()+\"&pagesize=30\"\n// }else if()\n\n// msg.url = 'https://v.qq.com/x/bu/pagesheet/list?append=1&channel=tv&feature=8&listpage=2&offset=30&pagesize=30'\nmsg.payload=''\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8513,8 +8513,7 @@
         "y": 1840,
         "wires": [
             [
-                "4f3771d90894c2af",
-                "1c8acd22140bb7ab"
+                "4f3771d90894c2af"
             ]
         ]
     },
@@ -8693,26 +8692,6 @@
         "x": 430,
         "y": 1900,
         "wires": []
-    },
-    {
-        "id": "1c8acd22140bb7ab",
-        "type": "http request",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": false,
-        "url": "",
-        "persist": false,
-        "authType": "",
-        "senderr": false,
-        "x": 440,
-        "y": 1840,
-        "wires": [
-            [
-                "f7622c92dee5d82c"
-            ]
-        ]
     },
     {
         "id": "7fc1dbf78683fe51",
