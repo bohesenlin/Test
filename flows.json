@@ -7771,62 +7771,6 @@
         ]
     },
     {
-        "id": "097f77117046e581",
-        "type": "http request",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": false,
-        "url": "",
-        "persist": false,
-        "authType": "",
-        "senderr": false,
-        "x": 720,
-        "y": 720,
-        "wires": [
-            [
-                "633e30cf2b5460a4"
-            ]
-        ]
-    },
-    {
-        "id": "633e30cf2b5460a4",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "匹配地址参数合成地址",
-        "func": "var url = []\nvar reg = /\"F\":\\d,\"V\":\"(.*?)\"/g\n\nfor (var i = 0; i < 1000; i++) {\n    url[i] = reg.exec(msg.payload)\n    if(reg.lastIndex==0){\n        msg.payload=url\n        break\n    }\n}\n\n\nvar hurl = []\nvar rsg = msg.payload\nvar a = (rsg.length + 1)/2\nfor (var n = 0; n < (rsg.length - 1)/2; n++) {\n    hurl.push(\"https://v.qq.com/x/cover/\"+msg.vid+\"/\"+msg.payload[n][1]+\".html\")\n}\nvar txt ={}\nfor(var j=0;j<hurl.length;j++){\n    var title = '第'+(j+1).toString()+'集'\n    txt[title]=hurl[j]\n}\nmsg.payload = txt\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 920,
-        "y": 720,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "20a9400ed9d495c5",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "msg.url = msg.url_name[0].href\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 570,
-        "y": 720,
-        "wires": [
-            [
-                "097f77117046e581"
-            ]
-        ]
-    },
-    {
         "id": "ed618faab46daf04",
         "type": "function",
         "z": "b32ed110abccd8e4",
@@ -8229,14 +8173,14 @@
         "id": "08b8df123a5595bc",
         "type": "function",
         "z": "b32ed110abccd8e4",
-        "name": "动漫热播榜",
+        "name": "爱奇艺影视分类",
         "func": "msg.url =\"https://pcw-api.iqiyi.com/search/recommend/list?channel_id=\"+msg.payload.channel_id+\"&data_type=1&mode=\"+msg.payload.mode+\"&page_id=\"+msg.payload.page_id+\"&ret_num=48\"\nmsg.payload = ''\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
+        "x": 340,
         "y": 2360,
         "wires": [
             [
@@ -8257,8 +8201,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 710,
-        "y": 2400,
+        "x": 690,
+        "y": 2420,
         "wires": []
     },
     {
@@ -8275,7 +8219,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 560,
+        "x": 540,
         "y": 2360,
         "wires": [
             [
@@ -8297,8 +8241,7 @@
         "y": 2360,
         "wires": [
             [
-                "08b8df123a5595bc",
-                "7e77d899fb7075c2"
+                "08b8df123a5595bc"
             ]
         ]
     },
@@ -8309,39 +8252,22 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 710,
+        "x": 690,
         "y": 2360,
-        "wires": []
-    },
-    {
-        "id": "7e77d899fb7075c2",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 350,
-        "y": 2420,
         "wires": []
     },
     {
         "id": "ebf6693291214291",
         "type": "function",
         "z": "b32ed110abccd8e4",
-        "name": "",
+        "name": "优酷视频播放列表",
         "func": "msg.url=\"https://m.youku.com/video/id_\" + msg.payload.id\nmsg.headers = {\n    'referer':'https://m.youku.com/',\n    'user-agent': 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36 Edg/100.0.4896.60'\n}\nmsg.payload=''\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
+        "x": 310,
         "y": 3100,
         "wires": [
             [
@@ -8363,7 +8289,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 440,
+        "x": 540,
         "y": 3100,
         "wires": [
             [
@@ -8382,12 +8308,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
+        "x": 710,
         "y": 3100,
         "wires": [
             [
-                "ce44e30dc5eef7e4",
-                "c889aba32f0e1a23"
+                "ce44e30dc5eef7e4"
             ]
         ]
     },
@@ -8415,41 +8340,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 770,
-        "y": 3100,
-        "wires": []
-    },
-    {
-        "id": "c889aba32f0e1a23",
-        "type": "json",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 730,
-        "y": 3040,
-        "wires": [
-            [
-                "177dc52833e63487"
-            ]
-        ]
-    },
-    {
-        "id": "177dc52833e63487",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
         "x": 870,
-        "y": 3040,
+        "y": 3100,
         "wires": []
     },
     {
@@ -8473,14 +8365,14 @@
         "id": "4dac9d0c587b510e",
         "type": "function",
         "z": "b32ed110abccd8e4",
-        "name": "",
+        "name": "优酷影视分类",
         "func": "msg.url=\"https://www.youku.com/category/data?c=\" + msg.payload.c + \"&type=show&p=\" + msg.payload.p\nmsg.headers = {\n    'referer':'https://www.youku.com/category/show/c_96.html?theme=dark'\n}\nmsg.payload=''\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
+        "x": 340,
         "y": 3200,
         "wires": [
             [
@@ -8502,7 +8394,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 480,
+        "x": 540,
         "y": 3200,
         "wires": [
             [
@@ -8518,7 +8410,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 650,
+        "x": 710,
         "y": 3200,
         "wires": []
     },
@@ -8535,7 +8427,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 650,
+        "x": 730,
         "y": 3260,
         "wires": []
     },
@@ -8543,14 +8435,14 @@
         "id": "e5b09f9b98e4f255",
         "type": "function",
         "z": "b32ed110abccd8e4",
-        "name": "",
+        "name": "腾讯视频播放列表",
         "func": "msg.url=\"https://v.qq.com/x/page/m00253deqqo.html\"\n// msg.headers = {\n//     'referer':'https://m.youku.com/',\n//     'user-agent': 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36 Edg/100.0.4896.60'\n// }\nmsg.payload=''\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
+        "x": 310,
         "y": 3420,
         "wires": [
             [
@@ -8572,7 +8464,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 440,
+        "x": 520,
         "y": 3420,
         "wires": [
             [
@@ -8591,11 +8483,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
+        "x": 690,
         "y": 3420,
         "wires": [
             [
-                "fcc6087580a22529",
                 "b19b8f8a7abc00b9"
             ]
         ]
@@ -8624,41 +8515,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 770,
+        "x": 850,
         "y": 3420,
-        "wires": []
-    },
-    {
-        "id": "fcc6087580a22529",
-        "type": "json",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 730,
-        "y": 3360,
-        "wires": [
-            [
-                "281ddf45e15c74bf"
-            ]
-        ]
-    },
-    {
-        "id": "281ddf45e15c74bf",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 870,
-        "y": 3360,
         "wires": []
     },
     {
