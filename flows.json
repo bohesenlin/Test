@@ -8751,8 +8751,8 @@
         "id": "79775e9c323defb7",
         "type": "function",
         "z": "b32ed110abccd8e4",
-        "name": "爱奇艺影视搜索",
-        "func": "msg.url = \"https://search.youku.com/api/search?keyword=熊出没\"\nreturn msg;",
+        "name": "优酷艺影视搜索",
+        "func": "msg.url = \"https://search.youku.com/api/search?keyword=\" + msg.payload.name\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8785,7 +8785,8 @@
         "wires": [
             [
                 "04c064ce096be44c",
-                "1edbef594ffbd827"
+                "1edbef594ffbd827",
+                "fc693d25e6666a94"
             ]
         ]
     },
@@ -8802,7 +8803,8 @@
         "y": 1380,
         "wires": [
             [
-                "2601cb8339e42800"
+                "2601cb8339e42800",
+                "79775e9c323defb7"
             ]
         ]
     },
@@ -8813,7 +8815,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 690,
+        "x": 710,
         "y": 1380,
         "wires": []
     },
