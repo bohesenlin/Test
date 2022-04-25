@@ -8503,7 +8503,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "// if('iarea' in msg.payload){\n//     msg.url=\"https://v.qq.com/x/bu/pagesheet/list?append=1&\"+msg.payload.pagindex + \"&iarea=\"+msg.payload.iarea+\"&listpage=2&offset=\"+(Number(msg.payload.index)*30).toString()+\"&pagesize=30\"\n// }else{\n//     msg.url=\"https://v.qq.com/x/bu/pagesheet/list?append=1&\"+msg.payload.pagindex + \"&itype=\"+msg.payload.itype+\"&listpage=2&offset=\"+(Number(msg.payload.index)*30).toString()+\"&pagesize=30\"\n//     // msg.url = \"https://v.qq.com/channel/cartoon?listpage=1&\"+msg.payload.pagindex + \"&itype=\"+msg.payload.itype\n// }\n\nmsg.url = 'https://v.qq.com/x/bu/pagesheet/list?append=1&channel=tv&feature=8&listpage=2&offset=30&pagesize=30'\nmsg.payload=''\nreturn msg;",
+        "func": "if('iarea' in msg.payload){\n    msg.url=\"https://v.qq.com/x/bu/pagesheet/list?append=1&channel=\"+msg.payload.channel + \"&iarea=\"+msg.payload.iarea+\"&listpage=2&offset=\"+(Number(msg.payload.offset)*30).toString()+\"&pagesize=30\"\n}else if('exclusive' in msg.payload){\n    msg.url=\"https://v.qq.com/x/bu/pagesheet/list?append=1&channel=\"+msg.payload.channel + \"&exclusive=\"+msg.payload.exclusive+\"&listpage=2&offset=\"+(Number(msg.payload.offset)*30).toString()+\"&pagesize=30\"\n}else if('itype' in msg.payload){\n    msg.url=\"https://v.qq.com/x/bu/pagesheet/list?append=1&channel=\"+msg.payload.channel + \"&itype=\"+msg.payload.itype+\"&listpage=2&offset=\"+(Number(msg.payload.offset)*30).toString()+\"&pagesize=30\"\n}\n\n// msg.url = 'https://v.qq.com/x/bu/pagesheet/list?append=1&channel=tv&feature=8&listpage=2&offset=30&pagesize=30'\nmsg.payload=''\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8513,7 +8513,8 @@
         "y": 1840,
         "wires": [
             [
-                "97c4d735bcbbf0ba"
+                "97c4d735bcbbf0ba",
+                "4f3771d90894c2af"
             ]
         ]
     },
@@ -8696,6 +8697,23 @@
                 "4fb124b3ee4611e1"
             ]
         ]
+    },
+    {
+        "id": "4f3771d90894c2af",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 1900,
+        "wires": []
     },
     {
         "id": "7fc1dbf78683fe51",
