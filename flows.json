@@ -7589,94 +7589,6 @@
         ]
     },
     {
-        "id": "e14d66c654cc2a94",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "msg.url=\"https://v.youku.com/v_show/id_XNTE3MDI1NTU4MA==.html\"\nheaders = {\n    'cookie': '_m_h5_tk=76e6136b5a4a9e3502ad725cde51a9a9_1649257647805; _m_h5_tk_enc=39da72d9f31ed3f4432133773aa433fb; P_ck_ctl=BC11624D8C576F16F8E2AA6BBD0031B8; cna=HInUGnWvp3MCAd7a/Z2GLrkf; __ysuid=1649253148965YWo; __ayft=1649253148966; __aysid=16492531489677Zl; __ayscnt=1; modalFrequency={\"UUID\":\"10\"}; xlly_s=1; youku_history_word=[\"%E6%96%97%E7%BD%97%E5%A4%A7%E9%99%86\"]; ctoken=1f4NChnQQBvZQouIcfgOP8XX; __arpvid=1649253162921CRSSDL-1649253162954; __aypstp=4; __ayspstp=4; l=eBQrhfNgLRYhqwrsBO5Courza779nIRb8SFzaNbMiInca6GRtFTQzNC3OL7JSdtjgtCfqetPqhPt0dHvSI4pvxDDBej3rFamnxvO.; tfstk=ceV1BvccLhx_Jh62_P_F_6JCI6cVa8sI-OiT5-unC7b5ANzsvs0Xa0aIB-xngq3C.; isg=BBgYtQMQzrYVbOIymeTGiQb-6UaqAXyLBCh3HlIJ4NMG7bnX-hIjGwvFISVdJTRj',\n    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36 Edg/100.0.1185.29'\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 270,
-        "y": 320,
-        "wires": [
-            [
-                "0da461396beff94d"
-            ]
-        ]
-    },
-    {
-        "id": "114ce5d3fde68700",
-        "type": "inject",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 320,
-        "wires": [
-            [
-                "e14d66c654cc2a94"
-            ]
-        ]
-    },
-    {
-        "id": "0da461396beff94d",
-        "type": "http request",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 440,
-        "y": 320,
-        "wires": [
-            [
-                "1f72f4160d019240",
-                "6326029763cfe281"
-            ]
-        ]
-    },
-    {
-        "id": "108f031873fa0eb2",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 770,
-        "y": 320,
-        "wires": []
-    },
-    {
         "id": "e74a35297ba9add5",
         "type": "function",
         "z": "b32ed110abccd8e4",
@@ -7741,112 +7653,6 @@
         "headers": {},
         "x": 950,
         "y": 160,
-        "wires": []
-    },
-    {
-        "id": "1f72f4160d019240",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "reg=/\"\\/\\/v.youku.com\\/v_show\\/id_/g\nret = reg.exec(msg.payload)\nmsg.ret = ret\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 610,
-        "y": 320,
-        "wires": [
-            [
-                "108f031873fa0eb2"
-            ]
-        ]
-    },
-    {
-        "id": "6326029763cfe281",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "msg.url=\"https://so.youku.com/search_video/q_%E6%96%97%E7%BD%97%E5%A4%A7%E9%99%86?searchfrom=5\"\n//headers = {\n    //'referer':'https://movie.youku.com/',\n    //'cookie': '_m_h5_tk=34a8d30b103dff77a7c5cc2bcfd0dd8a_1649267356976; _m_h5_tk_enc=c074677bcf9093885c165ab5c8e29445; P_ck_ctl=DE792BDC739DD7387BAA7BEED1F0EAA9; cna=V67UGgZMdmQCAd7a/Z3zFmz0; __ysuid=1649262932008mJd; __ayft=1649262932011; __aysid=1649262932011BpT; __ayscnt=1; modalFrequency={\"UUID\":\"10\"}; xlly_s=1; youku_history_word=%5B%22%25E6%2596%2597%25E7%25BD%2597%25E5%25A4%25A7%25E9%2599%2586%22%5D; ctoken=SzqRlMYYAsjPtLG4l4TGGEYg; __arpvid=1649262939147RgJBHh-1649262939274; __aypstp=2; __ayspstp=2; tfstk=cSN5BeXgx3xSnj6eaz_VasStkKcFaedSuai0PJuc6zt62MaSDsxe_cMSryxvAuuf.; l=eBTvTqugLRslVO_CBOfZhurza7799IRfguPzaNbMiOCPOpCH5PpdW6VC9hYMCnGVH6rWR3kMTdJ9BYLMFyKKnxv9-msKyuMmndC..; isg=BPf3mfYLWYNUpt0P-IEX_sk_hutBvMsew0X2JUmkIkYt-BY6UY8wbobQ3limEKOW',\n    // 'sec-ch-ua': \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Microsoft Edge\";v=\"100\",\n    // 'sec-ch-ua-mobile': '?0',\n    // 'sec-ch-ua-platform': \"Windows\",\n    // 'sec-fetch-dest': 'document',\n    // 'sec-fetch-mode': 'navigate',\n    // 'sec-fetch-site': 'same-origin',\n    // 'sec-fetch-user': '?1',\n   // 'upgrade-insecure-requests': '1',\n    //'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36 Edg/100.0.1185.29'\n//}\nmsg.payload=''\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 270,
-        "y": 460,
-        "wires": [
-            [
-                "0e5cf91f3ffd0e0d"
-            ]
-        ]
-    },
-    {
-        "id": "eba1bbe2aaa05f38",
-        "type": "inject",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 460,
-        "wires": [
-            [
-                "6326029763cfe281"
-            ]
-        ]
-    },
-    {
-        "id": "0e5cf91f3ffd0e0d",
-        "type": "http request",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 440,
-        "y": 460,
-        "wires": [
-            [
-                "c9d62418426b8a99"
-            ]
-        ]
-    },
-    {
-        "id": "c9d62418426b8a99",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 770,
-        "y": 460,
         "wires": []
     },
     {
@@ -8087,708 +7893,6 @@
         "wires": []
     },
     {
-        "id": "a004be5a83881887",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "msg.url=\"https://search.youku.com/search_video?keyword=斗罗大陆\"\nheaders = {\n    'referer':'https://www.youku.com/',\n    //'cookie': '_m_h5_tk=34a8d30b103dff77a7c5cc2bcfd0dd8a_1649267356976; _m_h5_tk_enc=c074677bcf9093885c165ab5c8e29445; P_ck_ctl=DE792BDC739DD7387BAA7BEED1F0EAA9; cna=V67UGgZMdmQCAd7a/Z3zFmz0; __ysuid=1649262932008mJd; __ayft=1649262932011; __aysid=1649262932011BpT; __ayscnt=1; modalFrequency={\"UUID\":\"10\"}; xlly_s=1; youku_history_word=%5B%22%25E6%2596%2597%25E7%25BD%2597%25E5%25A4%25A7%25E9%2599%2586%22%5D; ctoken=s4b_tMuPWJp3ZBBsVa_lOEc5; __arpvid=1649262939147RgJBHh-1649262939274; __aypstp=2; __ayspstp=2; tfstk=cSN5BeXgx3xSnj6eaz_VasStkKcFaedSuai0PJuc6zt62MaSDsxe_cMSryxvAuuf.; l=eBTvTqugLRslVO_CBOfZhurza7799IRfguPzaNbMiOCPOpCH5PpdW6VC9hYMCnGVH6rWR3kMTdJ9BYLMFyKKnxv9-msKyuMmndC..; isg=BPf3mfYLWYNUpt0P-IEX_sk_hutBvMsew0X2JUmkIkYt-BY6UY8wbobQ3limEKOW',\n    // 'sec-ch-ua': \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Microsoft Edge\";v=\"100\",\n    // 'sec-ch-ua-mobile': '?0',\n    // 'sec-ch-ua-platform': \"Windows\",\n    // 'sec-fetch-dest': 'document',\n    // 'sec-fetch-mode': 'navigate',\n    // 'sec-fetch-site': 'same-origin',\n    // 'sec-fetch-user': '?1',\n    //'upgrade-insecure-requests': '1',\n    'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/100.0.4896.60'\n}\n// msg.payload=''\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 250,
-        "y": 820,
-        "wires": [
-            [
-                "c48eaddd76a5352f"
-            ]
-        ]
-    },
-    {
-        "id": "c1f8cb11379e7ad2",
-        "type": "inject",
-        "z": "b32ed110abccd8e4",
-        "name": "优酷",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 820,
-        "wires": [
-            [
-                "a004be5a83881887"
-            ]
-        ]
-    },
-    {
-        "id": "c48eaddd76a5352f",
-        "type": "http request",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 420,
-        "y": 820,
-        "wires": [
-            [
-                "73d87a079e76e4b9",
-                "bdd66a76d2c69788"
-            ]
-        ]
-    },
-    {
-        "id": "73d87a079e76e4b9",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 870,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "bdd66a76d2c69788",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "msg.html = msg.payload\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 530,
-        "y": 900,
-        "wires": [
-            [
-                "5f323a5c4d929f2a"
-            ]
-        ]
-    },
-    {
-        "id": "5f323a5c4d929f2a",
-        "type": "html",
-        "z": "b32ed110abccd8e4",
-        "name": "url_name",
-        "property": "payload",
-        "outproperty": "url_name",
-        "tag": "div > .h5-show-card-wrapper > a",
-        "ret": "attr",
-        "as": "single",
-        "x": 700,
-        "y": 900,
-        "wires": [
-            [
-                "ca1d936af3263694"
-            ]
-        ]
-    },
-    {
-        "id": "ca1d936af3263694",
-        "type": "html",
-        "z": "b32ed110abccd8e4",
-        "name": "figure_pic",
-        "property": "payload",
-        "outproperty": "figure_pic",
-        "tag": "#app > div > div > div > a > div.card-main > div.card-left-section > div.show-icon-wrapper > div",
-        "ret": "attr",
-        "as": "single",
-        "x": 880,
-        "y": 900,
-        "wires": [
-            [
-                "73d87a079e76e4b9"
-            ]
-        ]
-    },
-    {
-        "id": "7a8724ece684402d",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "msg.url=\"https://search.youku.com/api/search?keyword=斗罗大陆&aaid=f0dcbb18364562f664538fceeb338d70&cna=FJVQGmIA6B0CAbSKeh1lCbFy\"\nheaders = {\n    'referer':'https://search.youku.com/search_video?keyword=斗罗大陆',\n    'cookie': 'cna=FJVQGmIA6B0CAbSKeh1lCbFy; __ysuid=1646744585034EmF; __aysid=1649053107854oUW; modalFrequency={\"UUID\":\"10\"}; youku_history_word=[\"%E6%96%97%E7%BD%97%E5%A4%A7%E9%99%862%E7%BB%9D%E4%B8%96%E5%94%90%E9%97%A8\",\"%E7%94%84%E5%AC%9B%E4%BC%A0\"]; __aysvstp=59; __ayft=1649305244773; __ayscnt=1; _m_h5_tk=6852d92f2e0122944a6a29be6487ae89_1649310105197; _m_h5_tk_enc=85b01f0bde0f1731406b2ca1c0965392; P_ck_ctl=5756CFF9A36B6745BAEDEA0681512F28; pop_endTime=1649308850434; __arycid=dh-3-00; __arcms=dh-3-00; __arpvid=1649306162049SmtGuY-1649306162087; __aypstp=6; __ayspstp=64; l=eBgGhBb4j5HL2qZwBOfwourza77tsIRZWuPzaNbMiOB1t3fgYpgNzHZqv3m6K3QQhtCePeKPWpcVQRI3S34dgKYKKc6iqTKs3YtN.; isg=BLe3XCqamcA_UCGgSpD2GDPhRqsBfIveoDf-Kwlk1g6JuN36EExLLvPenh7mDWNW',\n    // 'sec-ch-ua': \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Microsoft Edge\";v=\"100\",\n    // 'sec-ch-ua-mobile': '?0',\n    // 'sec-ch-ua-platform': \"Windows\",\n    // 'sec-fetch-dest': 'document',\n    // 'sec-fetch-mode': 'navigate',\n    // 'sec-fetch-site': 'same-origin',\n    // 'sec-fetch-user': '?1',\n    //'upgrade-insecure-requests': '1',\n    'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/100.0.4896.60'\n}\n// msg.payload=''\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 250,
-        "y": 1020,
-        "wires": [
-            [
-                "938320a517bb48fa"
-            ]
-        ]
-    },
-    {
-        "id": "ab3b51906cdceaee",
-        "type": "inject",
-        "z": "b32ed110abccd8e4",
-        "name": "优酷",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 1020,
-        "wires": [
-            [
-                "7a8724ece684402d"
-            ]
-        ]
-    },
-    {
-        "id": "938320a517bb48fa",
-        "type": "http request",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 420,
-        "y": 1020,
-        "wires": [
-            [
-                "384623c9aac28fc7"
-            ]
-        ]
-    },
-    {
-        "id": "384623c9aac28fc7",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 870,
-        "y": 1020,
-        "wires": []
-    },
-    {
-        "id": "34a48841e21b27a3",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "msg.url=\"https://tv.youku.com/?spm=a2hww.12586870.yklogo.1\"\nheaders = {\n    //'referer':'https://search.youku.com/search_video?keyword=斗罗大陆',\n    // 'cookie': 'cna=FJVQGmIA6B0CAbSKeh1lCbFy; __ysuid=1646744585034EmF; __aysid=1649053107854oUW; modalFrequency={\"UUID\":\"10\"}; youku_history_word=[\"%E6%96%97%E7%BD%97%E5%A4%A7%E9%99%862%E7%BB%9D%E4%B8%96%E5%94%90%E9%97%A8\",\"%E7%94%84%E5%AC%9B%E4%BC%A0\"]; __aysvstp=59; __ayft=1649305244773; __ayscnt=1; _m_h5_tk=6852d92f2e0122944a6a29be6487ae89_1649310105197; _m_h5_tk_enc=85b01f0bde0f1731406b2ca1c0965392; P_ck_ctl=5756CFF9A36B6745BAEDEA0681512F28; pop_endTime=1649308850434; __arycid=dh-3-00; __arcms=dh-3-00; __arpvid=1649306162049SmtGuY-1649306162087; __aypstp=6; __ayspstp=64; l=eBgGhBb4j5HL2qZwBOfwourza77tsIRZWuPzaNbMiOB1t3fgYpgNzHZqv3m6K3QQhtCePeKPWpcVQRI3S34dgKYKKc6iqTKs3YtN.; isg=BLe3XCqamcA_UCGgSpD2GDPhRqsBfIveoDf-Kwlk1g6JuN36EExLLvPenh7mDWNW',\n    // 'sec-ch-ua': \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Microsoft Edge\";v=\"100\",\n    // 'sec-ch-ua-mobile': '?0',\n    // 'sec-ch-ua-platform': \"Windows\",\n    // 'sec-fetch-dest': 'document',\n    // 'sec-fetch-mode': 'navigate',\n    // 'sec-fetch-site': 'same-origin',\n    // 'sec-fetch-user': '?1',\n    //'upgrade-insecure-requests': '1',\n    'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/100.0.4896.60'\n}\n// msg.payload=''\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 250,
-        "y": 1180,
-        "wires": [
-            [
-                "3d374d612eeefa0e"
-            ]
-        ]
-    },
-    {
-        "id": "464a3e2318d87cbc",
-        "type": "inject",
-        "z": "b32ed110abccd8e4",
-        "name": "优酷主页",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 100,
-        "y": 1180,
-        "wires": [
-            [
-                "34a48841e21b27a3"
-            ]
-        ]
-    },
-    {
-        "id": "3d374d612eeefa0e",
-        "type": "http request",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 420,
-        "y": 1180,
-        "wires": [
-            [
-                "b0af6993c545b1e2"
-            ]
-        ]
-    },
-    {
-        "id": "70a353b744e7d509",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1090,
-        "y": 1180,
-        "wires": []
-    },
-    {
-        "id": "b0af6993c545b1e2",
-        "type": "html",
-        "z": "b32ed110abccd8e4",
-        "name": "url_name",
-        "property": "payload",
-        "outproperty": "url_name",
-        "tag": "body > script",
-        "ret": "html",
-        "as": "single",
-        "x": 620,
-        "y": 1180,
-        "wires": [
-            [
-                "70a353b744e7d509",
-                "6ac06f991355d31c"
-            ]
-        ]
-    },
-    {
-        "id": "6ac06f991355d31c",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "// msg.payload = msg.url_name[7].replace(/u002F/g,'')\nmsg.payload = msg.url_name[7].replace(/window.__INITIAL_DATA__ =/,'')\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 770,
-        "y": 1240,
-        "wires": [
-            [
-                "70a353b744e7d509",
-                "b610160a3641a12d"
-            ]
-        ]
-    },
-    {
-        "id": "50f593b156927206",
-        "type": "http in",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "url": "index1",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 110,
-        "y": 1260,
-        "wires": [
-            [
-                "34a48841e21b27a3"
-            ]
-        ]
-    },
-    {
-        "id": "b610160a3641a12d",
-        "type": "http response",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 930,
-        "y": 1240,
-        "wires": []
-    },
-    {
-        "id": "79e448dbd9608d54",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "msg.url=\"https://v.youku.com/v_show/id_XNTIwMTA0NDE1Ng==.html\"\nheaders = {\n    // 'referer':'https://search.youku.com/search_video?keyword=斗罗大陆',\n    'cookie': 'cna=FJVQGmIA6B0CAbSKeh1lCbFy; __ysuid=1646744585034EmF; __aysid=1649053107854oUW; modalFrequency={\"UUID\":\"10\"}; youku_history_word=[\"%E6%96%97%E7%BD%97%E5%A4%A7%E9%99%862%E7%BB%9D%E4%B8%96%E5%94%90%E9%97%A8\",\"%E7%94%84%E5%AC%9B%E4%BC%A0\"]; __aysvstp=59; __ayft=1649305244773; __ayscnt=1; _m_h5_tk=6852d92f2e0122944a6a29be6487ae89_1649310105197; _m_h5_tk_enc=85b01f0bde0f1731406b2ca1c0965392; P_ck_ctl=5756CFF9A36B6745BAEDEA0681512F28; pop_endTime=1649308850434; __arycid=dh-3-00; __arcms=dh-3-00; __arpvid=1649306162049SmtGuY-1649306162087; __aypstp=6; __ayspstp=64; l=eBgGhBb4j5HL2qZwBOfwourza77tsIRZWuPzaNbMiOB1t3fgYpgNzHZqv3m6K3QQhtCePeKPWpcVQRI3S34dgKYKKc6iqTKs3YtN.; isg=BLe3XCqamcA_UCGgSpD2GDPhRqsBfIveoDf-Kwlk1g6JuN36EExLLvPenh7mDWNW',\n    // 'sec-ch-ua': \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Microsoft Edge\";v=\"100\",\n    // 'sec-ch-ua-mobile': '?0',\n    // 'sec-ch-ua-platform': \"Windows\",\n    // 'sec-fetch-dest': 'document',\n    // 'sec-fetch-mode': 'navigate',\n    // 'sec-fetch-site': 'same-origin',\n    // 'sec-fetch-user': '?1',\n    //'upgrade-insecure-requests': '1',\n    'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/100.0.4896.60'\n}\n// msg.payload=''\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 250,
-        "y": 1440,
-        "wires": [
-            [
-                "be8e98a9555cd060"
-            ]
-        ]
-    },
-    {
-        "id": "9287e1e3e65c6081",
-        "type": "inject",
-        "z": "b32ed110abccd8e4",
-        "name": "优酷",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 1440,
-        "wires": [
-            [
-                "79e448dbd9608d54"
-            ]
-        ]
-    },
-    {
-        "id": "be8e98a9555cd060",
-        "type": "http request",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 420,
-        "y": 1440,
-        "wires": [
-            [
-                "54e5e0363c14a0d5"
-            ]
-        ]
-    },
-    {
-        "id": "4908cfc91116bd69",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 870,
-        "y": 1440,
-        "wires": []
-    },
-    {
-        "id": "54e5e0363c14a0d5",
-        "type": "html",
-        "z": "b32ed110abccd8e4",
-        "name": "url_name",
-        "property": "payload",
-        "outproperty": "url_name",
-        "tag": "#app > div > div.play-top-container > div.l-container > div.module-playbox > div > div.listbox > div > div.scroll-area > div.anthology-content-scroll > div:nth-child(2) > div.anthology-content > a",
-        "ret": "attr",
-        "as": "single",
-        "x": 600,
-        "y": 1440,
-        "wires": [
-            [
-                "4908cfc91116bd69"
-            ]
-        ]
-    },
-    {
-        "id": "3f309fa8f49d0922",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "// msg.url=\"https://m.youku.com/video/id_XNTIwMDMyNjgzNg==\"\nmsg.url=\"https://m.youku.com/video/id_XNTg1NjA4MjgzNg==\"\nmsg.headers = {\n    'referer':'https://m.youku.com/',\n    // 'cookie': 'cna=FJVQGmIA6B0CAbSKeh1lCbFy; __ysuid=1646744585034EmF; __aysid=1649053107854oUW; modalFrequency={\"UUID\":\"10\"}; __ayft=1649305244773; __ayscnt=1; pop_endTime=1649308850434; redMarkRead=1; __arycid=dh-3-00; __arcms=dh-3-00; _m_h5_tk=2cd18ebe47cac0e44e06f952c1e4cf04_1649353936377; _m_h5_tk_enc=8ef85fd6bc543e920533df1b857276cc; P_ck_ctl=C22A536ADA66C85B2D441F4D53BDE76B; youku_history_word=[\"%E6%96%97%E7%BD%97%E5%A4%A7%E9%99%862%E7%BB%9D%E4%B8%96%E5%94%90%E9%97%A8\",\"%E9%95%9C%C2%B7%E5%8F%8C%E5%9F%8E\",\"%E7%94%84%E5%AC%9B%E4%BC%A0\"]; __ayvstp=52; __aysvstp=111; __arpvid=1649351330512SJI2Hl-1649351330528; __aypstp=43; __ayspstp=101; l=eBgGhBb4j5HL2reSKOfanurza77OSIRYYuPzaNbMiOCP9B1B5hn5W6V3FD86C3GRh6mHR379KjWaBeYBq3xonxvtggGVa_kmn; isg=BCwsesq_YrCY2kphhVndacSI_Qpe5dCPF-4VKoZtOFd6kcybrvWgHyIzt18pRQjn',\n    // 'sec-ch-ua': \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Microsoft Edge\";v=\"100\",\n    // 'sec-ch-ua-mobile': '?0',\n    // 'sec-ch-ua-platform': \"Windows\",\n    // 'sec-fetch-dest': 'document',\n    // 'sec-fetch-mode': 'navigate',\n    // 'sec-fetch-site': 'same-origin',\n    // 'sec-fetch-user': '?1',\n    //'upgrade-insecure-requests': '1',\n    'user-agent': 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36 Edg/100.0.4896.60'\n}\n// msg.payload=''\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 250,
-        "y": 1600,
-        "wires": [
-            [
-                "2a306fdbd22b30f6"
-            ]
-        ]
-    },
-    {
-        "id": "a912ac2ab72232d1",
-        "type": "inject",
-        "z": "b32ed110abccd8e4",
-        "name": "优酷",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 1600,
-        "wires": [
-            [
-                "3f309fa8f49d0922"
-            ]
-        ]
-    },
-    {
-        "id": "2a306fdbd22b30f6",
-        "type": "http request",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 420,
-        "y": 1600,
-        "wires": [
-            [
-                "33763d33a889c934",
-                "99d61e7cd42895e8"
-            ]
-        ]
-    },
-    {
-        "id": "99d61e7cd42895e8",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 990,
-        "y": 1560,
-        "wires": []
-    },
-    {
-        "id": "33763d33a889c934",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "reg = /value\":\"(\\w{10,16})==\"/g\nvar url = []\nfor (var i = 0; i < 1000; i++) {\n    url[i] = reg.exec(msg.payload)\n    if(reg.lastIndex==0){\n        msg.payload=url\n        break\n    }\n}\n\n// msg.ret = ret\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 590,
-        "y": 1600,
-        "wires": [
-            [
-                "b30e1887678d2109"
-            ]
-        ]
-    },
-    {
-        "id": "b30e1887678d2109",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "匹配地址参数合成地址",
-        "func": "// var url = []\n// var reg = /\"F\":\\d,\"V\":\"(.*?)\"/g\n\n// for (var i = 0; i < 1000; i++) {\n//     url[i] = reg.exec(msg.payload)\n//     if(reg.lastIndex==0){\n//         msg.payload=url\n//         break\n//     }\n// }\n\n\nvar hurl = []\nvar rsg = msg.payload\n// var a = (rsg.length + 1)/2\nfor (var n = 0; n < rsg.length-1; n++) {\n    //https://m.youku.com/video/id_XNTIwNTAzOTEyNA==\n    hurl.push(\"https://m.youku.com/video/id_\"+rsg[n][1]+\"==\")\n}\nvar txt ={}\nfor(var j=0;j<hurl.length;j++){\n    var title = '第'+(j+1).toString()+'集'\n    txt[title]=hurl[j]\n}\nmsg.payload = txt\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 800,
-        "y": 1600,
-        "wires": [
-            [
-                "99d61e7cd42895e8"
-            ]
-        ]
-    },
-    {
-        "id": "8d2b16ba04247b28",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "msg.url=\"https://www.youku.com/category/data?c=85&p=1&type=show&loadNewCategory=true\"\nheaders = {\n    'referer':'https://www.youku.com/category/show/c_96.html?theme=dark',\n    'cookie': 'cna=FJVQGmIA6B0CAbSKeh1lCbFy; __ysuid=1646744585034EmF; youku_history_word=[\"%E6%96%97%E7%BD%97%E5%A4%A7%E9%99%86%E7%AC%AC2%E5%AD%A3%E5%85%A8%E9%83%A8\",\"%E6%96%97%E7%BD%97%E5%A4%A7%E9%99%862%E7%BB%9D%E4%B8%96%E5%94%90%E9%97%A8\",\"%E9%95%9C%C2%B7%E5%8F%8C%E5%9F%8E\",\"%E7%94%84%E5%AC%9B%E4%BC%A0\"]; __aysid=1650734259239M2P; modalFrequency={\"UUID\":\"10\"}; __ayft=1650824737983; __ayscnt=1; _m_h5_tk=f2634affa4533fadc02d9f2b5b2d1bea_1650829058074; _m_h5_tk_enc=b08ebd6608971c837f08ac9de8996db7; P_ck_ctl=E3E8F6BEF0A15027B410531AFC520B18; csrfToken=tT7qfuQVmmUG-85JxmPkK1ZN; __arpvid=1650824748927oNJItD-1650824749007; __aypstp=3; __ayspstp=7; l=eBgGhBb4j5HL2_ljBO5Churza77TUQOb8VFzaNbMiInca69F9euNVOC3VEAJWdtjgt50NeKrZAVuTRHJJrULREZDgooLPr_AZe9e8e1..; isg=BBcXOyQ5OQsjKYFA6nAWONPBpothXOu-vyxbH2lHaeZ6mDbacCyQDkP--jiGLcM2',\n    // 'sec-ch-ua': \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Microsoft Edge\";v=\"100\",\n    // 'sec-ch-ua-mobile': '?0',\n    // 'sec-ch-ua-platform': \"Windows\",\n    // 'sec-fetch-dest': 'document',\n    // 'sec-fetch-mode': 'navigate',\n    // 'sec-fetch-site': 'same-origin',\n    // 'sec-fetch-user': '?1',\n    //'upgrade-insecure-requests': '1',\n    // 'user-agent':'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/100.0.4896.60'\n}\n// msg.payload=''\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 250,
-        "y": 1780,
-        "wires": [
-            [
-                "58cb4935d2d054ed"
-            ]
-        ]
-    },
-    {
-        "id": "f588283f3e72caf1",
-        "type": "inject",
-        "z": "b32ed110abccd8e4",
-        "name": "优酷",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 1780,
-        "wires": [
-            [
-                "8d2b16ba04247b28"
-            ]
-        ]
-    },
-    {
-        "id": "58cb4935d2d054ed",
-        "type": "http request",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 420,
-        "y": 1780,
-        "wires": [
-            [
-                "2fa0917a1140cdd2"
-            ]
-        ]
-    },
-    {
-        "id": "2fa0917a1140cdd2",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 870,
-        "y": 1780,
-        "wires": []
-    },
-    {
         "id": "d13239cc108c9473",
         "type": "function",
         "z": "b32ed110abccd8e4",
@@ -8969,14 +8073,14 @@
         "id": "1d7a1ac4f9296250",
         "type": "function",
         "z": "b32ed110abccd8e4",
-        "name": "",
+        "name": "爱奇艺播放列表",
         "func": "msg.url =\"https://pub.m.iqiyi.com/h5/main/videoList/album/?albumId=\"+msg.payload.id+\"&size=150&page=1\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
+        "x": 340,
         "y": 2240,
         "wires": [
             [
@@ -8998,7 +8102,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 460,
+        "x": 540,
         "y": 2240,
         "wires": [
             [
@@ -9006,93 +8110,6 @@
                 "100e9b4cd1ae6147"
             ]
         ]
-    },
-    {
-        "id": "6a9eee9b47ee13f6",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "动漫综合排序",
-        "func": "msg.url =\"https://pcw-api.iqiyi.com/search/recommend/list?channel_id=4&data_type=1&mode=24&page_id=\"+msg.payload.pageid+\"&ret_num=48\"\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 380,
-        "y": 2340,
-        "wires": [
-            [
-                "e1248a45ab9b1924"
-            ]
-        ]
-    },
-    {
-        "id": "603e75a60976dc6d",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 710,
-        "y": 2380,
-        "wires": []
-    },
-    {
-        "id": "e1248a45ab9b1924",
-        "type": "http request",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 560,
-        "y": 2340,
-        "wires": [
-            [
-                "603e75a60976dc6d",
-                "647d1ecd1b22e544"
-            ]
-        ]
-    },
-    {
-        "id": "2468f8b9fcc24486",
-        "type": "http in",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "url": "animationsynthesis",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 150,
-        "y": 2340,
-        "wires": [
-            [
-                "6a9eee9b47ee13f6"
-            ]
-        ]
-    },
-    {
-        "id": "647d1ecd1b22e544",
-        "type": "http response",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 710,
-        "y": 2340,
-        "wires": []
     },
     {
         "id": "1814770c401713e0",
@@ -9107,8 +8124,7 @@
         "y": 2240,
         "wires": [
             [
-                "1d7a1ac4f9296250",
-                "09236cd0cdabd037"
+                "1d7a1ac4f9296250"
             ]
         ]
     },
@@ -9119,196 +8135,22 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 610,
+        "x": 690,
         "y": 2240,
-        "wires": []
-    },
-    {
-        "id": "b36f2ec86979dccb",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "动漫新上线",
-        "func": "msg.url =\"https://pcw-api.iqiyi.com/search/recommend/list?channel_id=4&data_type=1&mode=4&page_id=\"+msg.payload.pageid+\"&ret_num=48\"\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 370,
-        "y": 2440,
-        "wires": [
-            [
-                "11642fef722fb385"
-            ]
-        ]
-    },
-    {
-        "id": "c57fd532b6648dba",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 710,
-        "y": 2480,
-        "wires": []
-    },
-    {
-        "id": "11642fef722fb385",
-        "type": "http request",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 560,
-        "y": 2440,
-        "wires": [
-            [
-                "c57fd532b6648dba",
-                "7bcb441a9a3712e6"
-            ]
-        ]
-    },
-    {
-        "id": "1fdb876573ebb31f",
-        "type": "http in",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "url": "animationnewonline",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 150,
-        "y": 2440,
-        "wires": [
-            [
-                "b36f2ec86979dccb"
-            ]
-        ]
-    },
-    {
-        "id": "7bcb441a9a3712e6",
-        "type": "http response",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 710,
-        "y": 2440,
-        "wires": []
-    },
-    {
-        "id": "b70d526ab23db66b",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "动漫热播榜",
-        "func": "msg.url =\"https://pcw-api.iqiyi.com/search/recommend/list?channel_id=4&data_type=1&mode=11&page_id=\"+msg.payload.pageid+\"&ret_num=48\"\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 370,
-        "y": 2540,
-        "wires": [
-            [
-                "6dba2cf361cb2239"
-            ]
-        ]
-    },
-    {
-        "id": "e345c92e6798ebce",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 710,
-        "y": 2580,
-        "wires": []
-    },
-    {
-        "id": "6dba2cf361cb2239",
-        "type": "http request",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 560,
-        "y": 2540,
-        "wires": [
-            [
-                "e345c92e6798ebce",
-                "5ef6e06a79718eb1"
-            ]
-        ]
-    },
-    {
-        "id": "16182ea31c4635db",
-        "type": "http in",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "url": "animationhitlist",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 130,
-        "y": 2540,
-        "wires": [
-            [
-                "b70d526ab23db66b"
-            ]
-        ]
-    },
-    {
-        "id": "5ef6e06a79718eb1",
-        "type": "http response",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 710,
-        "y": 2540,
         "wires": []
     },
     {
         "id": "7b935e40046970bb",
         "type": "function",
         "z": "b32ed110abccd8e4",
-        "name": "",
+        "name": "爱奇艺影视搜索",
         "func": "msg.url =\"https://pcw-api.iqiyi.com/strategy/pcw/data/soBaseCardLeftSide?type=list&mode=11&data_type=6;mustnot,24;mustnot,20;mustnot,1&pageSize=10&graph_type=1_1_2_-1&real_query=\"+msg.payload.name+\"&entity_name=\"+msg.payload.name+\"&pf=1&p=10&need_condense=1&ctgname=&character=&credits=&pageNum=\"+msg.payload.pagenum\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
+        "x": 340,
         "y": 2180,
         "wires": [
             [
@@ -9330,41 +8172,12 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 460,
+        "x": 540,
         "y": 2180,
         "wires": [
             [
                 "100e9b4cd1ae6147",
                 "4e406adb83ea42c4"
-            ]
-        ]
-    },
-    {
-        "id": "a08b37e8679fc33f",
-        "type": "inject",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 2180,
-        "wires": [
-            [
-                "7b935e40046970bb"
             ]
         ]
     },
@@ -9380,8 +8193,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 630,
-        "y": 2180,
+        "x": 710,
+        "y": 2280,
         "wires": []
     },
     {
@@ -9394,11 +8207,10 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 120,
-        "y": 2140,
+        "y": 2180,
         "wires": [
             [
-                "7b935e40046970bb",
-                "09236cd0cdabd037"
+                "7b935e40046970bb"
             ]
         ]
     },
@@ -9409,24 +8221,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 610,
-        "y": 2140,
-        "wires": []
-    },
-    {
-        "id": "09236cd0cdabd037",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 330,
-        "y": 2120,
+        "x": 690,
+        "y": 2180,
         "wires": []
     },
     {
@@ -9440,8 +8236,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 390,
-        "y": 2700,
+        "x": 370,
+        "y": 2360,
         "wires": [
             [
                 "6534d285dbb4333b"
@@ -9461,8 +8257,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 730,
-        "y": 2740,
+        "x": 710,
+        "y": 2400,
         "wires": []
     },
     {
@@ -9479,8 +8275,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 580,
-        "y": 2700,
+        "x": 560,
+        "y": 2360,
         "wires": [
             [
                 "a89d7302f6f57e4b",
@@ -9497,8 +8293,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 150,
-        "y": 2700,
+        "x": 130,
+        "y": 2360,
         "wires": [
             [
                 "08b8df123a5595bc",
@@ -9513,8 +8309,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 730,
-        "y": 2700,
+        "x": 710,
+        "y": 2360,
         "wires": []
     },
     {
@@ -9530,219 +8326,9 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 370,
-        "y": 2760,
+        "x": 350,
+        "y": 2420,
         "wires": []
-    },
-    {
-        "id": "f9316d4d3578c3b6",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "msg.url = 'https://www.youku.com/category/data?c=85&p=1&type=show&loadNewCategory=true'\nmsg.headers = {\n    referer:'https://www.youku.com/category/show/c_96.html?theme=dark'\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 250,
-        "y": 2940,
-        "wires": [
-            [
-                "1cd1558573d6f245"
-            ]
-        ]
-    },
-    {
-        "id": "1cd1558573d6f245",
-        "type": "http request",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 400,
-        "y": 2940,
-        "wires": [
-            [
-                "b17e4f785fe5b51e"
-            ]
-        ]
-    },
-    {
-        "id": "fa94fae08074a17b",
-        "type": "inject",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 2940,
-        "wires": [
-            [
-                "f9316d4d3578c3b6"
-            ]
-        ]
-    },
-    {
-        "id": "b17e4f785fe5b51e",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 550,
-        "y": 2940,
-        "wires": []
-    },
-    {
-        "id": "5ac5df972c6f9ac5",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "// msg.url=\"https://m.youku.com/video/id_XNTIwMDMyNjgzNg==\"\nmsg.url=\"https://m.youku.com/video/id_XNTg1NjA4MjgzNg==\"\nmsg.headers = {\n    'referer':'https://m.youku.com/',\n    // 'cookie': 'cna=FJVQGmIA6B0CAbSKeh1lCbFy; __ysuid=1646744585034EmF; __aysid=1649053107854oUW; modalFrequency={\"UUID\":\"10\"}; __ayft=1649305244773; __ayscnt=1; pop_endTime=1649308850434; redMarkRead=1; __arycid=dh-3-00; __arcms=dh-3-00; _m_h5_tk=2cd18ebe47cac0e44e06f952c1e4cf04_1649353936377; _m_h5_tk_enc=8ef85fd6bc543e920533df1b857276cc; P_ck_ctl=C22A536ADA66C85B2D441F4D53BDE76B; youku_history_word=[\"%E6%96%97%E7%BD%97%E5%A4%A7%E9%99%862%E7%BB%9D%E4%B8%96%E5%94%90%E9%97%A8\",\"%E9%95%9C%C2%B7%E5%8F%8C%E5%9F%8E\",\"%E7%94%84%E5%AC%9B%E4%BC%A0\"]; __ayvstp=52; __aysvstp=111; __arpvid=1649351330512SJI2Hl-1649351330528; __aypstp=43; __ayspstp=101; l=eBgGhBb4j5HL2reSKOfanurza77OSIRYYuPzaNbMiOCP9B1B5hn5W6V3FD86C3GRh6mHR379KjWaBeYBq3xonxvtggGVa_kmn; isg=BCwsesq_YrCY2kphhVndacSI_Qpe5dCPF-4VKoZtOFd6kcybrvWgHyIzt18pRQjn',\n    // 'sec-ch-ua': \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Microsoft Edge\";v=\"100\",\n    // 'sec-ch-ua-mobile': '?0',\n    // 'sec-ch-ua-platform': \"Windows\",\n    // 'sec-fetch-dest': 'document',\n    // 'sec-fetch-mode': 'navigate',\n    // 'sec-fetch-site': 'same-origin',\n    // 'sec-fetch-user': '?1',\n    //'upgrade-insecure-requests': '1',\n    'user-agent': 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36 Edg/100.0.4896.60'\n}\n// msg.payload=''\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 250,
-        "y": 1680,
-        "wires": [
-            [
-                "32337cbe4e35ae19"
-            ]
-        ]
-    },
-    {
-        "id": "ca62eb74230796af",
-        "type": "inject",
-        "z": "b32ed110abccd8e4",
-        "name": "优酷",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 1680,
-        "wires": [
-            [
-                "5ac5df972c6f9ac5"
-            ]
-        ]
-    },
-    {
-        "id": "32337cbe4e35ae19",
-        "type": "http request",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 420,
-        "y": 1680,
-        "wires": [
-            [
-                "c0d2e849616dd475"
-            ]
-        ]
-    },
-    {
-        "id": "c0d2e849616dd475",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "reg = /window.__INITIAL_DATA__ =(.*?)<\\/script>/\nvar ret = reg.exec(msg.payload)\nmsg.payload = ret\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 590,
-        "y": 1680,
-        "wires": [
-            [
-                "d1af347cb586b073",
-                "5347884afe6d0d51"
-            ]
-        ]
-    },
-    {
-        "id": "d1af347cb586b073",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 910,
-        "y": 1680,
-        "wires": []
-    },
-    {
-        "id": "5347884afe6d0d51",
-        "type": "json",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "property": "payload[1]",
-        "action": "obj",
-        "pretty": false,
-        "x": 730,
-        "y": 1740,
-        "wires": [
-            [
-                "d1af347cb586b073"
-            ]
-        ]
     },
     {
         "id": "ebf6693291214291",
@@ -10074,35 +8660,6 @@
         "x": 870,
         "y": 3360,
         "wires": []
-    },
-    {
-        "id": "40164591a429f67f",
-        "type": "inject",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 3360,
-        "wires": [
-            [
-                "e5b09f9b98e4f255"
-            ]
-        ]
     },
     {
         "id": "7fc1dbf78683fe51",
