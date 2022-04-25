@@ -8087,7 +8087,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "爱奇艺影视搜索",
-        "func": "msg.url =\"https://pcw-api.iqiyi.com/strategy/pcw/data/soBaseCardLeftSide?type=list&mode=11&data_type=6;mustnot,24;mustnot,20;mustnot,1&pageSize=10&graph_type=1_1_2_-1&real_query=\"+msg.payload.name+\"&entity_name=\"+msg.payload.name+\"&pf=1&p=10&need_condense=1&ctgname=&character=&credits=&pageNum=\"+msg.payload.pagenum\nreturn msg;",
+        "func": "// msg.url =\"https://pcw-api.iqiyi.com/strategy/pcw/data/soBaseCardLeftSide?type=list&mode=11&data_type=6;mustnot,24;mustnot,20;mustnot,1&pageSize=10&graph_type=1_1_2_-1&real_query=\"+msg.payload.name+\"&entity_name=\"+msg.payload.name+\"&pf=1&p=10&need_condense=1&ctgname=&character=&credits=&pageNum=\"+msg.payload.pagenum\nmsg.url = \"https://pcw-api.iqiyi.com/strategy/pcw/data/soBaseCardLeftSide?pageNum=\" + msg.payload.pagenum + \"&key=\" + msg.payload.name\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8761,6 +8761,23 @@
         "x": 730,
         "y": 1320,
         "wires": []
+    },
+    {
+        "id": "f556a1a7a85daa87",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "爱奇艺影视搜索",
+        "func": "msg.url =\"https://pcw-api.iqiyi.com/strategy/pcw/data/soBaseCardLeftSide?type=list&mode=11&data_type=6;mustnot,24;mustnot,20;mustnot,1&pageSize=10&graph_type=1_1_2_-1&real_query=\"+msg.payload.name+\"&entity_name=\"+msg.payload.name+\"&pf=1&p=10&need_condense=1&ctgname=&character=&credits=&pageNum=\"+msg.payload.pagenum\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 780,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "7fc1dbf78683fe51",
