@@ -8748,6 +8748,102 @@
         "wires": []
     },
     {
+        "id": "79775e9c323defb7",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "爱奇艺影视搜索",
+        "func": "msg.url = \"https://search.youku.com/api/search?keyword=熊出没\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 1380,
+        "wires": [
+            [
+                "0d748c5d14c9f312"
+            ]
+        ]
+    },
+    {
+        "id": "0d748c5d14c9f312",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 540,
+        "y": 1380,
+        "wires": [
+            [
+                "04c064ce096be44c"
+            ]
+        ]
+    },
+    {
+        "id": "a57e106eab27a282",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "youkusearch",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 1380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fc693d25e6666a94",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "b0206bb5ac42090a",
+        "type": "inject",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 1440,
+        "wires": [
+            [
+                "79775e9c323defb7"
+            ]
+        ]
+    },
+    {
         "id": "7fc1dbf78683fe51",
         "type": "http request",
         "z": "1033162f191e6983",
