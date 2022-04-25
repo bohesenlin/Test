@@ -8801,7 +8801,9 @@
         "x": 130,
         "y": 1380,
         "wires": [
-            []
+            [
+                "2601cb8339e42800"
+            ]
         ]
     },
     {
@@ -8836,8 +8838,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 150,
-        "y": 1440,
+        "x": 170,
+        "y": 1320,
         "wires": [
             [
                 "79775e9c323defb7"
@@ -8874,6 +8876,23 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 830,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "2601cb8339e42800",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
         "y": 1440,
         "wires": []
     },
