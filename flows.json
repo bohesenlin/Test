@@ -8699,7 +8699,7 @@
         "id": "79775e9c323defb7",
         "type": "function",
         "z": "b32ed110abccd8e4",
-        "name": "优酷艺影视搜索",
+        "name": "优酷影视搜索",
         "func": "msg.url = \"https://search.youku.com/api/search?keyword=\" + msg.payload.name\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
@@ -9433,7 +9433,7 @@
         "id": "f65764936e93bb0c",
         "type": "function",
         "z": "b32ed110abccd8e4",
-        "name": "优酷影视分类",
+        "name": "芒果TV影视分类",
         "func": "// msg.url=\"https://pianku.api.mgtv.com/rider/list/pcweb/v3?allowedRC=1&platform=pcweb&channelId=2&pn=1&pc=80&hudong=1&_support=10000000&kind=a1&area=a1&year=all&chargeInfo=a1&sort=c1\"\nvar ret = ''\nfor(var val in msg.payload){\n    ret += '&'+ val + '=' + msg.payload[val]\n}\nmsg.url = \"https://pianku.api.mgtv.com/rider/list/pcweb/v3?allowedRC=1&platform=pcweb\" + ret\nmsg.payload = ''\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
@@ -9444,8 +9444,7 @@
         "y": 2060,
         "wires": [
             [
-                "d205a06bda50ebe2",
-                "e211242292a61c6d"
+                "d205a06bda50ebe2"
             ]
         ]
     },
@@ -9467,7 +9466,6 @@
         "y": 2060,
         "wires": [
             [
-                "e211242292a61c6d",
                 "06dcd088347cdaaa"
             ]
         ]
@@ -9487,14 +9485,14 @@
         "id": "e5bb649436e4116c",
         "type": "function",
         "z": "b32ed110abccd8e4",
-        "name": "优酷视频播放列表",
-        "func": "// msg.url=\"https://mobileso.bz.mgtv.com/msite/videos/v2?listItems=0&uuid=40a8d8f6e3f4a7a05d53b4c89c55d7d7&cid=\"+msg.payload.clipId+\"&ic=1&abroad=0&_support=10000000000000000&isHttps=1&abroad=0&callback=jsonp_m771czlfk30iv5s\"\nmsg.url = \"https://pcweb.api.mgtv.com/episode/list?_support=10000000&version=5.5.35&video_id=\"+msg.payload.playPartId+\"&page=1&size=50&allowedRC=1&_support=10000000\"\nmsg.payload=''\nreturn msg;",
+        "name": "芒果TV播放列表",
+        "func": "// msg.url=\"https://mobileso.bz.mgtv.com/msite/videos/v2?listItems=0&uuid=40a8d8f6e3f4a7a05d53b4c89c55d7d7&cid=\"+msg.payload.clipId+\"&ic=1&abroad=0&_support=10000000000000000&isHttps=1&abroad=0&callback=jsonp_m771czlfk30iv5s\"\nmsg.url = \"https://pcweb.api.mgtv.com/episode/list?_support=10000000&version=5.5.35&video_id=\"+msg.payload.playPartId+\"&page=\"+msg.payload.page+\"&size=50&allowedRC=1&_support=10000000\"\nmsg.payload=''\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
+        "x": 320,
         "y": 2000,
         "wires": [
             [
@@ -9533,7 +9531,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 890,
+        "x": 730,
         "y": 2000,
         "wires": []
     },
@@ -9541,7 +9539,7 @@
         "id": "104e38e38ac24f8e",
         "type": "function",
         "z": "b32ed110abccd8e4",
-        "name": "优酷艺影视搜索",
+        "name": "芒果TV影视搜索",
         "func": "msg.url = \"https://search.youku.com/api/search?keyword=\" + msg.payload.name\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
@@ -9607,52 +9605,6 @@
         "wires": []
     },
     {
-        "id": "e016bf7f47fc208f",
-        "type": "inject",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 1940,
-        "wires": [
-            [
-                "f65764936e93bb0c"
-            ]
-        ]
-    },
-    {
-        "id": "e211242292a61c6d",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1030,
-        "y": 2080,
-        "wires": []
-    },
-    {
         "id": "3d32cf9848a084ba",
         "type": "debug",
         "z": "b32ed110abccd8e4",
@@ -9682,29 +9634,9 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 890,
+        "x": 730,
         "y": 1960,
         "wires": []
-    },
-    {
-        "id": "c6a3ad62dd7026f9",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "// reg = /\\((.*?)\\)/\n// ret = reg.exec(msg.payload)[1]\nret = msg.payload.substring(22,msg.payload.length-1)\nmsg.payload = ret\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 730,
-        "y": 1940,
-        "wires": [
-            [
-                "8cafb66da33195fa",
-                "ed671a0e5b25128d"
-            ]
-        ]
     },
     {
         "id": "b6144b880f6136d3",
