@@ -9237,7 +9237,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "提交最近观看",
-        "func": "msg.msg1 = msg.payload\n// index = msg.payload.item.albumId\nmsg.json = msg.payload.item\n// msg.json[index] = msg.payload.item\n// msg.payload = json\n// msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']}\nreturn msg;",
+        "func": "if(msg.payload.albumId == undefined){\n    return null\n}\nmsg.msg1 = msg.payload\n// index = msg.payload.item.albumId\nmsg.json = msg.payload.item\n// msg.json[index] = msg.payload.item\n// msg.payload = json\n// msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
