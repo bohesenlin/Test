@@ -8780,6 +8780,238 @@
         ]
     },
     {
+        "id": "d516c80d2c92973e",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "2b8c7cbe417cf3b3",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "腾讯影视搜索",
+        "func": "if(msg.payload.name == \"\"){\n    return null\n}\nmsg.url = \"https://v.qq.com/x/search/?q=\"+msg.payload.name+\"&stag=102&smartbox_ab=\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 1440,
+        "wires": [
+            [
+                "25088fc98ff4f7dc"
+            ]
+        ]
+    },
+    {
+        "id": "9e41d5736f6c2126",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "tengxunsearch",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 1440,
+        "wires": [
+            [
+                "2b8c7cbe417cf3b3",
+                "1bbf59ed3bb2a74b"
+            ]
+        ]
+    },
+    {
+        "id": "1cae053b31f6c0bb",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 750,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "25088fc98ff4f7dc",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "搜索请求",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 460,
+        "y": 1440,
+        "wires": [
+            [
+                "551f9bf31d088184"
+            ]
+        ]
+    },
+    {
+        "id": "551f9bf31d088184",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.html = msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 1440,
+        "wires": [
+            [
+                "3e2e440b03bcd0c6"
+            ]
+        ]
+    },
+    {
+        "id": "3e2e440b03bcd0c6",
+        "type": "html",
+        "z": "b32ed110abccd8e4",
+        "name": "前两条信息地址href",
+        "property": "payload",
+        "outproperty": "url1",
+        "tag": "#search_container > div.wrapper > div.wrapper_main > div.mix_warp > div > div > div > div._infos > div > h2 > a",
+        "ret": "attr",
+        "as": "single",
+        "x": 790,
+        "y": 1440,
+        "wires": [
+            [
+                "a3b116fa36462112"
+            ]
+        ]
+    },
+    {
+        "id": "56d2650a7ed78676",
+        "type": "html",
+        "z": "b32ed110abccd8e4",
+        "name": "前两条信息地址href",
+        "property": "payload",
+        "outproperty": "imgurl",
+        "tag": "#search_container > div.wrapper > div.wrapper_main > div.mix_warp > div > div:nth-child(1) > div > div._infos > div > a > img",
+        "ret": "attr",
+        "as": "single",
+        "x": 150,
+        "y": 1520,
+        "wires": [
+            [
+                "0dfaf4dde1ef719c"
+            ]
+        ]
+    },
+    {
+        "id": "0dfaf4dde1ef719c",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "var reg = /totalData: '(.*?)'/i\n// var ret = []\nret = reg.exec(msg.payload)\n// var len = ret.length\n// if(len < 1){\n//     return null\n// }\nret1 = decodeURIComponent(ret[1])\nmsg.payload = ret1\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 1520,
+        "wires": [
+            [
+                "b4cf8776edd07b90"
+            ]
+        ]
+    },
+    {
+        "id": "b4cf8776edd07b90",
+        "type": "json",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 470,
+        "y": 1520,
+        "wires": [
+            [
+                "98c86732e3a980b5"
+            ]
+        ]
+    },
+    {
+        "id": "98c86732e3a980b5",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "list = {}\nvar i = 0\narr = msg.payload.itemList\nfor(var val in arr){\n    list[val] = [\n        arr[i].videoInfo.title,\n        arr[i].videoInfo.url,\n        arr[i].videoInfo.imgUrl,\n        arr[i].videoInfo.firstBlockSites[0].episodeInfoList.length\n        ]\n    i++\n}\n// if(msg.imgurl[0]){\n//     msg.topic = 1\n// }else{\n//     msg.topic = -1\n//     return msg\n// }\n// name1 = msg.imgurl[0].alt\n// name2 = msg.imgurl[1].alt\n// url1 = msg.url1[0].href\n// url2 = msg.url1[1].href\n// imgurl1 = msg.imgurl[0].src\n// imgurl2 = msg.imgurl[1].src\n// count1 = msg.count[0]\n// count2 = msg.count[1]\njson = {}\n// json['0']=[name1,url1,imgurl1,count1]\n// json['1']=[name2,url2,imgurl2,count2]\n// i = 2\nfor(var j =0;j<msg.imgurl.length;j++){\n    json[j.toString()]=[\n        msg.imgurl[j].alt,\n        url1 = msg.url1[j].href,\n        msg.imgurl[j].src,\n        msg.count[j]\n        ]\n    j++\n}\nfor(var val1 in list){\n    j++\n    json[j.toString()] = list[val1]\n    \n}\nmsg.payload = json\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 1520,
+        "wires": [
+            [
+                "1cae053b31f6c0bb",
+                "d516c80d2c92973e"
+            ]
+        ]
+    },
+    {
+        "id": "a3b116fa36462112",
+        "type": "html",
+        "z": "b32ed110abccd8e4",
+        "name": "更新数量",
+        "property": "payload",
+        "outproperty": "count",
+        "tag": "#search_container > div.wrapper > div.wrapper_main > div.mix_warp > div > div > div > div._infos > div > a > span.figure_caption > span",
+        "ret": "text",
+        "as": "single",
+        "x": 980,
+        "y": 1440,
+        "wires": [
+            [
+                "56d2650a7ed78676"
+            ]
+        ]
+    },
+    {
+        "id": "1bbf59ed3bb2a74b",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 270,
+        "y": 1380,
+        "wires": []
+    },
+    {
         "id": "7fc1dbf78683fe51",
         "type": "http request",
         "z": "1033162f191e6983",
