@@ -9332,7 +9332,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "// ret = Object.assign(msg.json, msg.payload)\nmsg.payload[msg.msg1.title][msg.msg1.albumId] = msg.json\n// msg.payload = ret\nreturn msg;",
+        "func": "// ret = Object.assign(msg.json, msg.payload)\nmsg.payload[msg.msg1.title][msg.msg1.albumId] = msg.msg1.item\n// msg.payload = ret\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
