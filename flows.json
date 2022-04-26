@@ -9487,7 +9487,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "优酷视频播放列表",
-        "func": "msg.url=\"https://search.youku.com/api/search?appScene=show_episode&showIds=\" + msg.payload.showIds + \"&appCaller=h5\"\nmsg.payload=''\nreturn msg;",
+        "func": "msg.url=\"https://mobileso.bz.mgtv.com/msite/videos/v2?listItems=0&uuid=40a8d8f6e3f4a7a05d53b4c89c55d7d7&cid=293609&ic=1&abroad=0&_support=10000000000000000&isHttps=1&abroad=0&callback=jsonp_m771czlfk30iv5s\"\nmsg.payload=''\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9519,7 +9519,8 @@
         "y": 2000,
         "wires": [
             [
-                "e211242292a61c6d"
+                "e211242292a61c6d",
+                "8cafb66da33195fa"
             ]
         ]
     },
@@ -9645,8 +9646,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 730,
-        "y": 1960,
+        "x": 750,
+        "y": 1940,
         "wires": []
     },
     {
