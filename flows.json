@@ -9433,7 +9433,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "优酷影视分类",
-        "func": "msg.url=\"https://pianku.api.mgtv.com/rider/list/pcweb/v3?allowedRC=1&platform=pcweb&channelId=2&pn=1&pc=80&hudong=1&_support=10000000&kind=a1&area=a1&year=all&chargeInfo=a1&sort=c1\"\n// msg.headers = {\n//     'referer':'https://www.youku.com/category/show/c_96.html?theme=dark'\n// }\n// msg.payload=''\nreturn msg;",
+        "func": "// msg.url=\"https://pianku.api.mgtv.com/rider/list/pcweb/v3?allowedRC=1&platform=pcweb&channelId=2&pn=1&pc=80&hudong=1&_support=10000000&kind=a1&area=a1&year=all&chargeInfo=a1&sort=c1\"\nvar ret = ''\nfor(var val in msg.payload){\n    ret += '&'+ val + '=' + msg.payload[val]\n}\nmsg.url = \"https://pianku.api.mgtv.com/rider/list/pcweb/v3?allowedRC=1&platform=pcweb\" + ret\nmsg.payload = ''\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9443,7 +9443,8 @@
         "y": 2060,
         "wires": [
             [
-                "d205a06bda50ebe2"
+                "d205a06bda50ebe2",
+                "e211242292a61c6d"
             ]
         ]
     },
