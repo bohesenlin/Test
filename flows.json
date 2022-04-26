@@ -8018,7 +8018,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "爱奇艺播放列表",
-        "func": "msg.url =\"https://pub.m.iqiyi.com/h5/main/videoList/album/?albumId=\"+msg.payload.id+\"&size=1500&page=1\"\nreturn msg;",
+        "func": "msg.url =\"https://pub.m.iqiyi.com/h5/main/videoList/album/?albumId=\"+msg.payload.id+\"&size=1500&page=1\"\nmsg.videoid = msg.payload.id\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8051,8 +8051,8 @@
         "y": 900,
         "wires": [
             [
-                "6c46683b1f6b1d05",
-                "704b87d311192ea1"
+                "704b87d311192ea1",
+                "f9138166914a06c5"
             ]
         ]
     },
@@ -8080,7 +8080,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 690,
+        "x": 850,
         "y": 900,
         "wires": []
     },
@@ -9028,6 +9028,91 @@
         "statusType": "auto",
         "x": 690,
         "y": 780,
+        "wires": []
+    },
+    {
+        "id": "b349155fe5f87541",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "爱奇艺播放列表",
+        "func": "// msg.url =\"https://pub.m.iqiyi.com/h5/main/videoList/album/?albumId=\"+msg.payload.id+\"&size=1500&page=1\"\nif(msg.payload.data == \"\"){\n    msg.url = \"https://pcw-api.iqiyi.com/video/video/recommend?area=swan&cid=4&entity_source=ppc&evid=6b0714000a44bc6aa233d2ec73676227&isInfinite=&page=2&play_platform=PC_QIYI&ppuid=&pru=&rec_id=\"+msg.videoid+\"&rltnum=100&size=20&type=video\"\n}\nmsg.payload =''\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 1040,
+        "wires": [
+            [
+                "91c57afc9c403214"
+            ]
+        ]
+    },
+    {
+        "id": "91c57afc9c403214",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1000,
+        "y": 1040,
+        "wires": [
+            [
+                "46fc5f597cd1e8db"
+            ]
+        ]
+    },
+    {
+        "id": "f9138166914a06c5",
+        "type": "switch",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "property": "payload.data.data",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "\"\"",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "\"\"",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 690,
+        "y": 900,
+        "wires": [
+            [
+                "6c46683b1f6b1d05"
+            ],
+            [
+                "b349155fe5f87541"
+            ]
+        ]
+    },
+    {
+        "id": "46fc5f597cd1e8db",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1130,
+        "y": 1040,
         "wires": []
     },
     {
