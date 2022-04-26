@@ -9035,7 +9035,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "爱奇艺播放列表",
-        "func": "// msg.url =\"https://pub.m.iqiyi.com/h5/main/videoList/album/?albumId=\"+msg.payload.id+\"&size=1500&page=1\"\nif(msg.payload.data == \"\"){\n    msg.url = \"https://pcw-api.iqiyi.com/video/video/recommend?area=swan&cid=4&entity_source=ppc&evid=6b0714000a44bc6aa233d2ec73676227&isInfinite=&page=2&play_platform=PC_QIYI&ppuid=&pru=&rec_id=\"+msg.videoid+\"&rltnum=100&size=20&type=video\"\n}\nmsg.payload =''\nreturn msg;",
+        "func": "// msg.url =\"https://pub.m.iqiyi.com/h5/main/videoList/album/?albumId=\"+msg.payload.id+\"&size=1500&page=1\"\n\nmsg.url = \"https://pcw-api.iqiyi.com/video/video/recommend?area=swan&cid=4&entity_source=ppc&evid=6b0714000a44bc6aa233d2ec73676227&isInfinite=&page=2&play_platform=PC_QIYI&ppuid=&pru=&rec_id=\"+msg.videoid+\"&rltnum=100&size=20&type=video\"\n\nmsg.payload =''\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9045,7 +9045,8 @@
         "y": 1040,
         "wires": [
             [
-                "91c57afc9c403214"
+                "91c57afc9c403214",
+                "abfbe97a3c4b2af7"
             ]
         ]
     },
@@ -9067,7 +9068,8 @@
         "y": 1040,
         "wires": [
             [
-                "46fc5f597cd1e8db"
+                "46fc5f597cd1e8db",
+                "abfbe97a3c4b2af7"
             ]
         ]
     },
@@ -9076,18 +9078,18 @@
         "type": "switch",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "property": "payload.data.data",
+        "property": "msg.payload.length",
         "propertyType": "msg",
         "rules": [
             {
-                "t": "neq",
-                "v": "\"\"",
-                "vt": "str"
+                "t": "gt",
+                "v": "1000",
+                "vt": "num"
             },
             {
-                "t": "eq",
-                "v": "\"\"",
-                "vt": "str"
+                "t": "lt",
+                "v": "1000",
+                "vt": "num"
             }
         ],
         "checkall": "true",
@@ -9113,6 +9115,23 @@
         "headers": {},
         "x": 1130,
         "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "abfbe97a3c4b2af7",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 980,
         "wires": []
     },
     {
