@@ -9203,7 +9203,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1080,
+        "x": 1260,
         "y": 1840,
         "wires": [
             [
@@ -9226,8 +9226,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 1250,
-        "y": 1840,
+        "x": 1230,
+        "y": 1960,
         "wires": [
             []
         ]
@@ -9237,7 +9237,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "提交最近观看",
-        "func": "if(msg.payload.albumId == undefined){\n    return null\n}\nmsg.msg1 = msg.payload\n// index = msg.payload.item.albumId\nmsg.json = msg.payload.item\n// msg.json[index] = msg.payload.item\n// msg.payload = json\n// msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']}\nreturn msg;",
+        "func": "if(msg.payload.albumId == undefined){\n    return null\n}\nmsg.msg1 = msg.payload\n// index = msg.payload.item.albumId\n// msg.json = msg.payload.item\n// msg.json[index] = msg.payload.item\n// msg.payload = json\n// msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9247,7 +9247,7 @@
         "y": 1840,
         "wires": [
             [
-                "de786e8f70447207"
+                "1a7c6c3007bb3f5d"
             ]
         ]
     },
@@ -9303,7 +9303,7 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 520,
+        "x": 680,
         "y": 1840,
         "wires": [
             [
@@ -9319,7 +9319,7 @@
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 650,
+        "x": 830,
         "y": 1840,
         "wires": [
             [
@@ -9338,7 +9338,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
+        "x": 970,
         "y": 1840,
         "wires": [
             [
@@ -9354,7 +9354,7 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 930,
+        "x": 1110,
         "y": 1840,
         "wires": [
             [
@@ -9375,7 +9375,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1230,
+        "x": 1210,
         "y": 1900,
         "wires": []
     },
@@ -9394,6 +9394,40 @@
         "statusType": "auto",
         "x": 330,
         "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "1a7c6c3007bb3f5d",
+        "type": "json",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "property": "payload.item",
+        "action": "obj",
+        "pretty": false,
+        "x": 530,
+        "y": 1840,
+        "wires": [
+            [
+                "c7df6f7af75ad773",
+                "de786e8f70447207"
+            ]
+        ]
+    },
+    {
+        "id": "c7df6f7af75ad773",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 2000,
         "wires": []
     },
     {
