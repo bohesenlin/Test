@@ -9135,6 +9135,249 @@
         "wires": []
     },
     {
+        "id": "7eb3458b17208526",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "pullrecords",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 1760,
+        "wires": [
+            [
+                "870d8931fbc276dc"
+            ]
+        ]
+    },
+    {
+        "id": "ace06e2bf74f4dd5",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 630,
+        "y": 1760,
+        "wires": []
+    },
+    {
+        "id": "78b75f3115f2a072",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "pushrecords",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 1840,
+        "wires": [
+            [
+                "256ef334709ca126",
+                "39c8693163677c68"
+            ]
+        ]
+    },
+    {
+        "id": "39c8693163677c68",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 350,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "f6e12e3e7b851b0d",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "put 数据",
+        "func": "json = msg.payload\nmsg.headers = {};\nmsg.headers = {\n  'Authorization': 'Bearer glpat-bix9rWK6svSw7qEzB-tS'\n}\nmsg.url = \"https://gitlab.com/api/v4/projects/34199133/repository/files/watchrecords.json\"\n// msg.payload = {};\nmsg.payload={'branch': 'main',\n    'content': json,\n    'commit_message': 'update file'\n    \n};\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 1840,
+        "wires": [
+            [
+                "26cde6844f72feea"
+            ]
+        ]
+    },
+    {
+        "id": "6422235decf61cfe",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "update file",
+        "method": "PUT",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1250,
+        "y": 1840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "256ef334709ca126",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "提交最近观看",
+        "func": "msg.msg1 = msg.payload\nindex = msg.payload.item.albumId\nmsg.json = {}\nmsg.json[index] = msg.payload.item\n// msg.payload = json\n// msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 1840,
+        "wires": [
+            [
+                "de786e8f70447207"
+            ]
+        ]
+    },
+    {
+        "id": "870d8931fbc276dc",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://gitlab.com/api/v4/projects/34199133/repository/files/watchrecords.json/raw?ref=main&private_token=glpat-bix9rWK6svSw7qEzB-tS",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 340,
+        "y": 1760,
+        "wires": [
+            [
+                "40e30f4de1695539"
+            ]
+        ]
+    },
+    {
+        "id": "40e30f4de1695539",
+        "type": "json",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 490,
+        "y": 1760,
+        "wires": [
+            [
+                "ace06e2bf74f4dd5"
+            ]
+        ]
+    },
+    {
+        "id": "de786e8f70447207",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://gitlab.com/api/v4/projects/34199133/repository/files/watchrecords.json/raw?ref=main&private_token=glpat-bix9rWK6svSw7qEzB-tS",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 520,
+        "y": 1840,
+        "wires": [
+            [
+                "e2aee542045b5c74"
+            ]
+        ]
+    },
+    {
+        "id": "e2aee542045b5c74",
+        "type": "json",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 650,
+        "y": 1840,
+        "wires": [
+            [
+                "2eb4ef4c02338153"
+            ]
+        ]
+    },
+    {
+        "id": "2eb4ef4c02338153",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "// ret = Object.assign(msg.json, msg.payload)\nmsg.payload[msg.msg1.title][msg.msg1.item.albumId] = msg.json\n// msg.payload = ret\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 1840,
+        "wires": [
+            [
+                "0397e4a35aea9d84"
+            ]
+        ]
+    },
+    {
+        "id": "0397e4a35aea9d84",
+        "type": "json",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 930,
+        "y": 1840,
+        "wires": [
+            [
+                "f6e12e3e7b851b0d"
+            ]
+        ]
+    },
+    {
+        "id": "26cde6844f72feea",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1230,
+        "y": 1900,
+        "wires": []
+    },
+    {
         "id": "7fc1dbf78683fe51",
         "type": "http request",
         "z": "1033162f191e6983",
