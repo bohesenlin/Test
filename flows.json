@@ -9521,7 +9521,7 @@
         "wires": [
             [
                 "634dc3d5e19bfd38",
-                "b6ba24406403e651"
+                "c6a3ad62dd7026f9"
             ]
         ]
     },
@@ -9686,23 +9686,6 @@
         "wires": []
     },
     {
-        "id": "b6ba24406403e651",
-        "type": "json",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "property": "payload",
-        "action": "obj",
-        "pretty": false,
-        "x": 730,
-        "y": 2000,
-        "wires": [
-            [
-                "8cafb66da33195fa",
-                "ed671a0e5b25128d"
-            ]
-        ]
-    },
-    {
         "id": "ed671a0e5b25128d",
         "type": "debug",
         "z": "b32ed110abccd8e4",
@@ -9718,6 +9701,26 @@
         "x": 890,
         "y": 1960,
         "wires": []
+    },
+    {
+        "id": "c6a3ad62dd7026f9",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "reg = /\\((.*?)\\)/\nret = reg.exec(msg.payload)[1]\nmsg.payload = ret\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 2000,
+        "wires": [
+            [
+                "8cafb66da33195fa",
+                "ed671a0e5b25128d"
+            ]
+        ]
     },
     {
         "id": "7fc1dbf78683fe51",
