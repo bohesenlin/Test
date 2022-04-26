@@ -9707,7 +9707,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "reg = /\\((.*?)\\)/\nret = reg.exec(msg.payload)[1]\nmsg.payload = ret\nreturn msg;",
+        "func": "// reg = /\\((.*?)\\)/\n// ret = reg.exec(msg.payload)[1]\nret = msg.payload.substring(22,msg.payload.length-1)\nmsg.payload = ret\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
