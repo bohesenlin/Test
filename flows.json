@@ -9395,6 +9395,260 @@
         ]
     },
     {
+        "id": "8720cef8c8600429",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "mangguo",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 2000,
+        "wires": [
+            [
+                "e5bb649436e4116c"
+            ]
+        ]
+    },
+    {
+        "id": "94f30480e7b7dee6",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "mangguocategory",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 2060,
+        "wires": [
+            [
+                "f65764936e93bb0c"
+            ]
+        ]
+    },
+    {
+        "id": "f65764936e93bb0c",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "优酷影视分类",
+        "func": "msg.url=\"https://pianku.api.mgtv.com/rider/list/pcweb/v3?allowedRC=1&platform=pcweb&channelId=2&pn=1&pc=80&hudong=1&_support=10000000&kind=a1&area=a1&year=all&chargeInfo=a1&sort=c1\"\n// msg.headers = {\n//     'referer':'https://www.youku.com/category/show/c_96.html?theme=dark'\n// }\n// msg.payload=''\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 2060,
+        "wires": [
+            [
+                "d205a06bda50ebe2"
+            ]
+        ]
+    },
+    {
+        "id": "d205a06bda50ebe2",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 560,
+        "y": 2060,
+        "wires": [
+            [
+                "e211242292a61c6d",
+                "06dcd088347cdaaa"
+            ]
+        ]
+    },
+    {
+        "id": "06dcd088347cdaaa",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 730,
+        "y": 2060,
+        "wires": []
+    },
+    {
+        "id": "e5bb649436e4116c",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "优酷视频播放列表",
+        "func": "msg.url=\"https://search.youku.com/api/search?appScene=show_episode&showIds=\" + msg.payload.showIds + \"&appCaller=h5\"\nmsg.payload=''\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 2000,
+        "wires": [
+            [
+                "733fcdb8bcb2a2f8"
+            ]
+        ]
+    },
+    {
+        "id": "733fcdb8bcb2a2f8",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 560,
+        "y": 2000,
+        "wires": [
+            [
+                "e211242292a61c6d"
+            ]
+        ]
+    },
+    {
+        "id": "8cafb66da33195fa",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 730,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "104e38e38ac24f8e",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "优酷艺影视搜索",
+        "func": "msg.url = \"https://search.youku.com/api/search?keyword=\" + msg.payload.name\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 2120,
+        "wires": [
+            [
+                "d464a87af50f2e47"
+            ]
+        ]
+    },
+    {
+        "id": "d464a87af50f2e47",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 560,
+        "y": 2120,
+        "wires": [
+            [
+                "a8e8dcceadb1dcda"
+            ]
+        ]
+    },
+    {
+        "id": "5be4ddd1be45c7cd",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "mangguosearch",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 2120,
+        "wires": [
+            [
+                "104e38e38ac24f8e"
+            ]
+        ]
+    },
+    {
+        "id": "a8e8dcceadb1dcda",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 730,
+        "y": 2120,
+        "wires": []
+    },
+    {
+        "id": "e016bf7f47fc208f",
+        "type": "inject",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 1940,
+        "wires": [
+            [
+                "f65764936e93bb0c"
+            ]
+        ]
+    },
+    {
+        "id": "e211242292a61c6d",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 1960,
+        "wires": []
+    },
+    {
         "id": "7fc1dbf78683fe51",
         "type": "http request",
         "z": "1033162f191e6983",
