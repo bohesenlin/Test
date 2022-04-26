@@ -9176,7 +9176,8 @@
         "wires": [
             [
                 "256ef334709ca126",
-                "39c8693163677c68"
+                "39c8693163677c68",
+                "3ab95661267f873c"
             ]
         ]
     },
@@ -9206,7 +9207,8 @@
         "y": 1840,
         "wires": [
             [
-                "26cde6844f72feea"
+                "26cde6844f72feea",
+                "6422235decf61cfe"
             ]
         ]
     },
@@ -9235,7 +9237,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "提交最近观看",
-        "func": "msg.msg1 = msg.payload\nindex = msg.payload.item.albumId\nmsg.json = {}\nmsg.json[index] = msg.payload.item\n// msg.payload = json\n// msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']}\nreturn msg;",
+        "func": "msg.msg1 = msg.payload\n// index = msg.payload.item.albumId\nmsg.json = msg.payload.item\n// msg.json[index] = msg.payload.item\n// msg.payload = json\n// msg.payload = {'0':['斗罗大陆','https://v.qq.com/x/cover/m441e3rjq9kwpsc.html','//puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1635739384893/220','更新至203集']}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9375,6 +9377,23 @@
         "statusType": "auto",
         "x": 1230,
         "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "3ab95661267f873c",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 1980,
         "wires": []
     },
     {
