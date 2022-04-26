@@ -9488,7 +9488,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "优酷视频播放列表",
-        "func": "msg.url=\"https://mobileso.bz.mgtv.com/msite/videos/v2?listItems=0&uuid=40a8d8f6e3f4a7a05d53b4c89c55d7d7&cid=293609&ic=1&abroad=0&_support=10000000000000000&isHttps=1&abroad=0&callback=jsonp_m771czlfk30iv5s\"\nmsg.payload=''\nreturn msg;",
+        "func": "msg.url=\"https://mobileso.bz.mgtv.com/msite/videos/v2?listItems=0&uuid=40a8d8f6e3f4a7a05d53b4c89c55d7d7&cid=\"+msg.payload.clipId+\"&ic=1&abroad=0&_support=10000000000000000&isHttps=1&abroad=0&callback=jsonp_m771czlfk30iv5s\"\nmsg.payload=''\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9498,7 +9498,8 @@
         "y": 2000,
         "wires": [
             [
-                "733fcdb8bcb2a2f8"
+                "733fcdb8bcb2a2f8",
+                "b6144b880f6136d3"
             ]
         ]
     },
@@ -9520,7 +9521,6 @@
         "y": 2000,
         "wires": [
             [
-                "634dc3d5e19bfd38",
                 "c6a3ad62dd7026f9"
             ]
         ]
@@ -9669,23 +9669,6 @@
         "wires": []
     },
     {
-        "id": "634dc3d5e19bfd38",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 730,
-        "y": 1960,
-        "wires": []
-    },
-    {
         "id": "ed671a0e5b25128d",
         "type": "debug",
         "z": "b32ed110abccd8e4",
@@ -9721,6 +9704,23 @@
                 "ed671a0e5b25128d"
             ]
         ]
+    },
+    {
+        "id": "b6144b880f6136d3",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 1960,
+        "wires": []
     },
     {
         "id": "7fc1dbf78683fe51",
