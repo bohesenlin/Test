@@ -609,16 +609,6 @@
         "domain": ""
     },
     {
-        "id": "8b4cd3cc929e787c",
-        "type": "mongodb",
-        "hostname": "mongodb+srv://bohesenlin:1343011495abc@cluster0.vyu5c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-        "topology": "dnscluster",
-        "connectOptions": "",
-        "port": "27017",
-        "db": "",
-        "name": ""
-    },
-    {
         "id": "3cc11d24.ff01a2",
         "type": "comment",
         "z": "f6f2187d.f17ca8",
