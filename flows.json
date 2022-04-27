@@ -609,6 +609,16 @@
         "domain": ""
     },
     {
+        "id": "8b4cd3cc929e787c",
+        "type": "mongodb",
+        "hostname": "mongodb+srv://bohesenlin:1343011495abc@cluster0.vyu5c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+        "topology": "dnscluster",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "",
+        "name": ""
+    },
+    {
         "id": "3cc11d24.ff01a2",
         "type": "comment",
         "z": "f6f2187d.f17ca8",
@@ -9542,7 +9552,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "芒果TV影视搜索",
-        "func": "msg.url = \"https://search.youku.com/api/search?keyword=\" + msg.payload.name\nreturn msg;",
+        "func": "msg.url = \"https://mobileso.bz.mgtv.com/pc/search/v1?allowedRC=1&q=熊出没&pn=1&pc=10&uid=&_support=10000000\"\nmsg.headers = {\n    'referer': 'https://so.mgtv.com/'\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9574,6 +9584,7 @@
         "y": 2120,
         "wires": [
             [
+                "eca314fc71d252df",
                 "a8e8dcceadb1dcda"
             ]
         ]
@@ -9690,6 +9701,68 @@
         "x": 1110,
         "y": 1800,
         "wires": []
+    },
+    {
+        "id": "0e19e7d493a041a3",
+        "type": "inject",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 2180,
+        "wires": [
+            [
+                "104e38e38ac24f8e"
+            ]
+        ]
+    },
+    {
+        "id": "10ef89fc933fe3ad",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 2200,
+        "wires": []
+    },
+    {
+        "id": "eca314fc71d252df",
+        "type": "json",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 670,
+        "y": 2200,
+        "wires": [
+            [
+                "10ef89fc933fe3ad"
+            ]
+        ]
     },
     {
         "id": "7fc1dbf78683fe51",
