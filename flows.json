@@ -9334,7 +9334,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "var obj1 = msg.payload[msg.msg1.title]\nvar obj2 = {}\n// msg.msg1.item.index = msg.msg1.index\nobj2[msg.msg1.albumId] = msg.msg1.item\nret = Object.assign(obj2, obj1)\nret[msg.msg1.title][msg.msg1.albumId].index = msg.msg1.index\n// obj1[msg.msg1.title] = {}\n// obj1[msg.msg1.title][msg.msg1.albumId] = msg.msg1.item\n\n// msg.json[msg.msg1.albumId] = msg.msg1.item\n\n// ret = Object.assign(obj1, msg.payload)\nmsg.payload[msg.msg1.title] = ret\n// msg.payload[msg.msg1.title][msg.msg1.albumId] = msg.msg1.item\n// msg.payload = ret\nreturn msg;",
+        "func": "var obj1 = msg.payload[msg.msg1.title]\nvar obj2 = {}\n// msg.msg1.item.index = msg.msg1.index\nobj2[msg.msg1.albumId] = msg.msg1.item\nret = Object.assign(obj2, obj1)\n// ret[msg.msg1.title][msg.msg1.albumId].index = msg.msg1.index\n// obj1[msg.msg1.title] = {}\n// obj1[msg.msg1.title][msg.msg1.albumId] = msg.msg1.item\n\n// msg.json[msg.msg1.albumId] = msg.msg1.item\n\n// ret = Object.assign(obj1, msg.payload)\nmsg.payload[msg.msg1.title] = ret\n// msg.payload[msg.msg1.title][msg.msg1.albumId] = msg.msg1.item\n// msg.payload = ret\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
