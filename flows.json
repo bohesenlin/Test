@@ -8332,7 +8332,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "优酷影视分类",
-        "func": "msg.url=\"https://www.youku.com/category/data?c=\" + msg.payload.c + \"&type=show&p=\" + msg.payload.p\nmsg.headers = {\n    'referer':'https://www.youku.com/category/show/c_96.html?theme=dark'\n}\nmsg.payload=''\nreturn msg;",
+        "func": "var ret = ''\nfor(var val in msg.payload){\n    ret += '&'+ val + '=' + msg.payload[val]\n}\nmsg.url=\"https://www.youku.com/category/data?type=show\" + ret\nmsg.headers = {\n    'referer':'https://www.youku.com/category/show/c_96.html?theme=dark'\n}\nmsg.payload=''\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -8342,7 +8342,8 @@
         "y": 1260,
         "wires": [
             [
-                "aca9aeff39e8926b"
+                "aca9aeff39e8926b",
+                "4c1c3ec170d9c59a"
             ]
         ]
     },
@@ -9599,6 +9600,23 @@
         "headers": {},
         "x": 730,
         "y": 2120,
+        "wires": []
+    },
+    {
+        "id": "4c1c3ec170d9c59a",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 1380,
         "wires": []
     },
     {
