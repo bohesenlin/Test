@@ -9201,8 +9201,8 @@
         "wires": [
             [
                 "26cde6844f72feea",
-                "6422235decf61cfe",
-                "3550169b79a01b5c"
+                "3550169b79a01b5c",
+                "6422235decf61cfe"
             ]
         ]
     },
@@ -9326,7 +9326,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "var obj1 = msg.payload[msg.msg1.title]\nvar obj2 = {}\n// msg.msg1.item.index = msg.msg1.index\nobj2[msg.msg1.albumId] = msg.msg1.item\nret = Object.assign(obj2, obj1)\n// ret[msg.msg1.title][msg.msg1.albumId].index = msg.msg1.index\n// obj1[msg.msg1.title] = {}\n// obj1[msg.msg1.title][msg.msg1.albumId] = msg.msg1.item\n\n// msg.json[msg.msg1.albumId] = msg.msg1.item\n\n// ret = Object.assign(obj1, msg.payload)\nmsg.payload[msg.msg1.title] = ret\n// msg.payload[msg.msg1.title][msg.msg1.albumId] = msg.msg1.item\n// msg.payload = ret\nreturn msg;",
+        "func": "// var obj1 = msg.payload[msg.msg1.title]\n// var obj2 = {}\n// obj2[msg.msg1.albumId] = msg.msg1.item\n// ret = Object.assign(obj2, obj1)\n// msg.payload[msg.msg1.title] = ret\n\nvar title = msg.msg1.title\nvar id = msg.msg1.albumId\nvar item = msg.msg1.item\ndelete msg.payload[title][id]\n// msg.payload[title][id] = item\nvar obj1 = msg.payload[title]\nvar obj2 = {}\n// 新对象\nobj2[id] = item\n\nret = Object.assign(obj2, obj1)\nmsg.payload[title] = ret\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9793,7 +9793,7 @@
         "type": "json",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "property": "payload",
+        "property": "payload.content",
         "action": "obj",
         "pretty": false,
         "x": 1270,
