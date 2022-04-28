@@ -609,16 +609,6 @@
         "domain": ""
     },
     {
-        "id": "91a1b839fbd48816",
-        "type": "mongodb",
-        "hostname": "mongodb+srv://cluster0.vyu5c.mongodb.net",
-        "topology": "dnscluster",
-        "connectOptions": "",
-        "port": "27017",
-        "db": "test",
-        "name": ""
-    },
-    {
         "id": "3cc11d24.ff01a2",
         "type": "comment",
         "z": "f6f2187d.f17ca8",
@@ -2123,67 +2113,6 @@
                 "ed49eb0c0b2391d3"
             ]
         ]
-    },
-    {
-        "id": "52fae6b876f63188",
-        "type": "mongodb in",
-        "z": "df04831a8742eac0",
-        "mongodb": "91a1b839fbd48816",
-        "name": "test",
-        "collection": "video",
-        "operation": "find",
-        "x": 810,
-        "y": 1120,
-        "wires": [
-            [
-                "a232d707c5fba7ab"
-            ]
-        ]
-    },
-    {
-        "id": "0b23b927ac564e4b",
-        "type": "inject",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 650,
-        "y": 1120,
-        "wires": [
-            [
-                "52fae6b876f63188"
-            ]
-        ]
-    },
-    {
-        "id": "a232d707c5fba7ab",
-        "type": "debug",
-        "z": "df04831a8742eac0",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1010,
-        "y": 1120,
-        "wires": []
     },
     {
         "id": "4c21ef519ea65406",
