@@ -609,6 +609,16 @@
         "domain": ""
     },
     {
+        "id": "113eb449c89b74f3",
+        "type": "MySQLdatabase",
+        "name": "video",
+        "host": "192.168.0.210",
+        "port": "3306",
+        "db": "video",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
         "id": "3cc11d24.ff01a2",
         "type": "comment",
         "z": "f6f2187d.f17ca8",
@@ -9617,6 +9627,85 @@
         "statusType": "auto",
         "x": 330,
         "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "6f824ed75979792b",
+        "type": "mysql",
+        "z": "b32ed110abccd8e4",
+        "mydb": "113eb449c89b74f3",
+        "name": "video",
+        "x": 370,
+        "y": 2240,
+        "wires": [
+            [
+                "37450a9358384b51"
+            ]
+        ]
+    },
+    {
+        "id": "fd56552fb4f66534",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.topic = \"SELECT * FROM video\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 2240,
+        "wires": [
+            [
+                "6f824ed75979792b"
+            ]
+        ]
+    },
+    {
+        "id": "20d55ba1a2979e65",
+        "type": "inject",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 2240,
+        "wires": [
+            [
+                "fd56552fb4f66534"
+            ]
+        ]
+    },
+    {
+        "id": "37450a9358384b51",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 2240,
         "wires": []
     },
     {
