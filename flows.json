@@ -611,7 +611,7 @@
     {
         "id": "91a1b839fbd48816",
         "type": "mongodb",
-        "hostname": "srv://cluster0.vyu5c.mongodb.net/test",
+        "hostname": "mongodb+srv://cluster0.vyu5c.mongodb.net",
         "topology": "dnscluster",
         "connectOptions": "",
         "port": "27017",
