@@ -9709,6 +9709,85 @@
         "wires": []
     },
     {
+        "id": "d3c15ab6bf4b9bfb",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.topic = `UPDATE video SET 爱奇艺=123`\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 2340,
+        "wires": [
+            [
+                "1300c0bc1816a1fc"
+            ]
+        ]
+    },
+    {
+        "id": "1300c0bc1816a1fc",
+        "type": "mysql",
+        "z": "b32ed110abccd8e4",
+        "mydb": "113eb449c89b74f3",
+        "name": "video",
+        "x": 370,
+        "y": 2340,
+        "wires": [
+            [
+                "4020283565fb16b5"
+            ]
+        ]
+    },
+    {
+        "id": "4020283565fb16b5",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 2340,
+        "wires": []
+    },
+    {
+        "id": "d9735b4f39ddb57c",
+        "type": "inject",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 2340,
+        "wires": [
+            [
+                "d3c15ab6bf4b9bfb"
+            ]
+        ]
+    },
+    {
         "id": "7fc1dbf78683fe51",
         "type": "http request",
         "z": "1033162f191e6983",
