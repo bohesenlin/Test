@@ -9713,7 +9713,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "msg.topic = `UPDATE video SET 爱奇艺=123`\nreturn msg;",
+        "func": "data = \"{'abc':'abc'}\"\nmsg.topic = `UPDATE video SET 爱奇艺=${data}`\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
