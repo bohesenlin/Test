@@ -619,6 +619,16 @@
         "charset": "UTF8"
     },
     {
+        "id": "7dfa16c4e3494ca5",
+        "type": "mongodb",
+        "hostname": "mongodb+srv://bohesenlin:1343011495qq@cluster0.vyu5c.mongodb.net",
+        "topology": "dnscluster",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "video",
+        "name": "video"
+    },
+    {
         "id": "3cc11d24.ff01a2",
         "type": "comment",
         "z": "f6f2187d.f17ca8",
@@ -9802,6 +9812,20 @@
             [
                 "26cde6844f72feea"
             ]
+        ]
+    },
+    {
+        "id": "14c3bd591eaf4475",
+        "type": "mongodb in",
+        "z": "b32ed110abccd8e4",
+        "mongodb": "7dfa16c4e3494ca5",
+        "name": "",
+        "collection": "video",
+        "operation": "find",
+        "x": 930,
+        "y": 2160,
+        "wires": [
+            []
         ]
     },
     {
