@@ -609,6 +609,16 @@
         "domain": ""
     },
     {
+        "id": "80b5efe769ed9aaa",
+        "type": "mongodb",
+        "hostname": "192.168.0.210",
+        "topology": "direct",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "video",
+        "name": "video1"
+    },
+    {
         "id": "3cc11d24.ff01a2",
         "type": "comment",
         "z": "f6f2187d.f17ca8",
@@ -9760,6 +9770,20 @@
             [
                 "26cde6844f72feea"
             ]
+        ]
+    },
+    {
+        "id": "5ebb34f4591bbe24",
+        "type": "mongodb in",
+        "z": "b32ed110abccd8e4",
+        "mongodb": "80b5efe769ed9aaa",
+        "name": "",
+        "collection": "aiqiyi",
+        "operation": "find",
+        "x": 870,
+        "y": 2360,
+        "wires": [
+            []
         ]
     },
     {
