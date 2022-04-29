@@ -9140,7 +9140,8 @@
         "y": 1760,
         "wires": [
             [
-                "d0c74bc3dd7ce960"
+                "92dc4bde74b91dd8",
+                "7568d3c9032528a2"
             ]
         ]
     },
@@ -9744,7 +9745,7 @@
         "props": [
             {
                 "p": "collection",
-                "v": "mangguoTV",
+                "v": "youku",
                 "vt": "str"
             }
         ],
@@ -9945,10 +9946,10 @@
         "z": "b32ed110abccd8e4",
         "mongodb": "367921b555a94d1f",
         "name": "video",
-        "collection": "",
+        "collection": "youku",
         "operation": "find",
-        "x": 490,
-        "y": 1700,
+        "x": 470,
+        "y": 1660,
         "wires": [
             [
                 "6f89f0eefb45dd5f",
@@ -10037,21 +10038,49 @@
         ]
     },
     {
-        "id": "d0c74bc3dd7ce960",
-        "type": "function",
+        "id": "92dc4bde74b91dd8",
+        "type": "switch",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "msg.collection = \"youku\"\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 1700,
+        "property": "payload.title",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "youku",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "mangguoTV",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 310,
+        "y": 1680,
+        "wires": [
+            [],
+            [
+                "a594eead539420a8"
+            ]
+        ]
+    },
+    {
+        "id": "a594eead539420a8",
+        "type": "mongodb in",
+        "z": "b32ed110abccd8e4",
+        "mongodb": "367921b555a94d1f",
+        "name": "video",
+        "collection": "mangguoTV",
+        "operation": "find",
+        "x": 470,
+        "y": 1720,
         "wires": [
             [
-                "7568d3c9032528a2"
+                "ace06e2bf74f4dd5"
             ]
         ]
     },
