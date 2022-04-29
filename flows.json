@@ -9846,8 +9846,8 @@
         "upsert": false,
         "multi": false,
         "operation": "insert",
-        "x": 950,
-        "y": 1960,
+        "x": 1110,
+        "y": 2360,
         "wires": []
     },
     {
@@ -9861,8 +9861,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
-        "y": 1960,
+        "x": 950,
+        "y": 2360,
         "wires": [
             [
                 "6af88ccab372eed3"
@@ -9890,8 +9890,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 650,
-        "y": 1960,
+        "x": 810,
+        "y": 2360,
         "wires": [
             [
                 "30315f285ca198fc"
@@ -9909,8 +9909,8 @@
         "upsert": true,
         "multi": true,
         "operation": "update",
-        "x": 1110,
-        "y": 2440,
+        "x": 950,
+        "y": 1960,
         "wires": []
     },
     {
@@ -9924,8 +9924,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 950,
-        "y": 2440,
+        "x": 790,
+        "y": 1960,
         "wires": [
             [
                 "a212e293e28c22ed"
@@ -9953,8 +9953,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 810,
-        "y": 2440,
+        "x": 650,
+        "y": 1960,
         "wires": [
             [
                 "42964a651099297c"
@@ -9966,7 +9966,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "提交最近观看",
-        "func": "// if(msg.payload.albumId == undefined){\n//     return null\n// }\nmsg.msg1 = msg.payload\n\nmsg.query = {\"_id\":msg.msg1.albumId}\nmsg.payload = {\n    \"$set\":{\"a\":123}\n}\nreturn msg;",
+        "func": "// if(msg.payload.albumId == undefined){\n//     return null\n// }\nmsg.msg1 = msg.payload\n\nmsg.query = {\"_id\":msg.msg1.albumId}\nmsg.payload = {\n    \"$set\":{\"a\":msg.msg1.item}\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -9976,7 +9976,7 @@
         "y": 1900,
         "wires": [
             [
-                "6af88ccab372eed3"
+                "a212e293e28c22ed"
             ]
         ]
     },
