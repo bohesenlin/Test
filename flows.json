@@ -9958,7 +9958,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "提交最近观看",
-        "func": "albumId = msg.payload.albumId\nitem = msg.payload.item\ntitle = msg.payload.title\nmsg.collection = title\nmsg.query = {\"_id\":albumId}\nmsg.payload = {\n    \"$set\":item\n}\nreturn msg;",
+        "func": "albumId = Date.now()\n// albumId = msg.payload.albumId\nitem = msg.payload.item\ntitle = msg.payload.title\nmsg.collection = title\nmsg.query = {\"title\":\"特战荣耀\"}\n// msg.query = {\"_id\":albumId}\nmsg.payload = {\n    \"$set\":item\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
