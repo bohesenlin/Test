@@ -9140,8 +9140,7 @@
         "y": 1760,
         "wires": [
             [
-                "92dc4bde74b91dd8",
-                "7568d3c9032528a2"
+                "599143be19e43759"
             ]
         ]
     },
@@ -9941,23 +9940,6 @@
         ]
     },
     {
-        "id": "7568d3c9032528a2",
-        "type": "mongodb in",
-        "z": "b32ed110abccd8e4",
-        "mongodb": "367921b555a94d1f",
-        "name": "video",
-        "collection": "youku",
-        "operation": "find",
-        "x": 470,
-        "y": 1660,
-        "wires": [
-            [
-                "6f89f0eefb45dd5f",
-                "ace06e2bf74f4dd5"
-            ]
-        ]
-    },
-    {
         "id": "6f89f0eefb45dd5f",
         "type": "debug",
         "z": "b32ed110abccd8e4",
@@ -10038,49 +10020,38 @@
         ]
     },
     {
-        "id": "92dc4bde74b91dd8",
-        "type": "switch",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "property": "payload.title",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "youku",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "mangguoTV",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 310,
-        "y": 1680,
-        "wires": [
-            [],
-            [
-                "a594eead539420a8"
-            ]
-        ]
-    },
-    {
-        "id": "a594eead539420a8",
+        "id": "81b319f467138d99",
         "type": "mongodb in",
         "z": "b32ed110abccd8e4",
         "mongodb": "367921b555a94d1f",
         "name": "video",
-        "collection": "mangguoTV",
+        "collection": "",
         "operation": "find",
         "x": 470,
-        "y": 1720,
+        "y": 1700,
         "wires": [
             [
-                "ace06e2bf74f4dd5"
+                "ace06e2bf74f4dd5",
+                "6f89f0eefb45dd5f"
+            ]
+        ]
+    },
+    {
+        "id": "599143be19e43759",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.collection = msg.payload.title\nmsg.payload = \"\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 1700,
+        "wires": [
+            [
+                "81b319f467138d99"
             ]
         ]
     },
