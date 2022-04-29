@@ -9140,7 +9140,7 @@
         "y": 1760,
         "wires": [
             [
-                "7568d3c9032528a2"
+                "d0c74bc3dd7ce960"
             ]
         ]
     },
@@ -9168,9 +9168,7 @@
         "y": 1840,
         "wires": [
             [
-                "256ef334709ca126",
                 "39c8693163677c68",
-                "a4fa48c66f4164f2",
                 "1665a139a7d98eec"
             ]
         ]
@@ -9615,23 +9613,6 @@
         "wires": []
     },
     {
-        "id": "a4fa48c66f4164f2",
-        "type": "debug",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 330,
-        "y": 1700,
-        "wires": []
-    },
-    {
         "id": "fd56552fb4f66534",
         "type": "function",
         "z": "b32ed110abccd8e4",
@@ -9763,7 +9744,7 @@
         "props": [
             {
                 "p": "collection",
-                "v": "youku",
+                "v": "mangguoTV",
                 "vt": "str"
             }
         ],
@@ -9866,12 +9847,12 @@
         "z": "b32ed110abccd8e4",
         "mongodb": "367921b555a94d1f",
         "name": "",
-        "collection": "youku",
+        "collection": "",
         "payonly": true,
         "upsert": true,
         "multi": true,
         "operation": "update",
-        "x": 950,
+        "x": 930,
         "y": 1960,
         "wires": []
     },
@@ -9964,7 +9945,7 @@
         "z": "b32ed110abccd8e4",
         "mongodb": "367921b555a94d1f",
         "name": "video",
-        "collection": "youku",
+        "collection": "",
         "operation": "find",
         "x": 490,
         "y": 1700,
@@ -10041,7 +10022,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "提交最近观看",
-        "func": "albumId = msg.payload.albumId\nitem = msg.payload.item\nmsg.query = {\"_id\":albumId}\nmsg.payload = {\n    \"$set\":item\n}\nreturn msg;",
+        "func": "albumId = msg.payload.albumId\nitem = msg.payload.item\ntitle = msg.payload.title\nmsg.collection = title\nmsg.query = {\"_id\":albumId}\nmsg.payload = {\n    \"$set\":item\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -10052,6 +10033,25 @@
         "wires": [
             [
                 "a212e293e28c22ed"
+            ]
+        ]
+    },
+    {
+        "id": "d0c74bc3dd7ce960",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.collection = \"youku\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 1700,
+        "wires": [
+            [
+                "7568d3c9032528a2"
             ]
         ]
     },
