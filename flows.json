@@ -9935,7 +9935,7 @@
         "y": 1900,
         "wires": [
             [
-                "82da2bc92a5b47f4"
+                "9c2f0b9a908de779"
             ]
         ]
     },
@@ -10042,23 +10042,6 @@
         "z": "b32ed110abccd8e4",
         "name": "提交最近观看",
         "func": "albumId = msg.payload.albumId\nitem = msg.payload.item\nmsg.query = {\"_id\":albumId}\nmsg.payload = {\n    \"$set\":item\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1040,
-        "y": 2060,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "82da2bc92a5b47f4",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "提交最近观看",
-        "func": "// if(msg.payload.albumId == undefined){\n//     return null\n// }\nalbumId = msg.payload.albumId\nitem = msg.payload.item\nvar a = {}\ntime = Date.now()\na[time] = item\n\nmsg.query = {\"_id\":\"youku\",\"title\":\"特战荣耀\"}\nmsg.payload = {\n    \"$set\":a\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
