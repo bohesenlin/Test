@@ -9746,8 +9746,8 @@
         "z": "b32ed110abccd8e4",
         "mongodb": "367921b555a94d1f",
         "name": "video",
-        "collection": "youku",
-        "operation": "find",
+        "collection": "",
+        "operation": "aggregate",
         "x": 950,
         "y": 2260,
         "wires": [
@@ -9761,22 +9761,12 @@
         "type": "inject",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
+        "props": [],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "x": 810,
         "y": 2260,
         "wires": [
