@@ -609,16 +609,6 @@
         "domain": ""
     },
     {
-        "id": "1b8dd6796842e128",
-        "type": "mongodb",
-        "hostname": "192.168.0.213",
-        "topology": "direct",
-        "connectOptions": "",
-        "port": "27017",
-        "db": "video",
-        "name": ""
-    },
-    {
         "id": "3cc11d24.ff01a2",
         "type": "comment",
         "z": "f6f2187d.f17ca8",
@@ -9770,20 +9760,6 @@
             [
                 "26cde6844f72feea"
             ]
-        ]
-    },
-    {
-        "id": "1f903e0457c18805",
-        "type": "mongodb in",
-        "z": "b32ed110abccd8e4",
-        "mongodb": "1b8dd6796842e128",
-        "name": "",
-        "collection": "video",
-        "operation": "find",
-        "x": 1080,
-        "y": 2120,
-        "wires": [
-            []
         ]
     },
     {
