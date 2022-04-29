@@ -609,14 +609,14 @@
         "domain": ""
     },
     {
-        "id": "80b5efe769ed9aaa",
+        "id": "367921b555a94d1f",
         "type": "mongodb",
-        "hostname": "192.168.0.210",
+        "hostname": "192.168.0.213",
         "topology": "direct",
         "connectOptions": "",
         "port": "27017",
         "db": "video",
-        "name": "video1"
+        "name": "video"
     },
     {
         "id": "3cc11d24.ff01a2",
@@ -9773,18 +9773,66 @@
         ]
     },
     {
-        "id": "5ebb34f4591bbe24",
+        "id": "e950088e8859a7d4",
         "type": "mongodb in",
         "z": "b32ed110abccd8e4",
-        "mongodb": "80b5efe769ed9aaa",
-        "name": "",
-        "collection": "aiqiyi",
+        "mongodb": "367921b555a94d1f",
+        "name": "video",
+        "collection": "youku",
         "operation": "find",
-        "x": 870,
-        "y": 2360,
+        "x": 950,
+        "y": 2260,
         "wires": [
-            []
+            [
+                "7aa91de3e59b5e44"
+            ]
         ]
+    },
+    {
+        "id": "f06566c414b55ed1",
+        "type": "inject",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 810,
+        "y": 2260,
+        "wires": [
+            [
+                "e950088e8859a7d4"
+            ]
+        ]
+    },
+    {
+        "id": "7aa91de3e59b5e44",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 2260,
+        "wires": []
     },
     {
         "id": "7fc1dbf78683fe51",
