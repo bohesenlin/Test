@@ -9170,7 +9170,8 @@
             [
                 "256ef334709ca126",
                 "39c8693163677c68",
-                "a4fa48c66f4164f2"
+                "a4fa48c66f4164f2",
+                "f40db0dcfb732f21"
             ]
         ]
     },
@@ -9845,8 +9846,8 @@
         "upsert": false,
         "multi": false,
         "operation": "insert",
-        "x": 1110,
-        "y": 2340,
+        "x": 950,
+        "y": 1960,
         "wires": []
     },
     {
@@ -9860,8 +9861,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 950,
-        "y": 2340,
+        "x": 790,
+        "y": 1960,
         "wires": [
             [
                 "6af88ccab372eed3"
@@ -9889,8 +9890,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 810,
-        "y": 2340,
+        "x": 650,
+        "y": 1960,
         "wires": [
             [
                 "30315f285ca198fc"
@@ -9957,6 +9958,25 @@
         "wires": [
             [
                 "42964a651099297c"
+            ]
+        ]
+    },
+    {
+        "id": "f40db0dcfb732f21",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "提交最近观看",
+        "func": "// if(msg.payload.albumId == undefined){\n//     return null\n// }\nmsg.msg1 = msg.payload\n\nmsg.query = {\"_id\":msg.msg1.albumId}\nmsg.payload = {\n    \"$set\":{\"a\":123}\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 1900,
+        "wires": [
+            [
+                "6af88ccab372eed3"
             ]
         ]
     },
