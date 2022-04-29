@@ -609,16 +609,6 @@
         "domain": ""
     },
     {
-        "id": "113eb449c89b74f3",
-        "type": "MySQLdatabase",
-        "name": "video",
-        "host": "192.168.0.210",
-        "port": "3306",
-        "db": "video",
-        "tz": "",
-        "charset": "UTF8"
-    },
-    {
         "id": "1b8dd6796842e128",
         "type": "mongodb",
         "hostname": "192.168.0.213",
@@ -9641,20 +9631,6 @@
         "wires": []
     },
     {
-        "id": "6f824ed75979792b",
-        "type": "mysql",
-        "z": "b32ed110abccd8e4",
-        "mydb": "113eb449c89b74f3",
-        "name": "video",
-        "x": 370,
-        "y": 2240,
-        "wires": [
-            [
-                "37450a9358384b51"
-            ]
-        ]
-    },
-    {
         "id": "fd56552fb4f66534",
         "type": "function",
         "z": "b32ed110abccd8e4",
@@ -9668,9 +9644,7 @@
         "x": 230,
         "y": 2240,
         "wires": [
-            [
-                "6f824ed75979792b"
-            ]
+            []
         ]
     },
     {
@@ -9733,23 +9707,7 @@
         "x": 230,
         "y": 2340,
         "wires": [
-            [
-                "1300c0bc1816a1fc"
-            ]
-        ]
-    },
-    {
-        "id": "1300c0bc1816a1fc",
-        "type": "mysql",
-        "z": "b32ed110abccd8e4",
-        "mydb": "113eb449c89b74f3",
-        "name": "video",
-        "x": 370,
-        "y": 2340,
-        "wires": [
-            [
-                "4020283565fb16b5"
-            ]
+            []
         ]
     },
     {
