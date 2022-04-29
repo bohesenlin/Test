@@ -9917,7 +9917,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "msg._id = {\n    \"$oid\": \"626bd38f34f9da00115a6c03\"\n  }\nmsg.payload = {\n  \"_id\": {\n    \"$oid\": \"626bd38f34f9da00115a6c03\"\n  },\n  \"a\": 123456\n}\nreturn msg;",
+        "func": "msg.query = {\"a\": 123}\nmsg.payload = {\n  \"a\": 123456\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
