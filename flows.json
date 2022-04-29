@@ -9924,25 +9924,6 @@
         ]
     },
     {
-        "id": "f40db0dcfb732f21",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "提交最近观看",
-        "func": "albumId = msg.payload.albumId\nitem = msg.payload.item\nmsg.query = {\"_id\":albumId}\nmsg.payload = {\n    \"$set\":item\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 1900,
-        "wires": [
-            [
-                "a212e293e28c22ed"
-            ]
-        ]
-    },
-    {
         "id": "1665a139a7d98eec",
         "type": "json",
         "z": "b32ed110abccd8e4",
@@ -9954,7 +9935,7 @@
         "y": 1900,
         "wires": [
             [
-                "f40db0dcfb732f21"
+                "82da2bc92a5b47f4"
             ]
         ]
     },
@@ -9969,10 +9950,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 960,
-        "y": 2120,
+        "x": 920,
+        "y": 2440,
         "wires": [
-            []
+            [
+                "dc353baeeed50dbc"
+            ]
         ]
     },
     {
@@ -10008,6 +9991,86 @@
         "x": 630,
         "y": 1700,
         "wires": []
+    },
+    {
+        "id": "dc353baeeed50dbc",
+        "type": "mongodb out",
+        "z": "b32ed110abccd8e4",
+        "mongodb": "367921b555a94d1f",
+        "name": "",
+        "collection": "youku",
+        "payonly": true,
+        "upsert": true,
+        "multi": true,
+        "operation": "update",
+        "x": 1110,
+        "y": 2440,
+        "wires": []
+    },
+    {
+        "id": "5f6e9fc1f7a8d2b2",
+        "type": "inject",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 750,
+        "y": 2440,
+        "wires": [
+            [
+                "5dff159ffd5568c5"
+            ]
+        ]
+    },
+    {
+        "id": "9c2f0b9a908de779",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "提交最近观看",
+        "func": "albumId = msg.payload.albumId\nitem = msg.payload.item\nmsg.query = {\"_id\":albumId}\nmsg.payload = {\n    \"$set\":item\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 2060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "82da2bc92a5b47f4",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "提交最近观看",
+        "func": "// if(msg.payload.albumId == undefined){\n//     return null\n// }\nalbumId = msg.payload.albumId\nitem = msg.payload.item\nvar a = {}\ntime = Date.now()\na[time] = item\n\nmsg.query = {\"_id\":\"youku\",\"title\":\"特战荣耀\"}\nmsg.payload = {\n    \"$set\":a\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 1900,
+        "wires": [
+            [
+                "a212e293e28c22ed"
+            ]
+        ]
     },
     {
         "id": "7fc1dbf78683fe51",
