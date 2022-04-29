@@ -9137,7 +9137,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 120,
-        "y": 1760,
+        "y": 1700,
         "wires": [
             [
                 "599143be19e43759"
@@ -9165,7 +9165,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 130,
-        "y": 1840,
+        "y": 2500,
         "wires": [
             [
                 "39c8693163677c68",
@@ -9180,8 +9180,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 150,
-        "y": 1940,
+        "x": 350,
+        "y": 2540,
         "wires": []
     },
     {
@@ -9852,57 +9852,9 @@
         "upsert": true,
         "multi": true,
         "operation": "update",
-        "x": 930,
-        "y": 1960,
+        "x": 710,
+        "y": 2500,
         "wires": []
-    },
-    {
-        "id": "42964a651099297c",
-        "type": "function",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "func": "msg.query = {\"_id\":\"123\"}\nmsg.payload = {\n    \"$set\":{\"a\":12345678910}\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 790,
-        "y": 1960,
-        "wires": [
-            [
-                "a212e293e28c22ed"
-            ]
-        ]
-    },
-    {
-        "id": "bc4118355d154b03",
-        "type": "inject",
-        "z": "b32ed110abccd8e4",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 650,
-        "y": 1960,
-        "wires": [
-            [
-                "42964a651099297c"
-            ]
-        ]
     },
     {
         "id": "1665a139a7d98eec",
@@ -9913,7 +9865,7 @@
         "action": "obj",
         "pretty": false,
         "x": 350,
-        "y": 1900,
+        "y": 2500,
         "wires": [
             [
                 "9c2f0b9a908de779"
@@ -10012,7 +9964,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 1900,
+        "y": 2500,
         "wires": [
             [
                 "a212e293e28c22ed"
