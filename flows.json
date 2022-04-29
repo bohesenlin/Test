@@ -9140,7 +9140,6 @@
         "y": 1760,
         "wires": [
             [
-                "870d8931fbc276dc",
                 "7568d3c9032528a2"
             ]
         ]
@@ -9747,7 +9746,7 @@
         "mongodb": "367921b555a94d1f",
         "name": "video",
         "collection": "",
-        "operation": "aggregate",
+        "operation": "find",
         "x": 950,
         "y": 2260,
         "wires": [
@@ -9761,7 +9760,13 @@
         "type": "inject",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "props": [],
+        "props": [
+            {
+                "p": "collection",
+                "v": "youku",
+                "vt": "str"
+            }
+        ],
         "repeat": "",
         "crontab": "",
         "once": false,
@@ -9982,7 +9987,8 @@
         "y": 1700,
         "wires": [
             [
-                "6f89f0eefb45dd5f"
+                "6f89f0eefb45dd5f",
+                "ace06e2bf74f4dd5"
             ]
         ]
     },
