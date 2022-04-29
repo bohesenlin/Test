@@ -9326,7 +9326,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "// var obj1 = msg.payload[msg.msg1.title]\n// var obj2 = {}\n// obj2[msg.msg1.albumId] = msg.msg1.item\n// ret = Object.assign(obj2, obj1)\n// msg.payload[msg.msg1.title] = ret\n\nvar title = msg.msg1.title\nvar id = msg.msg1.albumId\nvar item = msg.msg1.item\ndelete msg.payload[title][id]\n// msg.payload[title][id] = item\nvar obj1 = msg.payload[title]\nvar obj2 = {}\n// 新对象\nobj2[id] = item\n\nret = Object.assign(obj2, obj1)\nmsg.payload[title] = ret\nreturn msg;",
+        "func": "// var obj1 = msg.payload[msg.msg1.title]\n// var obj2 = {}\n// obj2[msg.msg1.albumId] = msg.msg1.item\n// ret = Object.assign(obj2, obj1)\n// msg.payload[msg.msg1.title] = ret\n\nvar title = msg.msg1.title\nvar id = 'a'+msg.msg1.albumId\nvar item = msg.msg1.item\ndelete msg.payload[title][id]\n// msg.payload[title][id] = item\nvar obj1 = msg.payload[title]\nvar obj2 = {}\n// 新对象\nobj2[id] = item\n\nret = Object.assign(obj2, obj1)\nmsg.payload[title] = ret\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
