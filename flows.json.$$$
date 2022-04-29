@@ -9966,7 +9966,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "提交最近观看",
-        "func": "// if(msg.payload.albumId == undefined){\n//     return null\n// }\nalbumId = msg.payload.albumId\nitem = msg.payload.item\n\nmsg.query = {\"id\":youku}\nmsg.payload = {\n    \"$set\":{albumId:item}\n}\nreturn msg;",
+        "func": "// if(msg.payload.albumId == undefined){\n//     return null\n// }\nalbumId = msg.payload.albumId\nitem = msg.payload.item\nvar a = {}\na[albumId] = item\n\nmsg.query = {\"id\":youku}\nmsg.payload = {\n    \"$set\":a\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
