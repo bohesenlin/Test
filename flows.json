@@ -9835,6 +9835,132 @@
         "wires": []
     },
     {
+        "id": "6af88ccab372eed3",
+        "type": "mongodb out",
+        "z": "b32ed110abccd8e4",
+        "mongodb": "367921b555a94d1f",
+        "name": "",
+        "collection": "youku",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 1110,
+        "y": 2340,
+        "wires": []
+    },
+    {
+        "id": "30315f285ca198fc",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.payload = {\"a\":123}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 2340,
+        "wires": [
+            [
+                "6af88ccab372eed3"
+            ]
+        ]
+    },
+    {
+        "id": "d4e9667183e4cbdf",
+        "type": "inject",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 810,
+        "y": 2340,
+        "wires": [
+            [
+                "30315f285ca198fc"
+            ]
+        ]
+    },
+    {
+        "id": "a212e293e28c22ed",
+        "type": "mongodb out",
+        "z": "b32ed110abccd8e4",
+        "mongodb": "367921b555a94d1f",
+        "name": "",
+        "collection": "youku",
+        "payonly": true,
+        "upsert": true,
+        "multi": true,
+        "operation": "update",
+        "x": 1110,
+        "y": 2440,
+        "wires": []
+    },
+    {
+        "id": "42964a651099297c",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "msg.query._id = \"626bd38f34f9da00115a6c03\"\nmsg.payload = {\"a\":123456}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 2440,
+        "wires": [
+            [
+                "a212e293e28c22ed"
+            ]
+        ]
+    },
+    {
+        "id": "bc4118355d154b03",
+        "type": "inject",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 810,
+        "y": 2440,
+        "wires": [
+            [
+                "42964a651099297c"
+            ]
+        ]
+    },
+    {
         "id": "7fc1dbf78683fe51",
         "type": "http request",
         "z": "1033162f191e6983",
