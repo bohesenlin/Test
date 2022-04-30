@@ -8629,7 +8629,8 @@
         "y": 540,
         "wires": [
             [
-                "f7622c92dee5d82c"
+                "f7622c92dee5d82c",
+                "43b945f0112a3bd5"
             ]
         ]
     },
@@ -9914,6 +9915,41 @@
                 "81b319f467138d99"
             ]
         ]
+    },
+    {
+        "id": "43b945f0112a3bd5",
+        "type": "html",
+        "z": "b32ed110abccd8e4",
+        "name": "figure_caption",
+        "property": "payload",
+        "outproperty": "figure_caption",
+        "tag": ".figure_caption",
+        "ret": "text",
+        "as": "single",
+        "x": 660,
+        "y": 500,
+        "wires": [
+            [
+                "f9db83b87f21644f"
+            ]
+        ]
+    },
+    {
+        "id": "f9db83b87f21644f",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 500,
+        "wires": []
     },
     {
         "id": "7fc1dbf78683fe51",
