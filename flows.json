@@ -9916,6 +9916,164 @@
         ]
     },
     {
+        "id": "15696db6228de3e4",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "腾讯影视分类",
+        "func": "// var arr = []\n// var data = msg.payload\n// var i = 0\n// for(var val in data){\n//     arr[i] = val + '=' + data[val]\n//     i++\n// }\nmsg.url = \"https://v.qq.com/channel/cartoon\"\nmsg.payload=''\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 720,
+        "wires": [
+            [
+                "abd5c96d1d98f9cf"
+            ]
+        ]
+    },
+    {
+        "id": "161bc91f209a42cc",
+        "type": "html",
+        "z": "b32ed110abccd8e4",
+        "name": "url_name",
+        "property": "payload",
+        "outproperty": "url_name",
+        "tag": ".list_item > a",
+        "ret": "attr",
+        "as": "single",
+        "x": 640,
+        "y": 720,
+        "wires": [
+            [
+                "a86057047927c4db"
+            ]
+        ]
+    },
+    {
+        "id": "a86057047927c4db",
+        "type": "html",
+        "z": "b32ed110abccd8e4",
+        "name": "figure_pic",
+        "property": "payload",
+        "outproperty": "figure_pic",
+        "tag": "div > a > img.figure_pic",
+        "ret": "attr",
+        "as": "single",
+        "x": 780,
+        "y": 720,
+        "wires": [
+            [
+                "6a2ef55db2765e55"
+            ]
+        ]
+    },
+    {
+        "id": "82679751c9dc9318",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "list = []\nfor(var i = 0; i<msg.url_name.length; i++){\n    list[i] = {\n        'title':msg.url_name[i]._stat,\n        'url':msg.url_name[i].href,\n        'imgUrl':msg.figure_pic[i].src,\n        'figure_caption':msg.figure_caption[i]\n        \n    }\n    \n}\nmsg.payload = list\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1130,
+        "y": 720,
+        "wires": [
+            [
+                "f56cf9aca0f79d08"
+            ]
+        ]
+    },
+    {
+        "id": "abd5c96d1d98f9cf",
+        "type": "http request",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "persist": false,
+        "authType": "",
+        "senderr": false,
+        "x": 500,
+        "y": 720,
+        "wires": [
+            [
+                "161bc91f209a42cc"
+            ]
+        ]
+    },
+    {
+        "id": "6a2ef55db2765e55",
+        "type": "html",
+        "z": "b32ed110abccd8e4",
+        "name": "figure_caption",
+        "property": "payload",
+        "outproperty": "figure_caption",
+        "tag": ".figure_caption",
+        "ret": "text",
+        "as": "single",
+        "x": 960,
+        "y": 720,
+        "wires": [
+            [
+                "82679751c9dc9318"
+            ]
+        ]
+    },
+    {
+        "id": "dc312d94142b08bc",
+        "type": "inject",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 720,
+        "wires": [
+            [
+                "15696db6228de3e4"
+            ]
+        ]
+    },
+    {
+        "id": "f56cf9aca0f79d08",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1290,
+        "y": 720,
+        "wires": []
+    },
+    {
         "id": "7fc1dbf78683fe51",
         "type": "http request",
         "z": "1033162f191e6983",
