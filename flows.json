@@ -10204,6 +10204,87 @@
         "wires": []
     },
     {
+        "id": "1e39035f38b73859",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "func": "albumId = msg.payload.albumId\n// item = msg.payload.item\n// title = msg.payload.title\nmsg.collection = msg.payload.title\nmsg.query = {\"_id\":albumId}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 2760,
+        "wires": [
+            [
+                "5dd3da9d1f927e23"
+            ]
+        ]
+    },
+    {
+        "id": "e7622d0af28e1e8a",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "pullrecord1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 2760,
+        "wires": [
+            [
+                "1e39035f38b73859"
+            ]
+        ]
+    },
+    {
+        "id": "5dd3da9d1f927e23",
+        "type": "mongodb in",
+        "z": "b32ed110abccd8e4",
+        "mongodb": "367921b555a94d1f",
+        "name": "video",
+        "collection": "",
+        "operation": "find",
+        "x": 510,
+        "y": 2760,
+        "wires": [
+            [
+                "a06890a65cc67ab3",
+                "3145d1233e61c150"
+            ]
+        ]
+    },
+    {
+        "id": "a06890a65cc67ab3",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 670,
+        "y": 2760,
+        "wires": []
+    },
+    {
+        "id": "3145d1233e61c150",
+        "type": "debug",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 2820,
+        "wires": []
+    },
+    {
         "id": "7fc1dbf78683fe51",
         "type": "http request",
         "z": "1033162f191e6983",
