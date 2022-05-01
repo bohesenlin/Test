@@ -10157,6 +10157,53 @@
         "wires": []
     },
     {
+        "id": "387d0d47976f3fe4",
+        "type": "http in",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "url": "getdefaultinterface",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 2680,
+        "wires": [
+            [
+                "4bb43bf645b2aace"
+            ]
+        ]
+    },
+    {
+        "id": "4bb43bf645b2aace",
+        "type": "function",
+        "z": "b32ed110abccd8e4",
+        "name": "默认解析接口",
+        "func": "msg.payload = \"https://jx.parwix.com:4433/player/analysis.php?v=\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 2680,
+        "wires": [
+            [
+                "14b1681aef7af012"
+            ]
+        ]
+    },
+    {
+        "id": "14b1681aef7af012",
+        "type": "http response",
+        "z": "b32ed110abccd8e4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 550,
+        "y": 2680,
+        "wires": []
+    },
+    {
         "id": "7fc1dbf78683fe51",
         "type": "http request",
         "z": "1033162f191e6983",
