@@ -10208,7 +10208,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "",
-        "func": "albumId = msg.payload.albumId\n// item = msg.payload.item\n// title = msg.payload.title\nmsg.collection = msg.payload.title\nmsg.query = {\"_id\":albumId}\nreturn msg;",
+        "func": "albumId = msg.payload.albumId\nmsg.collection = msg.payload.title\nmsg.payload = {\"_id\":albumId}\n// msg.payload = ''\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
