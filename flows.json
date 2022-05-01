@@ -10178,7 +10178,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "默认解析接口",
-        "func": "msg.payload = \"https://jx.parwix.com:4433/player/analysis.php?v=\"\nreturn msg",
+        "func": "msg.payload = \"https://vip.parwix.com:4433/player/?url=\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
