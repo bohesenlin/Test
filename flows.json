@@ -9457,7 +9457,7 @@
         "type": "function",
         "z": "b32ed110abccd8e4",
         "name": "芒果TV影视搜索",
-        "func": "msg.url = \"https://mobileso.bz.mgtv.com/pc/search/v1?allowedRC=1&q=熊出没&pn=1&pc=10&uid=&_support=10000000\"\nmsg.headers = {\n    'referer': 'https://so.mgtv.com/'\n}\nreturn msg;",
+        "func": "msg.url = \"https://mobileso.bz.mgtv.com/pc/search/v1?allowedRC=1&q=\"+msg.payload.name+\"&pn=1&pc=10&uid=&_support=10000000\"\nmsg.headers = {\n    'referer': 'https://so.mgtv.com/'\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
