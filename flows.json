@@ -18,7 +18,7 @@
         "id": "a8c13c8811cc5927",
         "type": "tab",
         "label": "小爱tts",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -26,7 +26,7 @@
         "id": "0143542654182c64",
         "type": "tab",
         "label": "信息",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -34,7 +34,7 @@
         "id": "2d47d0348f062886",
         "type": "tab",
         "label": "节点订阅",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -888,6 +888,7 @@
         "id": "e99c6c5e658c2273",
         "type": "ha-entity",
         "z": "df04831a8742eac0",
+        "d": true,
         "name": "小说",
         "server": "a5e643a4b8a035cf",
         "version": 2,
